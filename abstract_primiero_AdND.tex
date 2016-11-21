@@ -1,0 +1,96 @@
+\documentclass[]{article}
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{syntax}
+\usepackage{amsfonts}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathpartir}
+\usepackage{bussproofs}
+\usepackage{wasysym}
+
+\newtheorem{definition}{Definition}
+
+\newcommand{\Turn}[2]
+	{ {#1}\vdash_{\textbf{\sf s}}  {#2}}
+\newcommand{\TurnNext}[2]
+	{ {#1}\vdash_{\textbf{\sf s+1}}  {#2}}
+\newcommand{\TurnNextNext}[2]
+	{ {#1}\vdash_{\textbf{\sf s+2}}  {#2}}
+\newcommand{\TurnOne}[2]
+	{ {#1}\vdash_{\textbf{\sf 1}}  {#2}}
+\newcommand{\TurnMarked}[2]
+	{ {#1}\vdash_{\textbf{\sf s\XBox}}  {#2}}
+\newcommand{\TurnChecked}[2]
+	{ {#1}\vdash_{\textbf{\sf s\checked}}  {#2}}
+\newcommand{\TurnMarkedNext}[2]
+	{ {#1}\vdash_{\textbf{\sf s'\XBox}}  {#2}}
+
+
+%\newcommand{\TurnT}[2]
+%	{ \Delta_0;{#1}\vdash  {#2}}
+%\newcommand{\TurnTT}[2]
+%	{ \Delta_0;{#1}\vdash_{\sf JC_1}  {#2}}
+%\newcommand{\Turnj}[1]
+%	{ \Delta_0\vdash_{\sf J_0}  {#1}}
+%\newcommand{\Turnjc}[3]
+%    { {#1};{#2}\vdash_{\textbf{\sf JC}}  {#3}}
+
+
+%opening
+\title{Annotated Natural Deduction for Adaptive Reasoning}
+\author{Giuseppe Primiero}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+We present a Gentzen's style multi-conclusion natural deduction calculus that offers a rule-based translation of the dynamic reasoning form at work in adaptive logics (\cite{batens07}). This is the first attempt to reconstruct adaptive dynamics in a natural deduction setting. The resulting logic does not have the usual structure known as the \textit{Standard Format} for Adaptive Logics. Hence, we \textit{do not} introduce an adaptive logic, but we can talk of a natural-deduction system for \textit{adaptive reasoning}. The kind of reasoning form that this logic formalizes is in particular inspired by properties that identify inconsistency-adaptive dynamics. The related kind of non-monotonic inference relation can be obtained by enhancing a standard proof-theoretical procedure of a natural deduction system with the following elements:
+
+\begin{enumerate}
+\item a derivability relation that does not accommodate explosive behaviour;
+
+\item a rule-based ability of introducing contradictory formulas;
+
+\item a rule-based ability of deriving formulas under condition that some such contradiction is not true;
+
+\item the procedural ability of rejecting derivation steps previously obtained in view of derivable minimal contradictions.
+\end{enumerate}
+%
+In view of the first property, we start by defining the type universe for the $\{\neg, \rightarrow, \wedge,\vee\}$ fragment of minimal propositional logic. A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \phi$, where: $\Gamma$ is the usual set of assumptions; the semi-colon sign and the $\cdot$ following $\Gamma$ are useless in the setting of {\sf minimalND} and come to use only in the following extension of the language; the derivability sign is enhanced with a signature {\sf s} that corresponds to a natural number counting the ordered steps executed to obtain the corresponding ND-formula in a tree; $\phi$ is a formula of the language. 
+
+{\sf minimalND} is next extended to the logic {\sf AdaptiveND} by way of the following crucial extensions: 
+ 
+\begin{enumerate}
+\item the explicit formulation of an $\Omega$ set of propositions of type $\bot$, to satisfy the second property above; 
+\item the introduction rule for a new propositional connective $\vee_{\sf CL}$ that allows classical disjunction over formulas of the above type, to ensure the minimality condition mentioned in the last proeprty above;
+\item well-formedness of contexts of assumptions with negation of formulas in $\Omega$ closed under $\vee_{\sf CL}$, to satisfy the third property above; these formulas resemble the \textit{denied formulas} in a state from \cite{restall2005} and their derivability will always will be treated in the form of an exclusive disjunction with a normal formula;
+\item two new rules for marking, i.e.\ cancel previously performed derivation steps, to satisfy the last property above.
+\end{enumerate}
+%
+%In view of the second and third property above, the usual assumptions in the formula are followed by a (empty in {\sf minimalND}) set of contradiction that are first introduced and then assumed false in a formula of the logic {\sf AdaptiveND}. 
+The counting mechanism {\sf s} on the derivability sign is now needed to keep track of the steps performed in the derivation tree (thus counting also premises rather than only rules) in order to track back formulas when marking.  Hence,we refer to an {\sf AdaptiveND}-formula as an extension of a {\sf minimalND}-formula of the form $\Gamma; \Omega^{-}\vdash_{s} \phi, \Omega$, where: 
+
+\begin{enumerate}
+\item the left-hand side of $\vdash_{\sf s}$ has $\Gamma$ as in {\sf minimalND};
+\item the semicolon sign on the left-hand side of $\vdash_{\sf s}$ is conjunctive;
+\item the meaning of $\Omega$ refers to a set of formulas  with a specific inconsistent logical form and the $^{-}$ sign refers to its complement;
+\item the right-hand side is in disjunctive form.
+\end{enumerate}
+%
+Most of the meta-theoretical apparatus of a standard Adaptive Logic is reduced to the object language. A concern is represented by the desire to offer a natural deduction system whose derivability relation be complete to the semantics of a corresponding standard adaptive logic. For this reason, following recent work on Adaptive Logics (\cite{batens2009}, \cite{strasservandeputte12}), we develop the system in view of possibly infinite derivation trees such that an accordingly defined notion of final derivability needs to be formulated. We conclude by presenting restricted structural rules for {\sf AdaptiveND}. 
+%Procedural semantic issues, like (stage and final) termination are to be investigated in li.
+%Another alternative open to exploration is offered by the formulation of a pair of systems: the first being the simple fragment of IPC (thus directly mimicking the LLL) and the second being the calculus in which all adaptive consequences hold. The two systems are tied by a set of additional functions that are not primitive inhabitants of either theory, and whose precise meaning is that of observing possible contradictory derivation trees and to reflect the adaptive selection procedure.
+
+\end{abstract}
+
+\bibliographystyle{plain}
+\bibliography{primiero}
+
+
+\end{document}

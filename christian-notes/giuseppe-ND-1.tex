@@ -1,0 +1,120 @@
+\section{Formula-Condition pairs in ND}
+In this chapter I propose a possible simplification of the
+adaptive natural deduction system proposed in the last note.
+
+For the sake of simplicity I will demonstrate the approach on
+the basis of minimal logic. It should generalize for any LLL
+though. 
+
+Prawitz proposes the following inference rules for minimal
+logic:\footnote{Some are later reformulated in terms of
+  deduction rules so to give a precise account of the
+  discharging of assumptions. This could be done analogously
+  here, but for the sake of simplicity I stick to the simple
+  representation for sketching this idea.}
+\begin{equation*}
+  \begin{array}[h]{c@{~~~~~~~}c}
+    \infer[\& I]{A\wedge B}{A & B} & %
+    \infer[\& E]{A}{A & B} ~~~\infer[\& E]{B}{A & B} \\[.2cm]
+    \infer[\vee I]{A \vee B}{A} ~~~\infer[\vee I]{A \vee B}{B}
+    & %
+    \infer[\vee E]{C}{A\vee B & \deduce{C}{(A)} &
+      \deduce{C}{(B)}} \\[.2cm]
+    \infer[\supset I]{A \supset B}{\deduce{B}{(A)}} & %
+    \infer[\supset E]{B}{A & A \supset B}   
+  \end{array}
+\end{equation*}
+
+In the adaptive treatment we need to represent conditions in
+which the (defeasible) assumptions are stored with the help
+of which formulas are derived. Hence, instead of only listing
+formulas in the antecedent spots and the conclusion spot of
+rules, we list formula-condition pairs $A.\Delta$ where
+$\Delta$ is a finite set of abnormalities.
+
+We now translate the rules of the given LLL by means of the
+following scheme:
+\begin{equation*}
+  \vcenter{\infer{B}{A_1 & \ldots & A_n}} ~~\leadsto~~
+  \vcenter{\infer{B.\bigcup_{i=1}^n \Delta_i}{A_1.\Delta_1 & \ldots &
+      A_n.\Delta_n}}
+\end{equation*}
+In the specific case of minimal logic we end up with:
+\begin{equation*}
+  \begin{array}[h]{c@{~~~~~~~}c}
+    \infer[\& IU]{A \wedge B.\Delta_A\cup\Delta_B}{A.\Delta_A
+      & B.\Delta_B} &  %
+    \infer[\& EU]{A.\Delta_A\cup\Delta_B}{A.\Delta_A & B.\Delta_B} ~~~\infer[\& EU]{B.\Delta_A\cup\Delta_B}{A.\Delta_A & B.\Delta_B} \\[.2cm]
+    \infer[\vee IU]{A \vee B.\Delta}{A.\Delta} ~~~\infer[\vee IU]{A \vee B.\Delta}{B.\Delta}
+    & %
+    \infer[\vee EU]{C.\Delta\cup\Delta_A\cup\Delta_B}{A\vee B.\Delta & \deduce{C.\Delta_A}{(A)} &
+      \deduce{C.\Delta_B}{(B)}} \\[.2cm]
+    \infer[\supset IU]{A \supset B.\Delta}{\deduce{B.\Delta}{(A)}} & %
+    \infer[\supset EU]{B.\Delta\cup\Delta'}{A.\Delta & A \supset B.\Delta'}   
+  \end{array}
+\end{equation*}
+We add the following conditional rule:
+\begin{equation*}
+  \infer[RC]{A.\Delta\cup\Delta'}{A \vee
+    \Dab(\Delta).\Delta'} 
+\end{equation*}
+
+Let in the following $\tau$ be a derivation tree constructed
+by the given rules.
+
+In the derivation trees we allow only for top-nodes of the
+form $A.\emptyset$. 
+
+In order to define the marking of nodes in derivation trees
+we need some more terminology. 
+
+Let $\Dab(\Delta_1).\emptyset, \Dab(\Delta_2).\emptyset,
+\ldots$ be all nodes of the form $\Dab(\Delta).\emptyset$ in
+$\tau$. We say $\Dab(\Delta)$ is a minimal \Dab-formula in
+$\tau$ iff there is no $\Delta_i \subset \Delta$ and there is
+a $\Delta_j = \Delta$. Let $U(\tau) = \Delta_1 \cup \Delta_2
+\cup \ldots$.
+
+\begin{defn}[Marking of nodes in $\tau$, Reliability]
+  A node $A.\Delta$ is marked in $\tau$ iff $\Delta \cap
+  U(\tau) \neq \emptyset$.
+\end{defn}
+
+Let's take a look at our example from the previous section:
+\begin{equation*}
+  \vcenter{\infer{A.\{!B\}}{A\vee {!B}.\emptyset}} ~~\leadsto~~ %
+  \vcenter{\infer{\checkmark~ A\wedge (!B \vee
+      {!C}).\{!B\}}{\infer{\checkmark~ A.\{!B\}}{A\vee{!B}.\emptyset} & !B
+      \vee {!C}.\emptyset}} ~~\leadsto~~ %
+  \vcenter{\infer{A \wedge {!C}.\{!B\}}{\infer{A\wedge (!B \vee
+        {!C}).\{!B\}}{\infer{A.\{!B\}}{A\vee{!B}.\emptyset} & !B
+        \vee {!C}.\emptyset} & !C.\emptyset}}
+\end{equation*}
+
+Again, we're interested in a stable notion of derivability:
+
+Let $A_1.\emptyset, A_2.\emptyset,\ldots$ be the charged
+top-nodes of $\tau$. We say $\tau$ is an $\Gamma$-tree iff
+$\{A_1, A_2,\ldots\} \subseteq \Gamma$. Similarly, we call an
+extension $\tau'$ of $\tau$ a $\Gamma$-extension iff $\tau'$
+is a $\Gamma$-tree.
+
+\begin{defn}[Final derivability in $\tau$]
+  \emph{$A$ is finally derived in $\tau$ from $\Gamma$} iff
+  (i) $\tau$ is a $\Gamma$-tree, (ii) there is an unmarked
+  node $n$ with $A.\Delta$, (iii) for every
+  $\Gamma$-extension $\tau'$ of $\tau$ in which $n$ is marked
+  there is a further $\Gamma$-extension $\tau''$ such that
+  $n$ is unmarked.
+\end{defn}
+
+\begin{defn}
+  $\Gamma \vd{AdND} A$ iff $A$ is finally derived from
+  $\Gamma$ in some tree $\tau$.
+\end{defn}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "giuseppe-ND"
+%%% End: 

@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+%\usepackage{color} 
+% \usepackage{pifont}
+\usepackage{newcent}
+\usepackage{geometry}
+%% geometry for SONY PRS 650 
+% \geometry{verbose,paperwidth=5.5in,paperheight=7.7in,
+%   tmargin=0.1in,bmargin=0.1in, lmargin=0.1in,rmargin=0.1in}
+%% good geometry for widescreen monitor
+% \geometry{verbose,paperwidth=5.5in,paperheight=10.2in,
+%   tmargin=0.1in,bmargin=0.1in, lmargin=0.1in,rmargin=0.1in}
+% 4on1 printing
+\geometry{verbose,paperwidth=6in,paperheight=8.5in,
+  tmargin=0.1in,bmargin=0.1in, lmargin=0.1in,rmargin=0.1in}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tabls}
+\usepackage{ifthen}
+\usepackage{paralist}
+\usepackage{longtable}
+\usepackage{enumerate}
+\usepackage{pstricks,pst-node,pst-tree}
+\usepackage{subfigure}
+% \definecolor{cbg}{RGB}{253,246,227}
+% \definecolor{cfg}{RGB}{101,123,137}
+% \color{cfg}
+% \pagecolor{cbg}
+\usepackage{proofs}
+\usepackage{my-theorems}
+\usepackage{my-defs}
+\usepackage{my-graph-defs}
+\usepackage{setspace}
+\usepackage{proof}
+\usepackage{mathtools}
+\begin{document}
+\InputIfFileExists{\jobname-defs.tex}{}{}
+\title{Note on Giuseppe's note on adaptive natural deduction}
+\author{christian}
+\maketitle
+%\input{theorems}
+%\newcommand{\OOs}{\ensuremath{{\sf O}}}
+\allowdisplaybreaks
+
+\input{giuseppe-ND-2}
+\input{giuseppe-ND-1}
+
+
+\end{document}

@@ -1,0 +1,22 @@
+prove 
+
+\vdash A\rightarrow (B \rightarrow \bot) implies (A \wedge B) \rightarrow \bot
+
+to show commutativity and associativity of \neg
+(Weak contrapposition)
+
+(absorption of negation): contraction
+
+(we drop negative ex falso)
+
+(N holds)
+
+
+we need to add a justification for a negation operator in AdaptiveND determined by the adaptive reasoning to deal with abonormalities
+
+rephrase \Omega
+
+then MinimalND is CLUN [reference]
+
+
+

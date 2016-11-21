@@ -1,0 +1,669 @@
+\documentclass[]{article}
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{syntax}
+\usepackage{amsfonts}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathpartir}
+\usepackage{bussproofs}
+\usepackage{wasysym}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\TurnADND}[2]
+	{ {#1}\vdash_{\textbf{\sf AdaptiveND}}  {#2}}
+
+\newcommand{\Turn}[2]
+	{ {#1}\vdash_{\textbf{\sf s}}  {#2}}
+\newcommand{\TurnNext}[2]
+	{ {#1}\vdash_{\textbf{\sf s+1}}  {#2}}
+\newcommand{\TurnNextn}[2]
+		{ {#1}\vdash_{\textbf{\sf s+n}}  {#2}}
+\newcommand{\TurnNextnn}[2]
+		{ {#1}\vdash_{\textbf{\sf s+n+1}}  {#2}}
+\newcommand{\TurnNextNext}[2]
+	{ {#1}\vdash_{\textbf{\sf s+2}}  {#2}}
+
+\newcommand{\TurnNextNextNext}[2]
+	{ {#1}\vdash_{\textbf{\sf s+3}}  {#2}}
+
+\newcommand{\TurnPrime}[2]
+	{ {#1}\vdash_{\textbf{\sf s'}}  {#2}}
+
+\newcommand{\TurnOne}[2]
+	{ {#1}\vdash_{\textbf{\sf 1}}  {#2}}
+\newcommand{\TurnMarked}[2]
+	{ {#1}\vdash_{\textbf{\sf s\XBox}}  {#2}}
+
+\newcommand{\TurnMarkedREL}[2]
+	{ {#1}\vdash_{\textbf{\sf s\XBox R}}  {#2}}
+\newcommand{\TurnMarkedMA}[2]
+	{ {#1}\vdash_{\textbf{\sf s\XBox MA}}  {#2}}
+\newcommand{\TurnChecked}[2]
+	{ {#1}\vdash_{\textbf{\sf \checked}}  {#2}}
+\newcommand{\TurnMarkedNext}[2]
+	{ {#1}\vdash_{\textbf{\sf s+1\XBox}}  {#2}}
+\newcommand{\TurnMarkedprime}[2]
+	{ {#1}\vdash_{\textbf{\sf s'\XBox}}  {#2}}
+
+
+\newcommand{\TurnMaxPlusOne}[2]
+		{ {#1}\vdash_{\textbf{\sf max(s,s')+1}}  {#2}}
+
+
+\newcommand{\TurnMarkedNextREL}[2]
+	{ {#1}\vdash_{\textbf{\sf s+1\XBox R}}  {#2}}
+\newcommand{\TurnMarkedNextNextREL}[2]
+	{ {#1}\vdash_{\textbf{\sf s+n+1\XBox R}}  {#2}}
+\newcommand{\TurnMaxPlusOneREL}[2]
+	{ {#1}\vdash_{\textbf{\sf max(s,s')+1\XBox R}}  {#2}}
+
+\newcommand{\TurnMarkedNextMA}[2]
+	{ {#1}\vdash_{\textbf{\sf s+1\XBox MA}}  {#2}}
+\newcommand{\TurnMarkedNextNextMA}[2]
+	{ {#1}\vdash_{\textbf{\sf s+n+1\XBox MA}}  {#2}}
+
+
+%\newcommand{\TurnOne}[2]
+%	{ {#1}\vdash_{\textbf{\sf 1}}  {#2}}
+\newcommand{\TurnTwo}[2]
+	{ {#1}\vdash_{\textbf{\sf 2}}  {#2}}
+\newcommand{\TurnThree}[2]
+	{ {#1}\vdash_{\textbf{\sf 3}}  {#2}}
+\newcommand{\TurnFour}[2]
+	{ {#1}\vdash_{\textbf{\sf 4}}  {#2}}
+\newcommand{\TurnFive}[2]
+	{ {#1}\vdash_{\textbf{\sf 5}}  {#2}}
+\newcommand{\TurnSix}[2]
+	{ {#1}\vdash_{\textbf{\sf 6}}  {#2}}
+\newcommand{\TurnSeven}[2]
+	{ {#1}\vdash_{\textbf{\sf 7}}  {#2}}
+\newcommand{\TurnMarkedSevenREL}[2]
+	{ {#1}\vdash_{\textbf{\sf 7\XBox R}}  {#2}}
+\newcommand{\TurnMarkedEightREL}[2]
+	{ {#1}\vdash_{\textbf{\sf 8\XBox R}}  {#2}}
+
+\newcommand{\TurnMarkedFiveMA}[2]
+	{ {#1}\vdash_{\textbf{\sf 5\XBox MA}}  {#2}}
+\newcommand{\TurnMarkedEightMA}[2]
+	{ {#1}\vdash_{\textbf{\sf 8\XBox MA}}  {#2}}
+\newcommand{\TurnNine}[2]
+	{ {#1}\vdash_{\textbf{\sf 9}}  {#2}}
+%\newcommand{\TurnT}[2]
+%	{ \Delta_0;{#1}\vdash  {#2}}
+%\newcommand{\TurnTT}[2]
+%	{ \Delta_0;{#1}\vdash_{\sf JC_1}  {#2}}
+%\newcommand{\Turnj}[1]
+%	{ \Delta_0\vdash_{\sf J_0}  {#1}}
+%\newcommand{\Turnjc}[3]
+%    { {#1};{#2}\vdash_{\textbf{\sf JC}}  {#3}}
+
+
+%opening
+\title{Annotated Natural Deduction for Adaptive Reasoning}
+\author{Giuseppe	}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We present a multi-conclusion natural deduction calculus based on minimal logic extended with a set of rules characterizing the dynamic reasoning typical of adaptive logics.
+\end{abstract}
+
+\section{Intro}
+
+We present a multi-conclusion natural deduction calculus that mimics the dynamic reasoning at work in adaptive logics (\cite{batens07}). This is the first attempt to reconstruct the dynamics typical of adaptive logics in a natural deduction setting. The resulting system does not correspond to the usual structure known as the Standard Format for Adaptive Logics: this means that, though we \textit{do not} introduce an adaptive logic proper, we can talk of a natural deduction system for \textit{adaptive reasoning}. We characterize such a way of reasoning as having properties that identify adaptive dynamics.  To do so, the standard proof-theoretical procedure of a natural deduction system is enhanced with:
+
+\begin{enumerate}
+\item a rule-based ability of introducing abnormal formulas of the form $A\wedge \neg A$;\footnote{In the current format we focus on inconsistency-adaptive logics, though the generalization to the natural deduction for other adaptive formats seems possible.} the appearance of such formulas on the right-hand side of our derivability sign justifies the claim that our system is extended to a multi-conclusion setting;
+
+\item a rule-based ability of deriving formulas under conditions that some such abnormal formula is not true;
+
+\item the procedural ability of rejecting derivation steps previously obtained by way of marking in view of effectively derived abnormal formulas.
+\end{enumerate}
+
+These are all properties inspired by the adaptive logics approach. In view of the last property, we need moreover to annotate the derivability relation with a stage counting mechanism to keep track of the steps performed in the derivation tree (thus counting also premises rather than only rules).
+
+%These are all properties inspired by the adaptive logics approach. This means that, though we \textit{do not} introduce an adaptive logic proper, we can talk of a natural-deduction system for \textit{adaptive reasoning}. In fact, 
+Our system is not even close to a standard format for AL. We express the standard triple $\{LLL,\Omega,STRATEGY\}$ in a system where the Lower Limit Logic is extended to include rules both for expressing the abnormal formulas in $\Omega$ and to interpret the selection Strategy. In other words, this rule-based approach allows to merge the rules and axioms of a typical $LLL$ and the rules of the $AL$ based on abnormal formulas into a single system of rules. 
+
+%\subsection*{Other Works}
+%xxx
+
+
+\section{Minimal ND}
+
+We start by defining the type universe for the $\{\neg, \rightarrow, \wedge, \vee\}$ fragment of intuitionistic propositional logic corresponding to minimal logic. That is, we do not explicitly formulate a rule to abort derivations once a proposition of type $\bot$ is derived, hence not allowing \textit{ex falso quodlibet}. This {\sf minimalND} calculus plays the role of our Lower Limit Logic. 
+
+\begin{definition}[{\sf minimalND}]
+
+ Our starting language for {\sf minimalND} is defined by the following grammar:
+ 
+\begin{displaymath}
+\begin{array}{l}
+Type:=Prop\\
+Prop:= A | \bot | \neg \phi \mid \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge \phi_{2} | \phi_{1} \vee \phi_{2}\\
+\Gamma := \{\phi_{1}, \dots, \phi_{n}\}\\
+\Delta := \{\phi_{1}, \dots, \phi_{n}\}
+
+\end{array}
+\end{displaymath}
+\end{definition}
+
+%
+A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions; $\Delta$ is a set of formulas of the language; the set $Gamma$ and the comma on the left-hand side of the derivability sign are both to be read conjunctively; the set $\Delta$ and the comma on the right-hand side of the derivability sign are both to be read disjunctively. The derivability sign is enhanced with a signature {\sf s} that corresponds to a natural number counting the ordered steps executed to obtain the corresponding ND-formula in a tree. This annotation only comes to use in the next extension of the calculus. Similarly, the semi-colon sign and the $\cdot$ following $\Gamma$ are useless in the setting of {\sf minimalND} and come to use only in the next section. We introduce both here for uniformity of notation. We first present formation rules for the proposition, well-formedness of contexts and introduction and elimination rules for the connectives. 
+%In the following $\neg \phi$ abbreviates $\phi\rightarrow\bot$.
+
+
+\begin{figure}[h!]
+\begin{mathpar}
+\infer*[right=Atom] { } {A \in {\sf Prop}}
+\and
+\infer*[right=$\bot$] { } {\bot \in {\sf Prop}}
+\and
+\infer*[right=$\neg$] {\phi \in {\sf Prop} } {\neg \phi \in {\sf Prop}}
+\and
+\infer*[right=$\rightarrow$] {{\phi_1 \in {\sf Prop }}\\ {\phi_2 \in {\sf Prop}}} {\phi_1\rightarrow\phi_2\in {\sf Prop}}
+\and
+\infer*[right=$\wedge$] {{\phi_1 \in {\sf Prop }}\\ {\phi_2 \in {\sf Prop}}} {\phi_1\wedge\phi_2\in {\sf Prop}}
+\end{mathpar}
+\caption{Formula Formation Rules}
+\end{figure}
+
+
+
+
+\begin{figure}[h!]
+\begin{mathpar}
+\infer*[right=Nil] { } {\cdot\Turn {} {\sf wf}}
+\and
+\infer*[right=$\Gamma$-formation] {{\Turn {\Gamma; \cdot} {\sf wf} } \\ {\phi \in {\sf Prop}}} {\TurnNext {\Gamma , \phi; \cdot} {\sf wf}}
+\end{mathpar}
+
+
+\begin{mathpar}
+\infer*[right=Prem] {{\Turn {\Gamma; \cdot} {\sf wf}}\\ {\phi \in \Gamma}}{\TurnNext {\Gamma; \cdot} {\phi}}
+\and
+\infer*[right=$\Delta$-formation] {{\Turn {\Gamma; \cdot} {\Delta} } \\ {\phi \in {\sf Prop}}} {\TurnNext {\Gamma; \cdot} {\Delta, \phi}}
+
+\end{mathpar}
+\caption{Context Formation Rules}
+\end{figure}
+
+%
+%
+\begin{figure}[h!]
+\begin{mathpar}
+\infer*[right=$\rightarrow$I] {\Turn {\Gamma, \phi_1; \cdot} {\phi_2}} {\TurnNext {\Gamma; \cdot} {\phi_1\rightarrow \phi_2}}
+\and
+\infer*[right=$\rightarrow$E] {\Turn {\Gamma; \cdot} {\phi_1\rightarrow\phi_2}\\{\TurnPrime {\Gamma';\cdot} {\phi_1}}} {\TurnMaxPlusOne {\Gamma; \Gamma'} {  \phi_2}}
+\end{mathpar}
+
+\begin{mathpar}
+\infer*[right=$\wedge$I] {\Turn {\Gamma;\cdot} {\phi_1}\\{\TurnPrime {\Gamma'; \cdot} {\phi_2}}} {\TurnMaxPlusOne {\Gamma, \Gamma';\cdot} {\phi_1\wedge \phi_2}}
+\and
+\infer*[right=$\wedge$E] 
+{\Turn {\Gamma;\cdot} {\phi_1\wedge\phi_2}} {\TurnNext {\Gamma;\cdot} {  \phi_{i \in \{1,2\}}}}
+\end{mathpar}
+
+
+\begin{mathpar}
+\infer*[right=$\vee$I] {\Turn {\Gamma;\cdot} {\phi_1}} {\TurnNext {\Gamma;\cdot} {\phi_1\vee \phi_2}}
+\and
+\infer*[right=$\vee$I] {\Turn {\Gamma;\cdot} {\phi_2}} {\TurnNext {\Gamma;\cdot} {\phi_1\vee \phi_2}}
+\and
+\infer*[right=$\vee$E] 
+{\Turn {\Gamma;\cdot} {\phi_1\vee\phi_2}}{\TurnNext {\Gamma;\cdot} {  \phi_{1},\phi_{2}}}
+\end{mathpar}
+
+
+\begin{mathpar}
+\infer*[right=$\bot$E] {\Turn {\Gamma; \cdot}{\bot} }{\Turn {\Gamma;\cdot} {\phi}}
+%\end{mathpar}
+\and
+%\begin{mathpar}
+\infer*[right=$\neg$I] {\Turn {\Gamma; \phi}{\psi}}{\TurnNext {\Gamma; \cdot}{\psi, \neg \phi}}
+\end{mathpar}
+
+\caption{Rules for I/E of connectives}
+\end{figure}
+
+
+\begin{figure}[h!]
+\begin{mathpar}
+\infer*[right=Wleft] {\Turn {\Gamma; \cdot} {\phi_{1}} } {\TurnNext {\Gamma, \phi_{2}; \cdot} {\phi_{1}}}
+\and
+\infer*[right=Cleft] {\Turn {\Gamma, \phi_{1}, \phi_{1}; \cdot} {\phi_{2}} } {\TurnNext {\Gamma, \phi_{1}; \cdot} {\phi_{2}}}
+\and
+\infer*[right=Eleft] {\Turn {\Gamma, \phi_{1}, \phi_{2}; \cdot} {\phi_{3}} } {\TurnNext {\Gamma, \phi_{2}, \phi_{1}; \cdot} {\phi_{3}}}
+\end{mathpar}
+\begin{mathpar}
+
+\infer*[right=Cut] {\Turn {\Gamma; \cdot} {\phi_{1}} \\ {\TurnPrime {\Gamma', \phi_{1}; \cdot} {\phi_{2}}}} {\TurnMaxPlusOne {\Gamma; \Gamma'; \cdot} {\phi_{2}}}
+\end{mathpar}
+\begin{mathpar}
+
+\infer*[right=Cright] {\Turn {\Gamma; \cdot} {\phi, \phi}} {\TurnNext {\Gamma; \cdot} {\phi} }
+\and
+\infer*[right=Eright] {\Turn {\Gamma; \cdot} {\phi_{1}, \phi_{2}} } {\TurnNext {\Gamma; \cdot} {\phi_{2}, \phi_{1}}}
+\end{mathpar}
+\caption{Structural Rules}
+\end{figure}
+
+The classical negation in this fragment is expressed by implication to $\bot$. Notice that this fragment does not contain a standard rule for aborting a derivation after obtaining $\bot$, which expresses absolute inconsistency. A paraconsistent negation $\neg$ is used for inconsistencies; its elimination is left to the calculus introduced in the next section by way of an adaptive mechanism. The {\sf Prem} rule defines the equivalent of the adaptive Premise rule. [HERE MORE EXPLANATION ON I/E RULE: FOR STRUCTURAL RULES ADD EXPLANATION ON HOW THE WRIGHT can be obtained by disjunction introduction followed by disjunction elimination. We should also remember that this Minimal Logic fragment verify
+
+\begin{figure}[h]
+\begin{mathpar}
+\infer*[right=] {\Turn {\Gamma; \cdot} {\phi\rightarrow\psi}} {\TurnNext {\Gamma; \cdot} {\neg \phi,  \psi}}
+\end{mathpar}
+\end{figure}
+
+but it does not verify
+
+\begin{figure}[h]
+\begin{mathpar}
+\infer*[right=] {\Turn {\Gamma; \cdot} {\neg \phi\rightarrow\psi}} {\TurnNext {\Gamma; \cdot} {\phi,  \psi}}
+\end{mathpar}
+\end{figure}
+
+hence is not fully CLuN equivalent.
+]
+
+\section{Adaptive ND}
+
+
+%{\sf minimalND} is now modified to characterize a new logic called {\sf AdaptiveND}. To obtain an extension that allows for inconsistency adaptive reasoning, one needs: 
+% 
+%\begin{enumerate}
+%\item the explicit formulation of an $\Omega$ set of propositions of type $\bot$ that behaves differently than in the previous setting; this means to drop the $\bot$I rule and proceed with a different mechanism that requires new formation rules for the assumptions;
+%\item the introduction rule for a new propositional connective $\vee_{\sf CL}$ that allows classical disjunction over formulas of the above type;
+%\item well-formedness of contexts of assumptions with negation of formulas in $\Omega$ closed under $\vee_{\sf CL}$;
+%\item two new rules for marking lines.
+%\end{enumerate}
+%
+
+\begin{definition}[{\sf AdaptiveND}]
+
+The language of {\sf AdaptiveND} is as follows:
+
+
+\begin{displaymath}
+\begin{array}{l}
+Type:=Prop\\
+Prop:= A | \bot | \neg \phi | \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge \phi_{2} | \phi_{1} \vee \phi_{2}\\
+% | \phi_{1} \vee_{\sf CL} \phi_{2}\\
+\Gamma := \{\phi_{1}, \dots, \phi_{n}\}\\
+\Delta := \{\phi_{1}, \dots, \phi_{n}\}\\
+\Omega := \{\phi \wedge \neg \phi)\mid \phi\in Prop\}\\
+%Dab(\Delta) := \phi_{1} \vee_{\sf CL} \phi_{2}\mid \phi_{1},\phi_{2}\in \Omega
+\end{array}
+\end{displaymath}
+\end{definition}
+
+
+We refer to an {\sf AdaptiveND}-formula as an extension of a {\sf minimalND}-formula of the form $\Gamma; \phi^{-}\vdash_{s} \psi$, where: 
+
+\begin{enumerate}
+\item the left-hand side of $\vdash_{\sf s}$ has $\Gamma$ as in {\sf minimalND};
+\item the semicolon sign on the left-hand side of $\vdash_{\sf s}$ is conjunctive;
+\item $\phi$ refers to a formula with a specific inconsistent logical form, obtained by way of the $\Omega$-formation rule presented below;\footnote{As mentioned above, the current setting of {\sf AdaptiveND} is specified for an inconsistency-adaptive logic.}
+\item the last place of the left-hand side context is always reserved to negated formulas of the $\Omega$ form; we shall use $\phi^{-}$ to refer to the negation of $\phi$, for all $\phi\in \Omega$;
+\item the right-hand side is in disjunctive form.
+\end{enumerate}
+%
+When $\Omega$ is empty on the left-hand side of $\vdash$, we shall write $\Gamma;\cdot\vdash$, thus reducing to the form of a {\sf minimalND}-formula. 
+%When $\Omega$ is empty on the right-hand side of $\vdash$, we shall write simply $\vdash A$. In view of point $4.$ above, this natural deduction calculus can also be characterized as a multiple conclusion calculus.\footnote{There is a certain similarity between $\vdash ;\Omega$ and the notion of \textit{denied formulas} in a state from \cite{restall2005}: the standard way to read the right hand side of an {\sf AdaptiveND}-formula is in fact that of an exclusive ``or".} 
+Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks: $\XBox$ to mark that at the current stage some previously derived formula is retracted; $\checked$ to mark that at the current stage some previously derived formulas is now stable, i.e. will no longer marked by $\XBox$. 
+%We shall also use below the abbreviation $\neg\phi:=\phi\rightarrow\bot$. 
+
+A feature of {\sf AdaptiveND} that we will use below is that it requires to have \textit{classical disjunctions of formulas generated under the $\Omega$-rule}. To be more precise, whenever we derive more than a formula in the set $\Omega$, we might want to establish which of those is unavoidable, and thus extend $\Gamma$ with a set of disjunctions of $\omega$'s which is classical (as we cannot infer it from any already verified $\omega$). This means that {\sf AdaptiveND} needs a new formation rule for $\vee_{\sf CL}$, which is in fact restricted to $\phi$'s that are in $\Omega$. We shall also give a formation rule for $\Omega$ and one for $\Gamma; \Omega^{-}$. Furthermore, two additional rules are introduced for deriving formulas, simply or on conditions. 
+
+Marking definitions will be also described below. The mechanism enforced by the marking definitions (either for retracting or for stabilizing a derived content) makes a proof a sequence of derivation steps. The dynamic nature of this form of reasoning is implemented in our ND calculus by allowing extensions by derivation steps appended at the end of the current proof-tree.\footnote{That is, we will avoid the more complex approach that allows for line insertions in a given derivation.} For obtaining the stable notion of final derivability, it will be useful to allow \textit{infinite} extensions of a proof-tree.
+
+\subsection{Rules of {\sf AdaptiveND}}
+
+The set of rules of {\sf IPC} is extended by the following new set to obtain {\sf AdaptiveND}:
+
+\begin{figure}[h!]
+\begin{mathpar}
+\infer*[right=$\Omega$-formation] {{\phi \in Prop}}{(\phi \wedge \neg \phi) \in \Omega}
+%
+% {{\Turn {\Gamma;\cdot} {\phi}}\\ {\TurnNext {\Gamma, \phi; \cdot} {\neg\phi}}} 
+%{\TurnNextNext {\Gamma; \cdot} {{\sf \Omega}}} 
+\and
+\infer*[right=$\Gamma \phi^{-}$-formation] {{\Turn {\Gamma;\cdot} {\sf wf} } \\ {\phi \in {\sf \Omega}}} {\TurnNext {\Gamma ; \phi^{-}} {\sf wf}}
+\end{mathpar}
+\caption{$\Omega$ Formation rules}
+\end{figure}
+
+
+
+
+
+\begin{figure}[h!]
+\begin{mathpar}
+\infer*[right=RU] {\Turn {\Gamma; \phi^{-}} {\phi_{1}}\\ {\TurnNext {\phi_{1};\cdot} {\phi_{2}}}}
+{\TurnNextNext {\Gamma, \phi_{1}; \phi^{-}} {\phi_{2}}}
+\and
+\infer*[right=RC] {\Turn {\Gamma;\cdot} {\psi,\phi}\\ {\phi \in \Omega}} {\TurnNext {\Gamma; \phi^{-}} {\psi}}
+\end{mathpar}
+
+%\begin{mathpar}
+%\infer*[right=$\vee_{\sf CL}$] {{\{\phi_{1},\phi_{2}\}\in \Omega}\\ {\Turn {\Gamma; \phi_{1}^{-}} {\phi_{2}}}} {\TurnNext {\Gamma;\cdot} {\phi_{1}\vee_{\sf CL} \phi_{2}}}
+%\end{mathpar}
+\caption{Adaptive Rules}
+\end{figure}
+
+
+%We now admit that a $\bot$ type formula $\{\phi\wedge (\phi\rightarrow \bot)\}$ is derivable.  
+We call $\phi\in \Omega$, following the adaptive tradition, an abnormal formula. How the system reacts to such a case, is no longer by the $\bot$I rule (which is thus now meant to be dropped), but rather by the additional rules of {\sf AdaptiveND}. First we admit that the complement of an $\Omega$-set can be used to extend a context $\Gamma$: $\Omega^{-} = \{\neg \phi\mid \forall \phi\in \Omega\}$. Next, the calculus is extended by introducing two rules. $RU$ is called the unconditional rule: it says that if a formula $\phi_{1}$ is derivable from $\Gamma$ and $\Omega^{-}$, and if $\phi_{2}$ is derivable from $\phi_{1}$, then $\phi_{2}$ is derivable from $\phi_{1}$ inheriting the whole context $\Omega^{-}$. $RC$ is  called the conditional rule: it applies the $\Gamma\Omega^{-}$-formation rule by saying that if a formula $\phi$ or a set $\Omega$ (possibly a singleton) is derivable under context $\Gamma$, then $\phi$ is derivable from $\Gamma$ and $\Omega^{-}$. 
+
+%The $\vee_{\sf CL}$ defines \textit{tertium non-datur} for formulas in $\Omega$: it says that if two formulas are abnormal, then either one has to be derived in our calculus on assumption that the other is not. To decide which of those is selected, we will define \textit{strategies}, i.e.\ sets of rules meant to establish which of such contradictions cannot be eliminated. This corresponds to establish which of the terms in $\Omega$ can be in fact derived. Or else, which $B$ derivable from $\Omega^{-}$ needs to be traced back in the derivation tree and retracted. We shall call $Dab(\Delta)$ a classical disjunction of $\phi_{1,2}\subseteq\Omega$ obtained by the $\vee_{\sf CL}$ rule. If $\Delta$ is a singleton, $Dab(\Delta)\equiv\phi\in \Omega$. If $\Delta=\emptyset$, $Dab(\Delta)=\{\emptyset\}$ and $\phi\vee Dab(\Delta)=\phi$. 
+%\begin{definition}[Minimal Disjunction of Abnormalities]\label{def:DAB}
+%We say that a formula $\Delta \supseteq \{\phi_{1},\phi_{2}\}\mid \phi_{1},\phi_{2}\in \Omega$ is a minimal disjunction of abnormalities at stage $s$ and call it $Dab(\Delta)^{min}_{s}$ iff $\Turn{\Gamma;\cdot}{\Delta}$ and for no $Dab(\Delta')$ such that $\Delta\subset \Delta'$, it is the case that $\TurnPrime{\Gamma;\cdot}{\Delta'}$.
+%\end{definition}
+
+
+\begin{figure}[h!]
+\begin{mathpar}
+\infer*[right=MinDab] {\Turn {\Gamma; \cdot} {\Delta}\\ {\Delta \subset \Omega} \\ {\mbox { with no }\Delta'\in \Omega, \mbox{ s.t. } \Gamma; \cdot \vdash_{t<s'} \Delta'}} {\TurnPrime {\Gamma; \cdot} {\Delta^{min}}}
+\end{mathpar}
+\caption{Minimal Abnormal Formulas Rule}
+\end{figure}
+
+
+Notice that the derivation of minimal disjunction of abnormalities is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depend on the possible derivation of certain such formulas.
+
+
+\subsection{A simple example}
+
+We present here a derivation, where $\Gamma=\{A,B,C, \neg A,\neg B\}$
+
+\begin{mathpar}
+
+\infer*[right=RC]{
+\infer*[right=$\vee_{CL}$] {
+\infer*[right=RU] {\infer*[right=$\Gamma\Omega^{-}$] {\infer*[right=PREM] {\phantom{xx}} {\TurnOne {\Gamma; \cdot}{B}}} {\TurnTwo {\Gamma; \{B\wedge \neg B\}^{-}}{B}}\\ \infer*[right=PREM] {\phantom{xx}} {\TurnThree {\Gamma; \cdot}{\neg B}}} {\TurnFour {\Gamma; \{B\wedge \neg B\}^{-}}{\{B\wedge \neg B\}}}
+}
+{\TurnFive {\Gamma;\cdot}{\{\neg B\wedge \neg\neg B\};{\{B\wedge \neg B\}}}
+}
+}
+{\TurnSix {\Gamma; \{\neg B\wedge \neg\neg B\}^{-}}{\neg B}}
+%
+%
+%{\TurnTwo {\Gamma; \{B\wedge \neg B\}^{-}}{B}}\\ \infer*[right=PREM] {}{\TurnThree {\Gamma; \cdot}{B}}
+%
+%
+%{
+%\infer*[right=RC] {\TurnFour {\Gamma; \cdot}{\{B\wedge \neg B\};\{\neg B\wedge \neg\neg B\}}} {\TurnFive {\Gamma; \{\neg B\wedge \neg\neg B\}}{\neg B}}}
+\end{mathpar}
+%
+Notice that at stage $2$, $B$ can be derived under the $\Gamma\Omega^{-}$ formation rule, as $\Gamma$ contains $\neg B$. Next, $\neg B$ can be also derived under the premise rule. We obtain a conflict between derivations at stages $2$ and $6$. Next we want to establish how to retract one.
+
+ 
+\section{Rules for Marking}
+
+In standard Adaptive Logics, one introduces strategies to tell, given some Minimal Disjunctions of Abnormalities is derived, which of those one can disregard and which one has to accept. In our example above, the minimal disjunction of abnormalities at stake is the one obtained at stage $5$: $\TurnFive {\Gamma;\cdot}{\{\neg B\wedge \neg\neg B\};{\{B\wedge \neg B\}}}$. This means that one of the $\Omega$ sets at either stage $4$ or stage $5$ needs to be false. Adaptive Logics come with a marking mechanism that allows such retractions. Marking is done in view of different possible strategies. The most well-known strategies and their rationale are:
+
+\begin{itemize}
+\item \textit{Reliability}: once a $Dab(\Delta)^{min}_{s}$ is derived, every formula that at $s-i$ assumes a $\phi\in Dab(\Delta)^{min}_{s}$ to be false, needs to be retracted;
+
+\item \textit{Minimal Abnormality}: once a $Dab(\Delta)^{min}_{s}$ is derived, every formula that at $s-i$ assumes a $\phi$ to be false, such that $\phi$ is in a minimal set of $\Delta$, needs to be retracted.
+\end{itemize}
+%
+In other words, in the first case one considers all possible abnormal formulas to be in some sense valid; in the second case, one tries to minimize the number of such unavoidable contradictions.
+
+In this section, we provide rules that extends {\sf AdaptiveND} in view of such strategies, providing the equivalent of the marking conditions according to Reliability and Minimal Abnormality.
+
+
+\subsection{Marking Rule for Reliablity}
+
+Reliability is the derivability strategy that considers every possible $\phi\in \Omega$ as derivable. As a consequence, any formula that was derived using $\Omega^{-}$ in its set of premises, will turn out to be `marked' at a certain following stage of the derivation. Here marking means to reject the formula, or invalidate it. In the following we shall introduce a new derivability rule that internalizes this process in {\sf AdaptiveND}.
+
+%We shall first introduce a notion of union of all so-called unreliable formulas. To this aim, in the following we will refer to $\Sigma=\bigcup\{\Gamma,\Omega^{-}\}$, for some premises $\Gamma$ and some abnormal formulas $\Omega$ derivable from $\Gamma$:
+%
+%
+%\begin{definition}[The set of unreliable formulas of $\Gamma$]
+%$U_{{\sf s}}{(\Gamma)}$ is defined by the union of $\Delta\subseteq\Omega$, where $\Gamma\vdash\Delta_{1}, \dots, \Delta_{n}$ are respectively $Dab(\Delta)^{min}_{1}, \dots, Dab(\Delta)^{min}_{s}$.
+%\end{definition}
+
+
+
+We define a new derivability rule $\XBox$R  that depends on the formulation of the union set of all minimal $Dab(\Delta)^{min}_{i}$ as for Definition \ref{def:DAB} above.
+%$U_{{\sf s}}{(\Gamma)}$. 
+Assume the following derivation tree holds:
+
+%\begin{mathpar}
+%\infer*[right=some]{\infer*[right=UR]{\infer*[]{\infer*[vdots =1.5 em]{} {\TurnOne {\Gamma; \cdot} {\Delta_{1}}}}{\Turn {\Gamma; \cdot}{\Delta_{n}}}}{\TurnNextn{\Gamma,\Gamma';\cdot}}}{B;Dab(\Delta)^{min}_{i}}
+%\end{mathpar}
+
+\begin{mathpar}
+\infer*[right=CR]{\infer*[right=UR]{\infer*[]{\infer*[vdots =1.5 em]{} {\TurnOne {\Gamma; \cdot} {\Delta_{1}}}}{\Turn {\Gamma; \cdot}{\Delta_{n}}}}
+{\TurnNextn{\Gamma,\Gamma';\cdot}{B;\Delta^{min}_{i}}}}
+{\TurnNextnn{\Gamma,\Gamma';(\Delta_{i})^{-}}{B}}
+\end{mathpar}
+%
+where $\Delta_{i}$ can be any of abnormal formulas derived at any line {\sf s}. Then we want to mark as invalid the last step of this derivation where $B$ is derived, if it relies on $\Omega^{-}$ containing at least one minimal abnormal formula. In the following we abbreviate assumptions sets $\Gamma, \Gamma'$ in a tree by $\Sigma$. Then we define a marking rule:
+
+\begin{mathpar}
+\infer*[right=$\XBox$R]{\Turn{\Sigma;\cdot}{\Delta^{min}}\\ \TurnPrime{\Sigma; \Psi^{-}}{\phi} \\ {\Psi \cap \Delta^{min}\neq \emptyset}}
+{\TurnMaxPlusOneREL{\Sigma}{\phi}}
+\end{mathpar}
+
+The meaning of $\XBox$ is the following: if at stage {\sf s} a disjunction of abnormalities $\Delta$ is derived which is minimal for $\Sigma$, and at a following stage a formula $\phi$ is derived from $\Sigma$ that assumes some subset $\Psi$ of $\Delta$ to be false, then at a later stage  
+$\phi$ is marked as retracted.
+
+The example above is then extended with two additional derivation steps:
+
+\begin{mathpar}
+
+\infer*[right=$\XBox$R]
+{
+\infer*[right=$\XBox$R]
+{
+\infer*[right=RC]{
+\infer*[right=$\vee_{CL}$] {
+\infer*[right=RU] {\infer*[right=$\Gamma\Omega^{-}$] {\infer*[right=PREM] {\phantom{xx}} {\TurnOne {\Gamma; \cdot}{B}}} {\TurnTwo {\Gamma; \{B\wedge \neg B\}^{-}}{B}}\\ \infer*[right=PREM] {\phantom{xx}} {\TurnThree {\Gamma; \cdot}{\neg B}}} {\TurnFour {\Gamma; \{B\wedge \neg B\}^{-}}{\{B\wedge \neg B\}}}
+}
+{\TurnFive {\Gamma;\cdot}{\{\neg B\wedge \neg\neg B\};{\{B\wedge \neg B\}}}
+}
+}
+{\TurnSix {\Gamma; (\{\neg B\wedge \neg\neg B\}^{min}_{5})^{-}}{\neg B}}
+}
+{\TurnMarkedSevenREL{\Gamma; \cdot}{\neg B}}
+%\\ {\{B\wedge \neg B\}\}\in U_{{\sf 2}}(\Gamma)}
+}
+{\TurnMarkedEightREL{\Gamma; (\{B\wedge \neg B\}^{min}_{2})^{-}}{B}}
+%
+%
+%{\TurnTwo {\Gamma; \{B\wedge \neg B\}^{-}}{B}}\\ \infer*[right=PREM] {}{\TurnThree {\Gamma; \cdot}{B}}
+%
+%
+%{
+%\infer*[right=RC] {\TurnFour {\Gamma; \cdot}{\{B\wedge \neg B\};\{\neg B\wedge \neg\neg B\}}} {\TurnFive {\Gamma; \{\neg B\wedge \neg\neg B\}}{\neg B}}}
+\end{mathpar}
+%
+Notice how, the marking at steps $7$ and $8$ tell us the original lines at which the minimal unreliable formulas in view of the premise set at a given step were obtained (resp. $5$ and $2$;  we have skipped an additional line repeating the derivability of $B$ before its marking).\footnote{This is a sensible difference with the marking mechanism in place for standard adaptive logics, where the marking itself happens at the line whose content is retracted and the formulation of the set of unreliable formulas remains entirely outside of the derivation. Notice that a shortcoming of the standard marking mechanism is that it does not provide indications on the stage at which the marking is executed.}
+
+\subsection{Marking Rule for Minimal Abnormality}
+
+
+Minimal abnormality is the marking strategy that reflects the following condition: a formula $\phi$ is retracted if at every stage {\sf s} at which it can be derived, it is so always on a non-empty condition of any of the minimal choice set of the set of abnormal formulas of its premises. Hence, we first introduce a set of minimal choice sets of abnormalities:
+
+\begin{definition}
+We call $\Phi_{{\sf s}}(\Gamma)$ the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ at stage {\sf s}, i.e.\ where each of $\bigvee\Delta_{1}, \dots, \bigvee\Delta_{n}$ is derived according to {\sf MinDab}.
+\end{definition}
+%
+Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. Now we translate the condition into a new marking rule:
+%, where again $\Sigma=\bigcup\{\Gamma, \Omega^{-}\}$:  
+
+
+%\begin{definition}[Marking for Minimal Abnormality]
+%$\TurnMarked{\Gamma; \Omega^{-}}{B}$ iff for any $\Sigma \in \Phi_{{\sf s}}(\Gamma)$, $\Sigma\cap \Omega^{-}\neq \emptyset$ and for some $\Sigma \in \Phi_{{\sf s}}(\Gamma)$ there is no ${\sf s}$ such that  $\Turn{\Gamma;\Omega^{-}}{B}$ and $\Sigma\cap \Omega^{-}\neq \emptyset$.
+%\end{definition}
+
+
+\begin{mathpar}
+\infer*[right=$\XBox$MA]{
+\Turn{\Gamma;\cdot}{\Delta^{min}_{i\dots n}}\\
+\TurnNext{\Gamma;\Psi^{-}}{\psi}\\
+{\Psi\cap \phi, \forall\phi \in\Phi_{\sf s}(\Gamma)\neq \emptyset}}  
+{\TurnMarkedNextNextMA{\Gamma;\cdot}{\psi}}
+\end{mathpar}
+
+
+\begin{mathpar}
+\infer*[right=$\XBox$MA2]{
+\Turn{\Gamma;\cdot}{\Delta^{min}_{i\dots n}}\\
+\TurnNext{\Gamma;\Psi^{-}}{\psi}\\
+\TurnNext{\Gamma;\Xi^{-}}{\psi}\\
+{\Xi,\Psi\cap \phi \in\Phi_{\sf s}(\Gamma)\neq \emptyset}}  
+{\TurnMarkedNextNextMA{\Gamma;\cdot}{\psi}}
+\end{mathpar}
+
+
+%
+This rule tells us that an {\sf Adaptive ND}-formula at stage {\sf s} is \textit{not} marked when: either $\Phi_{\sf s}(\Gamma)=\emptyset$; or $\exists\Xi\in\Phi_{\sf s}(\Gamma)$ such that $\Xi\cap\Omega^{-}=\emptyset$ possibly according to some ordering criterion;  and $\forall \Xi\in\Phi_{\sf s}(\Gamma)$, the formula at hand is derived under some condition that does not intersect with any of the minimal choice sets. In other words, in case $\Delta_{i}$ on the left-hand side of $\vdash$ at some stage {\sf s} has a non-empty-intersection with some $\Xi\in\Phi_{\sf s}(\Gamma)$, then the interpretation of $\Xi$ falsifies the formula derived at {\sf s}. This marking rule is further specified by establishing that not every $\Xi\in\Phi_{\sf s}(\Gamma)$ is treated in the same way. Hence, choice sets can be ordered according to some criterion (lexicographic, by counting, and so on) and relative to an inclusion relation that orders derivable formulas in view of the abnormality degree of their conditions. The most simple such ordering is done in function of the \textit{number} of abnormalities that are held as conditions of a given formula: the less the cardinality of such a set, the less abnormal the model (and hence, the more preferred the derivation). 
+
+Consider the above example again and the construction of minimal choice sets:
+
+$$
+\begin{array}{l}
+\Phi_{\sf 2}(\Gamma):=\{B\wedge \neg B\}\\
+\Phi_{\sf 6}(\Gamma):=\{\neg B\wedge \neg\neg B\}\\
+\Phi_{\sf 6}(\Gamma):=\{\{B\wedge \neg B\},\{\neg B\wedge \neg\neg B\}\}\\
+\end{array}
+$$
+%
+By this ordering one would consider abnormalities at stage $2$ less serious than those at stage $6$. But notice how this result will be obtained stage by stage. Hence the previous derivation would proceed in view of: first falsifying formulas obtained under condition $\Phi_{\sf 2}(\Gamma)$; then once $\Phi_{\sf 6}(\Gamma):=\{\neg B\wedge \neg\neg B\}$ is obtained, by re-enabling the former and marking the latter )where $\Pi$ abbreviates the derivation as above:
+
+
+\begin{mathpar}
+\infer*[right=UR]
+{
+\infer*[right=$\XBox$MA]
+{
+\infer*[right=RC]{
+\infer*[right=$\vee_{CL}$] {
+\infer*[right=$\XBox$MA]{
+\infer*[right=RU]{\Pi} {\TurnFour {\Gamma; (\{B\wedge \neg B\}\in \Phi_{{\sf 2}}(\Gamma))^{-}}{\{B\wedge \neg B\}}}
+}
+{\TurnMarkedFiveMA{\Gamma; (\{B\wedge \neg B\})^{-}}{B}}
+}
+{\TurnSix {\Gamma;\cdot}{\{\neg B\wedge \neg\neg B\};{\{B\wedge \neg B\}}}}
+}
+{\TurnSeven {\Gamma; (\{\neg B\wedge \neg\neg B\}\in \Phi_{{\sf 6}}(\Gamma))^{-}}{\neg B}}}
+{\TurnMarkedEightMA{\Gamma; \cdot}{\neg B}}
+}
+{\TurnNine{\Gamma;(\{\neg B\wedge \neg\neg B\})^{-}}{B}}
+\end{mathpar}
+%
+%
+%\infer*[right=RU] {\infer*[right=$\Gamma\Omega^{-}$] {\infer*[right=PREM] {\phantom{xx}} {\TurnOne {\Gamma; \cdot}{B}}} {\TurnTwo {\Gamma; \{B\wedge \neg B\}^{-}}{B}}\\ \infer*[right=PREM] {\phantom{xx}} {\TurnThree {\Gamma; \cdot}{\neg B}}}
+
+In this case the formula $B$ derived at stage $2$ is first marked, when the only derived $\Delta$ is the one on whose condition $B$ is derived; later, it get unmarked because the condition on which it is derived is safe when one considers $\Delta_{6}=\{\neg B\wedge \neg\neg B\}$ and it can be further derived under such condition.
+
+\section{Derivability}
+
+As shown in the example above, the marking conditions establish a dynamic derivability relation. This means that whenever a certain formula is derived on some $\Omega^{-}$ condition in the premises, it might still be marked afterwards according to either $\XBox R$ or $\XBox MA$. This gives us a notion of derivability at stage: 
+
+\begin{definition}[Derivability at stage]
+$\Turn{\Gamma; \Omega^{-}}{\phi}$ iff at ${\sf s}$ it is not the case that $\TurnMarked{\Gamma; \Omega^{-}}{\phi}$.
+\end{definition}
+
+Nonetheless, one still wants to have a more stable notion of derivability, whenever  marking are no longer possible. Because our left-hand side of the $\vdash$ sign, hence our ``premise set'', includes the $\vee_{\sf CL}$ connective for $Dab$-formulas, it is in principle possible to generate trees where some standard adaptive consequences (i.e. consequences of a corresponding AL in standard format) would be first marked and then never get unmarked.\footnote{These results are based on the generic format for Adaptive logics presented in \cite{strasservandeputte12}. A different approach that allows insertion of lines in proof trees is given for the Standard Format in \cite{batens2009}.}
+
+%[HERE AN EXAMPLE]
+
+To get around this problem and provide a stable notion of derivability, one requires that the stage {\sf s} at which a formula $\phi$ is derived remains unmarked in the possibly infinite extension of the derivation tree, given that all minimal Dab-formulas are derived on the empty condition and $\phi$ is derived on all (minimal) conditions. We introduce therefore an extension of a standard proof-tree:
+
+\begin{definition}
+Let $P$ be a proof-tree of {\sf AdaptiveND}. We call $P^{\sf ext}$ the complete extension of $P$ at stage {\sf s} if $P^{\sf ext}$ extends $P$ by a possibly infinite number of derivation steps such that 
+
+\begin{enumerate}
+\item if $\Turn{\Gamma;\cdot}{Dab(\Delta_{i})}$, then for some $\Delta_{j}\subseteq\Delta_{i} $ it holds $\Turn{\Gamma;\cdot}{Dab(\Delta_{j})}$;
+\item if $\Turn{\Gamma;\Delta_{i}^{-}}{\phi}$, then $\Turn{\Gamma;\Delta_{j}^{-}}{\phi}$
+\end{enumerate}
+\end{definition}
+%
+By the first requirement all possible $Dab(\Delta)^{min}_{s}$ have been derived for  {\sf s}; and by the second requirement every formula is derived under the minimal conditions (hence any relevant condition for the marking has been obtained already).
+
+Now we can derive our notion of final derivability:
+
+\begin{definition}
+A formula $\phi$ is finally derived $\TurnChecked{\Gamma;\Omega^{-}}{\phi}$ iff:
+
+\begin{itemize}
+\item $\Turn{\Gamma;\Omega^{-}}{\phi}$ in some proof-tree $P$;
+%, and so it is not the case that $\TurnMarked{\Gamma;\Omega^{-}}{B}$ in $P$;
+\item and for any ${\sf s'>s}$, such that ${\sf s'}\in P^{\sf ext}$, %$\TurnPrime{\Gamma;\cdot}{Dab(\Delta)^{min}_{\sf s'}}$ and 
+it is not the case that $\TurnMarkedprime{\Gamma;\Delta_{\sf s'}^{-}}{\phi}$.
+
+\end{itemize}
+\end{definition}
+%
+Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
+
+
+\begin{definition}
+$\TurnADND{\Gamma}{\phi}$ iff $\TurnChecked{\Gamma;\Omega^{-}}{\phi}$
+\end{definition}
+%
+Notice that not every finally derivable formula of {\sf AdaptiveND} is derivable at stage. In particular, for the case of {\sf AdaptiveND}, where the disjunction used to construct $Dab$-formulas is explicitly admitted in the premise set by the extension of a given $\Gamma$ with $Dab(\Delta)^{-}$ on the left-hand side of $\vdash$, one can conceive of cases in which a finally derivable $\phi$ is not derivable at any finite stage of a proof-tree.\footnote{For an example see Strasser PHD, ch.2.8.} 
+
+\section{Structural Rules}
+
+
+\begin{theorem}[Restricted Weakening]
+{\sf AdaptiveND} satisfies Weakening:
+
+\begin{enumerate}
+\item If $\Turn{\Gamma;\cdot}{\phi_{1}}$, then $\Turn{\Gamma, \phi_{2};\cdot}{\phi_{1}}$, with $\phi_{2}$ fresh.
+\item If $\Turn{\Gamma; \Omega^{-}}{\phi_{1}}$, then $\Turn{\Gamma, \phi_{2}; \Omega^{-}}{\phi_{1}}$, with $\phi_{2}$ fresh, and there is no $\phi_{3}\in\Gamma$ such that $\phi_{2},\phi_{3}\in Dab(\Delta)$.
+\item If $\Turn{\Gamma;\Omega^{-}}{\phi}$, then $\Turn{\Gamma;\Omega^{-},\Delta_{i}}{\phi}$, iff $\Delta_{i}\supseteq\Delta_{j}$, for every $\Delta_{j}\in \Omega$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The first and second item are justified simply by $\Gamma$-formation rule with the appropriate restrictions on, respectively, freshness of the formula and $Dab$-formation by $\vee_{\sf CL}$-rule. The third item works as weakening on $\Omega^{-}$ by $\Gamma\Omega^{-}$-formation rule, with the appropriate restriction on minimal $Dab$-formulas in the already present set of abnormal premises.
+\end{proof}
+
+
+\begin{theorem}[Contraction]
+{\sf AdaptiveND} satisfies Contraction:
+
+\begin{enumerate}
+\item If $\Turn{\Gamma, \phi_{1}, \phi_{1};\cdot}{\phi_{2}}$, then $\Turn{\Gamma, \phi_{1};\cdot}{\phi_{2}}$.
+\item If $\Turn{\Gamma, \phi_{1}, \phi_{1}; \Omega^{-}}{\phi_{2}}$, then $\Turn{\Gamma, \phi_{1};\Omega^{-}}{\phi_{2}}$.
+\item If $\Turn{\Gamma;\Omega^{-}, \Delta_{i}, \Delta_{i}}{\phi}$, and $\Delta_{i}\supseteq\Delta_{j}$, for every $\Delta_{j}\in \Omega$,  then $\Turn{\Gamma;\Omega^{-},\Delta_{i}}{\phi}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+First and second item by induction on formulas (where $\Omega^{-}$ being empty is irrelevant). For the third item, it is essential that the sets of abnormal formulas involved in the contraction operation be irrelevant with respect to minimal $Dab$-formulas formation
+\end{proof}
+
+
+
+\begin{theorem}[Exchange]
+{\sf AdaptiveND} satisfies exchange up to context well-formedness:
+
+\begin{enumerate}
+\item If $\Turn{\Gamma, \phi_{1}, \phi_{2}; \cdot}{\phi_{3}}$, then $\Turn{\Gamma, \phi_{2}, \phi_{1};\cdot}{\phi_{3}}$.
+\item If $\Turn{\Gamma, \phi_{1}, \phi_{2}; \Omega^{-}}{\phi_{3}}$, then $\Turn{\Gamma, \phi_{2}, \phi_{1};\Omega^{-}}{\phi_{3}}$.
+\item If $\Turn{\Gamma; \Omega^{-}, \Delta_{i}, \Delta_{j}}{\phi}$, and $\Delta_{i}, \Delta_{j}\supseteq\Delta_{k}$, for every $\Delta_{k}\in \Omega$,  then\\ $\Turn{\Gamma; \Omega^{-},\Delta_{j}, \Delta_{i}}{B}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+First and second item by induction on formulas (where $\Omega^{-}$ being empty is irrelevant). For the third item, it is again essential that the sets of abnormal formulas involved in the exchange operation be irrelevant with respect to minimal $Dab$-formulas formation.
+\end{proof}
+
+\bibliographystyle{plain}
+\bibliography{primiero}
+
+\end{document}

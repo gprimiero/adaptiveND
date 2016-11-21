@@ -1,0 +1,186 @@
+\section{Abnormality handling in terms of
+  discharge-management}
+
+One of the similarities between natural deduction (in short,
+ND) and adaptive logic proofs is that both involve
+assumptions, albeit of different kinds.
+
+In ND we infer from assumptions and there are ways to
+discharge certain previous assumptions. One can define a
+consequence relation by: $\Gamma \vd{} A$ iff $A$ is
+derivable by the inference and deduction rules of ND from
+charged assumptions in $\Gamma$.
+
+In adaptive logics (in short, ALs) we usually speak about
+$\Gamma$ as being the set of premises and reserve the term
+``assumption'' for something else. Namely, we derive formulas
+on conditions $\Delta$. These conditions are finite sets of
+members of a set of so-called abnormalities that are
+associated with each adaptive logic. The fact that $A$ is
+derived on the condition $\Delta$ in an adaptive proof means
+that $A$ is derived on the \emph{assumption} that each
+abnormality in $\Delta$ is false.
+
+The link between ALs and ND via the notion of assumption
+suggests to design ND systems for ALs along the following
+lines. We allow for the introduction of what we may call
+\emph{abnormality-assumptions}: namely, an assumption that a
+certain (finite) set of abnormalities is false. Recall that
+usually assumptions in ND are charged when introduced and may
+be later discharged in view of deduction rules. We see that
+for instance in the following derivation tree (I put
+discharged assumptions in brackets):
+\begin{equation*}
+  \infer{A \impl (B\wedge C)}{\infer{B \wedge
+      C}{\infer{B}{(A) & A \impl B} & \infer{C}{(A) & A \impl
+      C}}}
+% \infer{A \impl B}{\infer{B}{(A)}}
+\end{equation*}
+The handling of abnormality-assumptions is inverse: they are
+discharged when introduced but may get charged when we reason
+on. An example (I indicate abnormalities by ``!'' and suppose
+that $\vee$ and $\neg$ have a classical meaning):
+\begin{equation*}
+  \vcenter{\infer{A}{(\neg !B) & A \vee {!}B}} ~~~\leadsto~~~ %
+  \vcenter{\infer{A \wedge (!B \vee {!}C)}{\infer{A}{\neg !B
+        & A \vee {!}B} & !B \vee {!}C}}
+\end{equation*}
+On the left the abnormality assumption is discharged (by
+default). However, in the extension of the derivation tree on
+the right, it gets charged due to the presence of $!B \vee
+{!}C$.
+
+Note that the handling of the charging of assumptions is
+usually implemented by means of deduction rules (see Prawitz
+p.\ 23). For the handling of the charging of
+abnormality-assumptions we need an extra rule which is
+applied whenever a disjunction of abnormalities is
+derived. Let me demonstrate this for the modeling of the
+so-called reliability strategy in terms of ND. 
+
+First, it will be useful to formally distinguish between
+abnormality assumptions and usual assumptions. Hence, I will
+put a bracket over normality assumptions. E.g.,
+\begin{equation}\label{eq:1}
+  \vcenter{\infer{A}{(\overbracket{\neg !B}) & A \vee {!}B}} ~~~\leadsto~~~ %
+  \vcenter{\infer{A \wedge (!B \vee
+      {!}C)}{\infer{A}{\overbracket{\neg !B} 
+        & A \vee {!}B} & !B \vee {!}C}}
+\end{equation}
+Note the difference to the following derivation tree sequence
+where $\neg !B$ is introduced as a usual assumption:
+\begin{equation*}
+  \vcenter{\infer{A}{\neg !B & A \vee {!}B}} ~~~\leadsto~~~ %
+  \vcenter{\infer{A \wedge (!B \vee
+      {!}C)}{\infer{A}{\neg !B 
+        & A \vee {!}B} & !B \vee {!}C}}
+\end{equation*}
+So far, I only allowed for abnormality assumptions of the
+form $\neg !B$. We can also assume many abnormalities to be
+false at once: $\neg !B_1 \wedge \neg !B_2 \wedge \ldots
+\wedge \neg !B_n$. Where $\Delta = \{B_1, \ldots, B_n\}$ we
+write $\Delta^\neg$ for $\neg !B_1 \wedge \neg !B_2 \wedge
+\ldots \wedge \neg !B_n$. Hence, all abnormality assumptions
+have the form $\Delta^\neg$ for some finite set of
+abnormalities $\Delta$.
+
+
+Let $\tau$ be a derivation tree: let ${\rm top}(\tau)$ be the
+set of all usual assumptions in $\tau$, ${\rm top}*(\tau)$
+the set of all charged assumptions in ${\rm top}(\tau)$,
+$\overbracket{\rm top}(\tau)$ the set of all abnormality
+assumptions in $\tau$ and $\overbracket{\rm top}*(\tau)$ the
+set of all charged abnormality assumptions in
+$\overbracket{\rm top}(\tau)$.
+
+For instance in \eqref{eq:1} we have on the left: ${\rm
+  top}(\tau) = {\rm top}*(\tau) = \{A \vee {!}B\}$ and
+$\overbracket{\rm top}(\tau) = \{\neg !B\}$ while
+$\overbracket{\rm top}*(\tau) = \emptyset$. On the right the
+situation changes since $\overbracket{\rm top}*(\tau) =
+\{\neg ! B\}$.
+
+% DAB-formulas + minimal ones
+
+\begin{defn}[Derivability in $\tau$]
+  Given a derivation tree $\tau$ we say that \emph{$A$ is
+    derived at a node $n$ in $\tau$ (from $\Gamma$) [on the
+    abnormality assumption $\Delta$]} iff there is a subtree
+  $\tau'$ of $\tau$ such that $n$ is in $\tau'$,
+  $\overbracket{\rm top}*(\tau') = \emptyset$, (${\rm
+    top}*(\tau') \subseteq \Gamma$) [and $\overbracket{\rm
+    top}(\tau') = \Delta$].
+\end{defn}
+For instance, in \eqref{eq:1}, on the left $A$ is derived
+from $\{A \vee {!}B\}$ on the abnormality assumption
+$\emptyset$, while on the right it is not. The reason is that
+on the left the abnormality assumption $\neg !B$ is
+discharged, while on the right it is charged (and note that
+there is no subtree where $A$ is derived such that all
+abnormality assumptions are discharged).
+
+We say that $\Dab(\Delta)$ is a minimal \Dab-formula in
+$\tau$ iff $\Dab(\Delta)$ is derived in $\tau$ on the
+abnormality assumption $\emptyset$ and for all $\Delta'
+\subset \Delta$, $\Dab(\Delta')$ is not derived in $\tau$ on
+the abnormality assumption $\emptyset$.
+
+Where $\Dab(\Delta_1), \Dab(\Delta_2), \ldots$ are the
+minimal \Dab-formulas in $\tau$, let $U(\tau) = \Delta_1 \cup
+\Delta_2 \cup \ldots$
+ 
+\begin{defn}[Charging of abnormality-assumptions, Reliability]
+  An abnormality assumption $\Delta^\neg$ is charged in
+  $\tau$ iff $U(\tau) \cap \Delta \neq \emptyset$.
+\end{defn}
+
+Let us extend our example in \eqref{eq:1} a bit more:
+\begin{equation}\label{eq:2}
+  \vcenter{\infer{A}{(\overbracket{\neg !B}) & A \vee {!}B}}
+  ~~\leadsto~~  %
+  \vcenter{\infer{A \wedge (!B \vee
+      {!}C)}{\infer{A}{\overbracket{\neg !B} 
+        & A \vee {!}B} & !B \vee {!}C}} %
+  ~~\leadsto~~ %
+  \vcenter{\infer{A \wedge {!}C}{\infer{A}{\infer{A \wedge (!B \vee
+      {!}C)}{\infer{A}{(\overbracket{\neg !B}) 
+        & A \vee {!}B} & !B \vee {!}C}}& !C}} %
+\end{equation}
+The reason why on the right side our abnormality assumption
+is discharged again is that $!B \vee {!}C$ ceases to be a
+minimal \Dab-formula due to the introduction of $!C$.
+
+As our example demonstrates, derivability is a dynamic
+matter. We now define a static notion of derivability,
+so-called final derivability.
+
+We call an extension $\tau'$ of $\tau$ a $\Gamma$-extension
+of $\tau$ iff ${\rm top}*(\tau') \subseteq \Gamma$. 
+\begin{defn}[Final derivability]
+  $A$ is finally derived in $\tau$ from $\Gamma$ iff (i) it
+  is derived at a node $n$ in $\tau$ from $\Gamma$ and (ii)
+  whenever $A$ is not derived in an $\Gamma$-extension
+  $\tau'$ of $\tau$ at node $n$ then there is a
+  $\Gamma$-extension $\tau''$ of $\tau'$ such that $A$ is
+  derived at node $n$ in $\tau''$.
+\end{defn}
+
+For instance, $A$ is finally derived from $\Gamma = \{A\vee
+{!}B, !B \vee {!}C, !C\}$ at the left tree in \eqref{eq:2} at
+some node, let's call it $n$. Although it is not derived in
+the $\Gamma$-extension of the tree in the middle, on the
+right side the tree is further $\Gamma$-extended and $A$ is
+derived again at node $n$. Note that there is no
+$\Gamma$-extension $\tau'$ of the tree on the right such that
+$A$ at node $n$ is not derived in $\tau'$. 
+
+\begin{defn}
+  $\Gamma \vd{AdND} A$ iff $A$ is finally derived from
+  $\Gamma$ in some tree $\tau$.
+\end{defn}
+
+\newpage
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "giuseppe-ND"
+%%% End: 
