@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.4.29)  23 JAN 2017 14:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.4.29)  23 JAN 2017 15:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -478,29 +478,29 @@ LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
  (./note1.aux)
 \openout1 = `note1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Try loading font information for U+msa on input line 136.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Try loading font information for U+msa on input line 161.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 136.
+LaTeX Font Info:    Try loading font information for U+msb on input line 161.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 136.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 161.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
@@ -525,31 +525,31 @@ LaTeX Warning: Text page 3 contains only floats.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [5] [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 441.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 466.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 441.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 466.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 468.
+(Font)              using `U/wasy/m/n' instead on input line 493.
 
-[7] [8]
+[7] [8] [9]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 693.
- [9] (./note1.bbl) [10] (./note1.aux)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 745.
+ (./note1.bbl [10]) [11] (./note1.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2300 strings out of 493029
- 25084 string characters out of 6136234
- 95707 words of memory out of 5000000
- 5805 multiletter control sequences out of 15000+600000
+ 2307 strings out of 493029
+ 25167 string characters out of 6136234
+ 95861 words of memory out of 5000000
+ 5812 multiletter control sequences out of 15000+600000
  20914 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,43n,60p,1279b,566s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -578,10 +578,10 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/wasy2-ps/wasy10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/wasy2-ps/wasy7.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/wasy2-ps/wasy9.pfb>
-Output written on note1.pdf (10 pages, 287552 bytes).
+Output written on note1.pdf (11 pages, 289358 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
+ 149 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

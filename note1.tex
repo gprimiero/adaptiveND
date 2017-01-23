@@ -117,6 +117,31 @@
 \newcommand{\TurnMarkedTwelveREL}[2]
 	{ {#1}\vdash_{\textbf{\sf 12\XBox R}}  {#2}}
 
+
+\newcommand{\TurnThirteen}[2]
+		{ {#1}\vdash_{\textbf{\sf 13}}  {#2}}
+
+\newcommand{\TurnFourteen}[2]
+		{ {#1}\vdash_{\textbf{\sf 14}}  {#2}}
+
+\newcommand{\TurnFifteen}[2]
+		{ {#1}\vdash_{\textbf{\sf 15}}  {#2}}
+
+
+\newcommand{\TurnSixteen}[2]
+		{ {#1}\vdash_{\textbf{\sf 16}}  {#2}}
+
+\newcommand{\TurnSeventeen}[2]
+		{ {#1}\vdash_{\textbf{\sf 17}}  {#2}}
+
+
+\newcommand{\TurnEighteen}[2]
+		{ {#1}\vdash_{\textbf{\sf 18}}  {#2}}
+
+\newcommand{\TurnNineteen}[2]
+		{ {#1}\vdash_{\textbf{\sf 19}}  {#2}}
+
+
 %\newcommand{\TurnT}[2]
 %	{ \Delta_0;{#1}\vdash  {#2}}
 %\newcommand{\TurnTT}[2]
@@ -645,15 +670,42 @@ Let us now consider the following derivation, dubbed $\mathbb{D}^{'}$
 \bigskip
 
 
-If we join now the two branches $\mathbb{D,D^{\prime}}$, we are allowed a marking step:
+If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we are allowed a marking step:
 
 \begin{mathpar}
 \infer*[right=\XBox]{
-{\infer*[]{\mathbb{D}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}}\\{\infer*[]{\mathbb{D^{\prime}}}{\TurnEleven {\Gamma;\cdot}{(p \wedge \neg p), (q\wedge \neg q)}}}
+{\infer*[]{\mathbb{D}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}}\\{\infer*[]{\mathbb{D^{\prime}}}{\TurnEleven {\Gamma;\cdot}{(p \wedge \neg p), (q\wedge \neg q)}}}\\{(p \wedge \neg p)\in \Delta^{min}}
 }{\TurnMarkedTwelveREL{\Gamma; \cdot}{r}}
 \end{mathpar}
 \bigskip
 
+Now we can provide a further extension of this derivation dubbed $\mathbb{D^{\prime\prime}}$:
+
+\begin{mathpar}
+\infer*[right=$\wedge$ I]{
+\infer*[right=$\rightarrow$ I]{
+\infer*[right=PREM]{\phantom{xxx}}{\TurnThirteen{\Gamma;\cdot}{\neg p}}\\ \infer*[right=PREM]{\phantom{xxx}}{\TurnFourteen{\Gamma;\cdot}{\neg p\rightarrow q}}}
+{\TurnFifteen{\Gamma; \cdot}{q}}\\{
+\infer*[right=PREM]{\phantom{xx}}{\TurnSixteen{\Gamma;\cdot}{\neg q}}}}{\TurnSeventeen {\Gamma; \cdot}{q \wedge \neg q}}
+
+\end{mathpar}
+\bigskip
+
+At this stage the abnormality at stage $17$ is a minimal one. This also means that if we derive a copy of derivation $\mathbb{D}$, where each step is re-numbered consecutively, and join it to $\mathbb{D^{\prime\prime}}$ and $\mathbb{E}$, it is possible to derive again the judgement that was marked at stage $12$, as follows:
+
+
+\begin{mathpar}
+\infer*[right=RC*]{
+\infer*[]{\mathbb{E}}{\TurnMarkedTwelveREL{\Gamma; \cdot}{r}}\\
+\infer*[]{\mathbb{D^{\prime\prime}}}{\TurnSeventeen {\Gamma; \cdot}{q \wedge \neg q}}\\
+\infer*[]{\mathbb{D}}{\TurnEighteen {\Gamma;\cdot}{(p\wedge \neg p), r}}
+%\\{(p\wedge \neg p)\in \Omega}
+}
+{\TurnNineteen {\Gamma;(p \wedge \neg p)^{-}}{r}}
+
+\end{mathpar}
+\bigskip
+where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$.
 
 \section{Derivability}
 
@@ -677,8 +729,8 @@ To this aim, one requires that the stage {\sf s} at which a formula $\phi$ is de
 Let $P$ be a proof-tree of {\sf AdaptiveND}. We call $P^{\sf ext}$ the complete extension of $P$ at stage {\sf s} if $P^{\sf ext}$ extends $P$ by a possibly infinite number of derivation steps such that 
 
 \begin{enumerate}
-\item if $\Turn{\Gamma;\cdot}{Dab(\Delta_{i})}$, then for some $\Delta_{j}\subseteq\Delta_{i} $ it holds $\Turn{\Gamma;\cdot}{Dab(\Delta_{j})}$;
-\item if $\Turn{\Gamma;\Delta_{i}^{-}}{\phi}$, then $\Turn{\Gamma;\Delta_{j}^{-}}{\phi}$
+\item if $\Turn{\Gamma;\cdot}{Dab(\Delta)}$, then for all $\Delta^{'}\subseteq\Delta$, it holds $\TurnPrime{\Gamma;\cdot}{Dab(\Delta^{'})}$, for some $s'<s$;
+\item if $\Turn{\Gamma;\Delta^{-}}{\phi}$, then $\Turn{\Gamma;\Delta'^{-}}{\phi}$
 \end{enumerate}
 \end{definition}
 %
