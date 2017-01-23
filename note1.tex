@@ -33,6 +33,10 @@
 \newcommand{\TurnPrime}[2]
 	{ {#1}\vdash_{\textbf{\sf s'}}  {#2}}
 
+\newcommand{\TurnPrimePrime}[2]
+	{ {#1}\vdash_{\textbf{\sf s''}}  {#2}}
+
+
 \newcommand{\TurnOne}[2]
 	{ {#1}\vdash_{\textbf{\sf 1}}  {#2}}
 \newcommand{\TurnMarked}[2]
@@ -353,7 +357,7 @@ Prop:= A | \bot | \neg \phi | \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge \p
 % | \phi_{1} \vee_{\sf CL} \phi_{2}\\
 \Gamma := \{\phi_{1}, \dots, \phi_{n}\}\\
 \Delta := \{\phi_{1}, \dots, \phi_{n}\}\\
-\Omega := \{\phi \wedge \neg \phi)\mid \phi\in Prop\}\\
+\Omega := \{\phi \wedge \neg \phi\mid \phi\in Prop\}\\
 %Dab(\Delta) := \phi_{1} \vee_{\sf CL} \phi_{2}\mid \phi_{1},\phi_{2}\in \Omega
 \end{array}
 \end{displaymath}
@@ -725,29 +729,54 @@ A more stable notion of derivability holds when marking is no longer possible.
 %To get around this problem and provide a stable notion of derivability
 To this aim, one requires that the stage {\sf s} at which a formula $\phi$ is derived remains unmarked in the possibly infinite extension of the derivation tree, given that all minimal Dab-formulas are derived on the empty condition and $\phi$ is derived on all (minimal) conditions. We introduce therefore an extension of a standard proof-tree:
 
-\begin{definition}
-Let $P$ be a proof-tree of {\sf AdaptiveND}. We call $P^{\sf ext}$ the complete extension of $P$ at stage {\sf s} if $P^{\sf ext}$ extends $P$ by a possibly infinite number of derivation steps such that 
 
-\begin{enumerate}
-\item if $\Turn{\Gamma;\cdot}{Dab(\Delta)}$, then for all $\Delta^{'}\subseteq\Delta$, it holds $\TurnPrime{\Gamma;\cdot}{Dab(\Delta^{'})}$, for some $s'<s$;
-\item if $\Turn{\Gamma;\Delta^{-}}{\phi}$, then $\Turn{\Gamma;\Delta'^{-}}{\phi}$
-\end{enumerate}
+%\begin{definition}
+%$Sf(\phi)=\{\psi \mid \psi$ is a subformula of $ \phi\}$
+%\end{definition}
+
+
+\begin{definition}
+$Sf(\Gamma)=\bigcup_{\phi \in \Gamma} \{\psi \mid \psi$ is a subformula of $ \phi\}$
 \end{definition}
+
+
+\begin{definition}
+$\Omega(\Gamma)=\{\psi\wedge \neg \psi \mid \psi\in Sf(\Gamma)\}$
+\end{definition}
+
+%\begin{definition}
+%Let $P$ be a proof-tree of {\sf AdaptiveND}. We call $P^{\sf ext}$ the complete extension of $P$ at stage {\sf s} if $P^{\sf ext}$ extends $P$ by a possibly infinite number of derivation steps such that 
 %
-By the first requirement all possible $Dab(\Delta)^{min}_{s}$ have been derived for  {\sf s}; and by the second requirement every formula is derived under the minimal conditions (hence any relevant condition for the marking has been obtained already).
+%\begin{enumerate}
+%\item if $\Turn{\Gamma;\cdot}{Dab(\Delta)}$, then for all derivable $\Delta^{'}\subseteq\Delta$, it holds $\TurnPrime{\Gamma;\cdot}{Dab(\Delta^{'})}$, for some $s'<s$;
+%\item if $\Turn{\Gamma;\Delta^{-}}{\phi}$, then $\Turn{\Gamma;\Delta'^{-}}{\phi}$
+%\end{enumerate}
+%\end{definition}
+%
+
+
+\begin{definition}
+Let $P$ be a proof-tree of {\sf AdaptiveND}. We say that $P$ is complete relative to $\Omega(\Gamma)$ at stage {\sf s} if  $\TurnPrime{\Gamma;\cdot}{Dab(\Delta)}$, for every derivable $Dab(\Delta)$ with $\Delta\subseteq\Omega(\Gamma)$ and some $s'<s$.
+
+%
+%\begin{enumerate}
+%\item  it holds $\TurnPrime{\Gamma;\cdot}{Dab(\Delta^{'})}$, for some $s'<s$;
+%\item there is a $\psi$ such that $\TurnPrimePrime{\Gamma;\Delta'^{-}}{\psi}$, for some $s<s''<s$.
+%\end{enumerate}
+\end{definition}
+
+
+%By the first requirement all possible $Dab(\Delta)^{min}_{s}$ have been derived for  {\sf s}; and by the second requirement every formula is derived under the minimal conditions (hence any relevant condition for the marking has been obtained already).
 
 Now we can derive our notion of final derivability:
 
-\begin{definition}
-A formula $\phi$ is finally derived $\TurnChecked{\Gamma;\Omega^{-}}{\phi}$ iff:
-
-\begin{itemize}
-\item $\Turn{\Gamma;\Omega^{-}}{\phi}$ in some proof-tree $P$;
-%, and so it is not the case that $\TurnMarked{\Gamma;\Omega^{-}}{B}$ in $P$;
-\item and for any ${\sf s'>s}$, such that ${\sf s'}\in P^{\sf ext}$, %$\TurnPrime{\Gamma;\cdot}{Dab(\Delta)^{min}_{\sf s'}}$ and 
-it is not the case that $\TurnMarkedprime{\Gamma;\Delta_{\sf s'}^{-}}{\phi}$.
-
-\end{itemize}
+\begin{definition}[Final Derivability]
+A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ iff there is a stage $s$  in some complete proof-tree $P$
+ such that $\Turn{\Gamma;\phi^{-}}{\psi}$%, and so it is not the case that $\TurnMarked{\Gamma;\Omega^{-}}{B}$ in $P$;
+%\item and for any ${\sf s'>s}$, such that ${\sf s'}\in P^{\sf ext}$, %$\TurnPrime{\Gamma;\cdot}{Dab(\Delta)^{min}_{\sf s'}}$ and 
+%it is not the case that $\TurnMarkedprime{\Gamma;\Delta_{\sf s'}^{-}}{\phi}$.
+%\item if $\phi \in \Delta$, there is $\Delta'\subseteq \Omega(\Gamma)$ such that $\Delta'\subset \Delta$
+and $\phi \notin \Delta$, where $\Delta$ is the conclusion obtained  at some stage of $P$ by an instance of the \textsc{MinDab} rule. 
 \end{definition}
 %
 Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
