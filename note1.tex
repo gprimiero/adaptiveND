@@ -725,12 +725,14 @@ where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the deriva
 
 \section{Derivability}\label{sec:meta}
 
-The marking condition establishes a dynamic derivability relation. Whenever a certain formula is derived on some $\phi\in \Delta^{min}$ condition in the premises, it might still be marked afterwards according to $\XBox R$.
+In the example from the previous section we have illustrated how the marking condition establishes a dynamic derivability relation, which allows to derive formulas and retract them. Whenever a certain formula is derived on some $\phi\in \Delta^{min}$ adaptive condition, it might still be marked afterwards according to $\XBox R$.
 % or $\XBox MA$. 
 This gives us a notion of derivability at stage: 
 
 \begin{definition}[Derivability at stage]
-$\Turn{\Gamma; \phi^{-}}{\psi}$ iff at ${\sf s}$ it is not the case that $\TurnMarked{\Gamma}{\psi}$.
+%$\Turn{\Gamma; \phi^{-}}{\psi}$ iff at ${\sf s}$ it is not the case that $\TurnMarked{\Gamma}{\psi}$.
+A formula $\psi$ is derived at stage {\sf s}  iff it is not the case that $\TurnMarked{\Gamma; \cdot}{\psi}$.
+%$\Turn{\Gamma; \cdot}{\phi,\psi}$
 \end{definition}
 
 A more stable notion of derivability holds when marking is no longer possible.
@@ -739,7 +741,7 @@ A more stable notion of derivability holds when marking is no longer possible.
 %[HERE AN EXAMPLE]
 %
 %To get around this problem and provide a stable notion of derivability
-To this aim, one requires that the stage {\sf s} at which a formula $\phi$ is derived remains unmarked in the possibly infinite extension of the derivation tree, given that all minimal Dab-formulas are derived on the empty condition and $\phi$ is derived on all (minimal) conditions. We introduce therefore an extension of a standard proof-tree:
+To this aim, one requires that the stage {\sf s} at which a formula $\phi$ is derived remains unmarked in all the extensions of the derivation tree which can be obtained by using all \textit{relevant} abnormalities as adaptive conditions. This relevance criterion is essential if one wants to guarantee finiteness  of the proof tree to be surveyed in order to establish whetehr a formula is never marked (again), We define therefore a set of \textit{abnormalities relevant to $\Gamma$}. to do so we first identify the union set of all subformulas of the premise set $\Gamma$:
 
 
 %\begin{definition}
@@ -747,12 +749,14 @@ To this aim, one requires that the stage {\sf s} at which a formula $\phi$ is de
 %\end{definition}
 
 
-\begin{definition}
+\begin{definition}[Subformulas of the premise set]
 $Sf(\Gamma)=\bigcup_{\phi \in \Gamma} \{\psi \mid \psi$ is a subformula of $ \phi\}$
 \end{definition}
 
 
-\begin{definition}
+From $Sf(\Gamma)$ we the construe all the possible abnormalities which can be obtained by its members:
+
+\begin{definition}[Abnormalities relevant to the premise set]
 $\Omega(\Gamma)=\{\psi\wedge \neg \psi \mid \psi\in Sf(\Gamma)\}$
 \end{definition}
 
@@ -766,9 +770,10 @@ $\Omega(\Gamma)=\{\psi\wedge \neg \psi \mid \psi\in Sf(\Gamma)\}$
 %\end{definition}
 %
 
+Given this preparatory work, we now introduce the notion of a \textit{complete proof-tree} with respect to derivable relevant disjunction of abnormalities:
 
-\begin{definition}
-Let $P$ be a proof-tree of {\sf AdaptiveND}. We say that $P$ is complete relative to $\Omega(\Gamma)$ at stage {\sf s} if  $\TurnPrime{\Gamma;\cdot}{Dab(\Delta)}$, for every derivable $Dab(\Delta)$ with $\Delta\subseteq\Omega(\Gamma)$ and some $s'<s$.
+\begin{definition}[Completeness relative to relevant abnormalities ]
+Let $P$ be a proof-tree of {\sf AdaptiveND}. We say that $P$ is complete relative to $\Omega(\Gamma)$ at stage {\sf s} if  $\TurnPrime{\Gamma;\cdot}{\bigvee(\Delta)}$, for every derivable $\bigvee(\Delta)$ with $\Delta\subseteq\Omega(\Gamma)$ and some {\sf s'}$<${\sf s}.
 
 %
 %\begin{enumerate}
@@ -780,25 +785,22 @@ Let $P$ be a proof-tree of {\sf AdaptiveND}. We say that $P$ is complete relativ
 
 %By the first requirement all possible $Dab(\Delta)^{min}_{s}$ have been derived for  {\sf s}; and by the second requirement every formula is derived under the minimal conditions (hence any relevant condition for the marking has been obtained already).
 
-Now we can derive our notion of final derivability:
+We can now formulate our notion of final derivability:
 
 \begin{definition}[Final Derivability]
-A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ iff there is a stage $s$  in some complete proof-tree $P$
- such that $\Turn{\Gamma;\phi^{-}}{\psi}$%, and so it is not the case that $\TurnMarked{\Gamma;\Omega^{-}}{B}$ in $P$;
-%\item and for any ${\sf s'>s}$, such that ${\sf s'}\in P^{\sf ext}$, %$\TurnPrime{\Gamma;\cdot}{Dab(\Delta)^{min}_{\sf s'}}$ and 
-%it is not the case that $\TurnMarkedprime{\Gamma;\Delta_{\sf s'}^{-}}{\phi}$.
-%\item if $\phi \in \Delta$, there is $\Delta'\subseteq \Omega(\Gamma)$ such that $\Delta'\subset \Delta$
-and $\phi \notin \Delta$, where $\Delta$ is the conclusion obtained  at some stage of $P$ by an instance of the \textsc{MinDab} rule. 
+A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ iff there is a stage {\sf s}  in some complete proof-tree $P$
+ such that $\Turn{\Gamma;\phi^{-}}{\psi}$ and $\phi \notin \Delta^{min}$.
+%, where $\Delta$ is the conclusion obtained  at some stage of $P$ by an instance of the \textsc{MinDab} rule. 
 \end{definition}
 %
-Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
+The definition guarantees final derivability for any derived formula whose  adaptive condition is not minimal. Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
 
 
 %\begin{definition}
 %$\TurnADND{\Gamma}{\phi}$ iff $\TurnChecked{\Gamma;\Omega^{-}}{\phi}$
 %\end{definition}
 %
-Notice that not every finally derivable formula of {\sf AdaptiveND} is derivable at stage. In particular, for the case of {\sf AdaptiveND}, where the disjunction used to construct $Dab$-formulas is explicitly admitted in the premise set by the extension of a given $\Gamma$ with $Dab(\Delta)^{-}$ on the left-hand side of $\vdash$, one can conceive of cases in which a finally derivable $\phi$ is not derivable at any finite stage of a proof-tree.\footnote{For an example see Strasser PHD, ch.2.8.} 
+%Notice that not every finally derivable formula of {\sf AdaptiveND} is derivable at stage. In particular, for the case of {\sf AdaptiveND}, where the disjunction used to construct $Dab$-formulas is explicitly admitted in the premise set by the extension of a given $\Gamma$ with $Dab(\Delta)^{-}$ on the left-hand side of $\vdash$, one can conceive of cases in which a finally derivable $\phi$ is not derivable at any finite stage of a proof-tree.\footnote{For an example see Strasser PHD, ch.2.8.} 
 
 %\section{Structural Rules}
 %
