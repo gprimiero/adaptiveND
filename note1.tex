@@ -351,28 +351,28 @@ Finally, we introduce a set of rules to enforce structural properties in Figure 
 %hence is not fully CLuN equivalent.
 %]
 
-\section{Adaptive ND}\label{sec:adaptive}
+\section{{\sf AdaptiveND}}\label{sec:adaptive}
 
 
-%{\sf minimalND} is now modified to characterize a new logic called {\sf AdaptiveND}. To obtain an extension that allows for inconsistency adaptive reasoning, one needs: 
+We now extend {\sf minimalND} to characterize a new logic called {\sf AdaptiveND} to allow for inconsistency adaptive reasoning. To this aim one needs: 
 % 
-%\begin{enumerate}
-%\item the explicit formulation of an $\Omega$ set of propositions of type $\bot$ that behaves differently than in the previous setting; this means to drop the $\bot$I rule and proceed with a different mechanism that requires new formation rules for the assumptions;
-%\item the introduction rule for a new propositional connective $\vee_{\sf CL}$ that allows classical disjunction over formulas of the above type;
-%\item well-formedness of contexts of assumptions with negation of formulas in $\Omega$ closed under $\vee_{\sf CL}$;
-%\item two new rules for marking lines.
-%\end{enumerate}
+\begin{enumerate}
+\item the explicit formulation of an $\Omega$ set of propositions of type $\bot$;
+\item the formulation of judgements including an \textit{adaptive condition};
+\item the formulation of a rule that allows to derive new formulas independent from such an adaptive condition;
+\item the formulation of a rule that allows to derive new formulas dependently from such an adaptive condition.
+\end{enumerate}
 %
+We offer accordingly new definitions for the syntax of this new logic and the related form of judgement.
 
 \begin{definition}[{\sf AdaptiveND}]
-
 The language of {\sf AdaptiveND} is as follows:
 
 
 \begin{displaymath}
 \begin{array}{l}
-Type:=Prop\\
-Prop:= A | \bot | \neg \phi | \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge \phi_{2} | \phi_{1} \vee \phi_{2}\\
+{\sf Type}:={\sf Prop}\\
+{\sf Prop}:= A | \bot | \neg \phi | \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge \phi_{2} | \phi_{1} \vee \phi_{2}\\
 % | \phi_{1} \vee_{\sf CL} \phi_{2}\\
 \Gamma := \{\phi_{1}, \dots, \phi_{n}\}\\
 \Delta := \{\phi_{1}, \dots, \phi_{n}\}\\
@@ -383,44 +383,47 @@ Prop:= A | \bot | \neg \phi | \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge \p
 \end{definition}
 
 
-We refer to an {\sf AdaptiveND}-formula as an extension of a {\sf minimalND}-formula of the form $\Gamma; \phi^{-}\vdash_{s} \psi$, where: 
+
+
+\begin{definition}[Judgements]
+An {\sf AdaptiveND}-judgement is of the form $\Gamma; \phi^{-}\vdash_{s} \Delta$, where: 
 
 \begin{enumerate}
 \item the left-hand side of $\vdash_{\sf s}$ has $\Gamma$ as in {\sf minimalND};
 \item the semicolon sign on the left-hand side of $\vdash_{\sf s}$ is conjunctive;
-\item $\phi$ refers to a formula with a specific inconsistent logical form, obtained by way of the $\Omega$-formation rule presented below;\footnote{As mentioned above, the current setting of {\sf AdaptiveND} is specified for an inconsistency-adaptive logic.}
+\item $\phi$ refers to a formula in $\Omega$, i.e. with a specific inconsistent logical form; below we introduce an appropriate $\Omega$-formation rule;\footnote{As mentioned above, the current setting of {\sf AdaptiveND} is specified for an inconsistency-adaptive logic.}
 \item the last place of the left-hand side context is always reserved to negated formulas of the $\Omega$ form; we shall use $\phi^{-}$ to refer to the negation of $\phi$, for all $\phi\in \Omega$;
 \item the right-hand side is in disjunctive form.
 \end{enumerate}
+\end{definition}
 %
 When $\Omega$ is empty on the left-hand side of $\vdash$, we shall write $\Gamma;\cdot\vdash$, thus reducing to the form of a {\sf minimalND}-formula. 
 %When $\Omega$ is empty on the right-hand side of $\vdash$, we shall write simply $\vdash A$. In view of point $4.$ above, this natural deduction calculus can also be characterized as a multiple conclusion calculus.\footnote{There is a certain similarity between $\vdash ;\Omega$ and the notion of \textit{denied formulas} in a state from \cite{restall2005}: the standard way to read the right hand side of an {\sf AdaptiveND}-formula is in fact that of an exclusive ``or".} 
-Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks: $\XBox$ to mark that at the current stage some previously derived formula is retracted; $\checked$ to mark that at the current stage some previously derived formulas is now stable, i.e. will no longer marked by $\XBox$. 
+Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks: $\XBox$ to mark that at the current stage some previously derived formula is retracted; $\checked$ to mark that at the current stage some previously derived formulas is now stable, i.e. will no longer marked by $\XBox$. These symbols will be formally introduced in Sections \ref{sec:marking} and \ref{sec:meta} respectively. 
 %We shall also use below the abbreviation $\neg\phi:=\phi\rightarrow\bot$. 
 
-A feature of {\sf AdaptiveND} that we will use below is that it requires to have \textit{classical disjunctions of formulas generated under the $\Omega$-rule}. To be more precise, whenever we derive more than a formula in the set $\Omega$, we might want to establish which of those is unavoidable, and thus extend $\Gamma$ with a set of disjunctions of $\omega$'s which is classical (as we cannot infer it from any already verified $\omega$). This means that {\sf AdaptiveND} needs a new formation rule for $\vee_{\sf CL}$, which is in fact restricted to $\phi$'s that are in $\Omega$. We shall also give a formation rule for $\Omega$ and one for $\Gamma; \Omega^{-}$. Furthermore, two additional rules are introduced for deriving formulas, simply or on conditions. 
+%A feature of {\sf AdaptiveND} that we will use below is that it requires to have \textit{classical disjunctions of formulas generated under the $\Omega$-rule}. To be more precise, whenever we derive more than a formula in the set $\Omega$, we might want to establish which of those is unavoidable, and thus extend $\Gamma$ with a set of disjunctions of $\omega$'s which is classical (as we cannot infer it from any already verified $\omega$). This means that {\sf AdaptiveND} needs a new formation rule for $\vee_{\sf CL}$, which is in fact restricted to $\phi$'s that are in $\Omega$. We shall also give a formation rule for $\Omega$ and one for $\Gamma; \Omega^{-}$. Furthermore, two additional rules are introduced for deriving formulas, simply or on conditions. 
 
-Marking definitions will be also described below. The mechanism enforced by the marking definitions (either for retracting or for stabilizing a derived content) makes a proof a sequence of derivation steps. The dynamic nature of this form of reasoning is implemented in our ND calculus by allowing extensions by derivation steps appended at the end of the current proof-tree.\footnote{That is, we will avoid the more complex approach that allows for line insertions in a given derivation.} For obtaining the stable notion of final derivability, it will be useful to allow \textit{infinite} extensions of a proof-tree.
+%The mechanism enforced by the marking definitions (either for retracting or for stabilizing a derived content) makes a proof a sequence of derivation steps. The dynamic nature of this form of reasoning is implemented in our ND calculus by allowing extensions by derivation steps appended at the end of the current proof-tree.\footnote{That is, we will avoid the more complex approach that allows for line insertions in a given derivation.} For obtaining the stable notion of final derivability, it will be useful to allow \textit{infinite} extensions of a proof-tree.
 
-\subsection{Rules of {\sf AdaptiveND}}
+%\subsection{Rules of {\sf AdaptiveND}}
 
-The set of rules of {\sf IPC} is extended by the following new set to obtain {\sf AdaptiveND}:
+We now introduce the rules for {\sf AdaptiveND}. In Figure \ref{fig:omega}, we illustrate the formation and use of formulas $\phi \in \Omega$. By $\Omega${\sf-Formation }, given a proposition $\phi$ (possibly non-atomic), a contradiction with $\neg \phi$ is a formula of the $\Omega$ type; following the Adaptive tradition $\phi$ can also be called an \textit{abnormality} or an \textit{abnormal fomrula}. By {\sf Adaptive Condition Formation}, given a valid context $\Gamma$ and a formula $\phi$ of the $\Omega$ type, a context $\Gamma$ followed by the adaptive Condition stating that $\phi$ \textit{is false}, is  awell-formed context. This corresponds to the use of conditions as additional elements of proof line in the standard Adaptive proof theort (Fitch-style).
 
 \begin{figure}[h!]
 \begin{mathpar}
-\infer*[right=$\Omega$-formation] {{\phi \in Prop}}{(\phi \wedge \neg \phi) \in \Omega}
+\infer*[right=$\Omega$-formation] {{\phi \in {\sf Prop}}}{(\phi \wedge \neg \phi) \in \Omega}
 %
 % {{\Turn {\Gamma;\cdot} {\phi}}\\ {\TurnNext {\Gamma, \phi; \cdot} {\neg\phi}}} 
 %{\TurnNextNext {\Gamma; \cdot} {{\sf \Omega}}} 
 \and
-\infer*[right=$\Gamma; \phi^{-}$-formation] {{\Turn {\Gamma;\cdot} {\sf wf} } \\ {\phi \in {\sf \Omega}}} {\TurnNext {\Gamma ; \phi^{-}} {\sf wf}}
+\infer*[right=Adaptive Condition-formation] {{\Turn {\Gamma;\cdot} {\sf wf} } \\ {\phi \in {\sf \Omega}}} {\TurnNext {\Gamma ; \phi^{-}} {\sf wf}}
 \end{mathpar}
-\caption{$\Omega$ Formation rules}
+\caption{$\Omega$ Formation rules}\label{fig:omega}
 \end{figure}
 
 
-
-
+Next, the calculus is extended by introducing two rules, see Figure \ref{fig:adaptiverules}. $RU$ is called the unconditional rule: it says that if a formula $\phi_{1}$ is derivable in {\sf AdaptiveND}, and another formula $\phi_{2}$ is derivable from $\phi_{1}$ without additional assumptions or adaptive conditions, then $\phi_{2}$ is derivable from $\phi_{1}$ and the context $\Gamma;\phi^{-}\vdash$ in which the latter holds.  $RC$ is  called the conditional rule: it says that if a disjunction $\psi,\phi$ is derivable from $\Gamma$, with $\phi$ an abnormal formula, then $\psi$ can also be derived alone under $\Gamma$ and the Adaptive Condition that $\phi$ be false.
 
 \begin{figure}[h!]
 \begin{mathpar}
@@ -430,41 +433,32 @@ The set of rules of {\sf IPC} is extended by the following new set to obtain {\s
 \infer*[right=RC] {\Turn {\Gamma;\cdot} {\psi,\phi}\\ {\phi \in \Omega}} {\TurnNext {\Gamma; \phi^{-}} {\psi}}
 \end{mathpar}
 
-%\begin{mathpar}
-%\infer*[right=$\vee_{\sf CL}$] {{\{\phi_{1},\phi_{2}\}\in \Omega}\\ {\Turn {\Gamma; \phi_{1}^{-}} {\phi_{2}}}} {\TurnNext {\Gamma;\cdot} {\phi_{1}\vee_{\sf CL} \phi_{2}}}
-%\end{mathpar}
-\caption{Adaptive Rules}
+\caption{Adaptive Rules}\label{fig:adaptiverules}
 \end{figure}
 
 
-%We now admit that a $\bot$ type formula $\{\phi\wedge (\phi\rightarrow \bot)\}$ is derivable.  
-We call $\phi\in \Omega$, following the adaptive tradition, an abnormal formula. How the system reacts to such a case, is no longer by the $\bot$I rule (which is thus now meant to be dropped), but rather by the additional rules of {\sf AdaptiveND}. First we admit that the complement of an $\Omega$-set can be used to extend a context $\Gamma$: $\Omega^{-} = \{\neg \phi\mid \forall \phi\in \Omega\}$. Next, the calculus is extended by introducing two rules. $RU$ is called the unconditional rule: it says that if a formula $\phi_{1}$ is derivable from $\Gamma$ and $\Omega^{-}$, and if $\phi_{2}$ is derivable from $\phi_{1}$, then $\phi_{2}$ is derivable from $\phi_{1}$ inheriting the whole context $\Omega^{-}$. $RC$ is  called the conditional rule: it applies the $\Gamma\Omega^{-}$-formation rule by saying that if a formula $\phi$ or a set $\Omega$ (possibly a singleton) is derivable under context $\Gamma$, then $\phi$ is derivable from $\Gamma$ and $\Omega^{-}$. 
-
-%The $\vee_{\sf CL}$ defines \textit{tertium non-datur} for formulas in $\Omega$: it says that if two formulas are abnormal, then either one has to be derived in our calculus on assumption that the other is not. To decide which of those is selected, we will define \textit{strategies}, i.e.\ sets of rules meant to establish which of such contradictions cannot be eliminated. This corresponds to establish which of the terms in $\Omega$ can be in fact derived. Or else, which $B$ derivable from $\Omega^{-}$ needs to be traced back in the derivation tree and retracted. We shall call $Dab(\Delta)$ a classical disjunction of $\phi_{1,2}\subseteq\Omega$ obtained by the $\vee_{\sf CL}$ rule. If $\Delta$ is a singleton, $Dab(\Delta)\equiv\phi\in \Omega$. If $\Delta=\emptyset$, $Dab(\Delta)=\{\emptyset\}$ and $\phi\vee Dab(\Delta)=\phi$. 
-%\begin{definition}[Minimal Disjunction of Abnormalities]\label{def:DAB}
-%We say that a formula $\Delta \supseteq \{\phi_{1},\phi_{2}\}\mid \phi_{1},\phi_{2}\in \Omega$ is a minimal disjunction of abnormalities at stage $s$ and call it $Dab(\Delta)^{min}_{s}$ iff $\Turn{\Gamma;\cdot}{\Delta}$ and for no $Dab(\Delta')$ such that $\Delta\subset \Delta'$, it is the case that $\TurnPrime{\Gamma;\cdot}{\Delta'}$.
-%\end{definition}
-
+ 
+The Adaptive strategy developed in the next Section has the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of an {\sf Adaptive Condition Formation} Rule, thereby requiring a retraction of the formulas that are derivable from it. To this aim, it is essential to establish minimal disjunctions of such formulas. The rule in Figure \ref{fig:mindab} establishes the construction of such minimal disjunctions. It says that given a derivable disjunctive formula of the $\Omega$ type at some stage {\sf s} of a derivation, that can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$.
 
 \begin{figure}[h!]
 \begin{mathpar}
-\infer*[right=MinDab] {\Turn {\Gamma; \cdot} {\Delta}\\ {\Delta \subset \Omega} \\ {\mbox { with no }\Delta'\in \Omega, \mbox{ s.t. } \Gamma; \cdot \vdash_{t<s'} \Delta'}} {\TurnPrime {\Gamma; \cdot} {\Delta^{min}}}
+\infer*[right=MinDab] {\Turn {\Gamma; \cdot} {\Delta}\\ {\Delta \subset \Omega} \\ {\mbox { with no }\Delta'\subseteq \Delta \in \Omega, \mbox{ s.t. } \Gamma; \cdot \vdash_{\sf t<s'} \Delta'}} {\TurnPrime {\Gamma; \cdot} {\Delta^{min}}}
 \end{mathpar}
-\caption{Minimal Abnormal Formulas Rule}
+\caption{Minimal Abnormal Formulas Rule}\label{fig:mindab}
 \end{figure}
 
 
-Notice that the derivation of minimal disjunction of abnormalities is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depend on the possible derivation of certain such formulas.
+The derivation of minimal disjunction of abnormalities is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depend on the possible derivation of certain such formulas.
 
 
 \subsection{A simple example}\label{sec:example}
 
-We present here a derivation, where $\Gamma=\{(\neg p \vee q),p,(p\rightarrow q)\}$:
+We present here a simple derivation in {\sf AdaptiveND}, where $\Gamma=\{(\neg p \vee q),p,(p\rightarrow q)\}$:
 
 
 
 \begin{mathpar}
-\infer*[right=CR]{
+\infer*[right=RC]{
 \infer*[right=$\wedge$I] {
 \infer*[right=$\vee$E]{ 
 \infer*[right=PREM] {\phantom{xx}} {\TurnOne {\Gamma; \cdot}{(\neg p \vee q)}}}{\TurnTwo {\Gamma;\cdot}{\neg p, q}}\\ 
@@ -475,13 +469,13 @@ We present here a derivation, where $\Gamma=\{(\neg p \vee q),p,(p\rightarrow q)
 %%
 %Notice that at stage $2$, $B$ can be derived under the $\Gamma\Omega^{-}$ formation rule, as $\Gamma$ contains $\neg B$. Next, $\neg B$ can be also derived under the premise rule. We obtain a conflict between derivations at stages $2$ and $6$. Next we want to establish how to retract one.
 
-The derivation above up to stage $4$ is a obtained by \textsc{MinimalND} rules. Stage $5$ derives a formula on condition of an abnormality being false.  This corresponds to changing a multiple conclusion sequent at stage $4$ into a single conclusion one at stage $5$ by turning one of the conclusions into a condition. This move is justified by the syntactical form of the abnormality declared by the \textsc{RC} rule.
+The derivation above up to stage $4$ is a obtained by \textsc{MinimalND} rules. Stage $5$ derives a formula on condition of the abnormality $(p\wedge \neg p)$ being false.  This corresponds to changing a multiple conclusion sequent at stage $4$ into a single conclusion one at stage $5$ by turning one of the conclusions into an adaptive condition. This move is justified by the syntactical form of the abnormality declared by the \textsc{RC} rule.
 
 
  
-\section{Rules for Marking}
+\section{Rules for Marking}\label{sec:marking}
 
-In standard Adaptive Logics, one introduces strategies to tell, given some Minimal Disjunctions of Abnormalities is derived, which one of those  can be disregard, and which one has to be accepted.
+In standard Adaptive Logics, one introduces strategies to tell, given some Minimal Disjunctions of Abnormalities is derived, which one of those  can be disregarded, and which one has to be accepted.
 % In our example above, the minimal disjunction of abnormalities at stake is the one obtained at stage $5$: $\TurnFive {\Gamma;\cdot}{\{\neg B\wedge \neg\neg B\};{\{B\wedge \neg B\}}}$. This means that one of the $\Omega$ sets at either stage $4$ or stage $5$ needs to be false. 
 Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The most well-known strategies and their rationale are:
 
@@ -730,7 +724,7 @@ At this stage the abnormality at stage $17$ is a minimal one. This also means th
 \bigskip
 where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$.
 
-\section{Derivability}
+\section{Derivability}\label{sec:meta}
 
 The marking condition establishes a dynamic derivability relation. Whenever a certain formula is derived on some $\phi\in \Delta^{min}$ condition in the premises, it might still be marked afterwards according to $\XBox R$.
 % or $\XBox MA$. 
