@@ -209,7 +209,7 @@ Prop:= A | \bot | \neg \phi \mid \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge
 \end{definition}
 
 %
-A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions; $\Delta$ is a set of formulas of the language; the set $Gamma$ and the comma on the left-hand side of the derivability sign are both to be read conjunctively; the set $\Delta$ and the comma on the right-hand side of the derivability sign are both to be read disjunctively. The derivability sign is enhanced with a signature {\sf s} that corresponds to a natural number counting the ordered steps executed to obtain the corresponding ND-formula in a tree. This annotation only comes to use in the next extension of the calculus. Similarly, the semi-colon sign and the $\cdot$ following $\Gamma$ are useless in the setting of {\sf minimalND} and come to use only in the next section. We introduce both here for uniformity of notation. We first present formation rules for the proposition, well-formedness of contexts and introduction and elimination rules for the connectives. 
+A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions; $\Delta$ is a set of formulas of the language; the set $\Gamma$ and the comma on the left-hand side of the derivability sign are both to be read conjunctively; the set $\Delta$ and the comma on the right-hand side of the derivability sign are both to be read disjunctively. The derivability sign is enhanced with a signature {\sf s} that corresponds to a natural number counting the ordered steps executed to obtain the corresponding ND-formula in a tree. This annotation only comes to use in the next extension of the calculus. Similarly, the semi-colon sign and the $\cdot$ following $\Gamma$ are useless in the setting of {\sf minimalND} and come to use only in the next section. We introduce both here for uniformity of notation. We first present formation rules for the proposition, well-formedness of contexts and introduction and elimination rules for the connectives. 
 %In the following $\neg \phi$ abbreviates $\phi\rightarrow\bot$.
 
 
@@ -450,7 +450,7 @@ We present here a derivation, where $\Gamma=\{(\neg p \vee q),p,(p\rightarrow q)
 \infer*[right=$\vee$E]{ 
 \infer*[right=PREM] {\phantom{xx}} {\TurnOne {\Gamma; \cdot}{(\neg p \vee q)}}}{\TurnTwo {\Gamma;\cdot}{\neg p, q}}\\ 
 \infer*[right=PREM] {\phantom{xx}} {\TurnThree {\Gamma; \cdot}{p}}}{\TurnFour {\Gamma; \cdot}{(p\wedge \neg p), q}}\\
-\infer*[]{\phantom{xxxx}}{(p \wedge \neg p)\in \Omega}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{q}}
+{(p \wedge \neg p)\in \Omega}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{q}}
 \end{mathpar}
 \bigskip
 %%
@@ -467,7 +467,7 @@ In standard Adaptive Logics, one introduces strategies to tell, given some Minim
 Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The most well-known strategies and their rationale are:
 
 \begin{itemize}
-\item \textit{Reliability}: once a $Dab(\Delta)^{min}_{s}$ is derived, every formula that at some stage $s-i$ assumes a $\phi\in Dab(\Delta)^{min}_{s}$ to be false, needs to be retracted;
+\item \textit{Reliability}: once a $\bigvee(\Delta^{min})$ is derived at some stage $s$, every formula that at some stage $s-i$ assumes a $\phi\in \bigvee(\Delta^{min})$ at $s$ to be false, needs to be retracted;
 
 \item \textit{Minimal Abnormality}: once a $Dab(\Delta)^{min}_{s}$ is derived, every formula that at some stage $s-i$ assumes a $\phi$ to be false, such that $\phi$ is in a minimal set of $\Delta$, needs to be retracted.
 \end{itemize}
@@ -657,7 +657,7 @@ Let us consider now a slightly more complex example. We want to show a situation
 \infer*[right=$\vee$E]{ 
 \infer*[right=PREM] {\phantom{xx}} {\TurnOne {\Gamma; \cdot}{(p \vee r)}}}{\TurnTwo {\Gamma;\cdot}{p, r}}\\ 
 \infer*[right=PREM] {\phantom{xx}} {\TurnThree {\Gamma; \cdot}{\neg p}}}{\TurnFour {\Gamma; \cdot}{(p\wedge \neg p), r}}\\
-\infer*[]{\phantom{xxxx}}{(p \wedge \neg p)\in \Omega}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}
+{(p \wedge \neg p)\in \Omega}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}
 \end{mathpar}
 \bigskip
 
