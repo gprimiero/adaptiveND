@@ -158,7 +158,12 @@
 
 %opening
 \title{Annotated Natural Deduction for Adaptive Reasoning}
-\author{Giuseppe	}
+\author{Giuseppe Primiero\\
+Department of Computer Science\\
+Middlesex University London\\
+ \and Patrick Allo\\
+ Oxford Internet Institute\\
+ University of Oxford}
 
 \begin{document}
 
@@ -189,9 +194,11 @@ Our system is not even close to a standard format for AL. We express the standar
 %xxx
 
 
-\section{Minimal ND}
+\section{{\sf minimalND}}
 
-We start by defining the type universe for the $\{\neg, \rightarrow, \wedge, \vee\}$ fragment of intuitionistic propositional logic corresponding to minimal logic. That is, we do not explicitly formulate a rule to abort derivations once a proposition of type $\bot$ is derived, hence not allowing \textit{ex falso quodlibet}. This {\sf minimalND} calculus plays the role of our Lower Limit Logic. 
+We start by defining the type universe for the $\{\neg, \rightarrow, \wedge, \vee\}$ fragment of intuitionistic propositional logic corresponding to minimal logic. We call this logic {\sf minimalND} and use it as the equivalent of a Lower Limit Logic: we do not explicitly formulate a rule to abort derivations once a proposition of type $\bot$ is derived, as it would be standard in an intuitionistic setting. Instead, we allow a contradiction elimination that corresponds to \textit{ex falso quodlibet}. It will be the role of the adaptive machinery introduced in the next sections to establish how to remove such contradictions.
+
+We start defining the syntax of our language:
 
 \begin{definition}[{\sf minimalND}]
 
@@ -199,8 +206,8 @@ We start by defining the type universe for the $\{\neg, \rightarrow, \wedge, \ve
  
 \begin{displaymath}
 \begin{array}{l}
-Type:=Prop\\
-Prop:= A | \bot | \neg \phi \mid \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge \phi_{2} | \phi_{1} \vee \phi_{2}\\
+{\sf Type}:={\sf Prop}\\
+{\sf Prop}:= A | \bot | \neg \phi \mid \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge \phi_{2} | \phi_{1} \vee \phi_{2}\\
 \Gamma := \{\phi_{1}, \dots, \phi_{n}\}\\
 \Delta := \{\phi_{1}, \dots, \phi_{n}\}
 
@@ -209,9 +216,7 @@ Prop:= A | \bot | \neg \phi \mid \phi_{1} \rightarrow \phi_{2} | \phi_{1} \wedge
 \end{definition}
 
 %
-A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions; $\Delta$ is a set of formulas of the language; the set $\Gamma$ and the comma on the left-hand side of the derivability sign are both to be read conjunctively; the set $\Delta$ and the comma on the right-hand side of the derivability sign are both to be read disjunctively. The derivability sign is enhanced with a signature {\sf s} that corresponds to a natural number counting the ordered steps executed to obtain the corresponding ND-formula in a tree. This annotation only comes to use in the next extension of the calculus. Similarly, the semi-colon sign and the $\cdot$ following $\Gamma$ are useless in the setting of {\sf minimalND} and come to use only in the next section. We introduce both here for uniformity of notation. We first present formation rules for the proposition, well-formedness of contexts and introduction and elimination rules for the connectives. 
-%In the following $\neg \phi$ abbreviates $\phi\rightarrow\bot$.
-
+The type universe of reference is the set of propostions {\sf Prop}, construed by atomic formulas closed under negation, implication, conjunction, disjunction and allowing $\bot$ to express contradictions. Formula formation rules are given in Figure \ref{fig:formulaconstructions}. 
 
 \begin{figure}[h!]
 \begin{mathpar}
@@ -224,11 +229,18 @@ A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, w
 \infer*[right=$\rightarrow$] {{\phi_1 \in {\sf Prop }}\\ {\phi_2 \in {\sf Prop}}} {\phi_1\rightarrow\phi_2\in {\sf Prop}}
 \and
 \infer*[right=$\wedge$] {{\phi_1 \in {\sf Prop }}\\ {\phi_2 \in {\sf Prop}}} {\phi_1\wedge\phi_2\in {\sf Prop}}
+\and
+\infer*[right=$\vee$] {{\phi_1 \in {\sf Prop }}\\ {\phi_2 \in {\sf Prop}}} {\phi_1\vee\phi_2\in {\sf Prop}}
 \end{mathpar}
-\caption{Formula Formation Rules}
+\caption{Formula Formation Rules}\label{fig:formulaconstructions}
 \end{figure}
 
 
+
+\begin{definition}[Judgements]
+A {\sf minimalND}-judgement is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions, $\Delta$ is a set of formulas of the language and {\sf s} is a positive integer.
+\end{definition}
+The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). The set $\Delta$ and the possible comma on the right-hand side of the derivability sign are both to be read disjunctively. This characterize our calculus as multi-conclusion. Context formation rules, for both left and right-hand side set of formulas are given in Figure \ref{fig:contextrules}. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context (and it defines the equivalent of the adaptive Premise rule); finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.
 
 
 \begin{figure}[h!]
@@ -245,9 +257,12 @@ A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, w
 \infer*[right=$\Delta$-formation] {{\Turn {\Gamma; \cdot} {\Delta} } \\ {\phi \in {\sf Prop}}} {\TurnNext {\Gamma; \cdot} {\Delta, \phi}}
 
 \end{mathpar}
-\caption{Context Formation Rules}
+\caption{Context Formation Rules}\label{fig:contextrules}
 \end{figure}
 
+ The derivability sign is enhanced with a signature {\sf s} that corresponds to a counter of the ordered derivation steps executed to obtain the corresponding ND-formula in a tree. This annotation only comes to use in the next extension of the calculus in Section \ref{sec:adaptive}. 
+
+The semantics of connectives is given in the standard proof-theoretical way by way of Introduction and Elimination Rules in Figure \ref{fig:connectives}. Introduction of $\rightarrow$ corresponds to the Deduction Theorem, while its elimination formalises Modus Ponens. Rules for $\wedge$ are standard; notice that $\vee$-Elimination amounts to formation of a multi-conclusion judgement. $\neg$-Elimination is \textit{ex falso}, while its Introduction is modelled by the translation of positive formulas on the left-hand side of the derivability sign, to their negative counterpart on the right-hand side.
 %
 %
 \begin{figure}[h!]
@@ -283,8 +298,14 @@ A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, w
 \infer*[right=$\neg$I] {\Turn {\Gamma; \phi}{\psi}}{\TurnNext {\Gamma; \cdot}{\psi, \neg \phi}}
 \end{mathpar}
 
-\caption{Rules for I/E of connectives}
+\caption{Rules for I/E of connectives}\label{fig:connectives}
 \end{figure}
+
+
+
+Finally, we introduce a set of rules to enforce structural properties in Figure \ref{fig:structural}.  {\sf Wleft} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule can only work with a strictly empty set of formulas $; \cdot$ following $\Gamma$: we shall introduce in the next section this as the set of \textit{adaptive conditions}. The reason for this requirement in {\sf Wleft} is that the set of adaptive conditions strictly depends on the set of assumptions $\Gamma$, hence a Weakening of the latter can imply a different formulation of the former. We do not need to formulate a {\sf Wright} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf Cleft} for Contraction on the left allows elimination of repeted assumptions and {\sf Eleft} is valid just by set construction, as there is no order. {\sf Cright} and {\sf Eright} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Caluli) guarantees that derivations can be pasted together, and it in generals requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
+
+
 
 
 \begin{figure}[h!]
@@ -305,34 +326,32 @@ A {\sf minimalND}-formula is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, w
 \and
 \infer*[right=Eright] {\Turn {\Gamma; \cdot} {\phi_{1}, \phi_{2}} } {\TurnNext {\Gamma; \cdot} {\phi_{2}, \phi_{1}}}
 \end{mathpar}
-\caption{Structural Rules}
+\caption{Structural Rules}\label{fig:structural}
 \end{figure}
 
-The classical negation in this fragment is expressed by implication to $\bot$. Notice that this fragment does not contain a standard rule for aborting a derivation after obtaining $\bot$, which expresses absolute inconsistency. A paraconsistent negation $\neg$ is used for inconsistencies; its elimination is left to the calculus introduced in the next section by way of an adaptive mechanism. The {\sf Prem} rule defines the equivalent of the adaptive Premise rule. [HERE MORE EXPLANATION ON I/E RULE: FOR STRUCTURAL RULES ADD EXPLANATION ON HOW THE WRIGHT can be obtained by disjunction introduction followed by disjunction elimination. 
+% % % %NOT DONE THIS
 
-Notice moreover that WLEFT holds only with an empty set of abnormalities in context, i.e. the requriement $\Gamma;\cdot$ in its premise must be understood as strict. The reason for this is that as long as the context is of the form $\Gamma;\phi^{-}$, the abnormal formula is based on $\Gamma$ and this set would be changed by an application of the Weakening rule.
+%
+%We should also remember that this Minimal Logic fragment verify
+%
+%\begin{figure}[h]
+%\begin{mathpar}
+%\infer*[right=] {\Turn {\Gamma; \cdot} {\phi\rightarrow\psi}} {\TurnNext {\Gamma; \cdot} {\neg \phi,  \psi}}
+%\end{mathpar}
+%\end{figure}
+%
+%but it does not verify
+%
+%\begin{figure}[h]
+%\begin{mathpar}
+%\infer*[right=] {\Turn {\Gamma; \cdot} {\neg \phi\rightarrow\psi}} {\TurnNext {\Gamma; \cdot} {\phi,  \psi}}
+%\end{mathpar}
+%\end{figure}
+%
+%hence is not fully CLuN equivalent.
+%]
 
-
-We should also remember that this Minimal Logic fragment verify
-
-\begin{figure}[h]
-\begin{mathpar}
-\infer*[right=] {\Turn {\Gamma; \cdot} {\phi\rightarrow\psi}} {\TurnNext {\Gamma; \cdot} {\neg \phi,  \psi}}
-\end{mathpar}
-\end{figure}
-
-but it does not verify
-
-\begin{figure}[h]
-\begin{mathpar}
-\infer*[right=] {\Turn {\Gamma; \cdot} {\neg \phi\rightarrow\psi}} {\TurnNext {\Gamma; \cdot} {\phi,  \psi}}
-\end{mathpar}
-\end{figure}
-
-hence is not fully CLuN equivalent.
-]
-
-\section{Adaptive ND}
+\section{Adaptive ND}\label{sec:adaptive}
 
 
 %{\sf minimalND} is now modified to characterize a new logic called {\sf AdaptiveND}. To obtain an extension that allows for inconsistency adaptive reasoning, one needs: 
