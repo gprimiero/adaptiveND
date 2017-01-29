@@ -5,24 +5,4 @@ D.~Batens.
 \newblock A universal logic approach to adaptive logics.
 \newblock {\em Logica universalis}, 1:221--242, 2007.
 
-\bibitem{batens2009}
-D.~Batens.
-\newblock Towards a dialogic interpretation of dynamic proofs.
-\newblock In Dégremont C., Keiff L., and Rückert H., editors, {\em Dialogues,
-  Logics and Other Strange Things. Essays in Honour of Shahid Rahman}, pages
-  27--51. College Publications, 2009.
-
-\bibitem{strasservandeputte12}
-Strasser C. \& Van De~Putte F.
-\newblock Dynamic proof theories for selection semantics: A generic adaptive
-  logic framework.
-\newblock Manuscript.
-
-\bibitem{restall2005}
-G.~Restall.
-\newblock Multiple conclusions.
-\newblock In Luis Valdes-Villanueva Petr~Hajek and Dag Westerstahl, editors,
-  {\em Logic, Methodology and Philosophy of Science: Proceedings of the Twelfth
-  International Congress}, pages 189--205. King's College Publications, 2005.
-
 \end{thebibliography}
