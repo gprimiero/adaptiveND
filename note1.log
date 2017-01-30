@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  30 JAN 2017 14:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  30 JAN 2017 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -453,30 +453,37 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] [4] [5] [6] [7] [8]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 539.
+[3] [4] [5] [6]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8] [9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 573.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 539.
-[9]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 573.
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 566.
+(Font)              using `U/wasy/m/n' instead on input line 600.
 
-[10] [11] [12] [13] (/Users/patrickallo/adaptiveND/note1.bbl) [14] (/Users/patr
-ickallo/adaptiveND/note1.aux)
+[10] [11] [12] [13] (/Users/patrickallo/adaptiveND/note1.bbl [14]) [15] (/Users
+/patrickallo/adaptiveND/note1.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3409 strings out of 493089
- 40442 string characters out of 6134842
- 114381 words of memory out of 5000000
- 6838 multiletter control sequences out of 15000+600000
+ 3410 strings out of 493089
+ 40462 string characters out of 6134842
+ 115391 words of memory out of 5000000
+ 6839 multiletter control sequences out of 15000+600000
  21221 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,54n,72p,1642b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -508,11 +515,11 @@ t/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf
 -dist/fonts/type1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dis
 t/fonts/type1/public/wasy2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fon
 ts/type1/public/wasy2-ps/wasy9.pfb>
-Output written on /Users/patrickallo/adaptiveND/note1.pdf (14 pages, 311340 byt
+Output written on /Users/patrickallo/adaptiveND/note1.pdf (15 pages, 313300 byt
 es).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
+ 166 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
