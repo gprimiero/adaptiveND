@@ -344,10 +344,6 @@ The semantics of connectives is given in the standard proof-theoretical way by w
 \caption{Rules for I/E of connectives}\label{fig:connectives}
 \end{figure}
 
-
-
-Finally, we introduce a set of rules to enforce structural properties in Figure \ref{fig:structural}.  {\sf Wleft} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule can only work with a strictly empty set of formulas $; \cdot$ following $\Gamma$: we shall introduce in the next section this as the set of \textit{adaptive conditions}. The reason for this requirement in {\sf Wleft} is that the set of adaptive conditions strictly depends on the set of assumptions $\Gamma$, hence a Weakening of the latter can imply a different formulation of the former. We do not need to formulate a {\sf Wright} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf Cleft} for Contraction on the left allows elimination of repeated assumptions and {\sf Eleft} is valid just by set construction, as there is no order. {\sf Cright} and {\sf Eright} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Caluli) guarantees that derivations can be pasted together, and it in generals requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
-
 \begin{figure}[h!]
 \begin{mathpar}
 \infer*[right=Wleft] {\Turn {\Gamma; \cdot} {\phi_{1}} } {\TurnNext {\Gamma, \phi_{2}; \cdot} {\phi_{1}}}
@@ -368,6 +364,8 @@ Finally, we introduce a set of rules to enforce structural properties in Figure 
 \end{mathpar}
 \caption{Structural Rules}\label{fig:structural}
 \end{figure}
+
+Finally, we introduce a set of rules to enforce structural properties in Figure \ref{fig:structural}.  {\sf Wleft} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule can only work with a strictly empty set of formulas $; \cdot$ following $\Gamma$: we shall introduce in the next section this as the set of \textit{adaptive conditions}. The reason for this requirement in {\sf Wleft} is that the set of adaptive conditions strictly depends on the set of assumptions $\Gamma$, hence a Weakening of the latter can imply a different formulation of the former. We do not need to formulate a {\sf Wright} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf Cleft} for Contraction on the left allows elimination of repeated assumptions and {\sf Eleft} is valid just by set construction, as there is no order. {\sf Cright} and {\sf Eright} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Caluli) guarantees that derivations can be pasted together, and it in generals requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
 
 The resulting system is one where, in virtue of the absence of an elmination-rule, the negation $\neg$ is paraconsistent, but not, as the proof of excluded middle in Figure \ref{fig:exclmid} shows, paracomplete.
 
