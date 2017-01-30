@@ -9,6 +9,7 @@
 \usepackage{mathpartir}
 \usepackage{bussproofs}
 \usepackage{wasysym}
+\usepackage{xcolor}
 
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
@@ -283,7 +284,7 @@ The type universe of reference is the set of propostions {\sf Prop}, construed b
 \begin{definition}[Judgements]
 A {\sf minimalND}-judgement is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions, $\Delta$ is a set of formulas of the language and {\sf s} is a positive integer.
 \end{definition}
-The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). The set $\Delta$ and the comma (if it occurs) on the right-hand side of the derivability sign are both to be read disjunctively. This characterizes our calculus as multiple-conclusion. Context formation rules, for both left and right-hand side set of formulas are given in Figure \ref{fig:contextrules}. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context (and it defines the equivalent of the adaptive Premise rule); finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.
+The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). The set $\Delta$ and the comma (if it occurs) on the right-hand side of the derivability sign are both to be read disjunctively. This characterizes our calculus as multiple-conclusion. Context formation rules, for both left and right-hand side set of formulas are given in Figure \ref{fig:contextrules}. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context (and it defines the equivalent of the adaptive Premise rule); finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.{\color{red}this is still an open issue}
 
 
 \begin{figure}[h!]
@@ -414,10 +415,10 @@ The resulting system is one where, in virtue of the absence of an elmination-rul
 We now extend {\sf minimalND} to characterize a new logic called {\sf AdaptiveND} to allow for inconsistency adaptive reasoning. To this aim one needs: 
 % 
 \begin{enumerate}
-\item the explicit formulation of an $\Omega$ set of propositions of type $\bot$;
+\item the explicit formulation of an $\Omega$ set of propositions of type $\bot$ {\color{red}why type $\bot$};
 \item the formulation of judgements including an \textit{adaptive condition};
 \item the formulation of a rule that allows to derive new formulas independent from such an adaptive condition;
-\item the formulation of a rule that allows to derive new formulas dependently from such an adaptive condition.
+\item the formulation of a rule that allows to derive new formulas that depend on such an adaptive condition.
 \end{enumerate}
 %
 We offer accordingly new definitions for the syntax of this new logic and the related form of judgement.
@@ -449,12 +450,12 @@ An {\sf AdaptiveND}-judgement is of the form $\Gamma; \phi^{-}\vdash_{s} \Delta$
 \item the left-hand side of $\vdash_{\sf s}$ has $\Gamma$ as in {\sf minimalND};
 \item the semicolon sign on the left-hand side of $\vdash_{\sf s}$ is conjunctive;
 \item $\phi$ refers to a formula in $\Omega$, i.e. with a specific inconsistent logical form; below we introduce an appropriate $\Omega$-formation rule;\footnote{As mentioned above, the current setting of {\sf AdaptiveND} is specified for an inconsistency-adaptive logic.}
-\item the last place of the left-hand side context is always reserved to negated formulas of the $\Omega$ form; we shall use $\phi^{-}$ to refer to the negation of $\phi$, for all $\phi\in \Omega$;
+\item the last place of the left-hand side context is always reserved to negated formulas of the $\Omega$ form; we shall use $\phi^{-}$ to refer to the negation of $\phi$, for all $\phi\in \Omega$; {\color{red}need to account for sets of conditions}
 \item the right-hand side is in disjunctive form.
 \end{enumerate}
 \end{definition}
 %
-When $\Omega$ is empty on the left-hand side of $\vdash$, we shall write $\Gamma;\cdot\vdash$, thus reducing to the form of a {\sf minimalND}-formula. 
+When the second place on the left-hand side of $\vdash$ is empty, we shall write $\Gamma;\cdot\vdash$, thus reducing to the form of a {\sf minimalND}-judgement. 
 %When $\Omega$ is empty on the right-hand side of $\vdash$, we shall write simply $\vdash A$. In view of point $4.$ above, this natural deduction calculus can also be characterized as a multiple conclusion calculus.\footnote{There is a certain similarity between $\vdash ;\Omega$ and the notion of \textit{denied formulas} in a state from \cite{restall2005}: the standard way to read the right hand side of an {\sf AdaptiveND}-formula is in fact that of an exclusive ``or".} 
 Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks: $\XBox$ to mark that at the current stage some previously derived formula is retracted; $\checked$ to mark that at the current stage some previously derived formulas is now stable, i.e. will no longer marked by $\XBox$. These symbols will be formally introduced in Sections \ref{sec:marking} and \ref{sec:meta} respectively. 
 %We shall also use below the abbreviation $\neg\phi:=\phi\rightarrow\bot$. 
@@ -465,7 +466,7 @@ Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is opti
 
 %\subsection{Rules of {\sf AdaptiveND}}
 
-We now introduce the rules for {\sf AdaptiveND}. In Figure \ref{fig:omega}, we illustrate the formation and use of formulas $\phi \in \Omega$. By $\Omega${\sf-Formation }, given a proposition $\phi$ (possibly non-atomic), a contradiction with $\neg \phi$ is a formula of the $\Omega$ type; following the Adaptive tradition $\phi$ can also be called an \textit{abnormality} or an \textit{abnormal fomrula}. By {\sf Adaptive Condition Formation}, given a valid context $\Gamma$ and a formula $\phi$ of the $\Omega$ type, a context $\Gamma$ followed by the adaptive Condition stating that $\phi$ \textit{is false}, is  awell-formed context. This corresponds to the use of conditions as additional elements of proof line in the standard Adaptive proof theort (Fitch-style).
+We now introduce the rules for {\sf AdaptiveND}. In Figure \ref{fig:omega}, we describe the formation and use of formulas $\phi \in \Omega$. By $\Omega${\sf-Formation}, the explicit contradiction $\phi \wedge \neg \phi$, with $\phi$ any proposition, is a formula of the $\Omega$ type. In the Adaptive tradition formulas of type $\Omega$ are called an \textit{abnormality} or \textit{abnormal formula}. By {\sf Adaptive Condition Formation}, given a valid context $\Gamma$ and a formula $\phi$ of the $\Omega$ type, a context $\Gamma$ followed by the adaptive Condition that expresses the defeasible assumption that $\phi$ \textit{is false}, is a well-formed context. This corresponds to the use of conditions as additional elements of proof line in the standard linear proof format of adaptive logic.
 
 \begin{figure}[h!]
 \begin{mathpar}
