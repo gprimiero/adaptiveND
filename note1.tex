@@ -175,20 +175,20 @@ We present a multi-conclusion natural deduction calculus based on minimal logic 
 
 \section{Intro}
 
-In this paper we outline a multiple-conclusion natural deduction calculus in which the dynamics of standard (Fitch-style) dynamic proofs of Adaptive Logics \cite{batens07} can be reconstructed. Adaptive logics are a family of logics that can be used to formalise a wide range of defeasible reasoning forms. The consequence-relations of adaptive logics rely on the standard idea of interpreting premises as normally as possible through the selection of models of its premises, and it is only at the level of its proof-theory that it's distinctive approach comes to the fore. Adaptive logics, namely, reconstruct defeasible reasoning patterns as dynamic proofs; proofs in which earlier steps may be retracted at a later stage when the assumptions they were based on no longer hold.
+In this paper we outline a multiple-conclusion natural deduction calculus in which the dynamics of standard (Fitch-style) dynamic proofs of Adaptive Logics \cite{batens07} can be reconstructed. Adaptive logics are a family of logics that can be used to formalise a wide range of defeasible reasoning forms. Their consequence-relations rely on the standard idea of interpreting premises as normally as possible through the selection of models of its premises, but it is only at the level of its proof-theory that it's distinctive approach comes to the fore. Adaptive logics, namely, reconstruct defeasible reasoning patterns as dynamic proofs; proofs in which earlier steps may be retracted at a later stage when the assumptions they were based on no longer hold.
 
-The specific system we describe here is for an inconsistency adaptive logic; a logic that captures the reasoning one obtains when one reasons paraconsistently to avoid triviality in the face of inconsistency, but that at the same time tries to make up for the deductive weakness of paraconsistent reasoning by interpreting the premises as consistently as possible. This choice brings us closer to the original motivations for the development of adaptive logic, but also allows us to engage with current philosophical debates and with certain aspects of Graham's work.
+The specific system we describe here is for an inconsistency adaptive logic; a logic that captures the reasoning one obtains when one reasons paraconsistently to avoid triviality in the face of inconsistency, but tries to make up for the deductive weakness of paraconsistent reasoning by provisionally applying classical inference-rules when there is no explicit indication that inconsistencies are involved in that inference. This choice brings us closer to the original motivations for the development of adaptive logic, but also allows us to engage with current philosophical debates and with certain aspects of Graham's work.
 
-The dynamics of retracting earlier lines in a proof can be captured in a rather natural way in a linear proof-format, including standard axiomatic and Fitch-style natural deduction proofs, but is much less straightforward in a tree-like proof-format. Consider, for instance, the following retraction of what happens to be an instance of the application of \emph{Ex Contradictione Quodlibet}:
+The dynamics of retracting earlier lines in a proof can be captured in a rather natural way in linear proof-formats, including standard axiomatic and Fitch-style natural deduction proofs, but is much less straightforward in a tree-like proof-format. Consider, for instance, the following retraction of what turns out to be an instance of the application of \emph{Ex Contradictione Quodlibet}:
 
 \begin{figure}[h!]
 \centering
     \begin{tabular}{cllcl}
         (1) & $p$ & Prem & $\emptyset$\\
-        (2) & $p \vee q$ & Add & $\emptyset$\\
+        (2) & $p \vee q$ & Addition & $\emptyset$\\
         (3) & $\neg p$ & Prem & $\emptyset$\\
         (4) & $q$ & DS & $\{p\}$ & \checkmark$^5$\\
-        (5) & $p \wedge \neg q$ & Adj & $\emptyset$
+        (5) & $p \wedge \neg q$ & Adjunction & $\emptyset$
     \end{tabular}
 \end{figure}
 \noindent Here, at line (4) disjunctive syllogism is applied on the condition that $p$ behaves normally, i.e.\ that the contradiction $p \wedge \neg p$ hasn't been derived. When this contradiction is effectively derived at line (5), the line (4) is marked and is from then on no longer assumed to be part of the proof. This type of reasoning is the common core of how the idea of provisional applications of classical inference-rules can be applied to paraconsistent logics that reject the disjunctive syllogism, but in which the restricted form $\phi \vee \psi, \neg \phi / \psi \vee (\phi \wedge \neg \phi)$ is retained.
@@ -210,17 +210,11 @@ Contrast this, now, with the following attempt to reconstruct a similar reasonin
 \end{prooftree}
 When in the right-hand branch of the proof an explicit contradiction is derived, the assumption that no such contradiction is derived (which is stated explicitly in the left-hand branch) no longer holds. In this format, however, the order used to construct the proof cannot be read off the proof itself (an issue that could easily be fixed), but more importantly, it isn't even clear what it might mean to retract the line where $q$ is derived since the result of removing that line from the proof it itself no longer a well-formed proof.
 
-The proof-format we propose solves this problem by adding indices to judgements to keep track of stages in the construction of a proof, and by exploiting the fact that since every assumption or premise that is used in a proof-step should explicitly be written down in the place it is used, judgements that are `marked' at a certain stage do not have to be removed because there is simply no need to prevent their implicit re-use. Instead, it is the derivation of the same judgement at a later stage that is (or may be) blocked because the original assumption that led to its initial derivation probably no longer holds.
+The proof-format we propose solves this problem by adding indices to judgements to keep track of stages in the construction of a proof, and by exploiting the fact that since every assumption or premise that is used in a proof-step should explicitly be written down in the place it is used, judgements that are `marked' at a certain stage do not have to be removed because there is no reason to prevent their implicit re-use. Instead, it is the derivation of the same judgement at a later stage that is (or may be) blocked because the original assumption that led to its initial derivation probably no longer holds.
 
-Additionally, the system makes the connection between unconditional derivations of certain disjunctions in the paraconsistent logic and the conditional deductions of one of their disjuncts in the adaptive logic explicit by adopting multiple-conclusion judgements. This formal feature has the additional advantage that it allows us to re-assess certain current debates regarding the question of how one should best approach the question of classical recapture in paraconsistent logics.
+A second feature of the system we propose is that, by relying on a multiple-conclusion judgements, it establishes an explicit connection between the unconditional (and hence paraconsistent) deriviation of certain disjunctions and the conditional deduction of one of their disjuncts through the provisional dismissal of the other disjunct. This formal feature has the additional advantage that it allows us to re-assess certain current debates regarding the question of how one should best approach the question of classical recapture in paraconsistent logics.
 
-HERE 
-
-When one adopts a logic that is strictly weaker than classical logic, the question of how one should account for epistemically useful classical inference-forms that are invalidated by one's preferred logic almost immediately arises. In the case of paraconsistent logic this question is often deemed quite urgent, as the practical and epistemic usefulness of the inference-forms that are lost, like the disjunctive syllogism, are almost undisputed. This is the problem of \emph{classical recapture}. Inconsistency-adaptive logics present one possible answer to this challenge under the form of defeasible inference-forms that allow one to use classical inference-steps on the condition that certain assumptions are not violated. The class of adaptive logics that have been formulated since the earliest formulation of this paradigm as a response to the problem of classical recapture generalise this idea, and provide a general framework in which many types of defeasible inference-forms can be rigourously formalised.
-
-In several papers Graham Priest has explicitly endorsed this type of approach to the classical recapture problem of the paraconsistent logic \textbf{LP}, and has defended his own preferred formalisation and motivation for what he calls \emph{Minimally Inconsistent LP}. When compared to the systems developed in the adaptive logic tradition, this system stands out because it is based on a strong paraconsistent logic that nevertheless lacks a detachable implication (which makes the problem of classical recapture even more stringent), but also because it is put forward as a potential universal inference engine that can be applied in all contexts. At the level of its formal characterisation, minimally inconsistent LP differs from its closest neighbour ACLuNs$^m$ 
-
-
+We start by characterising our system, and then return to the challenge of classical recapture in Section \ref{sec:recap}
 
 % We present a multi-conclusion natural deduction calculus that mimics the dynamic reasoning at work in adaptive logics (\cite{batens07}). This is the first attempt to reconstruct the dynamics typical of adaptive logics in a natural deduction setting. The resulting system does not correspond to the usual structure known as the Standard Format for Adaptive Logics: this means that, though we \textit{do not} introduce an adaptive logic proper, we can talk of a natural deduction system for \textit{adaptive reasoning}. We characterize such a way of reasoning as having properties that identify adaptive dynamics.  To do so, the standard proof-theoretical procedure of a natural deduction system is enhanced with:
 
@@ -243,7 +237,7 @@ In several papers Graham Priest has explicitly endorsed this type of approach to
 
 \section{{\sf minimalND}}
 
-We start by defining the type universe for the $\{\neg, \rightarrow, \wedge, \vee\}$ fragment of intuitionistic propositional logic corresponding to minimal logic. We call this logic {\sf minimalND} and use it as the equivalent of a Lower Limit Logic: we do not explicitly formulate a rule to abort derivations once a proposition of type $\bot$ is derived, as it would be standard in an intuitionistic setting. Instead, we allow a contradiction elimination that corresponds to \textit{ex falso quodlibet}. It will be the role of the adaptive machinery introduced in the next sections to establish how to remove such contradictions.
+We start by defining the type universe for the $\{\neg, \rightarrow, \wedge, \vee\}$ fragment of intuitionistic propositional logic corresponding to minimal logic. We call this logic {\sf minimalND} and use it as the equivalent of a Lower Limit Logic---the paraconsistent logic that governs the unconditional steps in a proof. Contrary to what is standard in an intuitionistic setting, we do not allow the deduction of $\bot$ from an explicit contradiction. Whereas $\bot$ can be eliminated via \emph{Ex Falso Quodlibet}, there is no introduction-rule for $\bot$ and this is what makes our base-logic paraconsistent. It is only when the assumption of consistency is introduced that the connection between negation-inconsistency and absolute inconsistency can provisionally be recreated.
 
 We start defining the syntax of our language:
 
@@ -263,7 +257,7 @@ We start defining the syntax of our language:
 \end{definition}
 
 %
-The type universe of reference is the set of propostions {\sf Prop}, construed by atomic formulas closed under negation, implication, conjunction, disjunction and allowing $\bot$ to express contradictions. Formula formation rules are given in Figure \ref{fig:formulaconstructions}. 
+The type universe of reference is the set of propostions {\sf Prop}, construed by atomic formulas closed under negation, implication, conjunction, disjunction and allowing $\bot$ to express absolute contradictions. Formula formation rules are given in Figure \ref{fig:formulaconstructions}. 
 
 \begin{figure}[h!]
 \begin{mathpar}
@@ -287,7 +281,7 @@ The type universe of reference is the set of propostions {\sf Prop}, construed b
 \begin{definition}[Judgements]
 A {\sf minimalND}-judgement is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions, $\Delta$ is a set of formulas of the language and {\sf s} is a positive integer.
 \end{definition}
-The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). The set $\Delta$ and the possible comma on the right-hand side of the derivability sign are both to be read disjunctively. This characterize our calculus as multi-conclusion. Context formation rules, for both left and right-hand side set of formulas are given in Figure \ref{fig:contextrules}. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context (and it defines the equivalent of the adaptive Premise rule); finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.
+The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). The set $\Delta$ and the comma (if it occurs) on the right-hand side of the derivability sign are both to be read disjunctively. This characterizes our calculus as multiple-conclusion. Context formation rules, for both left and right-hand side set of formulas are given in Figure \ref{fig:contextrules}. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context (and it defines the equivalent of the adaptive Premise rule); finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.
 
 
 \begin{figure}[h!]
@@ -307,9 +301,9 @@ The set $\Gamma$ on the left-hand side of the derivability sign is to be read co
 \caption{Context Formation Rules}\label{fig:contextrules}
 \end{figure}
 
- The derivability sign is enhanced with a signature {\sf s} that corresponds to a counter of the ordered derivation steps executed to obtain the corresponding ND-formula in a tree. This annotation only comes to use in the next extension of the calculus in Section \ref{sec:adaptive}. 
+The derivability sign is enhanced with a signature {\sf s} that corresponds to a counter of the ordered derivation steps executed to obtain the corresponding ND-formula in a tree. This annotation only comes to use in the next extension of the calculus in Section \ref{sec:adaptive}. 
 
-The semantics of connectives is given in the standard proof-theoretical way by way of Introduction and Elimination Rules in Figure \ref{fig:connectives}. Introduction of $\rightarrow$ corresponds to the Deduction Theorem, while its elimination formalises Modus Ponens. Rules for $\wedge$ are standard; notice that $\vee$-Elimination amounts to formation of a multi-conclusion judgement. $\neg$-Elimination is \textit{ex falso}, while its Introduction is modelled by the translation of positive formulas on the left-hand side of the derivability sign, to their negative counterpart on the right-hand side.
+The semantics of connectives is given in the standard proof-theoretical way by way of Introduction and Elimination Rules in Figure \ref{fig:connectives}. Introduction of $\rightarrow$ corresponds to conditional proof, while its elimination formalises Modus Ponens. Rules for $\wedge$ are standard; notice that $\vee$-Elimination makes the disjunctive reading of the a comma on the right hand-side of the turnstile explicit. $\bot$ can be eliminated by \emph{Ex Falso}, but cannot be introduced. Dually, our paraconsistent negation $\neg$ can be introduced, but not eliminated.
 %
 %
 \begin{figure}[h!]
@@ -350,10 +344,7 @@ The semantics of connectives is given in the standard proof-theoretical way by w
 
 
 
-Finally, we introduce a set of rules to enforce structural properties in Figure \ref{fig:structural}.  {\sf Wleft} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule can only work with a strictly empty set of formulas $; \cdot$ following $\Gamma$: we shall introduce in the next section this as the set of \textit{adaptive conditions}. The reason for this requirement in {\sf Wleft} is that the set of adaptive conditions strictly depends on the set of assumptions $\Gamma$, hence a Weakening of the latter can imply a different formulation of the former. We do not need to formulate a {\sf Wright} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf Cleft} for Contraction on the left allows elimination of repeted assumptions and {\sf Eleft} is valid just by set construction, as there is no order. {\sf Cright} and {\sf Eright} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Caluli) guarantees that derivations can be pasted together, and it in generals requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
-
-
-
+Finally, we introduce a set of rules to enforce structural properties in Figure \ref{fig:structural}.  {\sf Wleft} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule can only work with a strictly empty set of formulas $; \cdot$ following $\Gamma$: we shall introduce in the next section this as the set of \textit{adaptive conditions}. The reason for this requirement in {\sf Wleft} is that the set of adaptive conditions strictly depends on the set of assumptions $\Gamma$, hence a Weakening of the latter can imply a different formulation of the former. We do not need to formulate a {\sf Wright} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf Cleft} for Contraction on the left allows elimination of repeated assumptions and {\sf Eleft} is valid just by set construction, as there is no order. {\sf Cright} and {\sf Eright} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Caluli) guarantees that derivations can be pasted together, and it in generals requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
 
 \begin{figure}[h!]
 \begin{mathpar}
@@ -374,6 +365,25 @@ Finally, we introduce a set of rules to enforce structural properties in Figure 
 \infer*[right=Eright] {\Turn {\Gamma; \cdot} {\phi_{1}, \phi_{2}} } {\TurnNext {\Gamma; \cdot} {\phi_{2}, \phi_{1}}}
 \end{mathpar}
 \caption{Structural Rules}\label{fig:structural}
+\end{figure}
+
+The resulting system is one where, in virtue of the absence of an elmination-rule, the negation $\neg$ is paraconsistent, but not, as the proof of excluded middle in Figure \ref{fig:exclmid} shows, paracomplete.
+
+\begin{figure}[h!]
+    \begin{mathpar}
+    \infer*[left=Cright]
+        {\infer*[right=$\vee$I]
+            {\infer*[right=$\vee$I]
+                {\infer*[right=$\neg$I]
+                    {\infer*[left=Axiom]
+                        { }
+                        {\Turn {\phi; \cdot} {\phi}}}
+                    {\Turn {\emptyset; \cdot} {\phi, \neg \phi}}}
+                {\Turn {\emptyset; \cdot} {\phi \vee \neg \phi, \neg \phi}}}
+            {\Turn {\emptyset; \cdot} {\phi \vee \neg \phi, \phi \vee \neg \phi}}}
+        {\Turn {\emptyset; \cdot} {\phi \vee \neg \phi}}
+    \end{mathpar}
+    \caption{Excluded Middle}\label{fig:exclmid}
 \end{figure}
 
 % % % %NOT DONE THIS
@@ -842,6 +852,10 @@ A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ iff th
 %
 The definition guarantees final derivability for any derived formula whose  adaptive condition is not minimal. Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
 
+\section{Classical recapture: logical options and defeasible inferences}\label{sec:recap}
+When one adopts a logic that is strictly weaker than classical logic, the question of how one should account for epistemically useful classical inference-forms that are invalidated by one's preferred logic almost immediately arises. In the case of paraconsistent logic this question is often deemed quite urgent, as the practical and epistemic usefulness of the inference-forms that are lost, like the disjunctive syllogism, are almost undisputed. This is the problem of \emph{classical recapture}. Inconsistency-adaptive logics present one possible answer to this challenge under the form of defeasible inference-forms that allow one to use classical inference-steps on the condition that certain assumptions are not violated. The class of adaptive logics that have been formulated since the earliest formulation of this paradigm as a response to the problem of classical recapture generalise this idea, and provide a general framework in which many types of defeasible inference-forms can be rigourously formalised.
+
+In several papers Graham Priest has explicitly endorsed this type of approach to the classical recapture problem of the paraconsistent logic \textbf{LP}, and has defended his own preferred formalisation and motivation for what he calls \emph{Minimally Inconsistent LP}. When compared to the systems developed in the adaptive logic tradition, this system stands out because it is based on a strong paraconsistent logic that nevertheless lacks a detachable implication (which makes the problem of classical recapture even more stringent), but also because it is put forward as a potential universal inference engine that can be applied in all contexts. At the level of its formal characterisation, minimally inconsistent LP differs from its closest neighbour ACLuNs$^m$ 
 
 %\begin{definition}
 %$\TurnADND{\Gamma}{\phi}$ iff $\TurnChecked{\Gamma;\Omega^{-}}{\phi}$
