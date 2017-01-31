@@ -5,4 +5,21 @@ D.~Batens.
 \newblock A universal logic approach to adaptive logics.
 \newblock {\em Logica universalis}, 1:221--242, 2007.
 
+\bibitem{Batens:LogiqueAnalyse:1980}
+Diderik Batens.
+\newblock Paraconsistent extensional propositional logics.
+\newblock {\em Logique \& Analyse}, 23(90-91):195--234, 1980.
+
+\bibitem{Batens:ParaconsistentLogicEssaysOnTheInconsistent:1989}
+Diderik Batens.
+\newblock Dynamic dialectical logics.
+\newblock In Graham Priest, Richard Routley, and J.~Norman, editors, {\em
+  Paraconsistent Logic - Essays on the inconsistent}, pages 187--217.
+  Philosophia Verlag, München / Hamden / Wien, 1989.
+
+\bibitem{GP:LPm}
+Graham Priest.
+\newblock Minimally inconsistent \textbf{LP}.
+\newblock {\em Studia Logica}, 50:321--331, 1991.
+
 \end{thebibliography}
