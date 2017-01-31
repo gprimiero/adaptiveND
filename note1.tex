@@ -528,24 +528,24 @@ Next, the calculus is extended by introducing the conditional rule $RC$ (Figure 
 \begin{figure}
     \begin{mathpar}
         \infer*[right=RC]{
-                        \infer*[right=Cut]{\Turn {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnNext {\phi_{1};\cdot} {\phi_{2}}}}
-                        {\TurnNextNext {\Gamma, \phi_{1}; \cdot} {\phi_{2}, \phi}}
+                        \infer*[right=Cut]{\TurnOne {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnTwo {\phi_{1};\cdot} {\phi_{2}}}}
+                        {\TurnThree {\Gamma, \phi_{1}; \cdot} {\phi_{2}, \phi} \\ \phi \in \Omega}
                         }
-                         {\TurnNextNextNext {\Gamma, \phi_1; \phi^-}{\phi_2}}
+                         {\TurnFour {\Gamma, \phi_1; \phi^-}{\phi_2}}
         
         \and
 
         \infer*[right=Cut]
             {\infer*[right=Cut]
-            {\Turn {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnNext {\Gamma';\cdot} {\phi_2, \phi'}} \\ {\TurnNextNext {\phi_1, \phi_2;\cdot} {\phi_3}}}
-            {\Turn {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnNext {\Gamma', \phi_1 ;\cdot} {\phi_3, \phi'}}}}
+            {\TurnOne {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnTwo {\Gamma';\cdot} {\phi_2, \phi'}} \\ {\TurnThree {\phi_1, \phi_2;\cdot} {\phi_3}}}
+            {\TurnFour {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnFive {\Gamma', \phi_1 ;\cdot} {\phi_3, \phi'}}}}
             {\infer*[right=RC]
             {\infer*[right=RC]
-                {\Turn {\Gamma, \Gamma'; \cdot} {\phi_{3}, \phi, \phi'}}
-                {\TurnNext {\Gamma, \Gamma'; \phi^-} {\phi_{3}, \phi'}}}
-            {\TurnNext {\Gamma, \Gamma'; (\phi\cup\phi')^-} {\phi_{3}}}}
+                {\TurnSix {\Gamma, \Gamma'; \cdot} {\phi_{3}, \phi, \phi'} \\ \phi \in \Omega}
+                {\TurnSeven {\Gamma, \Gamma'; \phi^-} {\phi_{3}, \phi'} \\ \phi' \in \Omega}}
+            {\TurnEight {\Gamma, \Gamma'; (\phi\cup\phi')^-} {\phi_{3}}}}
     \end{mathpar}
-    \caption{Derivation of conditional rules}\label{fig:condasderived}
+    \caption{Redundancy of unconditional rules}\label{fig:condasderived}
 \end{figure}
  
 The Adaptive strategy developed in the next Section has the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of an {\sf Adaptive Condition Formation} Rule, thereby requiring a retraction of the formulas that are derivable from it. To this aim, it is essential to establish minimal disjunctions of such formulas, denoted by $\bigvee(\Delta^{min})$, with $\Delta\in \Omega$. The rule in Figure \ref{fig:mindab} establishes the construction of such minimal disjunctions. It says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$.
