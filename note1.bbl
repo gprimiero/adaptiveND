@@ -1,10 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{batens07}
-D.~Batens.
-\newblock A universal logic approach to adaptive logics.
-\newblock {\em Logica universalis}, 1:221--242, 2007.
-
 \bibitem{Batens:LogiqueAnalyse:1980}
 Diderik Batens.
 \newblock Paraconsistent extensional propositional logics.
@@ -16,6 +11,16 @@ Diderik Batens.
 \newblock In Graham Priest, Richard Routley, and J.~Norman, editors, {\em
   Paraconsistent Logic - Essays on the inconsistent}, pages 187--217.
   Philosophia Verlag, München / Hamden / Wien, 1989.
+
+\bibitem{batens01}
+Diderik Batens.
+\newblock A general characterization of adaptive logics.
+\newblock {\em Logique \& Analyse}, 173--175:45--68, 2001.
+
+\bibitem{batens07}
+Diderik Batens.
+\newblock A universal logic approach to adaptive logics.
+\newblock {\em Logica universalis}, 1:221--242, 2007.
 
 \bibitem{GP:LPm}
 Graham Priest.

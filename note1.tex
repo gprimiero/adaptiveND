@@ -548,7 +548,7 @@ Next, the calculus is extended by introducing the conditional rule $RC$ (Figure 
     \caption{Redundancy of unconditional rules}\label{fig:condasderived}
 \end{figure}
  
-The Adaptive strategy developed in the next Section has the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of an {\sf Adaptive Condition Formation} Rule, thereby requiring a retraction of the formulas that are derivable from it. To this aim, it is essential to establish minimal disjunctions of such formulas, denoted by $\bigvee(\Delta^{min})$, with $\Delta\in \Omega$. The rule in Figure \ref{fig:mindab} establishes the construction of such minimal disjunctions. It says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$.
+The Adaptive strategy developed in the next Section has the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of the application of the Conditional Rule, thereby requiring a retraction of the formulas that are derivable from it. To this aim, it is essential to establish minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta^{min})$, with $\Delta\in \Omega$. The rule in Figure \ref{fig:mindab} establishes the construction of such minimal disjunctions. It says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$.
 
 \begin{figure}[h!]
 \begin{mathpar}
@@ -558,7 +558,7 @@ The Adaptive strategy developed in the next Section has the aim of establishing 
 \end{figure}
 
 
-The derivation of minimal disjunction of abnormalities is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depend on the possible derivation of certain such formulas.
+The derivation of a minimal disjunction of abnormalities is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depends on the judgements about such minimal disjunctions that can be derived.
 
 
 \subsection{A simple example}\label{sec:example}
@@ -579,28 +579,28 @@ We present here a simple derivation in {\sf AdaptiveND}, where $\Gamma=\{(\neg p
 %%
 %Notice that at stage $2$, $B$ can be derived under the $\Gamma\Omega^{-}$ formation rule, as $\Gamma$ contains $\neg B$. Next, $\neg B$ can be also derived under the premise rule. We obtain a conflict between derivations at stages $2$ and $6$. Next we want to establish how to retract one.
 
-The derivation above up to stage $4$ is a obtained by {\sf MinimalND} rules. Stage $5$ derives a formula on condition of the abnormality $(p\wedge \neg p)$ being false.  This corresponds to changing a multiple conclusion judgement at stage $4$ into a single conclusion one at stage $5$ by turning one of the conclusions into an adaptive condition. This move is justified by the syntactical form of the abnormality declared by the \textsc{RC} rule.
+In the above derivation, all judgements up to stage $4$ are obtained by {\sf MinimalND} rules. Stage $5$ derives a formula on condition of the abnormality $(p\wedge \neg p)$ being false.  This corresponds to changing a multiple conclusion judgement at stage $4$ into a single conclusion one at stage $5$ by turning one of the conclusions into an adaptive condition. This move is justified by the syntactical form of the abnormality declared by the \textsc{RC} rule.
 
 
  
 \section{Rules for Marking}\label{sec:marking}
 
-In standard Adaptive Logics, one introduces strategies to tell, given some judgement deriving a  Minimal Disjunction of Abnormalities, which one of the disjunct can be assumed to be false, i.e. for which one a {\sf RC} rule can be applied; and which one has to be accepted. Accordingly, formulas derived under the former can be considered valid, formulas previously derived by assuming the latter false have to be retracted. Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The most well-known strategies and their rationale are:\footnote{Some reference here?}
+In standard Adaptive Logics, one introduces strategies to tell, given some judgement deriving a  Minimal Disjunction of Abnormalities, which one of the disjuncts can be assumed to be false, i.e. for which one a {\sf RC} rule can be applied; and which one has to be accepted. Accordingly, formulas derived under the former can be considered valid, formulas previously derived by assuming the latter false have to be retracted. Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The two `standard' strategies and their rationale are \cite{batens01}:
 
 \begin{itemize}
-\item \textit{Reliability}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula assuming at some stage {\sf s-i} a $\phi\in \bigvee(\Delta^{min})$ to be false, needs to be retracted;
+\item \textit{Reliability}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula derived at some prior stage {\sf s'} on the assumption that some $\phi\in \Delta^{min}$ is false, needs to be retracted;
 
-\item \textit{Minimal Abnormality}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula assuming at some stage {\sf s-i} a $\phi\in \bigvee(\Delta^{min})$ to be false and such that $\phi$ is in a minimal set of $\Delta$, needs to be retracted.
+\item \textit{Minimal Abnormality}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula derived at some prior stage {\sf s'} on the assumption that some $\phi\in \bigvee(\Delta^{min})$ is false and where $\phi$ is in a minimal choice-set of all minimal $\Delta$'s derived at \textsf{s}, needs to be retracted.
 \end{itemize}
 %
-In the first case, one considers all possible abnormal formulas to be invalid; in the second case, one tries to minimize the number of such unavoidable contradictions. In this section, we provide rules that extend {\sf AdaptiveND} in view of the Reliability strategy, providing a proof-theoretical equivalent of the standard marking condition. 
+In the first case, one considers all possible abnormal formulas to be invalid; in the second case, one tries to minimize the number of such unavoidable contradictions. In this section, we extend {\sf AdaptiveND} with rules corresponding to the Reliability strategy by providing a proof-theoretical equivalent of the standard marking condition. 
 %s according to Reliability and Minimal Abnormality. 
 We leave the definition of a proof-theoretical Minimal Abnormality strategy to a later stage.
 
 
 \subsection{Marking Rule for Reliablity}
 
-Reliability is the derivability strategy that takes the most cautious interpretation of abnormalities: any formula that in view of the premises might behave abnormally, because it occurs in a minimal disjunction of abnormalities, is deemed unreliable and should not be assumed to behave normally. This means in practice that at any proof stage where a formula $\psi$ is derived using some $\phi^{-}\in \Omega$ in context by an instance of the corresponding formation rule, is `marked'. Here marking means to reject the formula $\psi$, or invalidate it. In the following we shall introduce a new derivability rule that internalizes this process in {\sf AdaptiveND}.
+Reliability is the adaptive strategy that takes the most cautious interpretation of abnormalities: any formula that in view of the premises might behave abnormally, because it occurs in a minimal disjunction of abnormalities, is deemed unreliable and should not be assumed to behave normally. This means in practice that a formula derived on the assumption that $\phi$ behaves normally will be `marked' as soon as the unreliability of $\phi$ is established. The result of this marking is that $\psi$ should no longer be treated as a formula that was derived. In the following we shall introduce a new inference-rule that internalizes this process in {\sf AdaptiveND}.
 
 %We shall first introduce a notion of union of all so-called unreliable formulas. To this aim, in the following we will refer to $\Sigma=\bigcup\{\Gamma,\Omega^{-}\}$, for some premises $\Gamma$ and some abnormal formulas $\Omega$ derivable from $\Gamma$:
 %%
@@ -611,7 +611,7 @@ Reliability is the derivability strategy that takes the most cautious interpreta
 
 
 
-We define a new derivability rule $\XBox$R  that depends on the formulation of the union set of all minimal $\bigvee(\Delta^{min})$  obtained by instances of the \textsc{MinDab} rule above. 
+We define a new rule $\XBox$R that depends on the formulation of the union set of all minimal $\bigvee(\Delta^{min})$  obtained by instances of the \textsc{MinDab} rule above. {\color{red} If we only do reliability, the set of all disjuncts that occur in some minimal disjunction of abnormalities does not play a role. We can simply mark based on a single minimal disjunction of abnormalities (as the rule below correctly states).} 
 
 \begin{mathpar}
 \infer*[right=$\XBox$R]{\Turn{\Gamma;\cdot}{\Delta^{min}}\\ \TurnPrime{\Gamma; \phi^{-}}{\psi} \\ {\phi \in \Delta^{min}}}
@@ -625,12 +625,12 @@ We define a new derivability rule $\XBox$R  that depends on the formulation of t
 %\end{mathpar}
 
 
-The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, and at a later stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an {\sf Adaptive Condition Formation} rule, then at a next stage $\psi$ is marked as retracted.
+The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, and at a later stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an application of the conditional rule, then at a next stage $\psi$ is marked as retracted.
 
 
 \subsection{Extending the example}
 
-Let us now extend the example from Section \ref{sec:example} with a new branch to illustrate the derivation step obtained by the Marking Rule $\XBox$R. Let us call $\mathbb{D}$ the derivation already shown, which had as a conclusion at stage {\sf 5} the derivation of $q$ in context $\Gamma$ and under the adaptive condition that $(p \wedge \neg p)$ is false. We extend it now as follows:
+Let us now extend the example from Section \ref{sec:example} with a new branch to illustrate the derivation step obtained by the Marking Rule $\XBox$R. Let $\mathbb{D}$ be the derivation from our initial example that ended with the derivation at stage {\sf 5} $q$ in context $\Gamma$ and with $(p \wedge \neg p)^-$ as a condition. We extend it now as follows:
 
 %\begin{mathpar}
 %\infer*[right=some]{\infer*[right=UR]{\infer*[]{\infer*[vdots =1.5 em]{} {\TurnOne {\Gamma; \cdot} {\Delta_{1}}}}{\Turn {\Gamma; \cdot}{\Delta_{n}}}}{\TurnNextn{\Gamma,\Gamma';\cdot}}}{B;Dab(\Delta)^{min}_{i}}
@@ -783,19 +783,19 @@ Let us consider now a slightly more complex example. We want to show a situation
 \end{mathpar}
 \bigskip
 
-At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\sf RC} at stage {\sf 6} the formula $r$ is derived alone, assuming the relevant abnormality false. Let us now consider the following derivation, dubbed $\mathbb{D}^{'}$:
+At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\sf RC} at stage {\sf 6} the formula $r$ is derived alone, assuming the relevant abnormality false. Consider now a second derivation, dubbed $\mathbb{D}^{'}$:
 
 \begin{mathpar}
 \infer*[right=RC]{
 \infer*[right=$\wedge$I] {
 \infer*[right=$\vee$E]{ 
 \infer*[right=PREM] {\phantom{xx}} {\TurnSix {\Gamma; \cdot}{(p \vee q)}}}{\TurnSeven {\Gamma;\cdot}{p, q}}\\ 
-\infer*[right=PREM] {\phantom{xx}} {\TurnEight {\Gamma; \cdot}{\neg p}}}{\TurnNine {\Gamma; \cdot}{(p\wedge \neg p), r}}\\
+\infer*[right=PREM] {\phantom{xx}} {\TurnEight {\Gamma; \cdot}{\neg p}}}{\TurnNine {\Gamma; \cdot}{(p\wedge \neg p), q}}\\
 \infer*[]{\phantom{xxxx}}{\TurnTen{\Gamma; \cdot}{\neg q}}}{\TurnEleven {\Gamma;\cdot}{(p \wedge \neg p), (q\wedge \neg q)}}
 \end{mathpar}
 \bigskip
 
-Here the previously derived abnormality $(p \wedge \neg p)$ is derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7,9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we are allowed a marking step:
+Here the previously derived abnormality $(p \wedge \neg p)$ is derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7,9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we can apply the marking-rule:
 
 \begin{mathpar}
 \infer*[right=\XBox]{
@@ -804,7 +804,7 @@ Here the previously derived abnormality $(p \wedge \neg p)$ is derived in disjun
 \end{mathpar}
 \bigskip
 
-At stage {\sf 12} the formula $r$ is no longer valid, because its adaptive condition is a minimal abnormal formula of a derived disjunction of abnormalities. Now we can provide a further extension of this derivation dubbed $\mathbb{D^{\prime\prime}}$:
+At stage {\sf 12} the formula $r$ is no longer valid, because its adaptive condition occurs as one of the disjuncts in a minimal disjunction of abnormalities derived at stage \textsf{11}. Now we can provide a further extension of this derivation dubbed $\mathbb{D^{\prime\prime}}$:
 
 \begin{mathpar}
 \infer*[right=$\wedge$ I]{
@@ -816,7 +816,7 @@ At stage {\sf 12} the formula $r$ is no longer valid, because its adaptive condi
 \end{mathpar}
 \bigskip
 
-$\mathbb{D^{\prime\prime}}$ has the effect of producing a new minimal abnormality at stage {\sf 17}. This also means that if we obtain a copy of derivation $\mathbb{D}$, where each step is re-numbered consecutively, and join it to $\mathbb{D^{\prime\prime}}$ and $\mathbb{E}$, it is possible to establish again $(p \wedge \neg p)$ as an adaptive condition and accoridngly derive again the judgement that was marked at stage $12$, as follows:
+$\mathbb{D^{\prime\prime}}$ has the effect of producing a new minimal abnormality at stage {\sf 17}. This also means that if we obtain a copy of derivation $\mathbb{D}$, where each step is re-numbered consecutively, and join it to $\mathbb{D^{\prime\prime}}$ and $\mathbb{E}$, it is possible to establish again $(p \wedge \neg p)$ as an adaptive condition and accordingly derive again the judgement that was marked at stage $12$, as follows:
 
 
 \begin{mathpar}
