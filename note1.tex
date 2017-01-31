@@ -476,7 +476,7 @@ An {\sf AdaptiveND}-judgement is of the form $\Gamma; \Theta^{-}\vdash_{s} \Delt
 %
 When the second place on the left-hand side of $\vdash$ is empty, we shall write $\Gamma;\cdot\vdash$, thus reducing to the form of a {\sf minimalND}-judgement. 
 %When $\Omega$ is empty on the right-hand side of $\vdash$, we shall write simply $\vdash A$. In view of point $4.$ above, this natural deduction calculus can also be characterized as a multiple conclusion calculus.\footnote{There is a certain similarity between $\vdash ;\Omega$ and the notion of \textit{denied formulas} in a state from \cite{restall2005}: the standard way to read the right hand side of an {\sf AdaptiveND}-formula is in fact that of an exclusive ``or".} 
-Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks: $\XBox$ to mark that at the current stage some previously derived formula is retracted; $\checked$ to mark that at the current stage some previously derived formulas is now stable, i.e. will no longer be marked by $\XBox$. These symbols will be formally introduced in Sections \ref{sec:marking} and \ref{sec:meta} respectively. 
+Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks: $\XBox$ to mark that at the current stage some previously derived formula is retracted; $\checked$ to mark that at the current stage some previously derived formulas is now finally derived, i.e. will no longer be marked by $\XBox$. These symbols will be formally introduced in Sections \ref{sec:marking} and \ref{sec:meta} respectively. 
 %We shall also use below the abbreviation $\neg\phi:=\phi\rightarrow\bot$. 
 
 %A feature of {\sf AdaptiveND} that we will use below is that it requires to have \textit{classical disjunctions of formulas generated under the $\Omega$-rule}. To be more precise, whenever we derive more than a formula in the set $\Omega$, we might want to establish which of those is unavoidable, and thus extend $\Gamma$ with a set of disjunctions of $\omega$'s which is classical (as we cannot infer it from any already verified $\omega$). This means that {\sf AdaptiveND} needs a new formation rule for $\vee_{\sf CL}$, which is in fact restricted to $\phi$'s that are in $\Omega$. We shall also give a formation rule for $\Omega$ and one for $\Gamma; \Omega^{-}$. Furthermore, two additional rules are introduced for deriving formulas, simply or on conditions. 
@@ -901,7 +901,7 @@ We can now formulate our notion of final derivability:
 
 \begin{definition}[Final Derivability]
 A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ iff there is a stage {\sf s}  in some complete proof-tree $P$
- such that $\Turn{\Gamma;\phi^{-}}{\psi}$ and $\phi \notin \Delta^{min}$.
+ such that $\Turn{\Gamma;\phi^{-}}{\psi}$ and $\forall \Delta^{min},\phi \notin \Delta^{min}$.
 %, where $\Delta$ is the conclusion obtained  at some stage of $P$ by an instance of the \textsc{MinDab} rule. 
 \end{definition}
 %
