@@ -282,9 +282,10 @@ The type universe of reference is the set of propostions {\sf Prop}, construed b
 
 
 \begin{definition}[Judgements]
-A {\sf minimalND}-judgement is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions, $\Delta$ is a set of formulas of the language and {\sf s} is a positive integer.
+A multiple conclusion {\sf minimalND}-judgement is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions, $\Delta$ is a set of formulas of the language and {\sf s} is a positive integer.
 \end{definition}
-The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). The set $\Delta$ and the comma (if it occurs) on the right-hand side of the derivability sign are both to be read disjunctively. This characterizes our calculus as multiple-conclusion. Context formation rules, for both left and right-hand side set of formulas are given in Figure \ref{fig:contextrules}. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context (and it defines the equivalent of the adaptive Premise rule); finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.{\color{red}this is still an open issue. G: IN WHICH WAY?}
+The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). The set $\Delta$ and the comma (if it occurs) on the right-hand side of the derivability sign are both to be read disjunctively. This characterizes our calculus as multiple-conclusion. Context formation rules, for both left and right-hand side set of formulas are given in Figure \ref{fig:contextrules}. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context (and it defines the equivalent of the adaptive Premise rule).
+%; finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.{\color{red}this is still an open issue. G: IN WHICH WAY?}
 
 
 \begin{figure}[h!]
@@ -297,8 +298,8 @@ The set $\Gamma$ on the left-hand side of the derivability sign is to be read co
 
 \begin{mathpar}
 \infer*[right=Prem] {{\Turn {\Gamma; \cdot} {\sf wf}}\\ {\phi \in \Gamma}}{\TurnNext {\Gamma; \cdot} {\phi}}
-\and
-\infer*[right=$\Delta$-formation] {{\Turn {\Gamma; \cdot} {\Delta \cup \{\phi\}}}} {\TurnNext {\Gamma; \cdot} {\Delta, \phi}}
+%\and
+%\infer*[right=$\Delta$-formation] {{\Turn {\Gamma; \cdot} {\Delta \cup \{\phi\}}}} {\TurnNext {\Gamma; \cdot} {\Delta, \phi}}
 
 \end{mathpar}
 \caption{Context Formation Rules}\label{fig:contextrules}
@@ -347,11 +348,11 @@ The semantics of connectives is given in the standard proof-theoretical way by w
 
 \begin{figure}[h!]
 \begin{mathpar}
-\infer*[right=Wleft] {\Turn {\Gamma; \cdot} {\Delta, \phi_{1}} } {\TurnNext {\Gamma, \phi_{2}; \cdot} {\Delta, \phi_{1}}}
+\infer*[right=Wl] {\Turn {\Gamma; \cdot} {\Delta, \phi_{1}} } {\TurnNext {\Gamma, \phi_{2}; \cdot} {\Delta, \phi_{1}}}
 \and
-\infer*[right=Cleft] {\Turn {\Gamma, \phi_{1}, \phi_{1}; \cdot} {\Delta, \phi_{2}} } {\TurnNext {\Gamma, \phi_{1}; \cdot} {\Delta, \phi_{2}}}
+\infer*[right=Cl] {\Turn {\Gamma, \phi_{1}, \phi_{1}; \cdot} {\Delta, \phi_{2}} } {\TurnNext {\Gamma, \phi_{1}; \cdot} {\Delta, \phi_{2}}}
 \and
-\infer*[right=Eleft] {\Turn {\Gamma, \phi_{1}, \phi_{2}; \cdot} {\Delta, \phi_{3}} } {\TurnNext {\Gamma, \phi_{2}, \phi_{1}; \cdot} {\Delta, \phi_{3}}}
+\infer*[right=El] {\Turn {\Gamma, \phi_{1}, \phi_{2}; \cdot} {\Delta, \phi_{3}} } {\TurnNext {\Gamma, \phi_{2}, \phi_{1}; \cdot} {\Delta, \phi_{3}}}
 \end{mathpar}
 \begin{mathpar}
 
@@ -359,14 +360,14 @@ The semantics of connectives is given in the standard proof-theoretical way by w
 \end{mathpar}
 \begin{mathpar}
 
-\infer*[right=Cright] {\Turn {\Gamma; \cdot} {\Delta, \phi, \phi}} {\TurnNext {\Gamma; \cdot} {\Delta, \phi} }
+\infer*[right=Cr] {\Turn {\Gamma; \cdot} {\Delta, \phi, \phi}} {\TurnNext {\Gamma; \cdot} {\Delta, \phi} }
 \and
 \infer*[right=Eright] {\Turn {\Gamma; \cdot} {\Delta, \phi_{1}, \phi_{2}} } {\TurnNext {\Gamma; \cdot} {\Delta, \phi_{2}, \phi_{1}}}
 \end{mathpar}
 \caption{Structural Rules}\label{fig:structural}
 \end{figure}
 
-Finally, we introduce  in Figure \ref{fig:structural} a set of rules to enforce structural properties.  {\sf Wleft} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule can only work with a strictly empty set of formulas $; \cdot$ following $\Gamma$: we shall introduce in the next section this as the set of \textit{adaptive conditions}. The reason for this requirement in {\sf Wleft} is that the set of adaptive conditions strictly depends on the set of assumptions $\Gamma$, hence a Weakening of the latter can imply a different formulation of the former. We do not need to formulate a {\sf Wright} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf Cleft} for Contraction on the left allows elimination of repeated assumptions and {\sf Eleft} for Exchange on the left is valid just by set construction, as there is no order. {\sf Cright} and {\sf Eright} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Caluli) guarantees that derivations can be pasted together, and it in generals requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
+Finally, we introduce  in Figure \ref{fig:structural} a set of rules to enforce structural properties.  {\sf Wl} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule can only work with a strictly empty set of formulas $; \cdot$ following $\Gamma$: we shall introduce in the next section this as the set of \textit{adaptive conditions}. The reason for this requirement in {\sf Wl} is that the set of adaptive conditions strictly depends on the set of assumptions $\Gamma$, hence a Weakening of the latter can imply a different formulation of the former. We do not need to formulate a {\sf Wr} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf Cl} for Contraction on the left allows elimination of repeated assumptions and {\sf Eleft} for Exchange on the left is valid just by set construction, as there is no order. {\sf Cr} and {\sf Eright} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Caluli) guarantees that derivations can be pasted together, and in general it requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
 
 The resulting system is equivalent to the propositional fragment of \textbf{CLuN}, the logic obtained by adding excluded middle to the positive fragment of classical logic. This is a very weak paraconsistent (but not paracomplete) logic that does not validate any of the usual De Morgan rules \cite{Batens:LogiqueAnalyse:1980}, and has been used as the Lower Limit Logic of one of the first adaptive logics.
 
@@ -375,7 +376,7 @@ The resulting system is equivalent to the propositional fragment of \textbf{CLuN
 \end{theorem}
 \noindent\textsl{Proof.} Soundness can be verified as usual, with the key step verifying that ($\neg$I) is sound in view of the completeness-clause for negation (if $\phi$ is False, then $\neg \phi$ is True). Completeness follows from the provability of all \textbf{CLuN}-axioms. Below, we only give the proofs for excluded middle and Peirce's Law.
     \begin{mathpar}
-    \infer*[left=Cright]
+    \infer*[left=Cr]
         {\infer*[right=$\vee$I]
             {\infer*[right=$\vee$I]
                 {\infer*[right=$\neg$I]
@@ -390,10 +391,10 @@ The resulting system is equivalent to the propositional fragment of \textbf{CLuN
     \and
 
     \infer*[right=$\to$I]
-        {\infer*[right=Cright]
+        {\infer*[right=Cr]
             {\infer*[right=$\to$E]
                 {\infer*[left=$\to$I]
-                    {\infer*[left=$\vee$I $\vee$E]
+                    {\infer*[left=Wr]
                         {\TurnOne {p} {p}}
                         {\TurnTwo {p} {p, q}}}
                     {\TurnThree { } {p, p \to q}} \\
@@ -611,7 +612,8 @@ Reliability is the adaptive strategy that takes the most cautious interpretation
 
 
 
-We define a new rule $\XBox$R that depends on the formulation of the union set of all minimal $\bigvee(\Delta^{min})$  obtained by instances of the \textsc{MinDab} rule above. {\color{red} If we only do reliability, the set of all disjuncts that occur in some minimal disjunction of abnormalities does not play a role. We can simply mark based on a single minimal disjunction of abnormalities (as the rule below correctly states).} 
+We define a new rule $\XBox$R that depends on the derivation all $\bigvee(\Delta^{min})$  obtained by instances of the \textsc{MinDab} rule above.
+% {\color{red} If we only do reliability, the set of all disjuncts that occur in some minimal disjunction of abnormalities does not play a role. We can simply mark based on a single minimal disjunction of abnormalities (as the rule below correctly states).} 
 
 \begin{mathpar}
 \infer*[right=$\XBox$R]{\Turn{\Gamma;\cdot}{\Delta^{min}}\\ \TurnPrime{\Gamma; \phi^{-}}{\psi} \\ {\phi \in \Delta^{min}}}
@@ -649,7 +651,7 @@ Let us now extend the example from Section \ref{sec:example} with a new branch t
 \end{mathpar}
 \bigskip
 
-In this derivation a new abnormality is derived at stage {\sf 10}, namely the same that is assumed to be false at stage {\sf 5}. Notice that it is essential that this abnormality be derived under an empty condition, i.e. under context $\Gamma;\cdot$, as explained above for the required strict condition on {\sf WLeft}. Moreover, a difference between the Fitch-style proofs standard for Adaptive Logics and the Natural Deduction derivation style becomes here evident. In the former, a marking rule implies the need to proceed backwards on the derivation, to mark all previous occurrences of the marked formula which can no longer be considered derived. In the latter, on the other hand, there is no need to remove formulas because the result obtained at stage $5$ cannot be reused in an extension of this proof.  Instead a new derivation step is performed (stage {\sf 11}), where the conclusion $q$ is marked. Moreover, if we were ever to get again $\Gamma; (p \wedge \neg p)^{-} \vdash_{\sf i} q$, that would be obtained by some new derivation $\mathbb{D}^{\prime}$ and therefore result as a conclusion at some stage ${\sf i>11}$.
+In this derivation a new abnormality is derived at stage {\sf 10}, namely the same that is assumed to be false at stage {\sf 5}. Notice that it is essential that this abnormality be derived under an empty condition, i.e. under context $\Gamma;\cdot$, as explained above for the required strict condition on {\sf Wl}. Moreover, a difference between the Fitch-style proofs standard for Adaptive Logics and the Natural Deduction derivation style becomes here evident. In the former, a marking rule implies the need to proceed backwards on the derivation, to mark all previous occurrences of the marked formula which can no longer be considered derived. In the latter, on the other hand, there is no need to remove formulas because the result obtained at stage $5$ cannot be reused in an extension of this proof.  Instead a new derivation step is performed (stage {\sf 11}), where the conclusion $q$ is marked. Moreover, if we were ever to get again $\Gamma; (p \wedge \neg p)^{-} \vdash_{\sf i} q$, that would be obtained by some new derivation $\mathbb{D}^{\prime}$ and therefore result as a conclusion at some stage ${\sf i>11}$.
 
 
 %
