@@ -885,7 +885,7 @@ $\Omega(\Gamma)=\{\psi\wedge \neg \psi \mid \psi\in Sf(\Gamma)\}$.
 Given this preparatory work, we now introduce the notion of a \textit{complete proof-tree} with respect to derivable relevant disjunction of abnormalities:
 
 \begin{definition}[Completeness relative to relevant abnormalities]
-Let $P$ be a proof-tree of {\sf AdaptiveND}. We say that $P$ is complete relative to $\Omega(\Gamma)$ at stage {\sf s} if  $\TurnPrime{\Gamma;\cdot}{\bigvee(\Delta)}$, for every derivable $\bigvee(\Delta)$ with $\Delta\subseteq\Omega(\Gamma)$ and some {\sf s'}$<${\sf s}.
+Let $P$ be a proof-tree of {\sf AdaptiveND}. We say that $P$ is complete relative to $\Omega(\Gamma)$ at stage {\sf s} if for every derivable $\bigvee(\Delta^{min})$ with $\Delta\subseteq\Omega(\Gamma)$ there is an $\mathsf{s' < s}$ such that $\TurnPrime{\Gamma;\cdot}{\bigvee(\Delta^{min})}$.
 
 %
 %\begin{enumerate}
