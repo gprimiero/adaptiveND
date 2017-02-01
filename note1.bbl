@@ -1,4 +1,9 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Allo:Theoria:2015}
+Patrick Allo.
+\newblock Logic, reasoning and revision.
+\newblock {\em Theoria}, 82(1):3--31, 2016.
 
 \bibitem{Batens:LogiqueAnalyse:1980}
 Diderik Batens.
@@ -22,6 +27,16 @@ Diderik Batens.
 \newblock A universal logic approach to adaptive logics.
 \newblock {\em Logica universalis}, 1:221--242, 2007.
 
+\bibitem{Beall01072012}
+Jc~Beall.
+\newblock Why {P}riest’s reassurance is not reassuring.
+\newblock {\em Analysis}, 72(3):517--525, 2012.
+
+\bibitem{Beall:TheReviewOfSymbolicLogic:2011}
+JC~C. Beall.
+\newblock Multiple-conclusion lp and default classicality.
+\newblock {\em The Review of Symbolic Logic}, 4(2):326--336, 6 2011.
+
 \bibitem{Blackburn:ModalLogic:2001}
 Patrick Blackburn, Maarten De~Rijke, and Yde Venema.
 \newblock {\em Modal Logic}.
@@ -31,6 +46,11 @@ Patrick Blackburn, Maarten De~Rijke, and Yde Venema.
 Graham Priest.
 \newblock Minimally inconsistent \textbf{LP}.
 \newblock {\em Studia Logica}, 50:321--331, 1991.
+
+\bibitem{Priest01102012}
+Graham Priest.
+\newblock The sun may not, indeed, rise tomorrow: a reply to {B}eall.
+\newblock {\em Analysis}, 72(4):739--741, 2012.
 
 \bibitem{Strasser:AdaptiveLogicsForDefeasibleReasoning:}
 Christian Strasser.
