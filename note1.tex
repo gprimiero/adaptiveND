@@ -838,7 +838,16 @@ $\mathbb{D^{\prime\prime}}$ has the effect of producing a new minimal abnormalit
 where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the derivation is no longer extended, the formula $r$ can be considered finally derived. In the next section we complete our system with the required meta-theoretical analysis needed to define derivability at stage and final derivability.
 
 \subsection{Reconstruction of linear adaptive proofs}
-By Theorem \ref{thm:clun} and because the conditional rule, the unconditional rule, and the marking rule are mere reformulations of the standard generic proof-rules for adaptive logics, the proof-system for \textsf{AdaptiveND} is sound and complete w.r.t. (the propositional fragment of) the adaptive logic \textbf{CLuN$^r$}. Every proof in \textsf{AdaptiveND} can, with the help of the numbering of the judgements, be mapped onto a correct (albeit somewhat redundant) adaptive proof in a linear format. We illustrate the procedure by reconstructing the linear proof that corresponds to the example form Sections \ref{sec:example} and \ref{sec:example2}:
+
+
+\begin{theorem}\label{thm:clunr}
+	The proof-system for \textsf{AdaptiveND} is sound and complete w.r.t. (the propositional fragment of) the adaptive logic \textbf{CLuN$^r$}.
+\end{theorem}
+\noindent\textsl{Proof.} By Theorem \ref{thm:clun} and by the observation that the conditional rule, the unconditional rule, and the marking rule are mere reformulations of the standard generic proof-rules for adaptive logics.
+\qed
+
+%, the proof-system for \textsf{AdaptiveND} is sound and complete w.r.t. (the propositional fragment of) the adaptive logic \textbf{CLuN$^r$}. 
+Accordingly, every proof in \textsf{AdaptiveND} can, with the help of the numbering of the judgements, be mapped onto a correct (albeit somewhat redundant) adaptive proof in a linear format. We illustrate the procedure by reconstructing the linear proof that corresponds to the example form Sections \ref{sec:example} and \ref{sec:example2}:
 \begin{center}
     \begin{tabular}{cllcl}
         (1) & $\neg p \vee q$ & Prem & $\emptyset$\\
