@@ -22,6 +22,11 @@ Diderik Batens.
 \newblock A universal logic approach to adaptive logics.
 \newblock {\em Logica universalis}, 1:221--242, 2007.
 
+\bibitem{Blackburn:ModalLogic:2001}
+Patrick Blackburn, Maarten De~Rijke, and Yde Venema.
+\newblock {\em Modal Logic}.
+\newblock Cambridge University Press, Cambridge, 2001.
+
 \bibitem{GP:LPm}
 Graham Priest.
 \newblock Minimally inconsistent \textbf{LP}.
