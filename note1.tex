@@ -382,7 +382,7 @@ The resulting system is equivalent to the propositional fragment of \textbf{CLuN
         {\infer*[right=$\vee$I]
             {\infer*[right=$\vee$I]
                 {\infer*[right=$\neg$I]
-                    {\infer*[left=Axiom]
+                    {\infer*[left=Prem]
                         { }
                         {\TurnOne {p; \cdot} {p}}}
                     {\TurnTwo {\emptyset; \cdot} {p, \neg p}}}
@@ -397,15 +397,15 @@ The resulting system is equivalent to the propositional fragment of \textbf{CLuN
             {\infer*[right=$\to$E]
                 {\infer*[left=$\to$I]
                     {\infer*[left=Wr]
-                        {\TurnOne {p} {p}}
-                        {\TurnTwo {p} {p, q}}}
-                    {\TurnThree { } {p, p \to q}} \\
+                        {\TurnOne {p;\cdot} {p}}
+                        {\TurnTwo {p;\cdot} {p, q}}}
+                    {\TurnThree {;\cdot} {p, p \to q}} \\
                 \infer*[right=Prem]
                     { }
-                    {\TurnFour {(p \to q) \to p} {(p \to q) \to p}}}
-                {\TurnFive {(p \to q) \to p} {p, p}}}
-            {\TurnSix {(p \to q) \to p} {p}}}
-        {\TurnSeven { } {((p \to q) \to p) \to  p}}
+                    {\TurnFour {(p \to q) \to p; \cdot} {(p \to q) \to p}}}
+                {\TurnFive {(p \to q) \to p; \cdot} {p, p}}}
+            {\TurnSix {(p \to q) \to p; \cdot} {p}}}
+        {\TurnSeven { ;\cdot} {((p \to q) \to p) \to  p}}
     \end{mathpar}
 \qed
 % % % %NOT DONE THIS
