@@ -373,7 +373,7 @@ Finally, we introduce  in Figure \ref{fig:structural} a set of rules to enforce 
 
 The resulting system is equivalent to the propositional fragment of \textbf{CLuN}, the logic obtained by adding excluded middle to the positive fragment of classical logic. This is a very weak paraconsistent (but not paracomplete) logic that does not validate any of the usual De Morgan rules \cite{Batens:LogiqueAnalyse:1980}, and has been used as the Lower Limit Logic of one of the first adaptive logics.
 
-\begin{theorem}
+\begin{theorem}\label{thm:clun}
     {\sf minimalND} is sound and complete w.r.t. to the propositional fragment of \textbf{CLuN}.
 \end{theorem}
 \noindent\textsl{Proof.} Soundness can be verified as usual, with the key step verifying that ($\neg$I) is sound in view of the completeness-clause for negation (if $\phi$ is False, then $\neg \phi$ is True). Completeness follows from the provability of all \textbf{CLuN}-axioms. Below, we only give the proofs for excluded middle and Peirce's Law.
@@ -632,7 +632,7 @@ We define a new rule $\XBox$R that depends on the derivation all $\bigvee(\Delta
 The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, and at a later stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an application of the conditional rule, then at a next stage $\psi$ is marked as retracted.
 
 
-\subsection{Extending the example}
+\subsection{Extending the example}\label{sec:example2}
 
 Let us now extend the example from Section \ref{sec:example} with a new branch to illustrate the derivation step obtained by the Marking Rule $\XBox$R. Let $\mathbb{D}$ be the derivation from our initial example that ended with the derivation at stage {\sf 5} $q$ in context $\Gamma$ and with $(p \wedge \neg p)^-$ as a condition. We extend it now as follows:
 
@@ -836,6 +836,24 @@ $\mathbb{D^{\prime\prime}}$ has the effect of producing a new minimal abnormalit
 \bigskip
 
 where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the derivation is no longer extended, the formula $r$ can be considered finally derived. In the next section we complete our system with the required meta-theoretical analysis needed to define derivability at stage and final derivability.
+
+\subsection{Reconstruction of linear adaptive proofs}
+By Theorem \ref{thm:clun} and because the conditional rule, the unconditional rule, and the marking rule are mere reformulations of the standard generic proof-rules for adaptive logics, the proof-system for \textsf{AdaptiveND} is sound and complete w.r.t. (the propositional fragment of) the adaptive logic \textbf{CLuN$^r$}. Every proof in \textsf{AdaptiveND} can, with the help of the numbering of the judgements, be mapped onto a correct (albeit somewhat redundant) adaptive proof in a linear format. We illustrate the procedure by reconstructing the linear proof that corresponds to the example form Sections \ref{sec:example} and \ref{sec:example2}:
+\begin{center}
+    \begin{tabular}{cllcl}
+        (1) & $\neg p \vee q$ & Prem & $\emptyset$\\
+        (2) & $\bigvee \{\neg p, q\}$ & $\vee$E, (2) & $\emptyset$\\
+        (3) & $p$ & Prem & $\emptyset$\\
+        (4) & $\bigvee \{p \wedge \neg p, q\}$ & $\wedge$ I, (2, 3) & $\emptyset$\\
+        (5) & $q$ & RC, (4) & $\{p\}$ & $\XBox^{10}$\\
+        (6) & $p$ & Prem & $\emptyset$\\
+        (7) & $p \to \neg p$ & Prem & $\emptyset$\\
+        (8) & $\neg p$ & $\to$ E, (6, 7) & $\emptyset$\\
+        (9) & $p$ & Prem & $\emptyset$\\
+        (10) & $p \wedge \neg p$ & $\wedge$ I, (8, 9) & $\emptyset$\\
+    \end{tabular}
+\end{center}
+In this proof, the application of $\vee$E on line (2) is based on the representation of the disjunctive comma by a `super-imposed' classical disjunction (a device that effectively plays the same role in adaptive logic, see ...), whereas the application of $\wedge$I is valid in virtue of the \textbf{CLuN}-validity of $\neg p \vee q, p \vdash (p \wedge \neg p) \vee q$ which warrants the application of the unconditional rule (with empty conditions). The final marking is not added as a separate line, but is instead added in the fifth place on line 5 and labelled with the number of the line or stage at which the relevant abnormality was derived.
 
 \section{Derivability}\label{sec:meta}
 
