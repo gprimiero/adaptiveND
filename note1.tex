@@ -380,7 +380,11 @@ The resulting system is equivalent to the propositional fragment of \textbf{CLuN
 \begin{theorem}\label{thm:clun}
     {\sf minimalND} is sound and complete w.r.t. to the propositional fragment of \textbf{CLuN}.
 \end{theorem}
-\noindent\textsl{Proof.} Soundness can be verified as usual, with the key step verifying that ($\neg$I) is sound in view of the completeness-clause for negation (if $\phi$ is False, then $\neg \phi$ is True). Completeness follows from the provability of all \textbf{CLuN}-axioms. Below, we only give the proofs for excluded middle and Peirce's Law.
+\noindent\textsl{Proof.} Soundness can be verified as usual, with the key step verifying that ($\neg$I) is sound in view of the completeness-clause for negation
+\[
+   \text{If } v(\phi) = \mathrm{False} \text{, then } v(\neg \phi) = \mathrm{True}\tag{C$\neg$}\label{eq:negclause}
+\]
+Completeness follows from the provability of all \textbf{CLuN}-axioms. Below, we only give the proofs for excluded middle and Peirce's Law.
     \begin{mathpar}
     \infer*[left=Cr]
         {\infer*[right=$\vee$I]
