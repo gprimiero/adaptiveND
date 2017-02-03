@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.31)  2 FEB 2017 12:03
-=======
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  3 FEB 2017 14:26
->>>>>>> 5d24ecc56cc8bc012c6a61f6706643fe176f75e2
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -529,12 +525,8 @@ pe1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/font
 s/type1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
 pe1/public/wasy2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
 ublic/wasy2-ps/wasy9.pfb>
-<<<<<<< HEAD
-Output written on note1.pdf (18 pages, 366883 bytes).
-=======
 Output written on /Users/patrickallo/adaptiveND/note1.pdf (19 pages, 377210 byt
 es).
->>>>>>> 5d24ecc56cc8bc012c6a61f6706643fe176f75e2
 PDF statistics:
  199 PDF objects out of 1000 (max. 8388607)
  143 compressed objects within 2 object streams
