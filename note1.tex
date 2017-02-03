@@ -918,7 +918,7 @@ For \textsf{AdaptiveND} and \textbf{CLuN$^r$} the requirement that all $\psi\wed
 %\end{enumerate}
 %\end{definition}
 %
-\begin{theorem}
+\begin{theorem}\label{thm:subform}
     If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.
 \end{theorem}
 \noindent\textsl{Proof.}~We consider the possible ways of deriving a minimal disjunction of abnormalities by examining the structure of the proof-rules of \textsf{MinimalND}.
@@ -963,36 +963,31 @@ A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ iff th
 %, where $\Delta$ is the conclusion obtained  at some stage of $P$ by an instance of the \textsc{MinDab} rule. 
 \end{definition}
 %
-The definition guarantees final derivability for any derived formula whose  adaptive condition is not minimal. 
+The definition guarantees final derivability for any derived formula whose adaptive condition is not minimal. 
 %Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
 
-\section{Classical recapture, logical options and defeasible inferences}\label{sec:recap}
+Theorem \ref{thm:subform} helps us to characterise finite proof-trees that allow us to decide whether a formula is finally derived by identifying the abnormalities that might be derivable in view of the syntactical form of the premises, but it can also be seen as a \textbf{CLuN}-specific variant of the \emph{Derivability Adjustment Theorem} from \cite{batens07} (stated below in multiple-conclusion form)
+\[
+    \Gamma \vdash_{\mathbf{ULL}} \phi \text{ iff } \Gamma \vdash_{\mathbf{LLL}} \phi, \Delta \text{ for some finite } \Delta \subset \Omega 
+\]
+or as a \textbf{CLuN}-alternative of a result from \cite{Beall:TheReviewOfSymbolicLogic:2011} that relates the multiple-conclusion extensions of classical logic and \textbf{LP}:
+\[
+    X \models_{\mathbf{CPL}}^+ Y \text{ iff } X \models_{\mathbf{LP}}^+ Y \cup \iota(X) \tag{LP/CLP}\label{beall}
+\]
+with $\iota(X) = \{p \wedge \neg p : p \in \At(X)\}$.
 
+These connections can help us to explain how \textsf{AdaptiveND} can be used as a bridge between different attitudes towards the problem of classical recapture.
+
+\section{Concluding remarks}\label{sec:recap}
 To conclude, we would like to highlight certain distinctive features of the proposed calculus, and briefly discuss how these features can be used to reconsider the question of classical recapture. As we see it, the defeasible reasoning-forms formalised in our \textsf{AdaptiveND} system have three primary virtues:
-\begin{enumerate}
-    \item they are formulated in a tree-format that forces one to state all information used in an inference-step explicitly, and thereby restricts the reliance on global features of a proof to a minimum (e.g. when checking that a disjunction of abnormalities is minimal);
+\begin{enumerate*}
+    \item they are formulated in a tree-format that forces one to state all information used in an inference-step explicitly, and this restricts the reliance on global features of a proof to a minimum (e.g. when checking that a disjunction of abnormalities is minimal);
     \item the multiple-conclusion format leads to a transparent connection between the restricted inference-rules that are valid in \textsf{minimalND} (i.e. the lower-limit-logic) and their use as a premise of the conditional rule;
     \item the explicit individuation of abnormalities as a sub-type of the well-formed formulae.
-\end{enumerate}
-The explicit connection between multiple-conclusions and defeasible inferences brings a recent disagreement over the problem of classical recapture in the logic \textbf{LP} into focus.\footnote{See \cite[18ff]{Allo:Theoria:2015} for a more detailed reconstruction of this debate.} In several papers, Graham Priest has explicitly endorsed the adaptive approach to classical recapture. To that effect, he has proposed his own \emph{minimally inconsistent} \textbf{LP}: an adaptive logic based on a stronger paraconsistent logic (but without a detachable implication) and the minimal abnormality strategy \cite{GP:LPm}. This approach has been criticised by JC Beall, another prominent defender of the logic \textbf{LP}, on the ground that any all-purpose logic should at all cost prevent one to step from truth to falsehood \cite{Beall01072012}. This is a task that cannot in general be fulfilled by an adaptive logic, and indeed a task we shouldn't impute on adaptive logic in the first place \cite{Priest01102012}. By contrast, Beall's preferred take on classical recapture is that it should be handled with extra-logical means. One formalism in which such an extra-logical approach can be made precise is a multiple-conclusion extension of \textbf{LP}. Relying on the generalisation of consequence in a multiple-conclusion setting, the following relation between classical logic and \textbf{LP} \cite[Theorem 3.7]{Beall:TheReviewOfSymbolicLogic:2011} becomes very natural:
+\end{enumerate*}
+The explicit connection between multiple-conclusions and defeasible inferences brings a recent disagreement over the problem of classical recapture in the logic \textbf{LP} into focus.\footnote{See \cite[18ff]{Allo:Theoria:2015} for a more detailed reconstruction of this debate.} In several papers, Graham Priest has explicitly endorsed the adaptive approach to classical recapture. To that effect, he has proposed his own \emph{minimally inconsistent} \textbf{LP}: an adaptive logic based on a stronger paraconsistent logic (but without a detachable implication) and the minimal abnormality strategy \cite{GP:LPm}. This approach has been criticised by JC Beall, another prominent defender of the logic \textbf{LP}, on the ground that any all-purpose logic should at all cost prevent one to step from truth to falsehood \cite{Beall01072012}. This is a task that cannot in general be fulfilled by an adaptive logic, and indeed a task we shouldn't impute on adaptive logic in the first place \cite{Priest01102012}. By contrast, Beall's preferred take on classical recapture is that it should be handled with extra-logical means. The multiple-conclusion extensions of classical logic and \textbf{LP} already mentioned in the previous section provide one of the formalisms in which this idea can be made precise, since (\ref{beall}) can be seen as a minimalist expression of how paraconsistent logics like \textbf{LP} incorporate classical logic in a restricted form. Given the central role of similar multiple-conclusion judgements in \textsf{AdaptiveND}, results like (\ref{beall}) should really be understood as agnostic between the different strategies for classical recapture. Indeed, whereas Beall advocates the view that \textbf{LP$^+$} only presents us with logically viable options, these same options are at the same time the motor behind any defeasible inference mechanism that allows one to favour one of these options. One advantage of \textsf{AdaptiveND} is that it doesn't artificially widen the gap between defeasible and multiple-conclusion accounts of classical recapture.
 
-\[
-    X \models_{CPL}^+ Y \text{ iff } X \models_{LP}^+ Y \cup \iota(X)
-\]
-
-
-with $\iota(X) ={p \wedge \neg p : p \in \mathrm{at}(X)}$. Translated in a proof-theoretic judgemental style,
-
-\[
-\Gamma \vdash_{LP} \Delta \cup \Omega(\Gamma)
-\] 
-
-with the construction of $\Omega(\Gamma)$ restricted to atomic formulae to fit the use of a stronger Lower Limit Logic expressing, relative to the consequence-relation of $\mathbf{LP}^+$, the idea of default classicality. This can be seen as a corollary of the more general \emph{Derivability Adjustment Theorem} from \cite{batens07}. {\color{red}{[G: I think this needs rephrasing]}}  Beall's understanding of this result is that, from the viewpoint of \textbf{LP}, we should think of logic as a constraint on our logical options (i.e. the set on the right hand of the turnstile), and any further choice among these options should be understood in terms of less general (and often fallible) principles. 
-
-
-When one adopts a logic that is strictly weaker than classical logic, the question of how one should account for epistemically useful classical inference-forms that are invalidated by one's preferred logic almost immediately arises. In the case of paraconsistent logic this question is often deemed quite urgent, as the practical and epistemic usefulness of the inference-forms that are lost, like the disjunctive syllogism, are almost undisputed. This is the problem of \emph{classical recapture}. Inconsistency-adaptive logics present one possible answer to this challenge under the form of defeasible inference-forms that allow one to use classical inference-steps on the condition that certain assumptions are not violated. The class of adaptive logics that have been formulated since the earliest formulation of this paradigm as a response to the problem of classical recapture generalise this idea, and provide a general framework in which many types of defeasible inference-forms can be rigorously formalised.
-
-In several papers, Graham Priest has explicitly endorsed this type of approach to the classical recapture problem of the paraconsistent logic \textbf{LP}, and has defended his own preferred formalisation and motivation for what he calls \emph{Minimally Inconsistent LP}. When compared to the systems developed in the adaptive logic tradition, this system stands out because it is based on a strong paraconsistent logic that nevertheless lacks a detachable implication (which makes the problem of classical recapture even more stringent), but also because it is put forward as a potential universal inference engine that can be applied in all contexts. At the level of its formal characterisation, minimally inconsistent LP differs from its closest neighbour ACLuNs$^m$ 
+The formal approach taken in the development of \textsf{AdaptiveND} signals another crucial departure from the terms in which the Priest/Beall debate is carried out, namely a departure concerning the individuation of abnormalities. Within the adaptive logic tradition, abnormalities are understood as formulae of a specific logical form, and the abnormality of models (e.g. how inconsistent they are) is measured relative to the abnormal formulas it verifies. When compared to the road taken by minimally inconsistent \textbf{LP}, this has certain advantages \cite{Batens:Synthese:2000}. The same syntactical approach to abnormalities is integrated in \textsf{AdaptiveND} through the identification of a class of formulae of type $\Omega$ and the need to state membership of $\Omega$ when the conditional rule is applied. This approach is more general in the sense that it doesn't have to appeal to semantic concepts like \emph{gluts} in its formulation, and can explain how we step from logical options to defeasible inferences by only taking into account the logical form of the premises at hand. From a proof-theoretical viewpoint this could be seen as a more explicit approach, whereas from the standpoint of the broader adaptive logic programme it is definitely more flexible.
 
 %\begin{definition}
 %$\TurnADND{\Gamma}{\phi}$ iff $\TurnChecked{\Gamma;\Omega^{-}}{\phi}$
