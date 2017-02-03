@@ -27,6 +27,11 @@ Diderik Batens.
 \newblock A universal logic approach to adaptive logics.
 \newblock {\em Logica universalis}, 1:221--242, 2007.
 
+\bibitem{Batens:LogiqueAnalyse:2001}
+Diderik Batens and Dagmar Provijn.
+\newblock Pushing the search paths in the proofs. a study in proof heuristics.
+\newblock {\em Logique \& Analyse}, 44(173-175):113--134, 2001.
+
 \bibitem{Beall01072012}
 Jc~Beall.
 \newblock Why {P}riest’s reassurance is not reassuring.
@@ -37,11 +42,6 @@ JC~C. Beall.
 \newblock Multiple-conclusion lp and default classicality.
 \newblock {\em The Review of Symbolic Logic}, 4(2):326--336, 6 2011.
 
-\bibitem{Blackburn:ModalLogic:2001}
-Patrick Blackburn, Maarten De~Rijke, and Yde Venema.
-\newblock {\em Modal Logic}.
-\newblock Cambridge University Press, Cambridge, 2001.
-
 \bibitem{GP:LPm}
 Graham Priest.
 \newblock Minimally inconsistent \textbf{LP}.
@@ -51,6 +51,11 @@ Graham Priest.
 Graham Priest.
 \newblock The sun may not, indeed, rise tomorrow: a reply to {B}eall.
 \newblock {\em Analysis}, 72(4):739--741, 2012.
+
+\bibitem{Sch60}
+Kurt Sch{\"u}tte.
+\newblock {\em Beweistheorie}.
+\newblock Springer, Berlin, 1960.
 
 \bibitem{Strasser:AdaptiveLogicsForDefeasibleReasoning:}
 Christian Strasser.

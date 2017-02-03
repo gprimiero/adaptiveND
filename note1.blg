@@ -1,46 +1,46 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: note1.aux
 The style file: plain.bst
 Database file #1: primiero.bib
-You've used 11 entries,
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            583 strings with 5716 characters,
-and the built_in function-call counts, 3288 in all, are:
-= -- 332
-> -- 99
+            591 strings with 5809 characters,
+and the built_in function-call counts, 3544 in all, are:
+= -- 359
+> -- 101
 < -- 1
-+ -- 43
++ -- 44
 - -- 29
-* -- 217
-:= -- 557
-add.period$ -- 35
-call.type$ -- 11
-change.case$ -- 44
+* -- 233
+:= -- 599
+add.period$ -- 38
+call.type$ -- 12
+change.case$ -- 47
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 136
-empty$ -- 295
+cite$ -- 12
+duplicate$ -- 147
+empty$ -- 322
 format.name$ -- 29
-if$ -- 699
+if$ -- 755
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 13
-newline$ -- 58
-num.names$ -- 24
-pop$ -- 37
+int.to.str$ -- 12
+missing$ -- 14
+newline$ -- 63
+num.names$ -- 26
+pop$ -- 38
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 37
 quote$ -- 0
-skip$ -- 85
+skip$ -- 93
 stack$ -- 0
-substring$ -- 251
-swap$ -- 20
+substring$ -- 277
+swap$ -- 21
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 40
+type$ -- 44
 warning$ -- 0
-while$ -- 36
-width$ -- 13
-write$ -- 125
+while$ -- 39
+width$ -- 14
+write$ -- 136

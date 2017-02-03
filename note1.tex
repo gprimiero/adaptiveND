@@ -10,6 +10,7 @@
 \usepackage{bussproofs}
 \usepackage{wasysym}
 \usepackage{xcolor}
+\usepackage{mdwlist}
 
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
@@ -147,6 +148,8 @@
 \newcommand{\TurnNineteen}[2]
         { {#1}\vdash_{\textbf{\sf 19}}  {#2}}
 
+\newcommand{\Sf}{\ensuremath{\mathrm{Sf}}}
+\newcommand{\At}{\ensuremath{\mathrm{At}}}
 
 %\newcommand{\TurnT}[2]
 %   { \Delta_0;{#1}\vdash  {#2}}
@@ -892,15 +895,16 @@ To this aim, one requires that the stage {\sf s} at which a formula $\phi$ is de
 
 
 \begin{definition}[Subformulas of the premise set]
-$Sf(\Gamma)=\bigcup_{\phi \in \Gamma} \{\psi \mid \psi$ is a subformula of $ \phi\}$.
+$\Sf(\Gamma)=\bigcup_{\phi \in \Gamma} \{\psi \mid \psi$ is a subformula of $ \phi\}$.
 \end{definition}
 
 
-From $Sf(\Gamma)$ we then construe all the possible abnormalities which can be obtained by its members:
+From $\Sf(\Gamma)$ we then construe all the possible abnormalities which can be obtained by its members:
 
 \begin{definition}[Abnormalities relevant to the premise set]
-$\Omega(\Gamma)=\{\psi\wedge \neg \psi \mid \psi\in Sf(\Gamma)\}$. (Note: when a restriction applies to the formation of $\Omega$, the same restriction should also apply to $\Omega(\Gamma)$)
+$\Omega(\Gamma)=\{\psi\wedge \neg \psi \in \Omega \mid \psi\in \Sf(\Gamma)\}$.
 \end{definition}
+For \textsf{AdaptiveND} and \textbf{CLuN$^r$} the requirement that all $\psi\wedge \neg \psi$ should be in $\Omega$ is trivially satisfied. This condition is necessary whenever $\Omega$ is based on a restricted logical form; e.g. when abnormalities are contradictions of the form $\psi \wedge \neg \psi$ with $\psi$ atomic. In that case, our definition of $\Omega(\Gamma)$ is co-extensive with the more basic $\{\psi \wedge \neg \psi \mid \psi \in \At(\Gamma)\}$. 
 %\begin{definition}
 %Let $P$ be a proof-tree of {\sf AdaptiveND}. We call $P^{\sf ext}$ the complete extension of $P$ at stage {\sf s} if $P^{\sf ext}$ extends $P$ by a possibly infinite number of derivation steps such that 
 %
@@ -910,10 +914,29 @@ $\Omega(\Gamma)=\{\psi\wedge \neg \psi \mid \psi\in Sf(\Gamma)\}$. (Note: when a
 %\end{enumerate}
 %\end{definition}
 %
-\begin{proposition}
+\begin{theorem}
     If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.
-\end{proposition}
-Given this preparatory work, which relies on the construction of a finite set of models (and hence a finite set of minimal disjunction of abnormalities) using a strategy similar to the use of filtrations to obtain finite models in modal logic \cite[77ff]{Blackburn:ModalLogic:2001}, we now introduce the notion of a \textit{complete proof-tree} with respect to derivable relevant disjunction of abnormalities:
+\end{theorem}
+\noindent\textsl{Proof.}~We consider the possible ways of deriving a minimal disjunction of abnormalities by examining the structure of the proof-rules of \textsf{MinimalND}.
+\begin{enumerate*}
+    \item We first note that the result of applying ($\vee$I) (or \textsc{Wr}) can never be a minimal disjunction of abnormalities. This excludes all proof-rules that can be used to deduce a judgement with a formula on the right that isn't yet a formula or sub-formula in one of the judgements it relies on.
+    \item To derive a formula of the form $\phi \wedge \neg \phi$ on the right of the turn-style, this formula should either already be a sub-formula of some premise, or be the result of ($\wedge$I).
+    \item For some $\phi \wedge \neg \phi$ to be the result of ($\wedge$I), each of its conjuncts should be derivable. We focus on the proof-paths to formulae of the form $\neg \phi$, of which there are four:
+        \begin{enumerate*}
+            \item $\neg \phi$ is a premise;
+            \item $\neg \phi$ can be obtained by ($\wedge$E) from some $\neg \phi \wedge \psi$ on the right;
+            \item $\neg \phi$ can be obtained by ($\to$E) from some $\psi \to \neg \phi$ on the right;
+            \item $\neg \phi$ can be obtained by ($\neg$I) from $\phi$ on the left.
+        \end{enumerate*}
+        Cases (a-c) imply that $\neg \phi$ should be a positive part of a previously derived formula on the right, and hence $\phi$ should be a negative part that formula. By induction over the length of proofs (with the premise-rule as the base-case), these three cases can be retraced to $\phi$ being a negative part of some premise.
+    \item Case (d) requires the deduction of some $\phi$ on the left, which can only result from either ($\to$I) or (\textsc{Wl}). In the latter case, we need to note that an application of (\textsc{Wl}) can never lead to a judgement where (i) the left-side only includes the premise-set, and (ii) the right-side has no more formulae than before the application of (\textsc{Wl}). This implies that (\textsc{Wl}) cannot be used to deduce a minimal disjunction of abnormalities that wasn't already derivable without. In the former case, this means that some $\phi \to \psi$ was previously derived on the right. Again, this case can be reduced to $\phi$ being a negative part of some premise. 
+\end{enumerate*}
+From (3) and (4) it follows that every abnormality that occurs in a minimal disjunction of abnormalities should be formed from a formula that occurs as the negative part of some premise. A fortiori, this means it should be formed from a member of $\Omega(\Gamma)$.
+\qed
+
+The focus positive and negative parts of formulae goes back to \cite{Sch60}, and was previously used for the development of goal-directed proof-strategies for adaptive logics \cite{Batens:LogiqueAnalyse:2001}. The fact that we should pay attention to all negative parts of the premises should also be obvious in view of the semantics for \textbf{CLuN}, as the truth-value of negative formulae does not need to depend on the truth-values of its sub-formulae.
+
+Given this preparatory work, we now introduce the notion of a \textit{complete proof-tree} with respect to derivable relevant disjunction of abnormalities:
 
 \begin{definition}[Completeness relative to relevant abnormalities]
 Let $P$ be a proof-tree of {\sf AdaptiveND}. We say that $P$ is complete relative to $\Omega(\Gamma)$ at stage {\sf s} if for every derivable $\bigvee(\Delta^{min})$ with $\Delta\subseteq\Omega(\Gamma)$ there is an $\mathsf{s' < s}$ such that $\TurnPrime{\Gamma;\cdot}{\bigvee(\Delta^{min})}$.
