@@ -1,0 +1,110 @@
+
+REVIEWER1 __ COMMENTS
+
+
+The philosophical point is that in the abstract the authors advertise that the specific features of the system will be used to reconsider the question of classical recapture. However, the topic comes up only in a section titled "Concluding remarks" and is treated somewhat hastily. In particular, it's not clear to what extent the specific features of the formulation of the adaptive logic developed by the authors contribute to the development of the discussion, and to what extent what's important is just the features that adaptive logics simply have, independently of the specific features of the proof system that the authors presented. (Having said this, the formulation the authors gave is very neat and valuable independently of whether it moves the philosophical discussion forward.) Please consider being more explicit and careful about these things.
+
+
+
+TO DO
+
+--
+p.  2
+the line (4)  ->   line (4)
+
+
+DONE
+
+--
+p. 4
+Consider adding a brief gloss on the semicolon right after Definition 2. Otherwise, its role becomes clear only quite a bit later.
+
+DONE
+
+
+--
+p. 8 
+Similar point for "finally derived".
+
+
+DONE
+
+
+--
+p. 8 
+The sentence starting with "In the Adaptive trandition..." is not grammatically correct. The subject is in plural the predicate is singular.
+
+
+DONE
+
+
+
+--
+p. 9 
+In RU2, why is it important that in the premises we have s and s+1 (and s+2) in the premises? Is it required that they be introduced exactly in this order? Wouldn't it be better to have s, s' (and s'')?
+
+
+FIXED
+
+--
+p. 10
+The same point for  Figure 8.
+
+
+IN THIS CASE, WE KEPT THE NUMBERING AS IT WAS, AS FIGURE 8 REPRESENTS AN INSTANCE OF A PROOF. oF COURSE, THE PREMISES COULD HAVE BEEN DERIVED IN A DIFFERENT ORDER.
+
+
+
+--
+p. 10 
+You also used $\Omega$-form but didn't mention this. Is this intentional?
+
+
+ADDED BRIEF CLARIFICATION
+
+
+--
+p. 18
+You talk about LP+ but don't say what it is.
+
+
+THIS HAS BEEN CLARIFIED THROUGH A NEW SENTENCE TO INTRODUCE (LP/CPL) on p.17
+
+
+--
+p. 18 "these same options" - the English here looks awkward.
+
+
+
+
+--
+p. 18 In general I would re-write the sentence  "Indeed, whereas...place", it looks unclear and confusing.
+
+
+
+
+===================================================================
+
+
+
+REVIEWER2 __ COMMENTS
+
+
+
+1.
+
+
+
+
+2.
+
+
+
+3.
+
+We did not follow the suggestion of the reviewer on this point. This is a typical clash of traditions between semantic and proof-theoretic approaches. In the latter, it is standard to define formulas and their contexts inductively, withouth these rule being directly used in the proofs.
+
+
+4.
+
+We revised according to the reviewer's comment: min is an annotation and it has been added where necessary to the examples.
