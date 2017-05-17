@@ -717,10 +717,10 @@ In this derivation a new abnormality is derived at stage {\sf 10}, namely the sa
 \subsection{Marking Rules for Minimal Abnormality}
 %
 %
-Minimal abnormality is the marking strategy that reflects the following condition: a formula $\phi$ is retracted if at every stage {\sf s} at which it can be derived, it is so always on a non-empty condition of any of the minimal choice set of the set of abnormal formulas of its premises. Hence, we first introduce a set of minimal choice sets of abnormalities:
+Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ is retracted if at every stage {\sf s} at which it can be derived, it is so always on a non-empty condition $\phi$ of any of the minimal choice set of the set of abnormal formulas of its premises. To formulate appropriate rules, we first introduce a set of minimal choice sets of abnormalities:
 %
 \begin{definition}
-We call $\Phi_{{\sf s}}(\Gamma)$ the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ at stage {\sf s}, i.e.\ where each of $\bigvee\Delta_{1}, \dots, \bigvee\Delta_{n}$ is derived according to {\sf MinDab}.
+We call $\Phi_{{\sf s}}(\Gamma)$ the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ at stage {\sf s}, i.e.\ where each of $\bigvee\Delta_{1}, \dots, \bigvee\Delta_{n}$ is derived from $\Gamma$ according to {\sf MinDab}.
 \end{definition}
 %%
 Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. Now we formulate two new marking rules:
