@@ -729,7 +729,7 @@ Choice sets provide selections of abnormalities that might turn out to be true a
 \begin{mathpar}
 \infer*[right=$\XBox$M]{\Turn{\Gamma;\cdot}{\Delta^{min}}\\
 \TurnPrime{\Gamma; \phi^{-}}{\psi} \\
-{\forall \Delta^{min}\in \Phi_{s}(\Gamma)\supset\phi}}
+{\forall \Delta^{min}\in \Phi_{s}(\Gamma),\phi\in \Delta^{min}}}
 {\TurnMaxPlusOneMA{\Gamma}{\psi}}
 \end{mathpar}
 
@@ -738,7 +738,7 @@ Choice sets provide selections of abnormalities that might turn out to be true a
 \infer*[right=$\XBox$M2]{\Turn{\Gamma;\cdot}{\Delta^{min}}\\
 \TurnPrime{\Gamma; \phi^{-}}{\psi} \\
 \TurnPrimePrime{\Gamma; \xi^{-}}{\psi} \\
-{\exists \Delta^{min}\in \Phi_{s}(\Gamma)\supset\xi\supseteq \phi}}
+{\exists \Delta^{min}\in \Phi_{s}(\Gamma),\phi\supseteq \xi\in \Delta^{min}}}
 {\TurnMaxTwoPlusOneMA{\Gamma}{\psi}}
 \end{mathpar}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.3.5)  17 MAY 2017 21:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.3.5)  17 MAY 2017 21:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -605,7 +605,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
 (Font)              using `U/wasy/m/n' instead on input line 646.
 
-[11] [12] [13]
+[11] [12]
+Overfull \hbox (19.77223pt too wide) in paragraph at lines 738--743
+ $[]$ 
+ []
+
+[13]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 893.
@@ -656,7 +661,7 @@ fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/wasy2-ps/wasy10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/wasy2-ps/wasy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/w
 asy2-ps/wasy9.pfb>
-Output written on AdaptiveND_PrimieroAllo_revised.pdf (20 pages, 381469 bytes).
+Output written on AdaptiveND_PrimieroAllo_revised.pdf (20 pages, 381374 bytes).
 
 PDF statistics:
  202 PDF objects out of 1000 (max. 8388607)
