@@ -19,6 +19,9 @@
 \newcommand{\TurnADND}[2]
     { {#1}\vdash_{\textbf{\sf AdaptiveND}}  {#2}}
 
+\newcommand{\TurnMinusn}[2]
+            { {#1}\vdash_{\textbf{\sf s-n}}  {#2}}
+
 \newcommand{\Turn}[2]
     { {#1}\vdash_{\textbf{\sf s}}  {#2}}
 \newcommand{\TurnNext}[2]
@@ -640,11 +643,15 @@ Reliability is the adaptive strategy that takes the most cautious interpretation
 
 We define a new rule $\XBox$R that depends on the derivation of all $\bigvee(\Delta^{min})$  obtained by instances of the \textsc{MinDab} rule above.
 % {\color{red} If we only do reliability, the set of all disjuncts that occur in some minimal disjunction of abnormalities does not play a role. We can simply mark based on a single minimal disjunction of abnormalities (as the rule below correctly states).}
+The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, and at a later stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an application of the conditional rule {\sf RC}, then at a next stage $\psi$ is marked as retracted.
 
+\begin{figure}[h]
 \begin{mathpar}
 \infer*[right=$\XBox$R]{\Turn{\Gamma;\cdot}{\Delta^{min}}\\ \TurnPrime{\Gamma; \phi^{-}}{\psi} \\ {\phi \in \Delta^{min}}}
 {\TurnMaxPlusOneREL{\Gamma}{\psi}}
 \end{mathpar}
+\caption{Marking for Reliability}
+\end{figure}
 
 
 %\begin{mathpar}
@@ -653,7 +660,6 @@ We define a new rule $\XBox$R that depends on the derivation of all $\bigvee(\De
 %\end{mathpar}
 
 
-The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, and at a later stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an application of the conditional rule {\sf RC}, then at a next stage $\psi$ is marked as retracted.
 
 
 \subsection{Extending the example}\label{sec:example2}
@@ -717,30 +723,48 @@ In this derivation a new abnormality is derived at stage {\sf 10}, namely the sa
 \subsection{Marking Rules for Minimal Abnormality}
 %
 %
-Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ is retracted if at every stage {\sf s} at which it can be derived, it is so always on a non-empty condition $\phi$ of any of the minimal choice set of the set of abnormal formulas of its premises. To formulate appropriate rules, we first introduce a set of minimal choice sets of abnormalities:
+Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ is retracted if at every stage {\sf s} at which it can be derived, it is so always on a non-empty condition $\phi$ of any of the minimal choice set of the set of abnormal formulas of its premises. To formulate appropriate marking rules, we first need to introduce a set of minimal choice sets of abnormalities:
 %
 \begin{definition}
 We call $\Phi_{{\sf s}}(\Gamma)$ the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ at stage {\sf s}, i.e.\ where each of $\bigvee\Delta_{1}, \dots, \bigvee\Delta_{n}$ is derived from $\Gamma$ according to {\sf MinDab}.
 \end{definition}
 %%
-Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. Now we formulate two new marking rules:
+Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice}, where each premise must be intended as the conclusion of a {\sf MinDab} rule.
 
+The first marking rule $\XBox$M reflects the following condition: if a formula $\psi$ is derived at stage $s'$ under an adaptive condition $\phi$ which is part of all $\Delta_{i}^{min} \in \Phi_{\sf s}(\Gamma)$, then at the next stage the formula $\psi$ can be retracted.
+
+The second marking rule $\XBox$M2 reflects the following condition: if a formula $\psi$ is derived always under an adaptive condition $\xi$ which is part of a $\phi$ in some $\Delta_{i}^{min} \in \Phi_{\sf s}(\Gamma)$, then at the next stage the formula $\psi$ can be retracted.
+
+
+
+
+\begin{figure}[t]
 
 \begin{mathpar}
-\infer*[right=$\XBox$M]{\Turn{\Gamma;\cdot}{\Delta^{min}}\\
+\infer*[right=Choice]{\TurnMinusn{\Gamma;\cdot}{\Delta_{1}^{min}}\\
+\ldots\\
+\Turn{\Gamma;\cdot}{\Delta_{n}^{min}}}
+{\TurnPrime{\Gamma;\cdot}{\Phi_{{\sf s}}(\Gamma)}}
+\end{mathpar}
+
+\begin{mathpar}
+\infer*[right=$\XBox$M]{\Turn{\Gamma;\cdot}{\Phi_{{\sf s}}(\Gamma)}\\
 \TurnPrime{\Gamma; \phi^{-}}{\psi} \\
-{\forall \Delta^{min}\in \Phi_{s}(\Gamma),\phi\in \Delta^{min}}}
+{\forall \Delta_{i}^{min}\in \Phi_{s}(\Gamma),\phi\in \Delta_{i}^{min}}}
 {\TurnMaxPlusOneMA{\Gamma}{\psi}}
 \end{mathpar}
 
 
 \begin{mathpar}
-\infer*[right=$\XBox$M2]{\Turn{\Gamma;\cdot}{\Delta^{min}}\\
-\TurnPrime{\Gamma; \phi^{-}}{\psi} \\
-\TurnPrimePrime{\Gamma; \xi^{-}}{\psi} \\
-{\exists \Delta^{min}\in \Phi_{s}(\Gamma),\phi\supseteq \xi\in \Delta^{min}}}
-{\TurnMaxTwoPlusOneMA{\Gamma}{\psi}}
+\infer*[right=$\XBox$M2]{\Turn{\Gamma;\cdot}{\Phi_{{\sf s}}(\Gamma)}\\
+%\TurnPrime{\Gamma; \phi^{-}}{\psi} \\
+\TurnPrime{\Gamma; \xi^{-}}{\psi} \\
+{\exists \Delta_{i}^{min}\in \Phi_{s}(\Gamma), \forall {\sf s'}\ \phi\supseteq \xi\in \Delta_{i}^{min}}}
+{\TurnMaxPlusOneMA{\Gamma}{\psi}}
 \end{mathpar}
+
+\caption{Marking for Minimal Abnormality}
+\end{figure}
 
 %%, where again $\Sigma=\bigcup\{\Gamma, \Omega^{-}\}$:
 %
