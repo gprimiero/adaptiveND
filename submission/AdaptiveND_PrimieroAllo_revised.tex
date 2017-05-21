@@ -577,7 +577,17 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
     \caption{Redundancy of unconditional rules}\label{fig:condasderived}
 \end{figure}
 
-The Adaptive strategies developed in the next Section have the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of the application of the Conditional Rule {\sf RC}, thereby requiring a retraction of the formulas that are derivable from it. To this aim, it is essential to establish minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$, and the set of minimal choice sets of $\bigvee(\Delta)^{min}$, denoted by $\Phi_{{\sf s}}(\Gamma)$. The rules in Figure \ref{fig:mindab} establish both these constructions of minimal disjunctions of abnormalites and their choice set. Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$. Note that the superscript $min$ works as an annotation that the disjuction $\Delta$ in the first premise of the {\sf MinDab} rule satisfies the side condition of the same rule, but it does not indicate that $\Delta^{min}$ is a different set than $\Delta$. Accordingly, choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where each premise must be intended as the conclusion of a {\sf MinDab} rule.
+The Adaptive strategies developed in the next Section have the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of the application of the Conditional Rule {\sf RC}, thereby requiring a retraction of the formulas that are derivable from it. To this aim, it is essential to establish minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$, and the set of minimal choice sets of $\bigvee(\Delta)^{min}$, denoted by $\Phi_{{\sf s}}(\Gamma)$. The rules in Figure \ref{fig:mindab} establish both these constructions.
+
+Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$. Note that the superscript $min$ works as an annotation that the disjuction $\Delta$ in the first premise of the {\sf MinDab} rule satisfies the side condition of the same rule, but it does not indicate that $\Delta^{min}$ is a different set than $\Delta$.
+
+Accordingly, choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows.
+
+\begin{definition}
+We call $\Phi_{{\sf s}}(\Gamma)$ the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ at stage {\sf s}, i.e.\ where each of $\bigvee\Delta_{1}, \dots, \bigvee\Delta_{n}$ is derived from $\Gamma$ according to {\sf MinDab}.
+\end{definition}
+
+The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where each premise must be intended as the conclusion of a {\sf MinDab} rule.
 
 
 
