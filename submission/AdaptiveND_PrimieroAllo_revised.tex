@@ -24,8 +24,12 @@
 
 \newcommand{\Turn}[2]
     { {#1}\vdash_{\textbf{\sf s}}  {#2}}
-\newcommand{\TurnNext}[2]
-    { {#1}\vdash_{\textbf{\sf s+1}}  {#2}}
+    \newcommand{\TurnNext}[2]
+        { {#1}\vdash_{\textbf{\sf s+1}}  {#2}}
+
+            \newcommand{\TurnMinusOne}[2]
+                    { {#1}\vdash_{\textbf{\sf s-1}}  {#2}}
+
 \newcommand{\TurnNextn}[2]
         { {#1}\vdash_{\textbf{\sf s+n}}  {#2}}
 \newcommand{\TurnNextnn}[2]
@@ -52,6 +56,9 @@
     { {#1}\vdash_{\textbf{\sf s\XBox R}}  {#2}}
 \newcommand{\TurnMarkedMA}[2]
     { {#1}\vdash_{\textbf{\sf s\XBox MA}}  {#2}}
+    \newcommand{\TurnPlusOneMarkedMA}[2]
+        { {#1}\vdash_{\textbf{\sf s+1\XBox MA}}  {#2}}
+
 
 \newcommand{\TurnChecked}[2]
     { {#1}\vdash_{\textbf{\sf \checked}}  {#2}}
@@ -580,17 +587,31 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
     \caption{Redundancy of unconditional rules}\label{fig:condasderived}
 \end{figure}
 
-The Adaptive strategies developed in the next Section have the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of the application of the Conditional Rule {\sf RC}, thereby requiring a retraction of the formulas that are derivable from it. To this aim, it is essential to establish minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$, and the set of minimal choice sets of $\bigvee(\Delta)^{min}$, denoted by $\Phi_{{\sf s}}(\Gamma)$. The rules in Figure \ref{fig:mindab} establish both these constructions.
+The Adaptive strategies developed in the next Section have the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of the application of the Conditional Rule {\sf RC}, thereby requiring a retraction of the formulas that are derivable from it. To this aim, three elements need to be introduced:
+
+\begin{enumerate}
+\item  minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$;
+\item the union of all $\bigvee(\Delta)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\bigcup\Delta(\Gamma)$;
+\item the set of minimal choice sets of $\bigvee(\Delta)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\Phi(\Gamma)$.
+\end{enumerate}
+
+The rules in Figure \ref{fig:mindab} establish these three constructions.
 
 Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$. Note that the superscript $min$ works as an annotation that the disjuction $\Delta$ in the first premise of the {\sf MinDab} rule satisfies the side condition of the same rule, but it does not indicate that $\Delta^{min}$ is a different set than $\Delta$.
 
-Accordingly, choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows.
+Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each derived according to {\sf MinDab} at stages {\sf s-n} up to {\sf s-1}, the union set of all such formulas can be derived at stage {\sf s}, defined as follows:
 
-\begin{definition}
-We call $\Phi_{{\sf s}}(\Gamma)$ the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ at stage {\sf s}, i.e.\ where each of $\bigvee\Delta_{1}, \dots, \bigvee\Delta_{n}$ is derived from $\Gamma$ according to {\sf MinDab}.
+\begin{definition}[Set of unreliable formulas]
+$\bigcup\Delta(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the set of all $\{\Delta_{1}, \dots, \Delta_{n}\}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
 \end{definition}
 
-The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where each premise must be intended as the conclusion of a {\sf MinDab} rule.
+Accordingly, choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows:
+
+\begin{definition}[Choice set of unreliable formulas]
+$\Phi(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ derived from $\Gamma$ up tp stage {\sf s-1} according to {\sf MinDab}. We denote each such choice set with $\{\Delta^{min}_{i\dots n}\}$.
+\end{definition}
+
+The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where again each premise must be intended as the conclusion of a {\sf MinDab} rule.
 
 
 
@@ -604,17 +625,24 @@ The choice set of an empty set of minimal disjunction of abnormalities is empty.
 
 
 \begin{mathpar}
+\infer*[right=UnRel]{\TurnMinusn{\Gamma;\cdot}{\Delta_{1}^{min}}\\
+\ldots\\
+\TurnMinusOne{\Gamma;\cdot}{\Delta_{n}^{min}}}
+{\Turn{\Gamma;\cdot}{\bigcup\Delta(\Gamma)}}
+\end{mathpar}
+
+\begin{mathpar}
 \infer*[right=Choice]{\TurnMinusn{\Gamma;\cdot}{\Delta_{1}^{min}}\\
 \ldots\\
-\Turn{\Gamma;\cdot}{\Delta_{n}^{min}}}
-{\TurnPrime{\Gamma;\cdot}{\Phi_{{\sf s}}(\Gamma)}}
+\TurnMinusOne{\Gamma;\cdot}{\Delta_{n}^{min}}}
+{\Turn{\Gamma;\cdot}{\Phi(\Gamma)}}
 \end{mathpar}
 
 \caption{Minimal Abnormal Formulas Rule and their Choice Set}\label{fig:mindab}
 \end{figure}
 
 
-The derivation of a minimal disjunction of abnormalities and the formation of their choice set is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depends on the judgements about such minimal disjunctions that can be derived.
+The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depends on the judgements about such minimal disjunctions that can be derived.
 
 
 \subsection{A simple example}\label{sec:example}
@@ -673,8 +701,8 @@ The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minima
 
 \begin{figure}[t]
 \begin{mathpar}
-\infer*[right=$\XBox$R]{\Turn{\Gamma;\cdot}{\Delta^{min}}\\ \TurnPrime{\Gamma; \phi^{-}}{\psi} \\ {\phi \in \Delta^{min}}}
-{\TurnMaxPlusOneREL{\Gamma}{\psi}}
+\infer*[right=$\XBox$R]{\Turn{\Gamma;\phi^{-}}{\psi}\\ \TurnPrime{\Gamma; \cdot}{\bigcup\Delta(\Gamma)} \\ {\phi \in \bigcup\Delta(\Gamma)}}
+{\TurnMaxPlusOneREL{\Gamma;\phi^{-}}{\psi}}
 \end{mathpar}
 \caption{Marking for Reliability}
 \end{figure}
@@ -749,7 +777,7 @@ In this derivation a new abnormality is derived at stage {\sf 10}, namely the sa
 \subsection{Marking Rules for Minimal Abnormality}
 %
 %
-Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ is retracted if at every stage {\sf s} at which it can be derived, it is so always on a non-empty condition $\phi$ of any of the minimal choice set of the set of abnormal formulas of its premises as given by the rule {\sf Choice}.
+Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ is retracted if at every stage {\sf s} at which it can be derived, it is so always on a non-empty condition $\phi$ of any of the minimal choice set of the set of abnormal formulas of its premises as given by the rule {\sf Choice}. We offer rules for this strategy in Figure \ref{fig:MA}.
 %To formulate appropriate marking rules, we first need to introduce a set of minimal choice sets of abnormalities:
 %
 %\begin{definition}
@@ -758,9 +786,9 @@ Minimal abnormality is the marking strategy that reflects the following conditio
 %%
 %Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice}, where each premise must be intended as the conclusion of a {\sf MinDab} rule.
 
-The first marking rule $\XBox$M reflects the following condition: if a formula $\psi$ is derived at stage $s'$ under an adaptive condition $\phi$ which is part of all $\Delta_{i}^{min} \in \Phi_{\sf s}(\Gamma)$, then at the next stage the formula $\psi$ can be retracted.
+The first marking rule $\XBox$M reflects the following condition: if a formula $\psi$ is derived at stage $s$ under an adaptive condition $\phi$ which is part of all $\Delta_{i}^{min} \in \Phi(\Gamma)$ at stage $s'$, then at the next stage the formula $\psi$ can be retracted.
 
-The second marking rule $\XBox$M2 reflects the following condition: if a formula $\psi$ is derived always under an adaptive condition $\xi$ which is part of a $\phi$ in some $\Delta_{i}^{min} \in \Phi_{\sf s}(\Gamma)$, then at the next stage the formula $\psi$ can be retracted.
+The second marking rule $\XBox$M2 reflects the following condition: if a formula $\psi$ is derived always under an adaptive condition which is part of the same $\{\Delta_{i\dots n}^{min}\} \in \Phi(\Gamma)$, then at the next stage the formula $\psi$ can be retracted at all stages where it was previously derived. Here the adaptive condition of the conclusion should be intended as saying that the retraction applies to all stages where the derivation of $\psi$ was obtained under one of the listed conditions.
 
 
 
@@ -775,22 +803,23 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 % \end{mathpar}
 
 \begin{mathpar}
-\infer*[right=$\XBox$M]{\Turn{\Gamma;\cdot}{\Phi_{{\sf s}}(\Gamma)}\\
-\TurnPrime{\Gamma; \phi^{-}}{\psi} \\
-{\forall \Delta_{i}^{min}\in \Phi_{s}(\Gamma),\phi\in \Delta_{i}^{min}}}
-{\TurnMaxPlusOneMA{\Gamma}{\psi}}
+\infer*[right=$\XBox$M]{\Turn{\Gamma;\phi^{-}}{\psi}\\
+\TurnPrime{\Gamma; \cdot}{\Phi(\Gamma)} \\
+{\forall \{\Delta_{i \dots n}^{min}\}\in \Phi(\Gamma),\phi\in \{\Delta_{i \dots n}^{min}\}}}
+{\TurnMaxPlusOneMA{\Gamma;\phi^{-}}{\psi}}
 \end{mathpar}
 
 
 \begin{mathpar}
-\infer*[right=$\XBox$M2]{\Turn{\Gamma;\cdot}{\Phi_{{\sf s}}(\Gamma)}\\
-%\TurnPrime{\Gamma; \phi^{-}}{\psi} \\
-\TurnPrime{\Gamma; \xi^{-}}{\psi} \\
-{\exists \Delta_{i}^{min}\in \Phi_{s}(\Gamma), \forall {\sf s'}\ \phi\supseteq \xi\in \Delta_{i}^{min}}}
-{\TurnMaxPlusOneMA{\Gamma}{\psi}}
+\infer*[right=$\XBox$M2]{\TurnMinusn{\Gamma;\phi^{-}}{\psi}\\
+\ldots\\
+\TurnMinusOne{\Gamma; \xi^{-}}{\psi}\\
+\Turn{\Gamma; \cdot}{\Phi(\Gamma)}\\
+{\exists \{\Delta_{i\dots n}^{min}\}\in \Phi(\Gamma), \phi^{-}, \dots, \xi^{-}\in \{\Delta_{i\dots n}^{min}\}}}
+{\TurnPlusOneMarkedMA{\Gamma; \phi^{-}, \dots, \xi^{-}}{\psi}}
 \end{mathpar}
 
-\caption{Marking for Minimal Abnormality}
+\caption{Marking for Minimal Abnormality}\label{fig:MA}
 \end{figure}
 
 %%, where again $\Sigma=\bigcup\{\Gamma, \Omega^{-}\}$:
