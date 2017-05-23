@@ -62,10 +62,13 @@
 
 
 \newcommand{\TurnMaxPlusOne}[2]
-        { {#1}\vdash_{\textbf{\sf max(s,s')+1}}  {#2}}
+     { {#1}\vdash_{\textbf{\sf max(s,s')+1}}  {#2}}
+
+\newcommand{\TurnMaxTwoPlusOne}[2]
+     { {#1}\vdash_{\textbf{\sf max(s,s')+1}} {#2}}
 
 \newcommand{\TurnMaxThreePlusOne}[2]
-{ {#1}\vdash_{\textbf{\sf max(s,s',s'')+1}}  {#2}}
+     { {#1}\vdash_{\textbf{\sf max(s,s',s'')+1}}  {#2}}
 
 \newcommand{\TurnMarkedNextREL}[2]
     { {#1}\vdash_{\textbf{\sf s+1\XBox R}}  {#2}}
@@ -458,8 +461,8 @@ We now extend {\sf minimalND} to characterize a new logic called {\sf AdaptiveND
 \begin{enumerate}
 \item the explicit formulation of an $\Omega$ set of propositions;% of type $\bot$ {\color{red}why type $\bot$};
 \item the formulation of judgements including an \textit{adaptive condition};
-\item the formulation of a rule that allows to derive new formulas independent from such an adaptive condition;
-\item the formulation of a rule that allows to derive new formulas that depend from such an adaptive condition.
+\item the formulation of a rule that allows the derivation of new formulas independent from such an adaptive condition;
+\item the formulation of a rule that allows the derivation of new formulas that depend on such an adaptive condition.
 \end{enumerate}
 %
 We offer accordingly new definitions for the syntax of this logic and the related form of judgements.
@@ -491,7 +494,7 @@ An {\sf AdaptiveND}-judgement is of the form $\Gamma; \Theta^{-}\vdash_{s} \Delt
 \item the left-hand side of $\vdash_{\sf s}$ has $\Gamma$ as in {\sf minimalND};
 \item the semicolon sign on the left-hand side of $\vdash_{\sf s}$ is conjunctive;
 \item $\Theta$ refers to a finite subset of $\Omega$, i.e. a set of formulas of a specific inconsistent logical form; we write $\phi$ instead of $\{\phi\}$ when $\Theta$ is the singleton $\{\phi\}$; below we introduce an appropriate $\Omega$-formation rule;\footnote{As mentioned above, the current setting of {\sf AdaptiveND} is specified for an inconsistency-adaptive logic.}
-\item the last place of the left-hand side context is always reserved to negated formulas of type $\Omega$; we shall use $\phi^{-}$ to refer to the negation of $\phi$, and $\Theta^-$ for $\{\phi^- \mid \phi \in \Theta\}$;
+\item the last place of the left-hand side context is always reserved for negated formulas of type $\Omega$; we shall use $\phi^{-}$ to refer to the negation of $\phi$, and $\Theta^-$ for $\{\phi^- \mid \phi \in \Theta\}$;
 \item the right-hand side is in disjunctive form.
 \end{enumerate}
 \end{definition}
@@ -544,8 +547,8 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
 
 \begin{figure}[h!]
 \begin{mathpar}
-\infer*[right=RU] {\Turn {\Gamma; \phi^{-}} {\phi_{1}}\\ {\TurnNext {\phi_{1};\cdot} {\phi_{2}}}}
-{\TurnNextNext {\Gamma, \phi_{1}; \phi^{-}} {\phi_{2}}}
+\infer*[right=RU] {\TurnPrime {\Gamma; \phi^{-}} {\phi_{1}}\\ {\TurnPrimePrime {\phi_{1};\cdot} {\phi_{2}}}}
+{\TurnMaxTwoPlusOne {\Gamma, \phi_{1}; \phi^{-}} {\phi_{2}}}
 \and
 \infer*[right=RU2] {\Turn {\Gamma; \phi^-} {\phi_{1}}\\ {\TurnPrime {\Gamma';\phi'^-} {\phi_2}} \\ {\TurnPrimePrime {\phi_1, \phi_2;\cdot} {\phi_3}}}
 {\TurnMaxThreePlusOne {\Gamma, \Gamma'; (\phi\cup\phi')^-} {\phi_{3}}}
