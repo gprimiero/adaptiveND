@@ -811,12 +811,12 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 
 
 \begin{mathpar}
-\infer*[right=$\XBox$M2]{\TurnMinusn{\Gamma;\phi^{-}}{\psi}\\
+\infer*[right=$\XBox$M2]{\Turn{\Gamma;\phi^{-}}{\psi}\\
 \ldots\\
-\TurnMinusOne{\Gamma; \xi^{-}}{\psi}\\
-\Turn{\Gamma; \cdot}{\Phi(\Gamma)}\\
+\TurnPrime{\Gamma; \xi^{-}}{\psi}\\
+\TurnPrimePrime{\Gamma; \cdot}{\Phi(\Gamma)}\\
 {\exists \{\Delta_{i\dots n}^{min}\}\in \Phi(\Gamma), \phi^{-}, \dots, \xi^{-}\in \{\Delta_{i\dots n}^{min}\}}}
-{\TurnPlusOneMarkedMA{\Gamma; \phi^{-}, \dots, \xi^{-}}{\psi}}
+{\TurnMaxTwoPlusOneMA{\Gamma; \phi^{-}, \dots, \xi^{-}}{\psi}}
 \end{mathpar}
 
 \caption{Marking for Minimal Abnormality}\label{fig:MA}
