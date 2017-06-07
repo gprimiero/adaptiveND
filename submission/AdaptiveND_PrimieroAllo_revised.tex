@@ -558,7 +558,7 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
 {\TurnMaxTwoPlusOne {\Gamma; \phi^{-}} {\phi_{2}}}
 \and
 \infer*[right=RU2] {\Turn {\Gamma; \phi^-} {\phi_{1}}\\ {\TurnPrime {\Gamma';\phi'^-} {\phi_2}} \\ {\TurnPrimePrime {\phi_1, \phi_2;\cdot} {\phi_3}}}
-{\TurnMaxThreePlusOne {\Gamma, \Gamma'; (\phi\cup\phi')^-} {\phi_{3}}}
+{\TurnMaxThreePlusOne {\Gamma, \Gamma'; \{\phi, \phi'\}^-} {\phi_{3}}}
 \end{mathpar}
 
 \caption{Unconditional Rules}\label{fig:adaptiverules2}
@@ -582,7 +582,7 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
             {\infer*[right=RC]
                 {\TurnSix {\Gamma, \Gamma'; \cdot} {\phi_{3}, \phi, \phi'} \\ \phi \in \Omega}
                 {\TurnSeven {\Gamma, \Gamma'; \phi^-} {\phi_{3}, \phi'} \\ \phi' \in \Omega}}
-            {\TurnEight {\Gamma, \Gamma'; (\phi\cup\phi')^-} {\phi_{3}}}}
+            {\TurnEight {\Gamma, \Gamma'; \{\phi, \phi'\}^-} {\phi_{3}}}}
     \end{mathpar}
     {\color{red}Top of this proof needs to be edited; now it looks as if we have a proof-step with three premises, and two conclusions}
     \caption{Redundancy of unconditional rules}\label{fig:condasderived}
@@ -968,16 +968,9 @@ $\mathbb{D^{\prime\prime}}$ has the effect of producing a new minimal abnormalit
 where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the derivation is no longer extended, the formula $r$ can be considered finally derived. In the next section we complete our system with the required meta-theoretical analysis needed to define derivability at stage and final derivability.
 
 \subsection{Reconstruction of linear adaptive proofs}
+Before we consider the question of final derivability, which is needed to relate what is provable in dynamic proofs to a semantic consequence relation, we first show that every proof in \textsf{AdaptiveND} can, with the help of the numbering of the judgements, be mapped onto a correct (albeit somewhat redundant) adaptive proof in a linear format. This relates what can be derived at a stage in an \textsf{AdaptiveND}-proof to what can be derived at a stage in a linear proof.
 
-
-\begin{theorem}\label{thm:clunr}
-	The proof-system for \textsf{AdaptiveND} is sound and complete w.r.t. (the propositional fragment of) the adaptive logic \textbf{CLuN$^r$}.
-\end{theorem}
-\noindent\textsl{Proof.} By Theorem \ref{thm:clun} and by the observation that {\sf RC}, {\sf RU} and  $\XBox${\sf R}  are mere reformulations of, respectively, the conditional rule, the unconditional rule, and the marking rule for reliability of the standard generic proof-rules for adaptive logics.
-\qed
-
-%, the proof-system for \textsf{AdaptiveND} is sound and complete w.r.t. (the propositional fragment of) the adaptive logic \textbf{CLuN$^r$}.
-Accordingly, every proof in \textsf{AdaptiveND} can, with the help of the numbering of the judgements, be mapped onto a correct (albeit somewhat redundant) adaptive proof in a linear format. We illustrate the procedure by reconstructing the linear proof that corresponds to the example form Sections \ref{sec:example} and \ref{sec:example2}:
+We illustrate the procedure by reconstructing the linear proof that corresponds to the example form Sections \ref{sec:example} and \ref{sec:example2}:
 \begin{center}
     \begin{tabular}{cllcl}
         (1) & $\neg p \vee q$ & Prem & $\emptyset$\\
@@ -996,15 +989,15 @@ In this proof, the application of $\vee$E on line (2) is based on the representa
 
 \section{Derivability}\label{sec:meta}
 
-In the example from the previous section we have illustrated how the marking condition establishes a dynamic derivability relation, which allows to derive formulas and retract them. Whenever a certain formula is derived on some $\phi\in \Delta^{min}$ adaptive condition, it might still be marked afterwards according to $\XBox R$.
+In the example from the previous section we have illustrated how the marking condition establishes a dynamic derivability relation, which allows to derive formulas and retract them. Whenever a certain formula is derived on some $\phi\in \Delta^{min}$ adaptive condition, it might still be marked afterwards according to $\XBox R$. Consequently, a judgement of the form $\Turn{\Gamma; \Theta^-}{\psi}$ only expresses what is derived at a stage.
 % or $\XBox MA$.
-This gives us a notion of derivability at stage:
+%This gives us a notion of derivability at stage:
 
-\begin{definition}[Derivability at stage]
+%\begin{definition}[Derivability at stage]
 %$\Turn{\Gamma; \phi^{-}}{\psi}$ iff at ${\sf s}$ it is not the case that $\TurnMarked{\Gamma}{\psi}$.
-A formula $\psi$ is derived at stage {\sf s}  iff $\Turn{\Gamma; \phi^{-}}{\psi}$ and it is not the case that $\TurnMarked{\Gamma; \cdot}{\psi}$.
+%A formula $\psi$ is derived at stage {\sf s}  iff $\Turn{\Gamma; \phi^{-}}{\psi}$ and it is not the case that $\TurnMarked{\Gamma; \cdot}{\psi}$.
 %$\Turn{\Gamma; \cdot}{\phi,\psi}$
-\end{definition}
+%\end{definition}
 
 A more stable notion of derivability, called \emph{final derivability}, holds when marking is no longer possible. This notion is customarily defined with a reference to possible extensions of a proof.\footnote{``A is finally derived from $\Gamma$ on line $i$ of a proof at stage $s$ iff (i) $A$ is the second element of line $i$, (ii) line $i$ is not marked at stage $s$, and (iii) every extension of the proof in which line $i$ is marked may be further extended in such a way that line $i$ is unmarked.'' \cite[229]{batens07}} Because we only take into consideration finite premise-sets, we can pursue a more explicit characterisation of final derivability.
 % Because our left-hand side of the $\vdash$ sign, hence our ``premise set'', includes the $\vee_{\sf CL}$ connective for $Dab$-formulas, it is in principle possible to generate trees where some standard adaptive consequences (i.e. consequences of a corresponding AL in standard format) would be first marked and then never get unmarked.\footnote{These results are based on the generic format for Adaptive logics presented in \cite{strasservandeputte12}. A different approach that allows insertion of lines in proof trees is given for the Standard Format in \cite{batens2009}.}
