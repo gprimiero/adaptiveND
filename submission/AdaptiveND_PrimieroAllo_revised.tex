@@ -511,7 +511,7 @@ When the second place on the left-hand side of $\vdash$ is empty, we shall write
 Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks:
 
 \begin{itemize}
-\item[]  $\XBox$ to mark that at the current stage some previously derived formula is retracted; the meaning of this annotation is given for the Reliability strategy by a corresponding rule $\XBox R$, presented in section \ref{sec:markrel};
+    \item[]  $\XBox$ to mark that at the current stage some previously derived formula is retracted; the meaning of this annotation is given for the Reliability strategy by a corresponding rule $\XBox R$, presented in section \ref{sec:markrel}; {\color{red}add reference to info on MinAb}
 \item[] $\checked$ to mark that at the current stage some previously derived formulas is now finally derived, i.e. will no longer be marked by $\XBox$; the use of this annotation is formally given below in Definition \ref{def:finalder}.
 \end{itemize}
 %These symbols will be formally introduced in Sections \ref{sec:marking} and \ref{sec:meta} respectively.
@@ -555,7 +555,7 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
 \begin{figure}[h!]
 \begin{mathpar}
 \infer*[right=RU] {\TurnPrime {\Gamma; \phi^{-}} {\phi_{1}}\\ {\TurnPrimePrime {\phi_{1};\cdot} {\phi_{2}}}}
-{\TurnMaxTwoPlusOne {\Gamma, \phi_{1}; \phi^{-}} {\phi_{2}}}
+{\TurnMaxTwoPlusOne {\Gamma; \phi^{-}} {\phi_{2}}}
 \and
 \infer*[right=RU2] {\Turn {\Gamma; \phi^-} {\phi_{1}}\\ {\TurnPrime {\Gamma';\phi'^-} {\phi_2}} \\ {\TurnPrimePrime {\phi_1, \phi_2;\cdot} {\phi_3}}}
 {\TurnMaxThreePlusOne {\Gamma, \Gamma'; (\phi\cup\phi')^-} {\phi_{3}}}
@@ -568,9 +568,9 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
     \begin{mathpar}
         \infer*[right=RC]{
                         \infer*[right=Cut]{\TurnOne {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnTwo {\phi_{1};\cdot} {\phi_{2}}}}
-                        {\TurnThree {\Gamma, \phi_{1}; \cdot} {\phi_{2}, \phi} \\ \phi \in \Omega}
+                        {\TurnThree {\Gamma; \cdot} {\phi_{2}, \phi} \\ \phi \in \Omega}
                         }
-                         {\TurnFour {\Gamma, \phi_1; \phi^-}{\phi_2}}
+                         {\TurnFour {\Gamma; \phi^-}{\phi_2}}
 
         \and
 
@@ -584,15 +584,16 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
                 {\TurnSeven {\Gamma, \Gamma'; \phi^-} {\phi_{3}, \phi'} \\ \phi' \in \Omega}}
             {\TurnEight {\Gamma, \Gamma'; (\phi\cup\phi')^-} {\phi_{3}}}}
     \end{mathpar}
+    {\color{red}Top of this proof needs to be edited; now it looks as if we have a proof-step with three premises, and two conclusions}
     \caption{Redundancy of unconditional rules}\label{fig:condasderived}
 \end{figure}
 
 The Adaptive strategies developed in the next Section have the aim of establishing which abnormal formulas can no longer be safely considered as conclusions of the application of the Conditional Rule {\sf RC}, thereby requiring a retraction of the formulas that are derivable from it. To this aim, three elements need to be introduced:
 
 \begin{enumerate}
-\item  minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$;
-\item the union of all $\bigvee(\Delta)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\bigcup\Delta(\Gamma)$;
-\item the set of minimal choice sets of $\bigvee(\Delta)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\Phi(\Gamma)$.
+\item  minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$, with $\Delta \subset \Omega$;
+\item the union of all abnormalities that occur as a disjunct of some $\bigvee(\Delta)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\bigcup\Delta(\Gamma)$;
+\item the set of minimal choice sets of a family of sets $\Delta_1, \ldots, \Delta_n$, corresponding to all $\bigvee(\Delta_i)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\Phi(\Gamma)$.
 \end{enumerate}
 
 The rules in Figure \ref{fig:mindab} establish these three constructions.
@@ -602,13 +603,13 @@ Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived a
 Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each derived according to {\sf MinDab} at stages {\sf s-n} up to {\sf s-1}, the union set of all such formulas can be derived at stage {\sf s}, defined as follows:
 
 \begin{definition}[Set of unreliable formulas]
-$\bigcup\Delta(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the set of all $\{\Delta_{1}, \dots, \Delta_{n}\}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
+$\bigcup\Delta(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the union of all $\Delta_{1}, \dots, \Delta_{n}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
 \end{definition}
 
 Accordingly, choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows:
 
 \begin{definition}[Choice set of unreliable formulas]
-$\Phi(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ derived from $\Gamma$ up tp stage {\sf s-1} according to {\sf MinDab}. We denote each such choice set with $\{\Delta^{min}_{i\dots n}\}$.
+$\Phi(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}. We denote each such choice set with $\{\Delta^{min}_{i\dots n}\}$.
 \end{definition}
 
 The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where again each premise must be intended as the conclusion of a {\sf MinDab} rule.
@@ -647,7 +648,7 @@ The derivation of a minimal disjunction of abnormalities and the formation of th
 
 \subsection{A simple example}\label{sec:example}
 
-We present here a simple derivation in {\sf AdaptiveND}, where $\Gamma=\{(\neg p \vee q),p,(p\rightarrow q)\}$:
+We present here a simple derivation in {\sf AdaptiveND}, where $\Gamma=\{(\neg p \vee q),p,(p\rightarrow q), (p \to \neg p)\}$:
 
 
 
@@ -669,10 +670,10 @@ In the above derivation, all judgements up to stage $4$ are obtained by {\sf min
 
 \section{Rules for Marking}\label{sec:marking}
 
-In standard Adaptive Logics, one introduces strategies to tell, given some judgement deriving a  Minimal Disjunction of Abnormalities, which one of the disjuncts can be assumed to be false, i.e. for which one a {\sf RC} rule can be applied; and which one has to be accepted. Accordingly, formulas derived under the former can be considered valid, formulas previously derived by assuming the latter false have to be retracted. Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The two `standard' strategies and their rationale are \cite{batens01}:
+In standard Adaptive Logics, one introduces strategies to tell, given some judgement deriving a  Minimal Disjunction of Abnormalities, which one of the disjuncts can be assumed to be false{\color{red}, i.e. for which one a {\sf RC} rule can be applied; and which one has to be accepted -- THIS SEEMS CONFUSING}. Accordingly, formulas derived under the former can be considered valid, formulas previously derived by assuming the latter false have to be retracted. Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The two `standard' strategies and their rationale are \cite{batens01}:
 
 \begin{itemize}
-\item \textit{Reliability}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula derived at some prior stage {\sf s'} on the assumption that some $\phi\in \Delta^{min}$ is false, needs to be retracted;
+    \item \textit{Reliability}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula derived at some prior stage {\sf s'} on the assumption that some $\phi\in \Delta^{min}$ is false, needs to be retracted {\color{red}(this no longer matches the use of U)};
 
 \item \textit{Minimal Abnormality}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula derived at some prior stage {\sf s'} on the assumption that some $\phi\in \bigvee(\Delta^{min})$ is false and where $\phi$ is in a minimal choice-set of all minimal $\Delta$'s derived at \textsf{s}, needs to be retracted.
 \end{itemize}
@@ -697,12 +698,12 @@ Reliability is the adaptive strategy that takes the most cautious interpretation
 
 We define a new rule $\XBox$R that depends on the derivation of all $\bigvee(\Delta^{min})$  obtained by instances of the \textsc{MinDab} rule above.
 % {\color{red} If we only do reliability, the set of all disjuncts that occur in some minimal disjunction of abnormalities does not play a role. We can simply mark based on a single minimal disjunction of abnormalities (as the rule below correctly states).}
-The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, and at a later stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an application of the conditional rule {\sf RC}, then at a next stage $\psi$ is marked as retracted.
+The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, while at a stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an application of the conditional rule {\sf RC}, then at a next stage $\psi$ is marked as retracted.
 
 \begin{figure}[t]
 \begin{mathpar}
-\infer*[right=$\XBox$R]{\Turn{\Gamma;\phi^{-}}{\psi}\\ \TurnPrime{\Gamma; \cdot}{\bigcup\Delta(\Gamma)} \\ {\phi \in \bigcup\Delta(\Gamma)}}
-{\TurnMaxPlusOneREL{\Gamma;\phi^{-}}{\psi}}
+\infer*[right=$\XBox$R]{\Turn{\Gamma;\Theta^{-}}{\psi}\\ \TurnPrime{\Gamma; \cdot}{\bigcup\Delta(\Gamma)} \\ {\Theta \cap \bigcup\Delta(\Gamma) \ne \emptyset}}
+{\TurnMaxPlusOneREL{\Gamma;\Theta^{-}}{\psi}}
 \end{mathpar}
 \caption{Marking for Reliability}
 \end{figure}
@@ -718,7 +719,7 @@ The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minima
 
 \subsection{Extending the example}\label{sec:example2}
 
-Let us now extend the example from Section \ref{sec:example} with a new branch to illustrate the derivation step obtained by the Marking Rule $\XBox$R. Let $\mathbb{D}$ be the derivation from our initial example that ended with the derivation at stage {\sf 5} $q$ in context $\Gamma$ and with $(p \wedge \neg p)^-$ as a condition. We extend it now as follows:
+Let us now extend the example from Section \ref{sec:example} with a new branch to illustrate the derivation step obtained by the Marking Rule $\XBox$R. Let $\mathbb{D}$ be the derivation from our initial example that ended with the derivation at stage {\sf 5} of $q$ in context $\Gamma$ and with $(p \wedge \neg p)^-$ as a condition. We extend it now as follows:
 
 %\begin{mathpar}
 %\infer*[right=some]{\infer*[right=UR]{\infer*[]{\infer*[vdots =1.5 em]{} {\TurnOne {\Gamma; \cdot} {\Delta_{1}}}}{\Turn {\Gamma; \cdot}{\Delta_{n}}}}{\TurnNextn{\Gamma,\Gamma';\cdot}}}{B;Dab(\Delta)^{min}_{i}}
@@ -737,7 +738,7 @@ Let us now extend the example from Section \ref{sec:example} with a new branch t
 \end{mathpar}
 \bigskip
 
-In this derivation a new abnormality is derived at stage {\sf 10}, namely the same that is assumed to be false at stage {\sf 5}. Notice that it is essential that this abnormality be derived under an empty condition, i.e. under context $\Gamma;\cdot$, as explained above for the required strict condition on {\sf WL}. Moreover, a difference between the Fitch-style proofs standard for Adaptive Logics and the Natural Deduction derivation style becomes here evident. In the former, a marking rule implies the need to proceed backwards on the derivation, to mark all previous occurrences of the marked formula which can no longer be considered derived. In the latter, on the other hand, there is no need to remove formulas because the result obtained at stage $5$ cannot be reused in an extension of this proof.  Instead a new derivation step is performed (stage {\sf 11}), where the conclusion $q$ is marked. Moreover, if we were ever to get again $\Gamma; (p \wedge \neg p)^{-} \vdash_{\sf i} q$, that would be obtained by some new derivation $\mathbb{D}^{\prime}$ and therefore result as a conclusion at some stage ${\sf i>11}$.
+In this derivation a new abnormality is derived at stage {\sf 10}, namely the same that is assumed to be false at stage {\sf 5}. Notice that it is essential that this abnormality be derived under an empty condition, i.e. under context $\Gamma;\cdot$, as explained above for the required strict condition on {\sf WL}. Moreover, a difference between the Fitch-style proofs standard for Adaptive Logics and the Natural Deduction derivation style becomes evident here. In the former, a marking rule implies the need to proceed backwards on the derivation, to mark all lines that were derived on an assumption that is shown to be violated and thus can no longer be considered derived. In the latter, on the other hand, there is no need to remove formulas because the result obtained at stage $5$ cannot be reused in an extension of this proof.  Instead a new derivation step is performed (stage {\sf 11}), where the conclusion $q$ is marked. Moreover, if we were ever to get again $\Gamma; (p \wedge \neg p)^{-} \vdash_{\sf i} q$, that would be obtained by some new derivation $\mathbb{D}^{\prime}$ and therefore result as a conclusion at some stage ${\sf i>11}$.
 
 
 %
@@ -777,7 +778,7 @@ In this derivation a new abnormality is derived at stage {\sf 10}, namely the sa
 \subsection{Marking Rules for Minimal Abnormality}
 %
 %
-Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ is retracted if at every stage {\sf s} at which it can be derived, it is so always on a non-empty condition $\phi$ of any of the minimal choice set of the set of abnormal formulas of its premises as given by the rule {\sf Choice}. We offer rules for this strategy in Figure \ref{fig:MA}.
+Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ derived on a condition $\Theta^-$ is retracted if, either (i) every minimal choice-set includes some condition in $\Theta$, or (ii) there is a choice-set $\phi$ such that every derivation of $\psi$ is based on a condition that is shown to be violated by $\phi$. We offer rules for this strategy in Figure \ref{fig:MA}.
 %To formulate appropriate marking rules, we first need to introduce a set of minimal choice sets of abnormalities:
 %
 %\begin{definition}
@@ -786,9 +787,9 @@ Minimal abnormality is the marking strategy that reflects the following conditio
 %%
 %Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice}, where each premise must be intended as the conclusion of a {\sf MinDab} rule.
 
-The first marking rule $\XBox$M reflects the following condition: if a formula $\psi$ is derived at stage $s$ under an adaptive condition $\phi$ which is part of all $\Delta_{i}^{min} \in \Phi(\Gamma)$ at stage $s'$, then at the next stage the formula $\psi$ can be retracted.
+The first marking rule $\XBox$M reflects the following condition: if a formula $\psi$ is derived at stage $s$ under an adaptive condition $\phi$ which is part of all minimal choice-sets in $\Phi(\Gamma)$ at stage $s'$, then at the next stage the formula $\psi$ can be retracted.
 
-The second marking rule $\XBox$M2 reflects the following condition: if a formula $\psi$ is derived always under an adaptive condition which is part of the same $\{\Delta_{i\dots n}^{min}\} \in \Phi(\Gamma)$, then at the next stage the formula $\psi$ can be retracted at all stages where it was previously derived. Here the adaptive condition of the conclusion should be intended as saying that the retraction applies to all stages where the derivation of $\psi$ was obtained under one of the listed conditions.
+The second marking rule $\XBox$M2 reflects the following condition: if a formula $\psi$ is derived always under an adaptive condition that is part of the same minimal choice-set in $\Phi(\Gamma)$, then at the next stage the formula $\psi$ can be retracted {\color{red}at all stages where it was previously derived}. Here the adaptive condition of the conclusion should be intended as saying that the retraction applies to all stages where the derivation of $\psi$ was obtained under one of the listed conditions.
 
 
 
@@ -916,7 +917,7 @@ Let us consider now a slightly more complex example. We want to show a situation
 \end{mathpar}
 \bigskip
 
-At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\sf RC} at stage {\sf 6} the formula $r$ is derived alone, assuming the relevant abnormality false. Consider now a second derivation, dubbed $\mathbb{D}^{'}$:
+At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\sf RC} at stage {\sf 6} the formula $r$ is derived alone, assuming the relevant abnormality to be false. Consider now a second derivation, dubbed $\mathbb{D}^{'}$:
 
 \begin{mathpar}
 \infer*[right=RC]{
@@ -928,7 +929,7 @@ At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\s
 \end{mathpar}
 \bigskip
 
-Here the previously derived abnormality $(p \wedge \neg p)$ is derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7,9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we can apply the marking-rule (where $\Delta^{min}$ is the set $(p \wedge \neg p), (q\wedge \neg q)$):
+Here the previously derived abnormality $(p \wedge \neg p)$ is unconditionally derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7,9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we can apply the marking-rule (where $\Delta^{min}$ is the set $(p \wedge \neg p), (q\wedge \neg q)$):
 
 \begin{mathpar}
 \infer*[right=\XBox]{
