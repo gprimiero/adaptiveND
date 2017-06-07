@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  7 JUN 2017 13:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  7 JUN 2017 17:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -399,18 +399,18 @@ Package: mdwlist 1996/05/02 1.1 Various list-related things
  (./AdaptiveND_PrimieroAllo_revised.aux)
 \openout1 = `AdaptiveND_PrimieroAllo_revised.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
  (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count105
@@ -425,15 +425,15 @@ LaTeX Font Info:    ... okay on input line 195.
 \makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks32
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 197.
+LaTeX Font Info:    Try loading font information for U+msa on input line 202.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 197.
+LaTeX Font Info:    Try loading font information for U+msb on input line 202.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 197.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 202.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 ) [1
@@ -470,41 +470,71 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8] [9] [10] [11]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 676.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 681.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 676.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 681.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 706.
+(Font)              using `U/wasy/m/n' instead on input line 711.
 
 [12]
-Overfull \hbox (90.49245pt too wide) in paragraph at lines 815--821
+Overfull \hbox (90.49245pt too wide) in paragraph at lines 820--826
  $[]$ 
  []
 
-[13] [14] [15] [16] [17] [18] [19] (./AdaptiveND_PrimieroAllo_revised.bbl) [20] (./AdaptiveND_PrimieroAllo_revised.aux)
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 976--979
+
+ []
+
+[15]
+Overfull \hbox (10.27477pt too wide) in paragraph at lines 994--1005
+ $[]$ 
+ []
+
+
+Overfull \hbox (30.82072pt too wide) in paragraph at lines 1010--1018
+ $[] 
+ []
+
+
+Overfull \hbox (17.50865pt too wide) in paragraph at lines 1035--1046
+ $[]$ 
+ []
+
+
+Overfull \hbox (30.41325pt too wide) in paragraph at lines 1051--1059
+ $[] 
+ []
+
+[16]
+Overfull \hbox (81.07536pt too wide) in paragraph at lines 1064--1072
+ $[] 
+ []
+
+[17] [18] [19] [20] (./AdaptiveND_PrimieroAllo_revised.bbl [21]) [22] (./AdaptiveND_PrimieroAllo_revised.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3455 strings out of 493089
- 40815 string characters out of 6134842
- 116882 words of memory out of 5000000
- 6881 multiletter control sequences out of 15000+600000
+ 3457 strings out of 493089
+ 40846 string characters out of 6134842
+ 116928 words of memory out of 5000000
+ 6883 multiletter control sequences out of 15000+600000
  22195 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,57n,67p,2138b,677s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy9.pfb>
-Output written on AdaptiveND_PrimieroAllo_revised.pdf (20 pages, 375460 bytes).
+Output written on AdaptiveND_PrimieroAllo_revised.pdf (22 pages, 380451 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 142 compressed objects within 2 object streams
+ 204 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -140,6 +140,8 @@
 \newcommand{\TurnMarkedElevenREL}[2]
     { {#1}\vdash_{\textbf{\sf 11\XBox R}}  {#2}}
 
+\newcommand{\TurnTwelve}[2]
+        { {#1}\vdash_{\textbf{\sf 12}}  {#2}}
 
 \newcommand{\TurnMarkedTwelveREL}[2]
     { {#1}\vdash_{\textbf{\sf 12\XBox R}}  {#2}}
@@ -164,6 +166,9 @@
 
 \newcommand{\TurnEighteen}[2]
         { {#1}\vdash_{\textbf{\sf 18}}  {#2}}
+
+\newcommand{\TurnMarkedEighteenREL}[2]
+    { {#1}\vdash_{\textbf{\sf 18\XBox R}}  {#2}}
 
 \newcommand{\TurnNineteen}[2]
         { {#1}\vdash_{\textbf{\sf 19}}  {#2}}
@@ -966,6 +971,106 @@ $\mathbb{D^{\prime\prime}}$ has the effect of producing a new minimal abnormalit
 \bigskip
 
 where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the derivation is no longer extended, the formula $r$ can be considered finally derived. In the next section we complete our system with the required meta-theoretical analysis needed to define derivability at stage and final derivability.
+
+\subsection{A really long example}
+Let $\Gamma = \{p \vee q, \neg q,\\
+(q \wedge \neg q) \vee (r \wedge \neg r), (q \wedge \neg q) \to (r \wedge \neg r),\\
+(q \wedge \neg q) \vee (s \wedge \neg s), (q \wedge \neg q) \to (s \wedge \neg s)\}$\\
+
+Consider first the derivation $\mathbb{D}$:
+
+\begin{mathpar}
+\infer*[right=RC]{
+\infer*[right=$\wedge$I] {
+\infer*[right=$\vee$E]{
+\infer*[right=PREM] {\phantom{xx}} {\TurnOne {\Gamma; \cdot}{(p \vee q)}}}{\TurnTwo {\Gamma;\cdot}{p, q}}\\
+\infer*[right=PREM] {\phantom{xx}} {\TurnThree {\Gamma; \cdot}{\neg q}}}{\TurnFour {\Gamma; \cdot}{(q \wedge \neg q), p}}\\
+{(q \wedge \neg q)\in \Omega}}{\TurnFive {\Gamma;(q \wedge \neg q)^{-}}{p}}
+\end{mathpar}
+
+Which we extend as follows to form $\mathbb{E}$:
+
+\begin{mathpar}
+\infer*[right=\XBox] {
+    {
+\infer*[] {\mathbb{D}} {\TurnFive {\Gamma;(q \wedge \neg q)^{-}}{p}}
+    }\\
+{
+\infer*[right=$\vee$E] {
+\infer*[right=PREM] {~} {\TurnSix {\Gamma} {(q \wedge \neg q) \vee (r \wedge \neg r)}}}
+                    {\TurnSeven {\Gamma;\cdot}{((q \wedge \neg q), (r \wedge \neg r))^{min}}}}\\
+{(q \wedge \neg q)\in \Delta^{min}}
+                    }
+{\TurnMarkedEightREL{\Gamma; (q \wedge \neg q)^-}{p}}
+\end{mathpar}
+
+We then construct $\mathbb{F}$ to show that a shorter disjunction of abnormalities can be derived:
+
+\begin{mathpar}
+\infer*[right=Cr]{
+    \infer*[right=$\to$E]{\infer*[right=$\vee$E] {\infer*[right=PREM] {~} {\TurnNine {\Gamma; \cdot} {(q \wedge \neg q) \vee (r \wedge \neg r)}}} {\TurnTen {\Gamma; \cdot} {(q \wedge \neg q), (r \wedge \neg r)}} \\ \infer*[right=PREM] {~} {\TurnEleven {\Gamma; \cdot} {(q \wedge \neg q) \to (r \wedge \neg r)}}}
+    {\TurnTwelve {\Gamma; \cdot} {(r \wedge \neg r), (r \wedge \neg r)}}
+                 }
+                 {
+\TurnThirteen {\Gamma; \cdot} {r \wedge \neg r}
+                 }
+
+\end{mathpar}
+
+As the previous example, we put these branches together (and re-use a renumbered copy of $\mathbb{D}$) to to obtain $\mathbb{G}$ and re-derive $p$ on condition $(q \wedge \neg q)^-$:
+
+\begin{mathpar}
+\infer*[right=RC*]{
+    \infer*[]{\mathbb{E}}{\TurnMarkedEightREL{\Gamma; (q \wedge \neg q)^-}{p}}\\
+    \infer*[]{\mathbb{F}}{\TurnThirteen {\Gamma; \cdot}{(r \wedge \neg r)^{min}}}\\
+\infer*[]{\mathbb{D}}{\TurnFourteen {\Gamma;\cdot}{(q\wedge \neg q), p}}
+}
+{\TurnFifteen {\Gamma;(q \wedge \neg q)^{-}}{p}}
+
+\end{mathpar}
+
+But consider then the following variant of $\mathbb{E}$, denoted by $\mathbb{E}^*$: 
+
+\begin{mathpar}
+\infer*[right=\XBox] {
+    {
+\infer*[] {\mathbb{G}} {\TurnFifteen {\Gamma;(q \wedge \neg q)^{-}}{p}}
+    }\\
+{
+\infer*[right=$\vee$E] {
+\infer*[right=PREM] {~} {\TurnSixteen {\Gamma} {(q \wedge \neg q) \vee (s \wedge \neg s)}}}
+                    {\TurnSeventeen {\Gamma;\cdot}{((q \wedge \neg q), (s \wedge \neg s))^{min}}}}\\
+{(q \wedge \neg q)\in \Delta^{min}}
+                    }
+{\TurnMarkedEighteenREL{\Gamma; (q \wedge \neg q)^-}{p}}
+\end{mathpar}
+
+and then a variant $\mathbb{F}^*$ of $\mathbb{F}$ {\color{red}some renumbering to be done}:
+
+\begin{mathpar}
+\infer*[right=Cr]{
+    \infer*[right=$\to$E]{\infer*[right=$\vee$E] {\infer*[right=PREM] {~} {\TurnNine {\Gamma; \cdot} {(q \wedge \neg q) \vee (s \wedge \neg s)}}} {\TurnTen {\Gamma; \cdot} {(q \wedge \neg q), (s \wedge \neg s)}} \\ \infer*[right=PREM] {~} {\TurnEleven {\Gamma; \cdot} {(q \wedge \neg q) \to (s \wedge \neg s)}}}
+    {\TurnTwelve {\Gamma; \cdot} {(s \wedge \neg s), (s \wedge \neg s)}}
+                 }
+                 {
+\TurnThirteen {\Gamma; \cdot} {s \wedge \neg s}
+                 }
+
+\end{mathpar}
+
+which can once more be used to re-derive $p$:
+
+\begin{mathpar}
+\infer*[right=RC*]{
+    \infer*[]{\mathbb{E}^*}{\TurnMarkedEighteenREL{\Gamma; (q \wedge \neg q)^-}{p}}\\
+    \infer*[]{\mathbb{F}}{\TurnThirteen {\Gamma; \cdot}{(r \wedge \neg r)^{min}}}\\
+    \infer*[]{\mathbb{F}^*}{\TurnThirteen {\Gamma; \cdot}{(s \wedge \neg s)^{min}}}\\
+\infer*[]{\mathbb{D}}{\TurnFourteen {\Gamma;\cdot}{(q\wedge \neg q), p}}
+}
+{\TurnFifteen {\Gamma;(q \wedge \neg q)^{-}}{p}}
+
+\end{mathpar}
+
 
 \subsection{Reconstruction of linear adaptive proofs}
 Before we consider the question of final derivability, which is needed to relate what is provable in dynamic proofs to a semantic consequence relation, we first show that every proof in \textsf{AdaptiveND} can, with the help of the numbering of the judgements, be mapped onto a correct (albeit somewhat redundant) adaptive proof in a linear format. This relates what can be derived at a stage in an \textsf{AdaptiveND}-proof to what can be derived at a stage in a linear proof.
