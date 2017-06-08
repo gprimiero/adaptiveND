@@ -46,6 +46,9 @@ In RU2, why is it important that in the premises we have s and s+1 (and s+2) in 
 
 FIXED
 
+
+
+
 --
 p. 10
 The same point for  Figure 8.
@@ -102,9 +105,27 @@ REVIEWER2 __ COMMENTS
 
 3.
 
-We did not follow the suggestion of the reviewer on this point. This is a typical clash of traditions between semantic and proof-theoretic approaches. In the latter, it is standard to define formulas and their contexts inductively, withouth these rule being directly used in the proofs.
+We did not follow the suggestion of the reviewer on this point. This is a typical clash of traditions between semantic and proof-theoretic approaches. In the latter, it is standard to define formulas and their contexts inductively, without these rule being directly used in the proofs.
 
 
 4.
-
 We revised according to the reviewer's comment: min is an annotation and it has been added where necessary to the examples.
+
+5.
+
+
+
+6.
+
+
+
+7.
+
+
+
+
+8.
+We have changed the notation.
+
+
+

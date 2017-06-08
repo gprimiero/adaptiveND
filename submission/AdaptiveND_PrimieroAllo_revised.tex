@@ -146,6 +146,9 @@
 \newcommand{\TurnMarkedTwelveREL}[2]
     { {#1}\vdash_{\textbf{\sf 12\XBox R}}  {#2}}
 
+\newcommand{\TurnMarkedThirteenREL}[2]
+{ {#1}\vdash_{\textbf{\sf 13\XBox R}}  {#2}}
+
 
 \newcommand{\TurnThirteen}[2]
         { {#1}\vdash_{\textbf{\sf 13}}  {#2}}
@@ -172,6 +175,24 @@
 
 \newcommand{\TurnNineteen}[2]
         { {#1}\vdash_{\textbf{\sf 19}}  {#2}}
+
+\newcommand{\TurnTwenty}[2]
+{ {#1}\vdash_{\textbf{\sf 20}}  {#2}}
+
+\newcommand{\TurnTwentyOne}[2]
+{ {#1}\vdash_{\textbf{\sf 21}}  {#2}}
+
+\newcommand{\TurnTwentyTwo}[2]
+{ {#1}\vdash_{\textbf{\sf 22}}  {#2}}
+
+\newcommand{\TurnTwentyThree}[2]
+{ {#1}\vdash_{\textbf{\sf 23}}  {#2}}
+
+\newcommand{\TurnTwentyFour}[2]
+{ {#1}\vdash_{\textbf{\sf 24}}  {#2}}
+
+\newcommand{\TurnTwentyFive}[2]
+{ {#1}\vdash_{\textbf{\sf 25}}  {#2}}
 
 \newcommand{\Sf}{\ensuremath{\mathrm{Sf}}}
 \newcommand{\At}{\ensuremath{\mathrm{At}}}
@@ -516,7 +537,7 @@ When the second place on the left-hand side of $\vdash$ is empty, we shall write
 Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks:
 
 \begin{itemize}
-    \item[]  $\XBox$ to mark that at the current stage some previously derived formula is retracted; the meaning of this annotation is given for the Reliability strategy by a corresponding rule $\XBox R$, presented in section \ref{sec:markrel}; {\color{red}add reference to info on MinAb}
+    \item[]  $\XBox$ to mark that at the current stage some previously derived formula is retracted; the meaning of this annotation is given for the Reliability Strategy by a corresponding rule $\XBox R$, presented in Section \ref{sec:markrel}; for the Minimal Abnormality Strategy, its meaning is given by two rules, presented in Section \ref{sec:ma};
 \item[] $\checked$ to mark that at the current stage some previously derived formulas is now finally derived, i.e. will no longer be marked by $\XBox$; the use of this annotation is formally given below in Definition \ref{def:finalder}.
 \end{itemize}
 %These symbols will be formally introduced in Sections \ref{sec:marking} and \ref{sec:meta} respectively.
@@ -579,17 +600,16 @@ Next, the calculus is extended by introducing the conditional rule {\sf RC} (Fig
 
         \and
 
-        \infer*[right=Cut]
-            {\infer*[right=Cut]
-            {\TurnOne {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnTwo {\Gamma';\cdot} {\phi_2, \phi'}} \\ {\TurnThree {\phi_1, \phi_2;\cdot} {\phi_3}}}
-            {\TurnFour {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnFive {\Gamma', \phi_1 ;\cdot} {\phi_3, \phi'}}}}
-            {\infer*[right=RC]
-            {\infer*[right=RC]
-                {\TurnSix {\Gamma, \Gamma'; \cdot} {\phi_{3}, \phi, \phi'} \\ \phi \in \Omega}
-                {\TurnSeven {\Gamma, \Gamma'; \phi^-} {\phi_{3}, \phi'} \\ \phi' \in \Omega}}
-            {\TurnEight {\Gamma, \Gamma'; \{\phi, \phi'\}^-} {\phi_{3}}}}
+\infer*[right=RC]{
+		\infer*[right=RC]{
+        \infer*[right=Cut]{{\TurnFour {\Gamma; \cdot} {\phi_{1}, \phi}}
+        	\infer*[right=Cut]{\TurnOne {\Gamma;\cdot} {\phi_2, \phi'}\\ {\TurnTwo {\phi_1, \phi_2;\cdot} {\phi_3}}}
+        	{\TurnThree {\Gamma', \phi_1 ;\cdot}{\phi_3, \phi'}} 
+        }
+        {\TurnFive {\Gamma, \Gamma'; \cdot} {\phi_{3}, \phi, \phi'} \\ \phi \in \Omega}}
+    {\TurnSix {\Gamma, \Gamma'; \phi^-} {\phi_{3}, \phi'} \\ \phi' \in \Omega}}
+{\TurnSeven {\Gamma, \Gamma'; \{\phi, \phi'\}^-} {\phi_{3}}}
     \end{mathpar}
-    {\color{red}Top of this proof needs to be edited; now it looks as if we have a proof-step with three premises, and two conclusions}
     \caption{Redundancy of unconditional rules}\label{fig:condasderived}
 \end{figure}
 
@@ -610,14 +630,15 @@ Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each der
 \begin{definition}[Set of unreliable formulas]
 $\bigcup\Delta(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the union of all $\Delta_{1}, \dots, \Delta_{n}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
 \end{definition}
+Note that when the operator $\bigcup\Delta(\Gamma)$ occurs on the right-hand side of the tunrstile, its reading is not intended as disjunctive, as it is the case for normal a set $\Delta$ in the same position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. 
 
-Accordingly, choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows:
+Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows:
 
-\begin{definition}[Choice set of unreliable formulas]
-$\Phi(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the set of minimal choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}. We denote each such choice set with $\{\Delta^{min}_{i\dots n}\}$.
+\begin{definition}[Choice set of $\{\Delta_{1}, \dots, \Delta_{n}\}$]
+$\Phi(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the set of choice sets of $\{\Delta_{1}, \dots, \Delta_{n}\}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}. We denote each such choice set with ${\sf choice_{i}}(\{\Delta_{1}, \dots, \Delta_{n}\})$.
 \end{definition}
 
-The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where again each premise must be intended as the conclusion of a {\sf MinDab} rule.
+The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where again each premise must be intended as the conclusion of a {\sf MinDab} rule and the side condition ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. The Rule {\sf MinChoice} allows the selection of a \textit{minimal} choice set out of $\Phi(\Gamma)$, denoted by ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$.
 
 
 
@@ -633,22 +654,30 @@ The choice set of an empty set of minimal disjunction of abnormalities is empty.
 \begin{mathpar}
 \infer*[right=UnRel]{\TurnMinusn{\Gamma;\cdot}{\Delta_{1}^{min}}\\
 \ldots\\
-\TurnMinusOne{\Gamma;\cdot}{\Delta_{n}^{min}}}
+\TurnMinusOne{\Gamma;\cdot}{\Delta_{n}^{min}}\\ {\mbox { with no }\Delta_{i}^{min}\subset \Delta_{j}^{min}} }
 {\Turn{\Gamma;\cdot}{\bigcup\Delta(\Gamma)}}
 \end{mathpar}
 
 \begin{mathpar}
 \infer*[right=Choice]{\TurnMinusn{\Gamma;\cdot}{\Delta_{1}^{min}}\\
 \ldots\\
-\TurnMinusOne{\Gamma;\cdot}{\Delta_{n}^{min}}}
+\TurnMinusOne{\Gamma;\cdot}{\Delta_{n}^{min}}\\ {\mbox { with no }\Delta_{i}^{min}\subset \Delta_{j}^{min}}}
 {\Turn{\Gamma;\cdot}{\Phi(\Gamma)}}
 \end{mathpar}
+
+
+
+\begin{mathpar}
+	\infer*[right=MinChoice]{{\TurnMinusOne{\Gamma;\cdot}{\Phi(\Gamma)}\\ {\mbox { with no }{\sf choice_{j}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \in \Phi(\Gamma), \mbox{ s.t. } {\sf choice_{j}}\subset {\sf choice_{i}}}}}
+	{\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}}
+\end{mathpar}
+
 
 \caption{Minimal Abnormal Formulas Rule and their Choice Set}\label{fig:mindab}
 \end{figure}
 
 
-The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depends on the judgements about such minimal disjunctions that can be derived.
+The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depends on the judgements about such minimal disjunctions and about unreliable formulas that are derived.
 
 
 \subsection{A simple example}\label{sec:example}
@@ -675,22 +704,22 @@ In the above derivation, all judgements up to stage $4$ are obtained by {\sf min
 
 \section{Rules for Marking}\label{sec:marking}
 
-In standard Adaptive Logics, one introduces strategies to tell, given some judgement deriving a  Minimal Disjunction of Abnormalities, which one of the disjuncts can be assumed to be false{\color{red}, i.e. for which one a {\sf RC} rule can be applied; and which one has to be accepted -- THIS SEEMS CONFUSING}. Accordingly, formulas derived under the former can be considered valid, formulas previously derived by assuming the latter false have to be retracted. Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The two `standard' strategies and their rationale are \cite{batens01}:
+In standard Adaptive Logics, one introduces strategies to tell which applications of the {\sf RC} rule should be retracted in view of the Minimal Disjunction of Abnormalities that have been derived. Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The two `standard' strategies and their rationale are \cite{batens01}:
 
 \begin{itemize}
-    \item \textit{Reliability}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula derived at some prior stage {\sf s'} on the assumption that some $\phi\in \Delta^{min}$ is false, needs to be retracted {\color{red}(this no longer matches the use of U)};
+    \item \textit{Reliability}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula derived at some prior stage {\sf s'} on the assumption that some $\phi\in \Delta^{min}$ is false, needs to be retracted;
 
-\item \textit{Minimal Abnormality}: once a $\bigvee(\Delta^{min})$ is derived at some stage {\sf s}, \textit{every} formula derived at some prior stage {\sf s'} on the assumption that some $\phi\in \bigvee(\Delta^{min})$ is false and where $\phi$ is in a minimal choice-set of all minimal $\Delta$'s derived at \textsf{s}, needs to be retracted.
+\item \textit{Minimal Abnormality}: once a $\Phi(\Gamma)$ is derived at some stage {\sf s}, a formula $\psi$ is marked if either (i) is derived at some prior stage {\sf s'} on an assumption $\Theta$ which intersects with every minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$; or (ii) for some minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$, there is no derivation of $\psi$ on another condition $\Theta'$, such that the intersection of $\Theta'$ with ${\sf choice_{i}}$ is empty.
 \end{itemize}
 %
-In the first case, one considers all possible abnormal formulas to be invalid; in the second case, one tries to minimize the number of such unavoidable contradictions. In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic equivalent of the standard marking condition.
-%s according to Reliability and Minimal Abnormality.
-%We leave the definition of a proof-theoretic Minimal Abnormality strategy to a later stage.
+%In the first case, one considers all possible abnormal formulas to be invalid; in the second case, one tries to minimize the number of such unavoidable contradictions. 
+In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic equivalent of the standard marking conditions. The conclusion of a Marking Rule expresses a dead-end for the tree, and as such its content should not be used as premise for any other step. Nonetheless, we wish to preserve all the information obtained in the tree, including retracted formulas, also in order to extract a linear proof from it: therefore, we allow marked judgements to be unused premises for any rule.
 
 
-\subsection{Marking Rule for Reliablity}\label{sec:markrel}
+\subsection{Marking Rule for Reliability}\label{sec:markrel}
 
-Reliability is the adaptive strategy that takes the most cautious interpretation of abnormalities: any formula that in view of the premises might behave abnormally, because it occurs in a minimal disjunction of abnormalities, is deemed unreliable and should not be assumed to behave normally. This means in practice that a formula derived on the assumption that $\phi$ behaves normally will be `marked' as soon as the unreliability of $\phi$ is established. The result of this marking is that $\psi$ should no longer be treated as a formula that was derived. In the following we shall introduce a new inference-rule that internalizes this process in {\sf AdaptiveND}.
+Reliability is the adaptive strategy that takes the most cautious interpretation of abnormalities: any formula that in view of the premises might behave abnormally, because it occurs in a minimal disjunction of abnormalities, is deemed unreliable and should not be assumed to behave normally. This means in practice that a formula derived on the assumption that $\phi$ behaves normally will be `marked' as soon as the unreliability of $\phi$ is established. The result of this marking is that $\psi$ should no longer be treated as a formula that was derived. 
+%In the following we shall introduce a new inference-rule that internalizes this process in {\sf AdaptiveND}.
 
 %We shall first introduce a notion of union of all so-called unreliable formulas. To this aim, in the following we will refer to $\Sigma=\bigcup\{\Gamma,\Omega^{-}\}$, for some premises $\Gamma$ and some abnormal formulas $\Omega$ derivable from $\Gamma$:
 %%
@@ -701,16 +730,16 @@ Reliability is the adaptive strategy that takes the most cautious interpretation
 
 
 
-We define a new rule $\XBox$R that depends on the derivation of all $\bigvee(\Delta^{min})$  obtained by instances of the \textsc{MinDab} rule above.
+In Figure \ref{fig:markR}, we define a new rule $\XBox$R that depends on the derivation of a set of unreliable formulas.
 % {\color{red} If we only do reliability, the set of all disjuncts that occur in some minimal disjunction of abnormalities does not play a role. We can simply mark based on a single minimal disjunction of abnormalities (as the rule below correctly states).}
-The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, while at a stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an application of the conditional rule {\sf RC}, then at a next stage $\psi$ is marked as retracted.
+%The meaning of $\XBox \textsc{R}$ is the following: if at stage {\sf s} a minimal disjunction of abnormalities $\Delta^{min}$ is derived for $\Gamma$, while at a stage {\sf s'} a formula $\psi$ is derived from the same premise set by assuming a component of $\Delta^{min}$ false by an application of the conditional rule {\sf RC}, then at a next stage $\psi$ is marked as retracted.
 
-\begin{figure}[t]
+\begin{figure}[h]
 \begin{mathpar}
 \infer*[right=$\XBox$R]{\Turn{\Gamma;\Theta^{-}}{\psi}\\ \TurnPrime{\Gamma; \cdot}{\bigcup\Delta(\Gamma)} \\ {\Theta \cap \bigcup\Delta(\Gamma) \ne \emptyset}}
 {\TurnMaxPlusOneREL{\Gamma;\Theta^{-}}{\psi}}
 \end{mathpar}
-\caption{Marking for Reliability}
+\caption{Marking for Reliability}\label{fig:markR}
 \end{figure}
 
 
@@ -743,7 +772,7 @@ Let us now extend the example from Section \ref{sec:example} with a new branch t
 \end{mathpar}
 \bigskip
 
-In this derivation a new abnormality is derived at stage {\sf 10}, namely the same that is assumed to be false at stage {\sf 5}. Notice that it is essential that this abnormality be derived under an empty condition, i.e. under context $\Gamma;\cdot$, as explained above for the required strict condition on {\sf WL}. Moreover, a difference between the Fitch-style proofs standard for Adaptive Logics and the Natural Deduction derivation style becomes evident here. In the former, a marking rule implies the need to proceed backwards on the derivation, to mark all lines that were derived on an assumption that is shown to be violated and thus can no longer be considered derived. In the latter, on the other hand, there is no need to remove formulas because the result obtained at stage $5$ cannot be reused in an extension of this proof.  Instead a new derivation step is performed (stage {\sf 11}), where the conclusion $q$ is marked. Moreover, if we were ever to get again $\Gamma; (p \wedge \neg p)^{-} \vdash_{\sf i} q$, that would be obtained by some new derivation $\mathbb{D}^{\prime}$ and therefore result as a conclusion at some stage ${\sf i>11}$.
+In this derivation a new abnormality is derived at stage {\sf 10}, namely the same that is assumed to be false at stage {\sf 5}. Note that we avoid the superflous inference step from the formula $(p \wedge \neg p)$ to the corresponding singleton set of unreliable formulas; moreover, it is essential that this abnormality be derived under an empty condition, i.e. under context $\Gamma;\cdot$, as explained above for the required strict condition on {\sf WL}. A difference between the Fitch-style proofs standard for Adaptive Logics and the Natural Deduction derivation style becomes evident here. In the former, a marking rule implies the need to proceed backwards on the derivation, to mark all lines that were derived on an assumption that is shown to be violated and thus can no longer be considered derived. In the latter, on the other hand, there is no need to remove formulas because the result obtained at stage $5$ cannot be reused in an extension of this proof.  Instead a new derivation step is performed (stage {\sf 11}), where the conclusion $q$ is marked. Moreover, if we were ever to get again $\Gamma; (p \wedge \neg p)^{-} \vdash_{\sf i} q$, that would be obtained by some new derivation $\mathbb{D}^{\prime}$ and therefore result as a conclusion at some stage ${\sf i>11}$.
 
 
 %
@@ -780,7 +809,7 @@ In this derivation a new abnormality is derived at stage {\sf 10}, namely the sa
 %
 %The marking step  $11$ tell us the original lines at which the minimal unreliable formulas in view of the premise set at a given step were obtained (resp. $5$ and $2$;  we have skipped an additional line repeating the derivability of $B$ before its marking).\footnote{This is a sensible difference with the marking mechanism in place for standard adaptive logics, where the marking itself happens at the line whose content is retracted and the formulation of the set of unreliable formulas remains entirely outside of the derivation. Notice that a shortcoming of the standard marking mechanism is that it does not provide indications on the stage at which the marking is executed.}
 
-\subsection{Marking Rules for Minimal Abnormality}
+\subsection{Marking Rules for Minimal Abnormality}\label{sec:ma}
 %
 %
 Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ derived on a condition $\Theta^-$ is retracted if, either (i) every minimal choice-set includes some condition in $\Theta$, or (ii) there is a choice-set $\phi$ such that every derivation of $\psi$ is based on a condition that is shown to be violated by $\phi$. We offer rules for this strategy in Figure \ref{fig:MA}.
@@ -925,12 +954,14 @@ Let us consider now a slightly more complex example. We want to show a situation
 At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\sf RC} at stage {\sf 6} the formula $r$ is derived alone, assuming the relevant abnormality to be false. Consider now a second derivation, dubbed $\mathbb{D}^{'}$:
 
 \begin{mathpar}
+\infer*[right=UnRel]{	
 \infer*[right=RC]{
 \infer*[right=$\wedge$I] {
 \infer*[right=$\vee$E]{
 \infer*[right=PREM] {\phantom{xx}} {\TurnSix {\Gamma; \cdot}{(p \vee q)}}}{\TurnSeven {\Gamma;\cdot}{p, q}}\\
 \infer*[right=PREM] {\phantom{xx}} {\TurnEight {\Gamma; \cdot}{\neg p}}}{\TurnNine {\Gamma; \cdot}{(p\wedge \neg p), q}}\\
-\infer*[]{\phantom{xxxx}}{\TurnTen{\Gamma; \cdot}{\neg q}}}{\TurnEleven {\Gamma;\cdot}{((p \wedge \neg p), (q\wedge \neg q))^{min}}}
+\infer*[]{\phantom{xxxx}}{\TurnTen{\Gamma; \cdot}{\neg q}}}{\TurnEleven {\Gamma;\cdot}{((p \wedge \neg p), (q\wedge \neg q))^{min}}}}
+{\TurnTwelve {\Gamma; \cdot}{\bigcup(\{p\wedge \neg p,q\wedge \neg q\})}}
 \end{mathpar}
 \bigskip
 
@@ -938,42 +969,43 @@ Here the previously derived abnormality $(p \wedge \neg p)$ is unconditionally d
 
 \begin{mathpar}
 \infer*[right=\XBox]{
-{\infer*[]{\mathbb{D}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}}\\{\infer*[]{\mathbb{D^{\prime}}}{\TurnEleven {\Gamma;\cdot}{((p \wedge \neg p), (q\wedge \neg q))^{min}}}}\\{(p \wedge \neg p)\in \Delta^{min}}
-}{\TurnMarkedTwelveREL{\Gamma; \cdot}{r}}
+{\infer*[]{\mathbb{D}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}}\\{\infer*[]{\mathbb{D^{\prime}}}{\TurnTwelve {\Gamma; \cdot}{\bigcup(\{p\wedge \neg p,q\wedge \neg q\})}}}\\{(p \wedge \neg p)\in \Delta^{min}}
+}{\TurnMarkedThirteenREL{\Gamma; \cdot}{r}}
 \end{mathpar}
 \bigskip
 
-At stage {\sf 12} the formula $r$ is no longer valid, because its adaptive condition occurs as one of the disjuncts in a minimal disjunction of abnormalities derived at stage \textsf{11}. Now we can provide a further extension of this derivation dubbed $\mathbb{D^{\prime\prime}}$:
+At stage {\sf 13} the formula $r$ is no longer valid, because its adaptive condition is in the set of unreliable formulas derived at stage \textsf{12}. Now we can provide a further extension of this derivation dubbed $\mathbb{D^{\prime\prime}}$:
 
 \begin{mathpar}
 \infer*[right=$\wedge$ I]{
 \infer*[right=$\rightarrow$ I]{
-\infer*[right=PREM]{\phantom{xxx}}{\TurnThirteen{\Gamma;\cdot}{\neg p}}\\ \infer*[right=PREM]{\phantom{xxx}}{\TurnFourteen{\Gamma;\cdot}{\neg p\rightarrow q}}}
-{\TurnFifteen{\Gamma; \cdot}{q}}\\{
-\infer*[right=PREM]{\phantom{xx}}{\TurnSixteen{\Gamma;\cdot}{\neg q}}}}{\TurnSeventeen {\Gamma; \cdot}{(q \wedge \neg q)^{min}}}
+\infer*[right=PREM]{\phantom{xxx}}{\TurnFourteen{\Gamma;\cdot}{\neg p}}\\ \infer*[right=PREM]{\phantom{xxx}}{\TurnFifteen{\Gamma;\cdot}{\neg p\rightarrow q}}}
+{\TurnSixteen{\Gamma; \cdot}{q}}\\{
+\infer*[right=PREM]{\phantom{xx}}{\TurnSeventeen{\Gamma;\cdot}{\neg q}}}}{\TurnEighteen {\Gamma; \cdot}{(q \wedge \neg q)}}
 
 \end{mathpar}
 \bigskip
 
-$\mathbb{D^{\prime\prime}}$ has the effect of producing a new minimal abnormality at stage {\sf 17}. This also means that if we obtain a copy of derivation $\mathbb{D}$, where each step is re-numbered consecutively, and join it to $\mathbb{D^{\prime\prime}}$ and $\mathbb{E}$, it is possible to establish again $(p \wedge \neg p)$ as an adaptive condition and accordingly derive again the judgement that was marked at stage $12$, as follows:
+$\mathbb{D^{\prime\prime}}$ derives a single abnormality at stage {\sf 18}, for which, as before, we skip the redundant step of deriving the singleton set of unreliable formulas. This also means that if we obtain a copy of derivation $\mathbb{D}$, where each step is re-numbered consecutively, and join it to $\mathbb{D^{\prime\prime}}$ and $\mathbb{E}$, it is possible to establish again $(p \wedge \neg p)$ as an adaptive condition and accordingly derive again the judgement that was marked at stage $12$, as follows:
 
 
 \begin{mathpar}
 \infer*[right=RC*]{
-\infer*[]{\mathbb{E}}{\TurnMarkedTwelveREL{\Gamma; \cdot}{r}}\\
-\infer*[]{\mathbb{D^{\prime\prime}}}{\TurnSeventeen {\Gamma; \cdot}{(q \wedge \neg q)^{min}}}\\
-\infer*[]{\mathbb{D}}{\TurnEighteen {\Gamma;\cdot}{(p\wedge \neg p), r}}
+\infer*[]{\mathbb{E}}{\TurnMarkedThirteenREL{\Gamma; \cdot}{r}}\\
+\infer*[]{\mathbb{D^{\prime\prime}}}{\TurnEighteen {\Gamma; \cdot}{(q \wedge \neg q)^{min}}}\\
+\infer*[]{\mathbb{D}}{\TurnNineteen {\Gamma;\cdot}{(p\wedge \neg p), r}}
 %\\{(p\wedge \neg p)\in \Omega}
 }
-{\TurnNineteen {\Gamma;(p \wedge \neg p)^{-}}{r}}
+{\TurnTwenty {\Gamma;(p \wedge \neg p)^{-}}{r}}
 
 \end{mathpar}
 \bigskip
 
 where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the derivation is no longer extended, the formula $r$ can be considered finally derived. In the next section we complete our system with the required meta-theoretical analysis needed to define derivability at stage and final derivability.
 
-\subsection{A really long example}
-Let $\Gamma = \{p \vee q, \neg q,\\
+\subsection{Another Example}
+
+In the following example, we do not derive set of unreliable formulas when there is a single minimal disjunction of abnormalities. Let $\Gamma = \{p \vee q, \neg q,\\
 (q \wedge \neg q) \vee (r \wedge \neg r), (q \wedge \neg q) \to (r \wedge \neg r),\\
 (q \wedge \neg q) \vee (s \wedge \neg s), (q \wedge \neg q) \to (s \wedge \neg s)\}$\\
 
@@ -1045,15 +1077,16 @@ But consider then the following variant of $\mathbb{E}$, denoted by $\mathbb{E}^
 {\TurnMarkedEighteenREL{\Gamma; (q \wedge \neg q)^-}{p}}
 \end{mathpar}
 
-and then a variant $\mathbb{F}^*$ of $\mathbb{F}$ {\color{red}some renumbering to be done}:
+and then a variant $\mathbb{F}^*$ of $\mathbb{F}$: 
+%{\color{red}some renumbering to be done}:
 
 \begin{mathpar}
 \infer*[right=Cr]{
-    \infer*[right=$\to$E]{\infer*[right=$\vee$E] {\infer*[right=PREM] {~} {\TurnNine {\Gamma; \cdot} {(q \wedge \neg q) \vee (s \wedge \neg s)}}} {\TurnTen {\Gamma; \cdot} {(q \wedge \neg q), (s \wedge \neg s)}} \\ \infer*[right=PREM] {~} {\TurnEleven {\Gamma; \cdot} {(q \wedge \neg q) \to (s \wedge \neg s)}}}
-    {\TurnTwelve {\Gamma; \cdot} {(s \wedge \neg s), (s \wedge \neg s)}}
+    \infer*[right=$\to$E]{\infer*[right=$\vee$E] {\infer*[right=PREM] {~} {\TurnNineteen {\Gamma; \cdot} {(q \wedge \neg q) \vee (s \wedge \neg s)}}} {\TurnTwenty {\Gamma; \cdot} {(q \wedge \neg q), (s \wedge \neg s)}} \\ \infer*[right=PREM] {~} {\TurnTwentyOne {\Gamma; \cdot} {(q \wedge \neg q) \to (s \wedge \neg s)}}}
+    {\TurnTwentyTwo {\Gamma; \cdot} {(s \wedge \neg s), (s \wedge \neg s)}}
                  }
                  {
-\TurnThirteen {\Gamma; \cdot} {s \wedge \neg s}
+\TurnTwentyThree {\Gamma; \cdot} {s \wedge \neg s}
                  }
 
 \end{mathpar}
@@ -1063,11 +1096,12 @@ which can once more be used to re-derive $p$:
 \begin{mathpar}
 \infer*[right=RC*]{
     \infer*[]{\mathbb{E}^*}{\TurnMarkedEighteenREL{\Gamma; (q \wedge \neg q)^-}{p}}\\
-    \infer*[]{\mathbb{F}}{\TurnThirteen {\Gamma; \cdot}{(r \wedge \neg r)^{min}}}\\
-    \infer*[]{\mathbb{F}^*}{\TurnThirteen {\Gamma; \cdot}{(s \wedge \neg s)^{min}}}\\
+    \infer*[right=UnRel]{
+    \infer*[]{\mathbb{F}}{\TurnThirteen {\Gamma; \cdot}{(r \wedge \neg r)}}\\
+    \infer*[]{\mathbb{F}^*}{\TurnTwentyThree {\Gamma; \cdot}{(s \wedge \neg s)}}}{\TurnTwentyFour {\Gamma;\cdot}{\bigcup(\{r \wedge \neg r, s \wedge \neg s\})}}\\
 \infer*[]{\mathbb{D}}{\TurnFourteen {\Gamma;\cdot}{(q\wedge \neg q), p}}
 }
-{\TurnFifteen {\Gamma;(q \wedge \neg q)^{-}}{p}}
+{\TurnTwentyFive {\Gamma;(q \wedge \neg q)^{-}}{p}}
 
 \end{mathpar}
 
