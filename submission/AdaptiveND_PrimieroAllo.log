@@ -1,11 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.4.29)  3 FEB 2017 16:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.3.5)  22 JUN 2017 15:29
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**AdaptiveND_PrimieroAllo.tex
+**AdaptiveND_PrimieroAllo
 (./AdaptiveND_PrimieroAllo.tex
 LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -426,23 +427,24 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@postskip=\skip53
 \thm@headsep=\skip54
 \dth@everypar=\toks27
-)
-(/usr/share/texlive/texmf-dist/tex/latex/mathpartir/mathpartir.sty
-Package: mathpartir 2016/02/24 version 1.3.2 Math Paragraph for Typesetting Inf
+) (./mathpartir.sty
+Package: mathpartir 2003/07/10 version 1.1.1 Math Paragraph for Typesetting Inf
 erence Rules
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks28
 )
+\mpr@tmpdim=\dimen116
 \mpr@andskip=\skip55
 \mpr@lista=\toks29
 \mpr@listb=\toks30
 \mpr@hlist=\box28
 \mpr@vlist=\box29
 \mpr@right=\box30
+\rule@dimen=\dimen117
 )
-(/usr/share/texlive/texmf-dist/tex/latex/bussproofs/bussproofs.sty
+(./bussproofs.sty
 Proof Tree (bussproofs) style macros. Version 1.1.
 \theLevel=\count99
 \myMaxLevel=\count100
@@ -452,22 +454,22 @@ Proof Tree (bussproofs) style macros. Version 1.1.
 \myBoxD=\box34
 \myBoxLL=\box35
 \myBoxRL=\box36
-\thisAboveSkip=\dimen116
-\thisBelowSkip=\dimen117
-\newScoreStart=\dimen118
-\newScoreEnd=\dimen119
-\newCenter=\dimen120
-\displace=\dimen121
-\leftLowerAmt=\dimen122
-\rightLowerAmt=\dimen123
-\scoreHeight=\dimen124
-\scoreDepth=\dimen125
-\htLbox=\dimen126
-\htRbox=\dimen127
-\htRRbox=\dimen128
-\htRRRbox=\dimen129
-\htAbox=\dimen130
-\htCbox=\dimen131
+\thisAboveSkip=\dimen118
+\thisBelowSkip=\dimen119
+\newScoreStart=\dimen120
+\newScoreEnd=\dimen121
+\newCenter=\dimen122
+\displace=\dimen123
+\leftLowerAmt=\dimen124
+\rightLowerAmt=\dimen125
+\scoreHeight=\dimen126
+\scoreDepth=\dimen127
+\htLbox=\dimen128
+\htRbox=\dimen129
+\htRRbox=\dimen130
+\htRRRbox=\dimen131
+\htAbox=\dimen132
+\htCbox=\dimen133
 ) (/usr/share/texlive/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
 \symwasy=\mathgroup6
@@ -529,13 +531,13 @@ LaTeX Font Info:    ... okay on input line 175.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count105
-\scratchdimen=\dimen132
+\scratchdimen=\dimen134
 \scratchbox=\box37
 \nofMPsegments=\count106
 \nofMParguments=\count107
 \everyMPshowfont=\toks31
 \MPscratchCnt=\count108
-\MPscratchDim=\dimen133
+\MPscratchDim=\dimen135
 \MPnumerator=\count109
 \makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks32
@@ -557,17 +559,17 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 \myBox1=\box38
-\myScoreStart1=\dimen134
-\myCenter1=\dimen135
-\myScoreEnd1=\dimen136
+\myScoreStart1=\dimen136
+\myCenter1=\dimen137
+\myScoreEnd1=\dimen138
 \myBox2=\box39
-\myScoreStart2=\dimen137
-\myCenter2=\dimen138
-\myScoreEnd2=\dimen139
+\myScoreStart2=\dimen139
+\myCenter2=\dimen140
+\myScoreEnd2=\dimen141
 \myBox3=\box40
-\myScoreStart3=\dimen140
-\myCenter3=\dimen141
-\myScoreEnd3=\dimen142
+\myScoreStart3=\dimen142
+\myCenter3=\dimen143
+\myScoreEnd3=\dimen144
  [2] [3]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -606,7 +608,7 @@ LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
 [11] [12] [13]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 860.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 879.
 
 
 [14] [15] [16] [17] (./AdaptiveND_PrimieroAllo.bbl [18]) [19]
@@ -616,13 +618,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3611 strings out of 493029
- 42389 string characters out of 6136234
- 118621 words of memory out of 5000000
- 7085 multiletter control sequences out of 15000+600000
+ 3544 strings out of 494953
+ 40872 string characters out of 6180978
+ 113048 words of memory out of 5000000
+ 6769 multiletter control sequences out of 15000+600000
  22551 words of font info for 83 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 44i,52n,72p,2130b,672s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 14 hyphenation exceptions out of 8191
+ 39i,57n,67p,2126b,677s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
@@ -631,33 +633,32 @@ f-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-s9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/wasy2-ps/wasy10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/wasy2-ps/wasy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/w
-asy2-ps/wasy9.pfb>
-Output written on AdaptiveND_PrimieroAllo.pdf (19 pages, 376476 bytes).
+blic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+si10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/wasy2-ps/wasy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/wasy2-ps/wasy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/wasy2-ps/wasy9.pfb>
+Output written on AdaptiveND_PrimieroAllo.pdf (19 pages, 371555 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
+ 195 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
