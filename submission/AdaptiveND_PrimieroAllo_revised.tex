@@ -1258,7 +1258,21 @@ $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in {\sf AdaptiveND} if and only if there i
 \begin{itemize}
 \item[$\rightarrow$] By assumption $\psi$ is finally derived, therefore there is an abnormality and marking complete proof $P$ in which it is derived. Consider the translation $\mathbb{P}$ of $P$ in a linear adaptive proof: by assumption, $P$ contains every abnormality of its premise set $\Gamma$ and so does $\mathbb{P}$; accordingly, every formula which is marked in $P$ will be marked in $\mathbb{P}$. Because of the completeness with resepct to marking of $P$, then $\mathbb{P}$ must have every unmarked formula which is unmarked in $P$. Provided $P$ includes all its possible extensions and by translation so does $\mathbb{P}$, then by the standard definition of final derivability (see footnote 2) $\psi$ must be finally derived in $\mathbb{P}$ as well.
 
-\item[$\leftarrow$] Assume that $\psi$ is finally derived in some linear adaptive proof $\mathbb{P}$; then $\Gamma\vdash_{CluN}\psi\vee \phi$ with $\phi\cap U(\Gamma)=\emptyset$. By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$. By applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If $\TurnMarked{\Gamma;\phi^{-}}{\psi}$ in some abnormality and marking complete proof $P$, then $\phi\cap U(\Gamma)\neq\emptyset$, which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$.
+\item[$\leftarrow$] Assume that $\psi$ is finally derived in some linear adaptive proof $\mathbb{P}$; then
+
+
+\begin{itemize}
+  \item[for \textbf{CluN}$^{R}$]  $\Gamma\vdash_{CluN}\psi\vee \phi$ with $\phi\cap U(\Gamma)=\emptyset$. By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$. By applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If $\TurnMarked{\Gamma;\phi^{-}}{\psi}$ in some abnormality and marking complete proof $P$, then $\phi\cap U(\Gamma)\neq\emptyset$, which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$.
+
+
+  \item[for \textbf{CluN}$^{M}$]
+
+\begin{enumerate}
+\item  either $\Gamma\vdash_{CluN}\psi\vee \phi$ with $\phi\notin \{\Delta^{min}_{i\dots n}\}, \forall \{\Delta^{min}_{i\dots n}\}\in \Phi(\Gamma)$ such that $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$. By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$. By applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If $\TurnMarked{\Gamma;\phi^{-}}{\psi}$ in some abnormality and marking complete proof $P$, then $\phi\in \{\Delta^{min}_{i\dots n}\}, \forall \{\Delta^{min}_{i\dots n}\}\in \Phi(\Gamma)$, which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$.
+\item or $\Gamma\vdash_{CluN}\psi\vee \phi \vee \xi$ with $\phi, \xi\notin \{\Delta^{min}_{i\dots n}\}$, for some $\{\Delta^{min}_{i\dots n}\}\in \Phi(\Gamma)$ such that $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$. By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi,\xi}$. By applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-},\xi^{-}}{\psi}$. If $\TurnMarked{\Gamma;\phi^{-},\xi^{-}}{\psi}$ in some abnormality and marking complete proof $P$, then $\phi\in \{\Delta^{min}_{i\dots n}\}$, for some $\{\Delta^{min}_{i\dots n}\}\in \Phi(\Gamma)$, which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$. 
+\end{enumerate}
+\end{itemize}
+
 \end{itemize}
 \end{proof}
 
