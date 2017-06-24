@@ -112,7 +112,7 @@ REVIEWER2 __ COMMENTS
 
 
 
-6.
+6.\Gamma' and \Delta' are just notations for different sets, nothing special from a formal viewpoint
 
 
 
@@ -122,6 +122,8 @@ REVIEWER2 __ COMMENTS
 
 
 8. We have changed the notation.
+
+9. FIXED
 
 
 
