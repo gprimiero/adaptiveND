@@ -71,7 +71,7 @@ p. 18
 You talk about LP+ but don't say what it is.
 
 
-THIS HAS BEEN CLARIFIED THROUGH A NEW SENTENCE TO INTRODUCE (LP/CPL) on p.17
+THIS HAS BEEN CLARIFIED THROUGH A NEW SENTENCE TO INTRODUCE (LP/CPL)
 
 
 --
@@ -94,22 +94,19 @@ REVIEWER2 __ COMMENTS
 
 
 
-1.
+1. This revised version largely extends the previous one by presenting a ND system which works for BOTH Reliability and Minimal Abnoramlity. We remained contrained *in the presentation* to a CLuN equivalent system for matters of simplicity, but the system in itself is now general enough to be considered equivalent to it.
 
 
 
 
-2.
+2. The revision provides a full meta-proof of soundness/completeness wrt CLuN, see Theorem 3 and the preparatory work to that result.
 
 
 
-3.
-
-We did not follow the suggestion of the reviewer on this point. This is a typical clash of traditions between semantic and proof-theoretic approaches. In the latter, it is standard to define formulas and their contexts inductively, without these rule being directly used in the proofs.
+3. We did not follow the suggestion of the reviewer on this point. This is a typical clash of traditions between semantic and proof-theoretic approaches. In the latter, it is standard to define formulas and their contexts inductively, without these rule being directly used in the proofs.
 
 
-4.
-We revised according to the reviewer's comment: min is an annotation and it has been added where necessary to the examples.
+4. We revised according to the reviewer's comment: min is an annotation and it has been added where necessary to the examples.
 
 5.
 
@@ -124,8 +121,7 @@ We revised according to the reviewer's comment: min is an annotation and it has 
 
 
 
-8.
-We have changed the notation.
+8. We have changed the notation.
 
 
 
