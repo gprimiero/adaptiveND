@@ -108,6 +108,8 @@ REVIEWER2 __ COMMENTS
 
 4. We revised according to the reviewer's comment: min is an annotation and it has been added where necessary to the examples.
 
+
+
 5.
 
 
@@ -120,10 +122,24 @@ REVIEWER2 __ COMMENTS
 
 
 
-
 8. We have changed the notation.
 
 9. FIXED
+
+10.
+
+11. We have rephrased the passage, but in this new formulation it is essential to present also the used notation for choice sets. In all occurrences, the standard definition of this marking procedure is fully quoted in footnote 2 now.
+
+12. removed/fixed terminology
+
+13. It is a member of the premise set
+
+14. It has been fixed in the new formulation
+
+15.
+
+
+
 
 
 
