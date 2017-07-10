@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: AdaptiveND_PrimieroAllo_revised.aux
 The style file: plain.bst
 Database file #1: primiero.bib
-You've used 13 entries,
+You've used 14 entries,
             2118 wiz_defined-function locations,
-            598 strings with 5969 characters,
-and the built_in function-call counts, 3804 in all, are:
-= -- 385
-> -- 108
+            604 strings with 6113 characters,
+and the built_in function-call counts, 4110 in all, are:
+= -- 413
+> -- 131
 < -- 1
-+ -- 47
-- -- 31
-* -- 251
-:= -- 644
-add.period$ -- 41
-call.type$ -- 13
-change.case$ -- 51
++ -- 56
+- -- 39
+* -- 273
+:= -- 702
+add.period$ -- 44
+call.type$ -- 14
+change.case$ -- 58
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 158
-empty$ -- 346
-format.name$ -- 31
-if$ -- 810
+cite$ -- 14
+duplicate$ -- 168
+empty$ -- 363
+format.name$ -- 39
+if$ -- 869
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 15
-newline$ -- 68
-num.names$ -- 28
-pop$ -- 40
+int.to.str$ -- 14
+missing$ -- 16
+newline$ -- 73
+num.names$ -- 30
+pop$ -- 45
 preamble$ -- 1
-purify$ -- 40
+purify$ -- 46
 quote$ -- 0
-skip$ -- 100
+skip$ -- 108
 stack$ -- 0
-substring$ -- 294
-swap$ -- 22
+substring$ -- 299
+swap$ -- 23
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 52
 warning$ -- 0
-while$ -- 42
-width$ -- 15
-write$ -- 147
+while$ -- 44
+width$ -- 16
+write$ -- 158
