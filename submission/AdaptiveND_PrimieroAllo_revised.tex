@@ -723,7 +723,7 @@ In the above derivation, all judgements up to stage $4$ are obtained by {\sf min
 
 
 
-\section{Rules for Marking}\label{sec:marking}
+\section{Adaptive Proofs and Rules for Marking}\label{sec:marking}
 
 In standard Adaptive Logics, one introduces strategies to tell which applications of the {\sf RC} rule should be retracted in view of the Minimal Disjunction of Abnormalities that have been derived. Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The two `standard' strategies and their rationale are \cite{batens01}:
 
@@ -733,7 +733,24 @@ In standard Adaptive Logics, one introduces strategies to tell which application
 \item \textit{Minimal Abnormality}: once a $\Phi(\Gamma)$ is derived at some stage {\sf s}, a formula $\psi$ is marked if either (i) it is derived at some prior stage {\sf s'} on an assumption $\Theta$ which intersects with every minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$; or (ii) for some minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$, there is no derivation of $\psi$ on another condition $\Theta'$, such that the intersection of $\Theta'$ with ${\sf choice_{i}}$ is empty.
 \end{itemize}
 %
-In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic reconstruction of the standard marking conditions. The conclusion of a Marking Rule expresses a dead-end for the tree, and as such its content should not be used as premise for any other step. Nonetheless, we wish to preserve all the information obtained in the tree, including retracted formulas, also in order to extract a linear proof from it: therefore, we allow marked judgements to be unused premises for any rule.
+In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic reconstruction of the standard marking conditions. The conclusion of a Marking Rule expresses a dead-end for the tree, and as such its content should not be used as premise for any other step. 
+
+To preserve such information about retracted judgements within a proof, we need to extend the standard formalisation of proofs as trees, and define adaptive proofs as sequences of proof-trees.
+
+\begin{definition}[Proof Tree]
+A well-formed {\sf AdaptiveND} tree is a finite proof tree obtained by deriving AdaptiveND judgements from other {\sf AdaptiveND} judgements where
+\begin{enumerate}
+
+\item the top leaves of the tree are instances of the {\sf Prem} rule and
+\item each next step is obtained by applying one of the {\sf minimalND} proof rules or one of the {\sf AdaptiveND} proof rules.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Adaptive Proof]
+An {\sf AdaptiveND} proof is a sequence of {\sf AdaptiveND} trees $T_{1}, \dots, T_{n}$ with consecutively numbered judgements across the trees.
+\end{definition}
+
+As a notational short-hand, we will sometimes include marked judgements as unused premises to incorporate dead-ends in a single proof-tree.
 
 
 \subsection{Marking Rule for Reliability}\label{sec:markrel}
@@ -767,25 +784,6 @@ In Figure \ref{fig:markR}, we define a new rule $\XBox$R that depends on the der
 %\infer*[right=$\XBox$R]{\Turn{\Sigma;\cdot}{\Delta^{min}}\\ \TurnPrime{\Sigma; \Psi^{-}}{\phi} \\ {\Psi \cap \Delta^{min}\neq \emptyset}}
 %{\TurnMaxPlusOneREL{\Sigma}{\phi}}
 %\end{mathpar}
-
-\subsection{Proofs as tree sequences}
-
-\begin{definition}[Proof Tree]
-A well-formed {\sf AdaptiveND} tree is a finite proof tree obtained by deriving AdaptiveND judgements from other {\sf AdaptiveND} judgements where
-\begin{enumerate}
-
-\item the top leaves of the tree are instances of the {\sf Prem} rule and
-\item each next step is obtained by applying one of the {\sf minimalND} proof rules or one of the {\sf AdaptiveND} proof rules.
-\end{enumerate}
-\end{definition}
-
-\begin{definition}[Adaptive Proof]
-An {\sf AdaptiveND} proof is a sequence of {\sf AdaptiveND} trees $T_{1}, \dots, T_{n}$ with consecutively numbered judgements across the trees.
-\end{definition}
-
-
-
-
 
 
 \subsection{Extending the example}\label{sec:example2}

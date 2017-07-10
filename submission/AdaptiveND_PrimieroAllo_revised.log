@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  10 JUL 2017 17:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  10 JUL 2017 17:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -492,40 +492,43 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 [12]
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 760.
+(Font)              using `U/wasy/m/n' instead on input line 777.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [13] [14]
-Overfull \hbox (90.49245pt too wide) in paragraph at lines 886--892
+Overfull \hbox (90.49245pt too wide) in paragraph at lines 884--890
  $[]$ 
  []
 
 [15] [16]
-Overfull \hbox (10.27477pt too wide) in paragraph at lines 1067--1078
+Overfull \hbox (10.27477pt too wide) in paragraph at lines 1065--1076
  $[]$ 
  []
 
 
-Overfull \hbox (30.82072pt too wide) in paragraph at lines 1083--1091
+Overfull \hbox (30.82072pt too wide) in paragraph at lines 1081--1089
  $[] 
  []
 
 [17]
-Overfull \hbox (17.50865pt too wide) in paragraph at lines 1108--1119
+Overfull \hbox (17.50865pt too wide) in paragraph at lines 1106--1117
  $[]$ 
  []
 
 
-Overfull \hbox (34.13206pt too wide) in paragraph at lines 1125--1133
+Overfull \hbox (34.13206pt too wide) in paragraph at lines 1123--1131
  $[] 
  []
 
 
-Overfull \hbox (85.20042pt too wide) in paragraph at lines 1138--1147
+Overfull \hbox (85.20042pt too wide) in paragraph at lines 1136--1145
  $[] 
  []
 
 [18]
-Overfull \hbox (1.66714pt too wide) in paragraph at lines 1172--1173
+Overfull \hbox (1.66714pt too wide) in paragraph at lines 1170--1171
 []\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
 red meta-theoretical
  []
@@ -533,7 +536,7 @@ red meta-theoretical
 [19] [20]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1254.
+(Font)              using `U/wasy/m/n' instead on input line 1252.
 
 [21] [22] [23] (/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAll
 o_revised.bbl [24]) [25] (/Users/patrickallo/adaptiveND/submission/AdaptiveND_P
@@ -582,7 +585,7 @@ nts/type1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
 type1/public/wasy2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/wasy2-ps/wasy9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised.pdf (25 pages, 389572 bytes).
+llo_revised.pdf (25 pages, 389106 bytes).
 PDF statistics:
  210 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams
