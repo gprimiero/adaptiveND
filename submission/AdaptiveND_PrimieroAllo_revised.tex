@@ -687,14 +687,19 @@ are adequately related to the sets of unreliable formulae and minimal choice-set
 \end{proposition}
 \noindent\textsl{Proof.}~Immediate from the fact that if $\Gamma; \cdot \vdash_{s - n  + (i-1)} \Delta_i^{min}$ is a premise used to derive $\Turn{\Gamma;\cdot}{\bigcup\Delta(\Gamma)}$ then (i) $\Delta_i^{min} \in \Lambda$, and (ii) $\Delta_i^{min}$ is still minimal at stage $s-1$.\qed
 
-\begin{proposition}
+\begin{proposition}\label{prop:choice}
     If $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then each $\phi \in \Phi(\Gamma)$ is a subset of some choice-set from $\Lambda$.
 \end{proposition}
 \noindent\textsl{Proof.}~If $\Gamma; \cdot \vdash_{s - n  + (i-1)} \Delta_i^{min}$ is a premise used to derive $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$, adding a premise $\Gamma; \cdot \vdash_{s - n  + (j-1)} \Delta_j^{min}$ for some $\Delta_j$ that was already derived at some stage $s - (n + m)$ would not lead to the violation of the side-condition for the application of \textsc{Choice}. Let $\Turn{\Gamma;\cdot}{\Phi'(\Gamma)}$ be the conclusion obtained by adding this premise, and note that each $\phi' \in \Phi'(\Gamma)$ can be obtained by extending a $\phi \in \Phi(\Gamma)$ with some member of $\Delta_j$.\qed
 
 \begin{proposition}
-    If $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then each $\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of some minimal choice-set from $\Lambda$.
+    If $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then each $\sf{choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of some minimal choice-set from $\Lambda$.
 \end{proposition}
+\noindent\textsl{Proof.}~Assume $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ is obtained by an application of \textsc{MinChoice} to a judgement with $\Phi(\Gamma)$ as a consequent. Let $\Delta^{n+1}$ be minimal at stage $s$, and assume that $\Phi'(\Gamma)$ is derivable from judgements with $\Delta_1, \ldots \Delta_{n+1}$ as consequent. By Proposition \ref{prop:choice} we know that ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of some $\phi \in \Phi'(\Gamma)$. Assume, for \emph{reductio}, that $\phi$ is not minimal in $\Phi'(\Gamma)$ because some $\phi' \subset \phi$ with $\phi' \in \Phi'(\Gamma)$.
+
+If $\phi' \subseteq {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ then it must be the case that $\phi' \not\in \Phi(\Gamma)$. This is impossible since the minimality of each $\Delta_1, \ldots, \Delta_{n+1}$ rules out the possibility of that a member of $\Phi'(\Gamma) \setminus \Phi(\Gamma)$ could be strictly included in a member of $\Phi(\Gamma)$.
+
+If $\phi' \not\subseteq {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ \ldots {\color{red} TO BE COMPLETEDX }
 
 \subsection{A simple example}\label{sec:example}
 
