@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  10 JUL 2017 19:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  10 JUL 2017 20:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -498,6 +498,11 @@ LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [13] [14]
+Overfull \hbox (95.26732pt too wide) in paragraph at lines 876--880
+ $[]$ 
+ []
+
+
 Overfull \hbox (90.49245pt too wide) in paragraph at lines 884--890
  $[]$ 
  []
@@ -585,7 +590,7 @@ nts/type1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
 type1/public/wasy2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/wasy2-ps/wasy9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised.pdf (25 pages, 390105 bytes).
+llo_revised.pdf (25 pages, 390223 bytes).
 PDF statistics:
  210 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams

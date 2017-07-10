@@ -875,7 +875,7 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 \begin{mathpar}
 \infer*[right=$\XBox$M]{\Turn{\Gamma;\phi^{-}}{\psi}\\
 \TurnPrime{\Gamma; \cdot}{\Phi(\Gamma)} \\
-{\forall \{\Delta_{i \dots n}^{min}\}\in \Phi(\Gamma),\phi\in \{\Delta_{i \dots n}^{min}\}}}
+{\phi \in {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \text{ for each } {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \in \Phi(\Gamma)}}
 {\TurnMaxPlusOneMA{\Gamma;\phi^{-}}{\psi}}
 \end{mathpar}
 
@@ -1000,11 +1000,11 @@ At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\s
 \end{mathpar}
 \bigskip
 
-Here the previously derived abnormality $(p \wedge \neg p)$ is unconditionally derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7,9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we can apply the marking-rule (where $\Delta^{min}$ is the set $(p \wedge \neg p), (q\wedge \neg q)$):
+Here the previously derived abnormality $(p \wedge \neg p)$ is unconditionally derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7-9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we can apply the marking-rule (where $\bigcup(\Delta(\Gamma))$ is the set $\{(p \wedge \neg p), (q\wedge \neg q)\}$):
 
 \begin{mathpar}
 \infer*[right=\XBox]{
-{\infer*[]{\mathbb{D}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}}\\{\infer*[]{\mathbb{D^{\prime}}}{\TurnTwelve {\Gamma; \cdot}{\bigcup(\{p\wedge \neg p,q\wedge \neg q\})}}}\\{(p \wedge \neg p)\in \Delta^{min}}
+{\infer*[]{\mathbb{D}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}}\\{\infer*[]{\mathbb{D^{\prime}}}{\TurnTwelve {\Gamma; \cdot}{\bigcup(\{p\wedge \neg p,q\wedge \neg q\})}}}\\{(p \wedge \neg p)\in \bigcup(\Delta(\Gamma))}
 }{\TurnMarkedThirteenREL{\Gamma; (p\wedge \neg p)^{-}}{r}}
 \end{mathpar}
 \bigskip
@@ -1021,7 +1021,7 @@ At stage {\sf 13} the formula $r$ is no longer valid, because its adaptive condi
 \end{mathpar}
 \bigskip
 
-$\mathbb{D^{\prime\prime}}$ derives a single abnormality at stage {\sf 18}, for which, as before, we skip the redundant step of deriving the singleton set of unreliable formulas. This also means that if we obtain a copy of derivation $\mathbb{D}$, where each step is re-numbered consecutively, and join it to $\mathbb{D^{\prime\prime}}$ and $\mathbb{E}$, it is possible to establish again $(p \wedge \neg p)$ as an adaptive condition and accordingly derive again the judgement that was marked at stage $12$, as follows:
+$\mathbb{D^{\prime\prime}}$ derives a single abnormality at stage {\sf 18}, for which, as before, we skip the redundant step of deriving the singleton set of unreliable formulas. This also means that if we obtain a copy of derivation $\mathbb{D}$, where each step is re-numbered consecutively, and join it to $\mathbb{D^{\prime\prime}}$ and $\mathbb{E}$, it is possible to deduce $r$ anew with $(p \wedge \neg p)$ as its adaptive condition and accordingly leave this judgement unmarked at stage {\sf 20}:
 
 
 \begin{mathpar}
