@@ -630,7 +630,7 @@ Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived a
 Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each derived according to {\sf MinDab} at stages {\sf s-n} up to {\sf s-1}, the union set of all such formulas can be derived at stage {\sf s}, defined as follows:
 
 \begin{definition}[Set of unreliable formulas]
-$\bigcup\Delta(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the union of all $\Delta_{1}, \dots, \Delta_{n}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
+$\bigcup\Delta(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the union of some $\Delta_{1}, \dots, \Delta_{n}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
 \end{definition}
 Note that when the operator $\bigcup\Delta(\Gamma)$ occurs on the right-hand side of the tunrstile, its reading is not intended as disjunctive, as it is the case for normal a set $\Delta$ in the same position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}.
 
@@ -679,8 +679,22 @@ The choice set of an empty set of minimal disjunction of abnormalities is empty.
 \end{figure}
 
 
-The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree. This means that the following procedure to mark formulas depends on the judgements about such minimal disjunctions and about unreliable formulas that are derived.
+The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree, and the marking procedure depends on the derivation of these types of judgements. For what follows, the following propositions are useful to ensure that the rules stated in Figure \ref{fig:mindab} 
+are adequately related to the sets of unreliable formulae and minimal choice-sets at a given proof-stage.
 
+\begin{proposition}
+    If $\Turn{\Gamma;\cdot}{\bigcup\Delta(\Gamma)}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then $\bigcup\Delta(\Gamma) \subseteq \bigcup(\Lambda)$.
+\end{proposition}
+\noindent\textsl{Proof.}~Immediate from the fact that if $\Gamma; \cdot \vdash_{s - n  + (i-1)} \Delta_i^{min}$ is a premise used to derive $\Turn{\Gamma;\cdot}{\bigcup\Delta(\Gamma)}$ then (i) $\Delta_i^{min} \in \Lambda$, and (ii) $\Delta_i^{min}$ is still minimal at stage $s-1$.\qed
+
+\begin{proposition}
+    If $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then each $\phi \in \Phi(\Gamma)$ is a subset of some choice-set from $\Lambda$.
+\end{proposition}
+\noindent\textsl{Proof.}~If $\Gamma; \cdot \vdash_{s - n  + (i-1)} \Delta_i^{min}$ is a premise used to derive $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$, adding a premise $\Gamma; \cdot \vdash_{s - n  + (j-1)} \Delta_j^{min}$ for some $\Delta_j$ that was already derived at some stage $s - (n + m)$ would not lead to the violation of the side-condition for the application of \textsc{Choice}. Let $\Turn{\Gamma;\cdot}{\Phi'(\Gamma)}$ be the conclusion obtained by adding this premise, and note that each $\phi' \in \Phi'(\Gamma)$ can be obtained by extending a $\phi \in \Phi(\Gamma)$ with some member of $\Delta_j$.\qed
+
+\begin{proposition}
+    If $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then each $\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of some minimal choice-set from $\Lambda$.
+\end{proposition}
 
 \subsection{A simple example}\label{sec:example}
 

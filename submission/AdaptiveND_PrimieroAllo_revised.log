@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  10 JUL 2017 11:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  10 JUL 2017 15:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -481,65 +481,73 @@ Overfull \hbox (48.54576pt too wide) in paragraph at lines 673--675
  $[]$ 
  []
 
-[10] [11]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 712.
+[10]
+! Extra }, or forgotten $.
+l.696 ...inimal at $s$, then each $\sf choice_{i}}
+                                                  (\{\Delta_{1},\ldots, \Del...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+[11]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 726.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 712.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 726.
+[12]
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 741.
+(Font)              using `U/wasy/m/n' instead on input line 755.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[12] [13]
-Overfull \hbox (90.49245pt too wide) in paragraph at lines 867--873
+[13]
+Overfull \hbox (90.49245pt too wide) in paragraph at lines 881--887
  $[]$ 
  []
 
-[14] [15]
-Overfull \hbox (10.27477pt too wide) in paragraph at lines 1048--1059
- $[]$ 
- []
-
-
-Overfull \hbox (30.82072pt too wide) in paragraph at lines 1064--1072
- $[] 
- []
-
-[16]
-Overfull \hbox (17.50865pt too wide) in paragraph at lines 1089--1100
+[14] [15] [16]
+Overfull \hbox (10.27477pt too wide) in paragraph at lines 1062--1073
  $[]$ 
  []
 
 
-Overfull \hbox (34.13206pt too wide) in paragraph at lines 1106--1114
+Overfull \hbox (30.82072pt too wide) in paragraph at lines 1078--1086
  $[] 
  []
 
 
-Overfull \hbox (85.20042pt too wide) in paragraph at lines 1119--1128
- $[] 
+Overfull \hbox (17.50865pt too wide) in paragraph at lines 1103--1114
+ $[]$ 
  []
 
 [17]
-Overfull \hbox (1.66714pt too wide) in paragraph at lines 1153--1154
+Overfull \hbox (34.13206pt too wide) in paragraph at lines 1120--1128
+ $[] 
+ []
+
+
+Overfull \hbox (85.20042pt too wide) in paragraph at lines 1133--1142
+ $[] 
+ []
+
+[18]
+Overfull \hbox (1.66714pt too wide) in paragraph at lines 1167--1168
 []\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
 red meta-theoretical
  []
 
-[18] [19]
+[19] [20]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1235.
+(Font)              using `U/wasy/m/n' instead on input line 1249.
 
-[20] [21] [22] (/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAll
-o_revised.bbl [23]) [24] (/Users/patrickallo/adaptiveND/submission/AdaptiveND_P
-rimieroAllo_revised.aux)
+[21] [22] (/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_rev
+ised.bbl [23]) [24] (/Users/patrickallo/adaptiveND/submission/AdaptiveND_Primie
+roAllo_revised.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -584,7 +592,7 @@ nts/type1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
 type1/public/wasy2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/wasy2-ps/wasy9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised.pdf (24 pages, 384102 bytes).
+llo_revised.pdf (24 pages, 387676 bytes).
 PDF statistics:
  206 PDF objects out of 1000 (max. 8388607)
  147 compressed objects within 2 object streams
