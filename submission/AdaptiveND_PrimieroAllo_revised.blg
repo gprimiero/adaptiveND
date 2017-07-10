@@ -5,24 +5,24 @@ The style file: plain.bst
 Database file #1: primiero.bib
 You've used 14 entries,
             2118 wiz_defined-function locations,
-            604 strings with 6113 characters,
-and the built_in function-call counts, 4110 in all, are:
-= -- 413
+            605 strings with 6100 characters,
+and the built_in function-call counts, 4189 in all, are:
+= -- 421
 > -- 131
 < -- 1
 + -- 56
 - -- 39
-* -- 273
-:= -- 702
+* -- 285
+:= -- 710
 add.period$ -- 44
 call.type$ -- 14
 change.case$ -- 58
 chr.to.int$ -- 0
 cite$ -- 14
-duplicate$ -- 168
-empty$ -- 363
+duplicate$ -- 169
+empty$ -- 373
 format.name$ -- 39
-if$ -- 869
+if$ -- 888
 int.to.chr$ -- 0
 int.to.str$ -- 14
 missing$ -- 16
@@ -32,15 +32,15 @@ pop$ -- 45
 preamble$ -- 1
 purify$ -- 46
 quote$ -- 0
-skip$ -- 108
+skip$ -- 107
 stack$ -- 0
-substring$ -- 299
+substring$ -- 320
 swap$ -- 23
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 52
 warning$ -- 0
-while$ -- 44
+while$ -- 45
 width$ -- 16
 write$ -- 158

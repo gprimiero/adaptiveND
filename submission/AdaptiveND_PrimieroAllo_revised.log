@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  10 JUL 2017 21:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  10 JUL 2017 21:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -543,6 +543,21 @@ red meta-theoretical
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
 (Font)              using `U/wasy/m/n' instead on input line 1268.
 
+
+Underfull \hbox (badness 7576) in paragraph at lines 1291--1291
+[]\OT1/cmr/m/n/10 Find uni-form
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1291
+\OT1/cmr/m/n/10 no-ta-tion for
+ []
+
+
+Underfull \hbox (badness 5475) in paragraph at lines 1291--1291
+\OT1/cmr/m/n/10 proofs ($\U/msb/m/n/10 P$ \OT1/cmr/m/n/10 or
+ []
+
 [22] [23] (/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_rev
 ised.bbl [24]) [25] (/Users/patrickallo/adaptiveND/submission/AdaptiveND_Primie
 roAllo_revised.aux)
@@ -590,7 +605,7 @@ nts/type1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
 type1/public/wasy2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/wasy2-ps/wasy9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised.pdf (25 pages, 392181 bytes).
+llo_revised.pdf (25 pages, 392254 bytes).
 PDF statistics:
  210 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams
