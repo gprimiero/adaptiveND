@@ -1245,7 +1245,18 @@ From (3) and (4) it follows that every abnormality that occurs in a minimal disj
 
 The focus on positive and negative parts of formulae goes back to \cite{Sch60}, and was previously used for the development of goal-directed proof-strategies for adaptive logics \cite{Batens:LogiqueAnalyse:2001}. The fact that we should pay attention to all negative parts of the premises should also be obvious in view of the semantics for \textbf{CLuN}, as the truth-value of negative formulae does not need to depend on the truth-values of its sub-formulae.
 
-Given this preparatory work, we now introduce the notion of a \textit{complete proof-tree} with respect to derivable relevant disjunction of abnormalities:
+Theorem \ref{thm:subform} helps us to characterise finite proof-trees to decide whether a formula is finally derived by identifying the abnormalities derivable in view of the syntactical form of the premises. But it can also be seen as a \textbf{CLuN}-specific variant of the \emph{Derivability Adjustment Theorem} from \cite{batens07}. This result can be stated in multiple-conclusion form as follows:
+\[
+    \Gamma \vdash_{\mathbf{ULL}} \phi \text{ iff } \Gamma \vdash_{\mathbf{LLL}} \phi, \Delta \text{ for some finite } \Delta \subset \Omega
+\]
+Or yet it can be seen as a \textbf{CLuN}-alternative of a result from \cite{Beall:TheReviewOfSymbolicLogic:2011} that relates $\mathbf{LP}^{+}$, the multiple-conclusion extension of \textbf{LP}, and $\mathbf{CPL}^{+}$, the multiple-conclusion extension of classical logic:
+
+\[
+    X \models_{\mathbf{CPL}}^+ Y \text{ iff } X \models_{\mathbf{LP}}^+ Y \cup \iota(X) \tag{LP/CPL}\label{beall}
+\]
+with $\iota(X) = \{p \wedge \neg p : p \in \At(X)\}$.
+
+Here, we do not use such connections to bridge different approaches to classical recapture, but instead rely on it to  introduce the notion of a \textit{complete proof-tree} with respect to derivable relevant disjunction of abnormalities:
 
 \begin{definition}[Completeness relative to relevant abnormalities]
 Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to $\Omega(\Gamma)$ at stage {\sf s} if for every derivable $\bigvee(\Delta^{min})$ with $\Delta\subseteq\Omega(\Gamma)$ there is an $\mathsf{s' < s}$ such that $\TurnPrime{\Gamma;\cdot}{\bigvee(\Delta^{min})}$.
@@ -1292,7 +1303,7 @@ Consequently, $\psi$ will be finally derived in $\mathbf{P}$ because further ext
 
 
 \begin{itemize}
-  \item[for \textbf{CluN}$^{R}$]  $\Gamma\vdash_{\mathbf{CluN}}\psi\vee \phi$ with $\phi\cap U(\Gamma)=\emptyset$. By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$. By applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If at some later stage {\sf s'} an abnormality complete proof is obtained, any $\bigcup \Delta (\Gamma)$ derived thereafter will, by Proposition \ref{prop:unrel} be a sub-set of $U(\Gamma)$. Consequently, any application of $\XBox$R to a judgement conditional on $\phi$ would from that point also require $\phi \in \bigcup \Delta (\Gamma)$. Since this would contradict our assumption that $\phi\cap U(\Gamma)\neq\emptyset$, no such marking can be applied.
+  \item[for \textbf{CluN}$^{R}$]  $\Gamma\vdash_{\mathbf{CluN}}\psi\vee \phi$ with $\phi\cap U(\Gamma)=\emptyset$. By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$. By applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If at some later stage {\sf s'} an abnormality complete proof is obtained, any $\bigcup \Delta (\Gamma)$ derived thereafter will, by Proposition \ref{prop:unrel} be a sub-set of $U(\Gamma)$. Consequently, any application of $\XBox$R to a judgement with condition $\phi^-$ would from that point also require $\phi \in \bigcup \Delta (\Gamma)$. Since this would contradict our assumption that $\phi\cap U(\Gamma)\neq\emptyset$, no such marking can be applied.
 
   \item[for \textbf{CluN}$^{M}$]
 
@@ -1304,20 +1315,6 @@ Consequently, $\psi$ will be finally derived in $\mathbf{P}$ because further ext
 
 \end{itemize}
 \end{proof}
-
-
-Theorem \ref{thm:subform} helps us to characterise finite proof-trees to decide whether a formula is finally derived by identifying the abnormalities derivable in view of the syntactical form of the premises. But it can also be seen as a \textbf{CLuN}-specific variant of the \emph{Derivability Adjustment Theorem} from \cite{batens07}. This result can be stated in multiple-conclusion form as follows:
-\[
-    \Gamma \vdash_{\mathbf{ULL}} \phi \text{ iff } \Gamma \vdash_{\mathbf{LLL}} \phi, \Delta \text{ for some finite } \Delta \subset \Omega
-\]
-Or yet it can be seen as a \textbf{CLuN}-alternative of a result from \cite{Beall:TheReviewOfSymbolicLogic:2011} that relates $\mathbf{LP}^{+}$, the multiple-conclusion extension of \textbf{LP}, and $\mathbf{CPL}^{+}$, the multiple-conclusion extension of classical logic:
-
-\[
-    X \models_{\mathbf{CPL}}^+ Y \text{ iff } X \models_{\mathbf{LP}}^+ Y \cup \iota(X) \tag{LP/CPL}\label{beall}
-\]
-with $\iota(X) = \{p \wedge \neg p : p \in \At(X)\}$.
-
-These connections can help us to explain how \textsf{AdaptiveND} can be used as a bridge between different attitudes towards the problem of classical recapture.
 
 \section{Concluding remarks}\label{sec:recap}
 To conclude, we would like to highlight certain distinctive features of the proposed calculus, and briefly discuss how these features can be used to reconsider the question of classical recapture. As we see it, the defeasible reasoning-forms formalised in our \textsf{AdaptiveND} system have three primary virtues:
