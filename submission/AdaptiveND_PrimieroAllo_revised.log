@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  11 JUL 2017 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  11 JUL 2017 14:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -481,59 +481,55 @@ Overfull \hbox (48.54576pt too wide) in paragraph at lines 673--675
  $[]$ 
  []
 
-[10] [11]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 731.
+[10] [11] [12]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 726.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 731.
-[12]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 726.
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 777.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+(Font)              using `U/wasy/m/n' instead on input line 772.
 
 [13] [14]
-Overfull \hbox (95.26732pt too wide) in paragraph at lines 876--880
+Overfull \hbox (95.26732pt too wide) in paragraph at lines 871--875
  $[]$ 
  []
 
 
-Overfull \hbox (90.49245pt too wide) in paragraph at lines 884--890
+Overfull \hbox (90.49245pt too wide) in paragraph at lines 879--885
  $[]$ 
  []
 
 [15] [16]
-Overfull \hbox (10.27477pt too wide) in paragraph at lines 1065--1076
+Overfull \hbox (10.27477pt too wide) in paragraph at lines 1060--1071
  $[]$ 
  []
 
 
-Overfull \hbox (30.82072pt too wide) in paragraph at lines 1081--1089
+Overfull \hbox (30.82072pt too wide) in paragraph at lines 1076--1084
  $[] 
  []
 
 [17]
-Overfull \hbox (17.50865pt too wide) in paragraph at lines 1106--1117
+Overfull \hbox (17.50865pt too wide) in paragraph at lines 1101--1112
  $[]$ 
  []
 
 
-Overfull \hbox (34.13206pt too wide) in paragraph at lines 1123--1131
+Overfull \hbox (34.13206pt too wide) in paragraph at lines 1118--1126
  $[] 
  []
 
 
-Overfull \hbox (85.20042pt too wide) in paragraph at lines 1136--1145
+Overfull \hbox (85.20042pt too wide) in paragraph at lines 1131--1140
  $[] 
  []
 
 [18] [19]
-Overfull \hbox (1.66714pt too wide) in paragraph at lines 1186--1187
+Overfull \hbox (1.66714pt too wide) in paragraph at lines 1181--1182
 []\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
 red meta-theoretical
  []
@@ -541,35 +537,35 @@ red meta-theoretical
 [20] [21]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1268.
+(Font)              using `U/wasy/m/n' instead on input line 1263.
 
 
-Underfull \hbox (badness 7047) in paragraph at lines 1270--1270
+Underfull \hbox (badness 7047) in paragraph at lines 1265--1265
 []\OT1/cmr/m/n/10 This is ad-e-
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 1270--1270
+Underfull \hbox (badness 2057) in paragraph at lines 1265--1265
 \OT1/cmr/m/n/10 not for min-i-
  []
 
 
-Underfull \hbox (badness 7012) in paragraph at lines 1291--1291
+Underfull \hbox (badness 7012) in paragraph at lines 1286--1286
 \OT1/cmr/bx/n/10 P$ \OT1/cmr/m/n/10 to dis-tin-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1291
+Underfull \hbox (badness 10000) in paragraph at lines 1286--1286
 \OT1/cmr/m/n/10 pre-vi-ous uses
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1291
+Underfull \hbox (badness 10000) in paragraph at lines 1286--1286
 \OT1/cmr/m/n/10 of mathbb-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1291
+Underfull \hbox (badness 10000) in paragraph at lines 1286--1286
 \OT1/cmr/m/n/10 fonts in the
  []
 
@@ -581,10 +577,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3474 strings out of 493089
- 41681 string characters out of 6134842
+ 3473 strings out of 493089
+ 41665 string characters out of 6134842
  117153 words of memory out of 5000000
- 6898 multiletter control sequences out of 15000+600000
+ 6897 multiletter control sequences out of 15000+600000
  21593 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,57n,67p,2179b,677s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -620,7 +616,7 @@ nts/type1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
 type1/public/wasy2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/wasy2-ps/wasy9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised.pdf (25 pages, 392524 bytes).
+llo_revised.pdf (25 pages, 392536 bytes).
 PDF statistics:
  210 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams
