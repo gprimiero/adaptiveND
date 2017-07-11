@@ -681,7 +681,7 @@ The choice set of an empty set of minimal disjunction of abnormalities is empty.
 
 The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree, and the marking procedure depends on the derivation of these types of judgements. Unlike for the standard definitions of unreliable formulae and minimal choice-sets, the rules \textsc{UnRel} and \textsc{Choice} can be applied without taking every minimal disjunction of abnormalities derived up to that stage as a premise. The following propositions guarantee that this does not lead to further complications: if an abnormality occurs in $\bigcup\Delta(\Gamma)$, but is not unreliable according to $\Gamma$, then $\bigcup\Delta(\Gamma)$ was derived from a $\Delta_i$ that isn't minimal; similarly, if an abnormality occurs in some ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$, but isn't verified by a minimally abnormal model, then it was derived from a $\Delta_i$ that isn't minimal. The key to these results is that the side-conditions that apply to the premises of \textsc{UnRel} and \textsc{Choice} refer to all disjunctions of abnormalities that occur unconditionally in the proof, and not only those used as premises.
 
-\begin{proposition}
+\begin{proposition}\label{prop:unrel}
     If $\Turn{\Gamma;\cdot}{\bigcup\Delta(\Gamma)}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then $\bigcup\Delta(\Gamma) \subseteq \bigcup(\Lambda)$.
 \end{proposition}
 \noindent\textsl{Proof.}~Immediate from the fact that if $\Gamma; \cdot \vdash_{s - n  + (i-1)} \Delta_i^{min}$ is a premise used to derive $\Turn{\Gamma;\cdot}{\bigcup\Delta(\Gamma)}$ then (i) $\Delta_i^{min} \in \Lambda$, and (ii) $\Delta_i^{min}$ is still minimal at stage $s-1$.\qed
@@ -1292,8 +1292,7 @@ Consequently, $\psi$ will be finally derived in $\mathbf{P}$ because further ext
 
 
 \begin{itemize}
-  \item[for \textbf{CluN}$^{R}$]  $\Gamma\vdash_{\mathbf{CluN}}\psi\vee \phi$ with $\phi\cap U(\Gamma)=\emptyset$. By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$. By applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If $\TurnMarked{\Gamma;\phi^{-}}{\psi}$ in some abnormality and marking complete proof $P$, then $\phi\cap U(\Gamma)\neq\emptyset$, which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$.
-
+  \item[for \textbf{CluN}$^{R}$]  $\Gamma\vdash_{\mathbf{CluN}}\psi\vee \phi$ with $\phi\cap U(\Gamma)=\emptyset$. By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$. By applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If at some later stage {\sf s'} an abnormality complete proof is obtained, any $\bigcup \Delta (\Gamma)$ derived thereafter will, by Proposition \ref{prop:unrel} be a sub-set of $U(\Gamma)$. Consequently, any application of $\XBox$R to a judgement conditional on $\phi$ would from that point also require $\phi \in \bigcup \Delta (\Gamma)$. Since this would contradict our assumption that $\phi\cap U(\Gamma)\neq\emptyset$, no such marking can be applied.
 
   \item[for \textbf{CluN}$^{M}$]
 
