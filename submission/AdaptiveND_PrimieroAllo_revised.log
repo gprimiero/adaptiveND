@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.31)  12 JUL 2017 14:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.31)  12 JUL 2017 15:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -671,12 +671,22 @@ LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
 (Font)              using `U/wasy/m/n' instead on input line 1307.
 
 [22]
-Overfull \hbox (0.94066pt too wide) in paragraph at lines 1353--1355
-[]\OT1/cmr/m/n/10 either $^^B [] [](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML
-/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )\OM
-L/cmm/m/it/10 ; \OMS/cmsy/m/n/10 8[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr
-/m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT
-1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^H(^^@)$ 
+Overfull \hbox (5.52415pt too wide) in paragraph at lines 1356--1361
+[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; []
+ ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$, $\OMS/cmsy/m/n/10
+ 8[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; 
+[] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
+2 \OT1/cmr/m/n/10 ^^H(^^@)$, which con-
+ []
+
+
+Overfull \hbox (52.49626pt too wide) in paragraph at lines 1361--1367
+[]\OT1/cmr/m/n/10 or for any $\OML/cmm/m/it/10 ^^^ \OMS/cmsy/m/n/10 2 \OT1/cmr/
+m/n/10 ^^B$, $\OML/cmm/m/it/10 ^^^ [] []\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1
+/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 
+g\OT1/cmr/m/n/10 )$ for some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cm
+m/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \OMS/
+cmsy/m/n/10 2
  []
 
 [23] [24] (./AdaptiveND_PrimieroAllo_revised.bbl [25]) [26]
@@ -722,7 +732,7 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
 texmf-dist/fonts/type1/public/wasy2-ps/wasy10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/wasy2-ps/wasy7.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/wasy2-ps/wasy9.pfb>
-Output written on AdaptiveND_PrimieroAllo_revised.pdf (26 pages, 394373 bytes).
+Output written on AdaptiveND_PrimieroAllo_revised.pdf (26 pages, 395639 bytes).
 
 PDF statistics:
  213 PDF objects out of 1000 (max. 8388607)
