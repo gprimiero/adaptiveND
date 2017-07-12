@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.31)  12 JUL 2017 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.31)  12 JUL 2017 13:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -515,18 +515,18 @@ Package: mdwlist 1996/05/02 1.1 Various list-related things
 (./AdaptiveND_PrimieroAllo_revised.aux)
 \openout1 = `AdaptiveND_PrimieroAllo_revised.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 223.
-LaTeX Font Info:    ... okay on input line 223.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 223.
-LaTeX Font Info:    ... okay on input line 223.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 223.
-LaTeX Font Info:    ... okay on input line 223.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 223.
-LaTeX Font Info:    ... okay on input line 223.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 223.
-LaTeX Font Info:    ... okay on input line 223.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 223.
-LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -542,16 +542,16 @@ LaTeX Font Info:    ... okay on input line 223.
 \makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks32
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 225.
+LaTeX Font Info:    Try loading font information for U+msa on input line 231.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 225.
+LaTeX Font Info:    Try loading font information for U+msb on input line 231.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 225.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 231.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
@@ -589,7 +589,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8] [9]
-Overfull \hbox (3.356pt too wide) in paragraph at lines 640--641
+Overfull \hbox (3.356pt too wide) in paragraph at lines 646--647
 \OT1/cmr/m/it/10 ac-cord-ing to \OT1/cmss/m/n/10 MinDab\OT1/cmr/m/it/10 . We de
 -note each such choice set with $[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/
 m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1
@@ -597,65 +597,70 @@ m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1
  []
 
 
-Overfull \hbox (48.54576pt too wide) in paragraph at lines 673--675
+Overfull \hbox (48.54576pt too wide) in paragraph at lines 679--681
  $[]$ 
  []
 
 [10] [11] [12]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 726.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 732.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 726.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 732.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 772.
+(Font)              using `U/wasy/m/n' instead on input line 778.
 
 [13] [14]
-Overfull \hbox (95.26732pt too wide) in paragraph at lines 871--875
+Overfull \hbox (95.26732pt too wide) in paragraph at lines 877--881
  $[]$ 
  []
 
 
-Overfull \hbox (90.49245pt too wide) in paragraph at lines 879--885
+Overfull \hbox (90.49245pt too wide) in paragraph at lines 885--891
  $[]$ 
  []
 
 
-Overfull \hbox (72.14198pt too wide) in paragraph at lines 892--896
+Overfull \hbox (81.64558pt too wide) in paragraph at lines 898--902
  $[]$ 
  []
 
-[15] [16]
-Overfull \hbox (10.27477pt too wide) in paragraph at lines 1071--1082
+
+Overfull \hbox (127.08513pt too wide) in paragraph at lines 908--915
  $[]$ 
  []
 
-[17]
-Overfull \hbox (30.82072pt too wide) in paragraph at lines 1087--1095
+[15] [16] [17]
+Overfull \hbox (10.27477pt too wide) in paragraph at lines 1091--1102
+ $[]$ 
+ []
+
+
+Overfull \hbox (30.82072pt too wide) in paragraph at lines 1107--1115
  $[] 
  []
 
 
-Overfull \hbox (17.50865pt too wide) in paragraph at lines 1112--1123
+Overfull \hbox (17.50865pt too wide) in paragraph at lines 1132--1143
  $[]$ 
  []
 
 
-Overfull \hbox (34.13206pt too wide) in paragraph at lines 1129--1137
+Overfull \hbox (34.13206pt too wide) in paragraph at lines 1149--1157
  $[] 
  []
 
 
-Overfull \hbox (85.20042pt too wide) in paragraph at lines 1142--1151
+Overfull \hbox (85.20042pt too wide) in paragraph at lines 1162--1171
  $[] 
  []
 
 [18] [19]
-Overfull \hbox (1.66714pt too wide) in paragraph at lines 1192--1193
+Overfull \hbox (1.66714pt too wide) in paragraph at lines 1212--1213
 []\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
 red meta-theoretical
  []
@@ -663,44 +668,35 @@ red meta-theoretical
 [20] [21]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1287.
+(Font)              using `U/wasy/m/n' instead on input line 1307.
 
 [22]
-Overfull \hbox (29.84787pt too wide) in paragraph at lines 1290--1291
-[]\OT1/cmr/m/it/10 for ev-ery deriv-able $\OT1/cmr/m/n/10 ^^@; ^^B[] \OMS/cmsy/
-m/n/10 `[] \OML/cmm/m/it/10 ^^^; [] ; \OT1/cmr/m/n/10 ^^@; ^^B[] \OMS/cmsy/m/n/
-10 `[] \OML/cmm/m/it/10 ^^^;$\OT1/cmr/m/it/10 , if any $[]\OT1/cmr/m/n/10 (\OMS
-/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[
-]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$
- []
-
-
-Underfull \hbox (badness 7047) in paragraph at lines 1297--1297
+Underfull \hbox (badness 7047) in paragraph at lines 1317--1317
 []\OT1/cmr/m/n/10 This is ad-e-
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 1297--1297
+Underfull \hbox (badness 2057) in paragraph at lines 1317--1317
 \OT1/cmr/m/n/10 not for min-i-
  []
 
 
-Underfull \hbox (badness 7012) in paragraph at lines 1318--1318
+Underfull \hbox (badness 7012) in paragraph at lines 1338--1338
 \OT1/cmr/bx/n/10 P$ \OT1/cmr/m/n/10 to dis-tin-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1318--1318
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1338
 \OT1/cmr/m/n/10 pre-vi-ous uses
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1318--1318
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1338
 \OT1/cmr/m/n/10 of mathbb-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1318--1318
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1338
 \OT1/cmr/m/n/10 fonts in the
  []
 
@@ -711,10 +707,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3567 strings out of 494910
- 41285 string characters out of 6179836
- 113710 words of memory out of 5000000
- 6800 multiletter control sequences out of 15000+600000
+ 3569 strings out of 494910
+ 41327 string characters out of 6179836
+ 113760 words of memory out of 5000000
+ 6802 multiletter control sequences out of 15000+600000
  21593 words of font info for 80 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  40i,57n,67p,2134b,677s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -747,7 +743,7 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
 texmf-dist/fonts/type1/public/wasy2-ps/wasy10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/wasy2-ps/wasy7.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/wasy2-ps/wasy9.pfb>
-Output written on AdaptiveND_PrimieroAllo_revised.pdf (26 pages, 395936 bytes).
+Output written on AdaptiveND_PrimieroAllo_revised.pdf (26 pages, 395927 bytes).
 
 PDF statistics:
  213 PDF objects out of 1000 (max. 8388607)

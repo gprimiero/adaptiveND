@@ -46,6 +46,12 @@
 \newcommand{\TurnPrimePrime}[2]
     { {#1}\vdash_{\textbf{\sf s''}}  {#2}}
 
+    \newcommand{\TurnPrimePrimePlusOne}[2]
+        { {#1}\vdash_{\textbf{\sf s''+1}}  {#2}}
+
+        \newcommand{\TurnPrimePrimePlusTwo}[2]
+            { {#1}\vdash_{\textbf{\sf s''+2}}  {#2}}
+
 
 \newcommand{\TurnOne}[2]
     { {#1}\vdash_{\textbf{\sf 1}}  {#2}}
@@ -890,13 +896,27 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 \begin{figure}
 \begin{mathpar}
 \infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi} \\
-\infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\Turn{\Gamma, \cdot}{\Phi(\Gamma)}}}
-{\Turn{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
-{\TurnMarkedMA{\Gamma;\Theta^-}{\psi}}
+\infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi(\Gamma)}}}
+{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnMarkedNextNextMA{\Gamma;\Theta^-}{\psi}}
+\end{mathpar}
+
+
+
+
+\begin{mathpar}
+\infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi} \\
+\ldots\\
+\TurnPrime{\Gamma; \Theta'^{-}}{\psi}\\
+\infer*[right=\textsc{MinCh}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi(\Gamma)}}}
+{\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})}}
+\forall(\Theta\ldots \Theta') \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnPrimePrimePlusTwo{\Gamma;\Theta^-}{\psi}}
 \end{mathpar}
 
 \caption{Marking-trees for minimal abnormality}
 \end{figure}
+
 
 %%, where again $\Sigma=\bigcup\{\Gamma, \Omega^{-}\}$:
 %
@@ -1285,9 +1305,9 @@ Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to ma
 iff
 \begin{description}
     \item[Rel] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if some $\bigcup \Delta(\Gamma)$ such that $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$ is derivable at that stage, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
-    \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ derivable at that stage intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
-    \item[MinAb2] {\color{red} this will break down. The second clause for MinAb-marking does not only depend on knowing all the minimal choice-sets, but also depends on having obtained all the alternative conditional deductions of $\phi$.}
-    \item[MinAb2] for every derivable $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi, \dots,\Gamma; \Theta'^{-}\vdash_{{\sf s}} \phi, $, if any $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ derivable at that stage intersects with all $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+    \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every derivable $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+%    \item[MinAb2] {\color{red} this will break down. The second clause for MinAb-marking does not only depend on knowing all the minimal choice-sets, but also depends on having obtained all the alternative conditional deductions of $\phi$.}
+    \item[MinAb2] for every derivable $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi, \dots,\Gamma; \Theta'^{-}\vdash_{{\sf s}} \phi, $, if some derivabel $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with all $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 
 \end{description}
 
