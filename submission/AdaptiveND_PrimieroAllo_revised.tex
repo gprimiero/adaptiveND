@@ -1307,8 +1307,8 @@ iff
     \item[Rel] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if some $\bigcup \Delta(\Gamma)$ such that $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$ is derivable at that stage, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
     \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every derivable $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 %    \item[MinAb2] {\color{red} this will break down. The second clause for MinAb-marking does not only depend on knowing all the minimal choice-sets, but also depends on having obtained all the alternative conditional deductions of $\phi$.}
-    \item[MinAb2] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ and for every other derivable $\Gamma; \Theta'^{-}\vdash_{{\sf s}} \phi$, if some derivable
-     $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with all $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+    \item[MinAb2] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if for every other derivable $\Gamma; \Theta'^{-}\vdash_{{\sf s}} \phi$, some derivable
+     $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with each $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 
 \end{description}
 
