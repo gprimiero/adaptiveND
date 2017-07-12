@@ -1315,7 +1315,8 @@ iff
 
 % if $\Gamma; \cdot\vdash_{{\sf s'>s}} \Delta^{min}$ with $\Theta^{-}\cap \Delta^{min}\neq \emptyset$ and no $\Gamma; \cdot\vdash_{{\sf s''>s'}} \Delta'^{min}$ with $\Delta'^{min}\subset \Delta^{min}$, there is a tree $T_{j>i}\in P$ such that $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$ occurs in it.
 
-\end{definition}\marginpar{This is adequate for reliability, but almost certainly not for minimal abnormality.}
+\end{definition}
+%\marginpar{This is adequate for reliability, but almost certainly not for minimal abnormality.}
 
 %By the first requirement all possible $Dab(\Delta)^{min}_{s}$ have been derived for  {\sf s}; and by the second requirement every formula is derived under the minimal conditions (hence any relevant condition for the marking has been obtained already).
 
@@ -1325,7 +1326,7 @@ We can now formulate our notion of final derivability:
 A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ if it is derived at the final stage {\sf s} of an abnormality and marking complete proof.
 \end{definition}
 %
-The definition guarantees final derivability for any derived formula {\color{red}whose adaptive condition is not minimal. WHAT DOES THIS MEAN?}
+%The definition guarantees final derivability for any derived formula {\color{red}whose adaptive condition is not minimal. WHAT DOES THIS MEAN?}
 %Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
 
 
@@ -1336,10 +1337,10 @@ $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in {\sf AdaptiveND} if and only if there i
 
 \begin{proof}
 
-\begin{itemize}\marginpar{Replaced $\mathbb{P}$ by $\mathbf{P}$ to distinguish from the previous uses of mathbb-fonts in the examples.}
-\item[$\rightarrow$] By assumption $\psi$ is finally derived, therefore there is an abnormality and marking complete proof $P$ in which it is derived. Consider the translation $\mathbf{P}$ of $P$ in a linear adaptive proof: because, by assumption, $P$ contains unconditional judgements for every deducible minimal disjunction of abnormalities in $\Omega(\Gamma)$. By translation, the same minimal disjunctions of abnormalities are also unconditionally derived in $\mathbf{P}$. By Theorem \ref{thm:subform}, this implies that all minimal disjunctions of abnormalities are unconditionally derived in $\mathbf{P}$, and further extensions of the proof cannot lead to additional unconditionally derived minimal disjunctions of abnormalities.\\
-Because $P$ contains all possible markings, every formula which is marked in $P$ will be marked in $\mathbf{P}$, and $\mathbf{P}$ will therefore be in accordance with the standard marking definitions.\\
-Consequently, $\psi$ will be finally derived in $\mathbf{P}$ because further extensions would not lead to newly derived minimal disjunctions of abnormalities, and would not lead to additional marking either.
+\begin{itemize}
+%\marginpar{Replaced $\mathbb{P}$ by $\mathbf{P}$ to distinguish from the previous uses of mathbb-fonts in the examples.}
+\item[$\rightarrow$] By assumption $\psi$ is finally derived, therefore there is an abnormality and marking complete proof $P$ in which it is derived. Then $P$, by definition, contains unconditional judgements for every deducible minimal disjunction of abnormalities in $\Omega(\Gamma)$. Now consider the translation $\mathbf{P}$ of $P$ in a linear adaptive proof: the same minimal disjunctions of abnormalities as in $P$ are also unconditionally derived in $\mathbf{P}$. By Theorem \ref{thm:subform}, this implies that all minimal disjunctions of abnormalities are unconditionally derived in $\mathbf{P}$, and further extensions of the proof cannot lead to additional unconditionally derived minimal disjunctions of abnormalities. Because $P$ contains all possible markings, every formula which is marked in $P$ will be marked in $\mathbf{P}$, and
+$\mathbf{P}$ will therefore be in accordance with the standard marking definitions. Consequently, $\psi$ will be finally derived in $\mathbf{P}$ because further extensions would not lead to newly derived minimal disjunctions of abnormalities, and would not lead to additional marking either.
 
 \item[$\leftarrow$] Assume that $\psi$ is finally derived in some linear adaptive proof $\mathbf{P}$; then
 
