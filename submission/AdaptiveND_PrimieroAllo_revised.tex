@@ -728,7 +728,7 @@ In standard Adaptive Logics, one introduces strategies to tell which application
 \item \textit{Minimal Abnormality}: once a $\Phi(\Gamma)$ is derived at some stage {\sf s}, a formula $\psi$ is marked if either (i) it is derived at some prior stage {\sf s'} on an assumption $\Theta$ which intersects with every minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$; or (ii) for some minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$, there is no derivation of $\psi$ on another condition $\Theta'$, such that the intersection of $\Theta'$ with ${\sf choice_{i}}$ is empty.
 \end{itemize}
 %
-In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic reconstruction of the standard marking conditions. The conclusion of a Marking Rule expresses a dead-end for the tree, and as such its content should not be used as premise for any other step. 
+In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic reconstruction of the standard marking conditions. The conclusion of a Marking Rule expresses a dead-end for the tree, and as such its content should not be used as premise for any other step.
 
 To preserve such information about retracted judgements within a proof,\footnote{This move also facilitates the practice of cutting and pasting proofs together without having to renumber the judgements.} we need to extend the standard formalisation of proofs as trees, and define adaptive proofs as sequences of proof-trees.
 
@@ -1282,11 +1282,13 @@ Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to $\
 
 \begin{definition}[Completeness relative to marking]
 Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to marking
-iff 
+iff
 \begin{description}
     \item[Rel] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if some $\bigcup \Delta(\Gamma)$ such that $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$ is derivable at that stage, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
     \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ derivable at that stage intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
     \item[MinAb2] {\color{red} this will break down. The second clause for MinAb-marking does not only depend on knowing all the minimal choice-sets, but also depends on having obtained all the alternative conditional deductions of $\phi$.}
+    \item[MinAb2] for every derivable $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi, \dots,\Gamma; \Theta'^{-}\vdash_{{\sf s}} \phi, $, if any $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ derivable at that stage intersects with all $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+
 \end{description}
 
 
