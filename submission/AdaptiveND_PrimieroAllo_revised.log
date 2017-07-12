@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.31)  12 JUL 2017 13:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.31)  12 JUL 2017 13:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -671,32 +671,32 @@ LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
 (Font)              using `U/wasy/m/n' instead on input line 1307.
 
 [22]
-Underfull \hbox (badness 7047) in paragraph at lines 1317--1317
+Underfull \hbox (badness 7047) in paragraph at lines 1318--1318
 []\OT1/cmr/m/n/10 This is ad-e-
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 1317--1317
+Underfull \hbox (badness 2057) in paragraph at lines 1318--1318
 \OT1/cmr/m/n/10 not for min-i-
  []
 
 
-Underfull \hbox (badness 7012) in paragraph at lines 1338--1338
+Underfull \hbox (badness 7012) in paragraph at lines 1339--1339
 \OT1/cmr/bx/n/10 P$ \OT1/cmr/m/n/10 to dis-tin-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1338--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1339--1339
 \OT1/cmr/m/n/10 pre-vi-ous uses
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1338--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1339--1339
 \OT1/cmr/m/n/10 of mathbb-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1338--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1339--1339
 \OT1/cmr/m/n/10 fonts in the
  []
 
@@ -743,7 +743,7 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
 texmf-dist/fonts/type1/public/wasy2-ps/wasy10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/wasy2-ps/wasy7.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/wasy2-ps/wasy9.pfb>
-Output written on AdaptiveND_PrimieroAllo_revised.pdf (26 pages, 395927 bytes).
+Output written on AdaptiveND_PrimieroAllo_revised.pdf (26 pages, 395940 bytes).
 
 PDF statistics:
  213 PDF objects out of 1000 (max. 8388607)
