@@ -887,6 +887,17 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 \caption{Marking for Minimal Abnormality}\label{fig:MA}
 \end{figure}
 
+\begin{figure}
+\begin{mathpar}
+\infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi} \\
+\infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\Turn{\Gamma, \cdot}{\Phi(\Gamma)}}}
+{\Turn{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnMarkedMA{\Gamma;\Theta^-}{\psi}}
+\end{mathpar}
+
+\caption{Marking-trees for minimal abnormality}
+\end{figure}
+
 %%, where again $\Sigma=\bigcup\{\Gamma, \Omega^{-}\}$:
 %
 %
