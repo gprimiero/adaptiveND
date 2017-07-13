@@ -1353,17 +1353,17 @@ $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in {\sf AdaptiveND} if and only if there i
 %or every $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$,  . Then
 
 \begin{enumerate}
-\item there is a $\phi\in \Theta$ such that $\phi\notin \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$, for any
+\item there is a $\phi\in \Theta$ such that $\phi$ is not a member of every
  $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$.
 % such that $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$.
 By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$ and by applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If $\TurnMarkedMA{\Gamma;\phi^{-}}{\psi}$ in some abnormality and marking complete proof $P$ by $\XBox$M, then
 $\phi\in \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$, $\forall \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$, which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$.
-\item or for any $\phi\in \Theta$, $\phi\notin \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ for some $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$.
+\item or for every $\phi\in \Theta$, $\phi$ is not in some $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$.
 %$\Gamma\vdash_{\mathbf{CluN}}\psi\vee \phi \vee \xi$ with $\phi, \xi\notin \{\Delta^{min}_{i\dots n}\}$, for some $\{\Delta^{min}_{i\dots n}\}\in \Phi(\Gamma)$ such that $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$.
-By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\Theta}$ and by applying {\sf RC}, we obtain  $\TurnNext{\Gamma;\phi^{-}}{\psi}$ and $\TurnNextNext{\Gamma;\phi'^{-}}{\psi}$, for every $\phi,\phi'\in \Theta$. If either
-$\TurnMarkedMA{\Gamma;\phi^{-}}{\psi}$ or $\TurnMarkedMA{\Gamma;\phi'^{-}}{\psi}$ in some abnormality and marking complete proof $P$ by $\XBox$M2, then there is a $(\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}))\in \Phi(\Gamma)$ such that $\phi,\phi'\in \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$,
+By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\Theta}$ and by applying {\sf RC}, we obtain  $\TurnNext{\Gamma;\phi^{-}}{\psi}$ and $\TurnNextNext{\Gamma;\phi'^{-}}{\psi}$, for every $\phi,\phi'\in \Theta$. If
+$\TurnMarkedMA{\Gamma;\phi^{-}}{\psi}$ or $\TurnMarkedMA{\Gamma;\phi'^{-}}{\psi}$ in some abnormality and marking complete proof $P$ by $\XBox$M2, then there is a $(\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}))\in \Phi(\Gamma)$ such that $\phi,\phi'\in \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$
 %$\phi\in \{\Delta^{min}_{i\dots n}\}$, for some $\{\Delta^{min}_{i\dots n}\}\in \Phi(\Gamma)$,
-which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$.
+which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$, for every $\phi \in \Theta$.
 \end{enumerate}
 \end{itemize}
 
