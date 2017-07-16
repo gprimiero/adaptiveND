@@ -115,7 +115,7 @@ REVIEWER2 __ COMMENTS
 
 
 
-5.
+5. The reformulation of Section 3 shows now how MinDab is essential to be able to derive formulas which are premises of either UnRel or Choice. In turn, these are used in the new examples.  All these rules are now clearly relativised to proof stage. The new example illustrates also how marking and unmarking can follow each other.
 
 
 
