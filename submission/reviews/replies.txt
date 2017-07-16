@@ -1,3 +1,8 @@
+We thank both reviewers for useful and detailed comments. The present version is largely and groundly revised in their light. In particular, we have now extended the calculus to include both marking strategies and provided a more compelling presentation of soundness and completeness. We address below each comment individually.
+
+
+
+=============================================
 
 REVIEWER1 __ COMMENTS
 
@@ -23,7 +28,7 @@ DONE
 
 
 --
-p. 8 
+p. 8
 Similar point for "finally derived".
 
 
@@ -31,7 +36,7 @@ DONE
 
 
 --
-p. 8 
+p. 8
 The sentence starting with "In the Adaptive trandition..." is not grammatically correct. The subject is in plural the predicate is singular.
 
 
@@ -40,7 +45,7 @@ DONE
 
 
 --
-p. 9 
+p. 9
 In RU2, why is it important that in the premises we have s and s+1 (and s+2) in the premises? Is it required that they be introduced exactly in this order? Wouldn't it be better to have s, s' (and s'')?
 
 
@@ -59,7 +64,7 @@ IN THIS CASE, WE KEPT THE NUMBERING AS IT WAS, AS FIGURE 8 REPRESENTS AN INSTANC
 
 
 --
-p. 10 
+p. 10
 You also used $\Omega$-form but didn't mention this. Is this intentional?
 
 
@@ -78,13 +83,13 @@ THIS HAS BEEN CLARIFIED THROUGH A NEW SENTENCE TO INTRODUCE (LP/CPL)
 p. 18 "these same options" - the English here looks awkward.
 
 
-
+FIXED
 
 --
 p. 18 In general I would re-write the sentence  "Indeed, whereas...place", it looks unclear and confusing.
 
 
-
+REPHRASED
 
 ===================================================================
 
@@ -138,8 +143,4 @@ REVIEWER2 __ COMMENTS
 
 15.
 
-
-
-
-
-
+16.
