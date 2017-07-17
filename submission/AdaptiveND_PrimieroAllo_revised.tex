@@ -878,20 +878,22 @@ In Figure \ref{fig:exmarkMA} we illustrate two trees where markings for Minimal 
 % \end{mathpar}
 
 \begin{mathpar}
-\infer*[right=$\XBox$M]{\Turn{\Gamma;\phi^{-}}{\psi}\\
+{\scriptsize
+\infer*[right={\scriptsize$\XBox$M}]{\Turn{\Gamma;\Theta^{-}}{\psi}\\
 \TurnPrime{\Gamma; \cdot}{\Phi(\Gamma)} \\
-{\phi \in {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \text{ for each } {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \in \Phi(\Gamma)}}
-{\TurnMaxPlusOneMA{\Gamma;\phi^{-}}{\psi}}
+{\Theta \cap {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \ne \emptyset \text{ for each } {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \in \Phi(\Gamma)}}
+{\TurnMaxPlusOneMA{\Gamma;\Theta^{-}}{\psi}}}
 \end{mathpar}
 
 
 \begin{mathpar}
-\infer*[right=$\XBox$M2]{\Turn{\Gamma;\phi^{-}}{\psi}\\
+{\scriptsize
+\infer*[right={\scriptsize$\XBox$M2}]{\Turn{\Gamma;\Theta^{-}}{\psi}\\
 \ldots\\
-\TurnPrime{\Gamma; \xi^{-}}{\psi}\\
-\TurnPrimePrime{\Gamma; \cdot}{\Phi(\Gamma)}\\
-{\exists \{\Delta_{i\dots n}^{min}\}\in \Phi(\Gamma), \phi^{-}, \dots, \xi^{-}\in \{\Delta_{i\dots n}^{min}\}}}
-{\TurnMaxTwoPlusOneMA{\Gamma; \phi^{-}, \dots, \xi^{-}}{\psi}}
+\TurnPrime{\Gamma; \Theta'^{-}}{\psi}\\
+\TurnPrimePrime{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})}\\
+{\forall(\Theta, \ldots, \Theta') \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \ne \emptyset}}
+{\TurnMaxTwoPlusOneMA{\Gamma; \Theta^{-}}{\psi}}}
 \end{mathpar}
 
 \caption{Marking for Minimal Abnormality}\label{fig:MA}
@@ -1377,7 +1379,7 @@ By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{
 \end{mathpar}
 \end{figure}
 
-To complete our argument, we need to assume that every choice-set derivable from $\Phi'(\Gamma)$ is used as a premise for the application of the marking-rule, but we do not need to assume that $\Phi'(\Gamma)$ is identical to $\Phi(\Gamma)$. Because $\Phi'(\Gamma)$ is derived at a stage of the proof that is already abnormality-complete, we know that $\{\Delta'_1, \ldots, \Delta'_m\} \subseteq \{\Delta_1, \ldots, \Delta_n\}$ (each $\Delta'_i$ is equal to some $\Delta_i$, but not vice-versa). Proposition \ref{prop:minchoice} then guarantees that each $\mathsf{choice_j}(\{\Delta_1, \ldots, \Delta_n\})$ is a superset of some $\mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\})$. Consequently, since the marking at stage $t$ required that $\Theta \cap \mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\}) \ne \emptyset$ for each choice-set in $\Phi'(\Gamma)$, it should also hold that $\Theta \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \ne \emptyset$ for each choice-set in $\Phi(\Gamma)$, which contradicts our initial assumption.
+To complete our argument, we rely on the fact that every choice-set derivable from $\Phi'(\Gamma)$ is used as a premise for the application of the marking-rule, but we do not need to assume that $\Phi'(\Gamma)$ is identical to $\Phi(\Gamma)$. Because $\Phi'(\Gamma)$ is derived at a stage of the proof that is already abnormality-complete, we know that $\{\Delta'_1, \ldots, \Delta'_m\} \subseteq \{\Delta_1, \ldots, \Delta_n\}$ (each $\Delta'_i$ is equal to some $\Delta_i$, but not vice-versa). Proposition \ref{prop:minchoice} then guarantees that each $\mathsf{choice_j}(\{\Delta_1, \ldots, \Delta_n\})$ is a superset of some $\mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\})$. Consequently, since the marking at stage $t$ required that $\Theta \cap \mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\}) \ne \emptyset$ for each choice-set in $\Phi'(\Gamma)$, it should also hold that $\Theta \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \ne \emptyset$ for each choice-set in $\Phi(\Gamma)$, which contradicts our initial assumption.
 
 \item or for every $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$, if $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \cap \Theta \ne \emptyset$, there is a $\Theta'$ such that $\Gamma \vdash_{\mathbf{CluN}} \psi \vee \Theta'$ with
 \[
