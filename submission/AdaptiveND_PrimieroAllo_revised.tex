@@ -34,6 +34,8 @@
         { {#1}\vdash_{\textbf{\sf s+n}}  {#2}}
 \newcommand{\TurnNextm}[2]
         { {#1}\vdash_{\textbf{\sf s+m}}  {#2}}
+\newcommand{\TurnNextmPrime}[2]
+        { {#1}\vdash_{\textbf{\sf s'+m'}}  {#2}}
 \newcommand{\TurnNextnn}[2]
         { {#1}\vdash_{\textbf{\sf s+n+1}}  {#2}}
 \newcommand{\TurnNextNext}[2]
@@ -702,7 +704,7 @@ The derivation of a minimal disjunction of abnormalities and the formation of th
 \noindent\textsl{Proof.}~If $\Gamma; \cdot \vdash_{s - n  + (i-1)} \Delta_i^{min}$ is a premise used to derive $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$, adding a premise $\Gamma; \cdot \vdash_{s - n  + (j-1)} \Delta_j^{min}$ for some $\Delta_j$ that was already derived at some stage $s - (n + m)$ would not lead to the violation of the side-condition for the application of \textsc{Choice}. Let $\Turn{\Gamma;\cdot}{\Phi'(\Gamma)}$ be the conclusion obtained by adding this premise, and note that each $\phi' \in \Phi'(\Gamma)$ can be obtained by extending a $\phi \in \Phi(\Gamma)$ with some member of $\Delta_j$.\qed
 
 \begin{proposition}\label{prop:minchoice}
-    If $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then each $\sf{choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of some minimal choice-set from $\Lambda$.
+    If $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then $\sf{choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of some minimal choice-set from $\Lambda$, and for each minimal choice-set from $\Lambda$ there is a ${\sf choice_{j}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ it is a superset of.
 \end{proposition}
 \noindent\textsl{Proof.}~Assume $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ is obtained by an application of \textsc{MinChoice} to a judgement with $\Phi(\Gamma)$ as a consequent. Let $\Delta^{n+1}$ be minimal at stage $s$, and assume that $\Phi'(\Gamma)$ is derivable from judgements with $\Delta_1, \ldots \Delta_{n+1}$ as consequent. By Proposition \ref{prop:choice} we know that ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of one or more members of $\Phi'(\Gamma)$. Let $\psi_1, \ldots, \psi_m$ be an enumeration of the members of $\Delta^{n+1}$. (i) If some $\psi_i \in \Delta^{n+1}$ is a member of ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$, then the latter is also minimal in $\Phi'(\Gamma)$. (ii) If no $\psi_i \in \Delta^{n+1}$ is a member of ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$, then, because $\Delta^{n+1}$ is not included in any $\Delta_i$, any ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min} \cup \{\psi_i\}$ must be minimal in $\Phi'(\Gamma)$.\qed
 
@@ -1363,21 +1365,52 @@ $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in {\sf AdaptiveND} if and only if there i
 By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\phi}$ and by applying {\sf RC}, we obtain a judgement $\TurnNext{\Gamma;\phi^{-}}{\psi}$. If $\TurnMarkedMA{\Gamma;\phi^{-}}{\psi}$ in some abnormality and marking complete proof $P$ by $\XBox$M, then
 $\phi\in \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$, $\forall \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$, which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$.}
 
-\item[1.] for every $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$ we have
+\item[1.] either for every $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$ we have
 \[
     \Theta \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) = \emptyset.
 \]
-By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\Theta}$, and by repeated applications of \textsc{RC}, we obtain the judgement $\TurnNextm{\Gamma; \Theta^-}{\psi}$. Let $t \geq s+m$ be a stage at which this proof is marking and abnormality-incomplete, and assume, \emph{for reductio} that it ends with a judgement $\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}$. Consequently, this judgement must occur as the final node of a marking-tree for minimal abnormality (as displayed in Figure \ref{fig:exmarkMA}), where it is derived from judgements in which the $\mathsf{choice_i}(\Delta'_1, \ldots, \Delta'_m)$ that are derivable by \textsc{MinChoice} from the same $\Phi'(\Gamma)$ occur unconditionally.\marginpar{I think that saying `the same $\Phi'(\Gamma)$' is confusing and we should say what the relation with $\Phi(\Gamma)$ is.}  {\color{red} Here, we need to assume that \textbf{all} such minimal choice-sets are included as a premise.} Because $\Phi'(\Gamma)$ is derived at a stage of the proof that is already abnormality-complete, but there is no guarantee that all minimal disjunctions of abnormalities that occur in the proof were used to derive $\Phi'(\Gamma)$, we only know that $\{\Delta'_1, \ldots, \Delta'_m\} \subseteq \{\Delta_1, \ldots, \Delta_n\}$ (each $\Delta'_i$ is equal to some $\Delta_i$, but not vice-versa). Proposition \ref{prop:minchoice}, however, guarantees that each $\mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\})$ is a sub-set of some $\mathsf{choice_j}(\{\Delta_1, \ldots, \Delta_n\})$. Consequently, since the marking at stage $t$ required that $\Theta \cap \mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\}) \ne \emptyset$ for each choice-set in $\Phi'(\Gamma)$, it should also hold that $\Theta \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \ne \emptyset$ for each choice-set in $\Phi(\Gamma)$, which contradicts our initial assumption. Therefore, $\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}$ cannot occur at any stage $t$ of a proof that is abnormality-complete at $t$.
+By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\Theta}$, and by repeated applications of \textsc{RC}, we obtain the judgement $\TurnNextm{\Gamma; \Theta^-}{\psi}$. Let $t \geq s+m$ be a stage at which this proof is marking and abnormality-incomplete, and assume, \emph{for reductio} that it ends with a judgement $\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}$. Consequently, this judgement must occur as the final node of a marking-tree for minimal abnormality:
 
+\begin{figure}[h!]
+\begin{mathpar}
+{\footnotesize
+\infer*[right={\tiny$\XBox$M}]{\Turn{\Gamma; \Theta^-}{\psi} \\
+\infer*[right={\tiny\textsc{MinChoice}}]{\infer*[right={\tiny\textsc{Choice}}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi'(\Gamma)}}}
+{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta'_1, \ldots, \Delta'_m\})}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}}}
+\end{mathpar}
+\end{figure}
 
+To complete our argument, we need to assume that every choice-set derivable from $\Phi'(\Gamma)$ is used as a premise for the application of the marking-rule, but we do not need to assume that $\Phi'(\Gamma)$ is identical to $\Phi(\Gamma)$. Because $\Phi'(\Gamma)$ is derived at a stage of the proof that is already abnormality-complete, we know that $\{\Delta'_1, \ldots, \Delta'_m\} \subseteq \{\Delta_1, \ldots, \Delta_n\}$ (each $\Delta'_i$ is equal to some $\Delta_i$, but not vice-versa). Proposition \ref{prop:minchoice} then guarantees that each $\mathsf{choice_j}(\{\Delta_1, \ldots, \Delta_n\})$ is a superset of some $\mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\})$. Consequently, since the marking at stage $t$ required that $\Theta \cap \mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\}) \ne \emptyset$ for each choice-set in $\Phi'(\Gamma)$, it should also hold that $\Theta \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \ne \emptyset$ for each choice-set in $\Phi(\Gamma)$, which contradicts our initial assumption.
 
-\item or for every $\phi\in \Theta$, $\phi$ is not in some $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$.
+\item[2.] or for every $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$, if $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \cap \Theta \ne \emptyset$, there is a $\Theta'$ such that $\Gamma \vdash_{\mathbf{CluN}} \psi \vee \Theta'$ with
+\[
+    \Theta' \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) = \emptyset.
+\]
+By Theorem \ref{thm:clun} there are provable {\sf AdaptiveND} judgements $\Turn{\Gamma;\cdot}{\psi,\Theta}$ and $\TurnPrime{\Gamma;\cdot}{\psi,\Theta'}$ for $\Theta$ and each such $\Theta'$. As in the previous case, by repeated applications of \textsc{RC} we can derive corresponding $\TurnNextm{\Gamma;\Theta^-}{\psi}$ and $\TurnNextmPrime{\Gamma;\Theta'^-}{\psi}$. Let $t$ be a stage at which this proof is extended to an abnormality and marking complete proof, and assume, \emph{for reductio}, that it ends with a judgement $\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}$. Consequently, this judgement must occur as the final node of a marking-tree for minimal abnormality:
+
+\begin{figure}[!ht]
+\begin{mathpar}
+{\footnotesize
+\infer*[right={\tiny$\XBox$M}]{\Turn{\Gamma; \Theta^-}{\psi} \\
+\ldots\\
+\TurnPrime{\Gamma; \Theta'^{-}}{\psi}\\
+\infer*[right={\tiny\textsc{MinCh}}]{\infer*[right={\tiny\textsc{Choice}}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi'(\Gamma)}}}
+{\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\})}}
+\forall(\Theta\ldots \Theta') \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnMarkedMAflex{t}{\Gamma;\Theta^-}{\psi}}}
+\end{mathpar}
+\end{figure}
+But then, by the same reasoning as above, Proposition \ref{prop:minchoice} entails that if $\mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\})$ intersects with every condition $\Theta, \ldots, \Theta'$, it must also intersect with some $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \in \Phi(\Gamma)$, which contradicts our initial assumption.
+
+{\color{gray}\item or for every $\phi\in \Theta$, $\phi$ is not in some $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})\in \Phi(\Gamma)$.
 %$\Gamma\vdash_{\mathbf{CluN}}\psi\vee \phi \vee \xi$ with $\phi, \xi\notin \{\Delta^{min}_{i\dots n}\}$, for some $\{\Delta^{min}_{i\dots n}\}\in \Phi(\Gamma)$ such that $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$.
 By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\Theta}$ and by applying {\sf RC}, we obtain  $\TurnNext{\Gamma;\phi^{-}}{\psi}$ and $\TurnNextNext{\Gamma;\phi'^{-}}{\psi}$, for every $\phi,\phi'\in \Theta$. If
 $\TurnMarkedMA{\Gamma;\phi^{-}}{\psi}$ or $\TurnMarkedMA{\Gamma;\phi'^{-}}{\psi}$ in some abnormality and marking complete proof $P$ by $\XBox$M2, then there is a $(\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}))\in \Phi(\Gamma)$ such that $\phi,\phi'\in \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$
 %$\phi\in \{\Delta^{min}_{i\dots n}\}$, for some $\{\Delta^{min}_{i\dots n}\}\in \Phi(\Gamma)$,
-which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$, for every $\phi \in \Theta$.
+which contradicts the assumption, hence $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in $P$, for every $\phi \in \Theta$.}
 \end{enumerate}
+Therefore, $\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}$ cannot occur at any stage $t$ of a proof that is abnormality-complete at $t$.
 \end{itemize}
 
 \end{itemize}
