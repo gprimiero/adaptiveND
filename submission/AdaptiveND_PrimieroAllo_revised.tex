@@ -859,7 +859,9 @@ In this derivation a new abnormality is derived at stage {\sf 10}, namely the sa
 \subsection{Marking Rules for Minimal Abnormality}\label{sec:ma}
 %
 %
-Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ derived on a condition $\Theta^-$ is retracted if, either (i) every minimal choice-set includes some condition in $\Theta$, or (ii) there is a choice-set $\phi$ such that every derivation of $\psi$ is based on a condition that is shown to be violated by $\phi$. We offer rules for this strategy in Figure \ref{fig:MA}.
+Minimal abnormality is the marking strategy that reflects the following condition: a formula $\psi$ derived on a condition $\Theta^-$ is retracted if, either (i) every minimal choice-set includes some condition in $\Theta$, or (ii) there is a choice-set ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})$ such that every derivation of $\psi$ is based on a condition that is shown to be violated by ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})$. We offer rules for this strategy in Figure \ref{fig:MA}.
+
+
 %To formulate appropriate marking rules, we first need to introduce a set of minimal choice sets of abnormalities:
 %
 %\begin{definition}
@@ -1042,7 +1044,7 @@ At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\s
 Here the previously derived abnormality $(p \wedge \neg p)$ is unconditionally derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7-9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we can apply the marking-rule (where $\bigcup(\Delta(\Gamma))$ is the set $\{(p \wedge \neg p), (q\wedge \neg q)\}$):
 
 \begin{mathpar}
-\infer*[right=\XBox]{
+\infer*[right=\XBox R]{
 {\infer*[]{\mathbb{D}}{\TurnFive {\Gamma;(p \wedge \neg p)^{-}}{r}}}\\{\infer*[]{\mathbb{D^{\prime}}}{\TurnTwelve {\Gamma; \cdot}{\bigcup(\{p\wedge \neg p,q\wedge \neg q\})}}}\\{(p \wedge \neg p)\in \bigcup(\Delta(\Gamma))}
 }{\TurnMarkedThirteenREL{\Gamma; (p\wedge \neg p)^{-}}{r}}
 \end{mathpar}
@@ -1065,7 +1067,7 @@ $\mathbb{D^{\prime\prime}}$ derives a single abnormality at stage {\sf 18}, for 
 
 \begin{mathpar}
 \infer*[right=RC*]{
-\infer*[]{\mathbb{E}}{\TurnMarkedThirteenREL{\Gamma; \cdot}{r}}\\
+\infer*[]{\mathbb{E}}{\TurnMarkedThirteenREL{\Gamma; (p \wedge \neg p)^{-}}{r}}\\
 \infer*[]{\mathbb{D^{\prime\prime}}}{\TurnEighteen {\Gamma; \cdot}{(q \wedge \neg q)^{min}}}\\
 \infer*[]{\mathbb{D}}{\TurnNineteen {\Gamma;\cdot}{(p\wedge \neg p), r}}
 %\\{(p\wedge \neg p)\in \Omega}
@@ -1075,7 +1077,7 @@ $\mathbb{D^{\prime\prime}}$ derives a single abnormality at stage {\sf 18}, for 
 \end{mathpar}
 \bigskip
 
-where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the derivation is no longer extended, the formula $r$ can be considered finally derived.
+where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the derivation is no longer extended, the formula $r$ can be considered finally derived.\marginpar{Shall we remove the last sentence?}
 
 \subsection{Another Example}
 
@@ -1101,7 +1103,7 @@ Consider first the derivation $\mathbb{D}$:
 Which we extend as follows to form $\mathbb{E}$:
 
 \begin{mathpar}
-\infer*[right=\XBox] {
+\infer*[right=\XBox R] {
     {
 \infer*[] {\mathbb{D}} {\TurnFive {\Gamma;(q \wedge \neg q)^{-}}{p}}
     }\\
@@ -1127,7 +1129,7 @@ We then construct $\mathbb{F}$ to show that a shorter disjunction of abnormaliti
 
 \end{mathpar}
 
-As the previous example, we put these branches together (and re-use a renumbered copy of $\mathbb{D}$) to to obtain $\mathbb{G}$ and re-derive $p$ on condition $(q \wedge \neg q)^-$:
+As the previous example, we put these branches together (and re-use a renumbered copy of $\mathbb{D}$) to obtain $\mathbb{G}$ and re-derive $p$ on condition $(q \wedge \neg q)^-$:
 
 \begin{mathpar}
 \infer*[right=RC*]{
@@ -1142,7 +1144,7 @@ As the previous example, we put these branches together (and re-use a renumbered
 But consider then the following variant of $\mathbb{E}$, denoted by $\mathbb{E}^*$:
 
 \begin{mathpar}
-\infer*[right=\XBox] {
+\infer*[right=\XBox R] {
     {
 \infer*[] {\mathbb{G}} {\TurnFifteen {\Gamma;(q \wedge \neg q)^{-}}{p}}
     }\\
@@ -1226,7 +1228,7 @@ In the next section we complete our system with the required meta-theoretical an
 
 \section{Derivability}\label{sec:meta}
 
-In the example from the previous section we have illustrated how the marking condition establishes a dynamic derivability relation, which allows to derive formulas and retract them. Whenever a certain formula is derived on some $\phi\in \Delta^{min}$ adaptive condition, it might still be marked afterwards according to $\XBox R$. Consequently, a judgement of the form $\Turn{\Gamma; \Theta^-}{\psi}$ only expresses what is derived at a stage. This gives us the notion of derivability at a stage:
+In the example from the previous section we have illustrated how the marking condition establishes a dynamic derivability relation, which allows to derive formulas and retract them. Whenever a certain formula is derived on some $\phi\in \Delta^{min}$ adaptive condition, it might still be marked afterwards. Consequently, a judgement of the form $\Turn{\Gamma; \Theta^-}{\psi}$ only expresses what is derived at a stage. This gives us the notion of derivability at a stage:
 
 \begin{definition}[Derivability at stage]
 %$\Turn{\Gamma; \phi^{-}}{\psi}$ iff at ${\sf s}$ it is not the case that $\TurnMarked{\Gamma}{\psi}$.
@@ -1240,7 +1242,7 @@ A more stable notion of derivability, called \emph{final derivability}, holds wh
 %[HERE AN EXAMPLE]
 %
 %To get around this problem and provide a stable notion of derivability
-To this aim, one requires that the stage {\sf s} at which a formula $\phi$ is derived remains unmarked in all the extensions of the derivation tree which can be obtained by using all \textit{relevant} abnormalities as adaptive conditions. This relevance criterion is essential if one wants to guarantee finite surveyability of the proof tree to establish whether a formula is never marked (again). We define therefore a set of \textit{abnormalities relevant to $\Gamma$}. To do so we first identify the union set of all subformulas of the premise set $\Gamma$:
+To this aim, one requires that the stage {\sf s} at which a formula $\psi$ is derived remains unmarked in all the extensions of the derivation tree which can be obtained by using all \textit{relevant} abnormalities as adaptive conditions. This relevance criterion is essential if one wants to guarantee finite surveyability of the proof tree to establish whether a formula is never marked (again). We define therefore a set of \textit{abnormalities relevant to $\Gamma$}. To do so we first identify the union set of all subformulas of the premise set $\Gamma$:
 
 
 %\begin{definition}
@@ -1250,7 +1252,7 @@ To this aim, one requires that the stage {\sf s} at which a formula $\phi$ is de
 
 \begin{definition}[Subformulas of the premise set]
 $\Sf(\Gamma)=\bigcup_{\phi \in \Gamma} \{\psi \mid \psi$ is a subformula of $ \phi\}$.
-\end{definition}
+\end{definition}\marginpar{$\{\psi \mid \psi\subset\phi\}$}
 
 
 From $\Sf(\Gamma)$ we then construe all the possible abnormalities that can be obtained from its members:
@@ -1258,7 +1260,7 @@ From $\Sf(\Gamma)$ we then construe all the possible abnormalities that can be o
 \begin{definition}[Abnormalities relevant to the premise set]
 $\Omega(\Gamma)=\{\psi\wedge \neg \psi \in \Omega \mid \psi\in \Sf(\Gamma)\}$.
 \end{definition}
-For \textsf{AdaptiveND} and \textbf{CLuN$^r$} the requirement that all $\psi\wedge \neg \psi$ should be in $\Omega$ is trivially satisfied. This condition becomes mandatory when $\Omega$ is based on a restricted logical form; e.g. when abnormalities are contradictions of the form $\psi \wedge \neg \psi$ with $\psi$ atomic. In that case, our definition of $\Omega(\Gamma)$ is co-extensive with the more basic $\{\psi \wedge \neg \psi \mid \psi \in \At(\Gamma)\}$.
+\marginpar{What about ClunM?}For \textsf{AdaptiveND} and \textbf{CLuN$^r$} the requirement that all $\psi\wedge \neg \psi$ should be in $\Omega$ is trivially satisfied. This condition becomes mandatory when $\Omega$ is based on a restricted logical form; e.g. when abnormalities are contradictions of the form $\psi \wedge \neg \psi$ with $\psi$ atomic. In that case, our definition of $\Omega(\Gamma)$ is co-extensive with the more basic $\{\psi \wedge \neg \psi \mid \psi \in \At(\Gamma)\}$.
 %\begin{definition}
 %Let $P$ be a proof-tree of {\sf AdaptiveND}. We call $P^{\sf ext}$ the complete extension of $P$ at stage {\sf s} if $P^{\sf ext}$ extends $P$ by a possibly infinite number of derivation steps such that
 %
@@ -1269,7 +1271,7 @@ For \textsf{AdaptiveND} and \textbf{CLuN$^r$} the requirement that all $\psi\wed
 %\end{definition}
 %
 \begin{theorem}\label{thm:subform}
-    If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.
+    If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.\marginpar{If $\Gamma;\cdot \vdash\bigvee(\Delta)$, then $\Delta \subseteq \Omega(\Gamma)$}
 \end{theorem}
 \noindent\textsl{Proof.}~We consider the possible ways of deriving a minimal disjunction of abnormalities by examining the structure of the proof-rules of \textsf{minimalND}.
 \begin{enumerate*}
@@ -1317,11 +1319,11 @@ Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to $\
 Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to marking
 iff
 \begin{description}
-    \item[Rel] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if some $\bigcup \Delta(\Gamma)$ such that $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$ is derivable at that stage, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
-    \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every derivable $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+    \item[Rel]\marginpar{..., if $\Gamma;\cdot \vdash \bigcup\Delta(\Gamma)$ s.t...} for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if some $\bigcup \Delta(\Gamma)$ such that $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$ is derivable at that stage, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+    \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every derivable $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ ending in  $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 %    \item[MinAb2] {\color{red} this will break down. The second clause for MinAb-marking does not only depend on knowing all the minimal choice-sets, but also depends on having obtained all the alternative conditional deductions of $\phi$.}
     \item[MinAb2] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if for every other derivable $\Gamma; \Theta'^{-}\vdash_{{\sf s}} \phi$, some derivable
-     $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with each $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+     $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with each $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ ending $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 
 \end{description}
 
@@ -1337,7 +1339,7 @@ We can now formulate our notion of final derivability:
 
 \begin{definition}[Final Derivability]\label{def:finalder}
 A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ if it is derived at the final stage {\sf s} of an abnormality and marking complete proof.
-\end{definition}
+\end{definition}\marginpar{can we remove ``final'' from stage?}
 %
 %The definition guarantees final derivability for any derived formula {\color{red}whose adaptive condition is not minimal. WHAT DOES THIS MEAN?}
 %Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
