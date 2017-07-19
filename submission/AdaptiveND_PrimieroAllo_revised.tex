@@ -281,7 +281,7 @@ Contrast this, now, with the following attempt to reconstruct a similar reasonin
 \end{prooftree}
 When in this proof an explicit contradiction is derived in the right-hand branch, the assumption of its invalidity (stated explicitly in the left-hand branch) no longer holds. In this format, however, the order used to construct the proof cannot be read off the proof itself (an issue that could easily be fixed). But also, more importantly, it isn't even clear what it might mean to retract the line where $q$ is derived, since the result of removing that line from the proof is in itself no longer a well-formed proof.
 
-The proof-format we propose solves this problem by making two changes: first, we add indices to judgements to keep track of stages in the construction of a proof; and second, we exploit the fact that judgements that are `marked' at a certain stage do not have to be removed, because there is simply no need to prevent their implicit re-use since every assumption or premise should explicitly be written down in the place it is used. Instead, it is the derivation of the same judgement at a later stage that is (or may be) blocked, because the original assumption that led to its initial derivation probably no longer holds. We therefore provide, for the first time, an appropriate Natural Deduction translation of adaptive reasoning, whose proofs have been so far always been presented in their linear format. We do so by formulating a general approach to Adaptive Reasoning which accommodates both strategies standardly used to retract previously made judgements. While the reformulation of the Reliability Strategy is a much easier task, Minimal Abnormality is a more daunting one given the complexity of its procedural translation in a proof tree. Nonetheless, we show that it can be done within our logic, although more efficient procedures might be devised.
+The proof-format we propose solves this problem by making two changes: first, we add indices to judgements to keep track of stages in the construction of a proof; and second, we exploit the fact that judgements that are `marked' at a certain stage do not have to be removed, because there is simply no need to prevent their implicit re-use since every assumption or premise should explicitly be written down in the place it is used. Instead, it is the derivation of the same judgement at a later stage that is (or may be) blocked, because the original assumption that led to its initial derivation probably no longer holds. We therefore provide, for the first time, an appropriate Natural Deduction translation of adaptive reasoning, whose proofs have so far always been presented in a linear format. We do so by formulating a general approach to Adaptive Reasoning which accommodates both strategies standardly used to retract previously made judgements. While the reformulation of the Reliability Strategy is a much easier task, Minimal Abnormality is a more daunting one given the complexity of its procedural translation in a proof tree. Nonetheless, we show that it can in principle be done within our logic, although more efficient procedures might be devised.
 
 Because this system uses multiple-conclusion judgements, it also explicitly captures the connection between unconditional derivations of certain disjunctions in the paraconsistent logic and the conditional deductions of one of their disjuncts in the adaptive logic. Moreover, the choice of modelling inconsistency adaptive reasoning brings us closer to the original motivations for the development of adaptive logic \cite{Batens:ParaconsistentLogicEssaysOnTheInconsistent:1989}, but also allows us to engage with current philosophical debates of relevance to Graham Priest's work and in particular how one should best approach the question of \textit{classical recapture} in paraconsistent logics. The latter problem can be summarised as follows. When one adopts a logic that is strictly weaker than classical logic, the question of how one should account for epistemically useful classical inference-forms that are invalidated by one's preferred logic almost immediately arises. In the case of paraconsistent logic, this question is often deemed urgent, as the practical and epistemic usefulness of the inference-forms that are lost, like the disjunctive syllogism, is almost undisputed. Inconsistency-adaptive logics present one possible answer to this challenge under the form of defeasible inference-forms that allow one to use classical inference-steps on the condition that certain assumptions are not violated. It is also a response that Graham has endorsed \cite{GP:LPm}. His specific proposal on how this should be implemented has, in recent years, become the focus of a renewed interest in the problem of how dialetheists should account for classical recapture. We contend that the combination of a multiple-conclusion calculus with the reconstruction of the defeasible dynamics of adaptive proofs can further clarify this debate.
 
@@ -643,12 +643,12 @@ The rules in Figure \ref{fig:mindab} establish these three constructions.
 
 Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$. Note that the superscript $min$ works as an annotation that the disjuction $\Delta$ in the first premise of the {\sf MinDab} rule satisfies the side condition of the same rule, but it does not indicate that $\Delta^{min}$ is a different set than $\Delta$.
 
-Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each derived according to {\sf MinDab} at stages {\sf s-n} up to {\sf s-1}, the union set of all such formulas can be derived at stage {\sf s}, defined as follows:
+Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each derived according to {\sf MinDab} at stages {\sf s-n} up to {\sf s-1}, the union of all such formulas can be derived at stage {\sf s}, defined as follows:
 
 \begin{definition}[Set of unreliable formulas]
 $\bigcup\Delta(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the union of some $\Delta_{1}, \dots, \Delta_{n}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
 \end{definition}
-Note that when the operator $\bigcup\Delta(\Gamma)$ occurs on the right-hand side of the tunrstile, its reading is not intended as disjunctive, as it is the case for normal a set $\Delta$ in the same position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}.
+Note that when the operator $\bigcup\Delta(\Gamma)$ occurs on the right-hand side of the tunrstile, its reading is not intended as disjunctive, as it is the case for normal a set $\Delta$ in the same position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. Remark also that this rule does not require that all minimal disjunctions of abnormalities derived at a given stage need to be used as a premise, but that the side-condition does refer to all such minimal disjunctions of abnormalities. 
 
 Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows:
 
@@ -656,7 +656,7 @@ Choice sets provide selections of abnormalities that might turn out to be true a
 $\Phi(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the set of choice sets of some $\{\Delta_{1}, \dots, \Delta_{n}\}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}. We denote each such choice set with ${\sf choice_{i}}(\{\Delta_{1}, \dots, \Delta_{n}\})$.
 \end{definition}
 
-The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where again each premise must be intended as the conclusion of a {\sf MinDab} rule and the side condition ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. The Rule {\sf MinChoice} allows the selection of a \textit{minimal} choice set out of $\Phi(\Gamma)$, denoted by ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$.
+The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice} in Figure \ref{fig:mindab}, where again each premise must be intended as the conclusion of a {\sf MinDab} rule and the side condition ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. Here too, it is not required to use all minimal $\Delta$'s that are already derived as premises. The Rule {\sf MinChoice} allows the selection of a \textit{minimal} choice set out of $\Phi(\Gamma)$, denoted by ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$.
 
 
 
@@ -695,7 +695,7 @@ The choice set of an empty set of minimal disjunction of abnormalities is empty.
 \end{figure}
 
 
-The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree, and the marking procedure depends on the derivation of these types of judgements. Unlike for the standard definitions of unreliable formulae and minimal choice-sets, the rules \textsc{UnRel} and \textsc{Choice} can be applied without taking every minimal disjunction of abnormalities derived up to that stage as a premise. The following propositions guarantee that this does not lead to further complications: if an abnormality occurs in $\bigcup\Delta(\Gamma)$, but is not unreliable according to $\Gamma$, then $\bigcup\Delta(\Gamma)$ was derived from a $\Delta_i$ that isn't minimal; similarly, if an abnormality occurs in some ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$, but isn't verified by a minimally abnormal model, then it was derived from a $\Delta_i$ that isn't minimal. The key to these results is that the side-conditions that apply to the premises of \textsc{UnRel} and \textsc{Choice} refer to all disjunctions of abnormalities that occur unconditionally in the proof, and not only those used as premises.
+The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree, and the marking procedure depends on the derivation of these types of judgements. Unlike for the standard definitions of unreliable formulae and minimal choice-sets, the conclusions of the rules \textsc{UnRel} and \textsc{Choice} do not necessarily coincide with the minimal choice-sets and sets of unreliable formulae as they are used in the standard proof-format. The following propositions guarantee that this does not lead to further complications: if an abnormality occurs in $\bigcup\Delta(\Gamma)$, but is not unreliable according to $\Gamma$, then $\bigcup\Delta(\Gamma)$ was derived from a $\Delta_i$ that isn't minimal; similarly, if an abnormality occurs in some ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$, but isn't verified by a minimally abnormal model, then it was derived from a $\Delta_i$ that isn't minimal. The key to these results is that the side-conditions that apply to the premises of \textsc{UnRel} and \textsc{Choice} refer to all disjunctions of abnormalities that occur unconditionally in the proof, and not only those used as premises.
 
 \begin{proposition}\label{prop:unrel}
     If $\Turn{\Gamma;\cdot}{\bigcup\Delta(\Gamma)}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then $\bigcup\Delta(\Gamma) \subseteq \bigcup(\Lambda)$.
@@ -870,14 +870,7 @@ Minimal abnormality is the marking strategy that reflects the following conditio
 %%
 %Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice}, where each premise must be intended as the conclusion of a {\sf MinDab} rule.
 
-The first marking rule $\XBox$M reflects the following condition: if a formula $\psi$ is derived at stage $s$ under an adaptive condition $\phi$ which is part of all minimal choice-sets in $\Phi(\Gamma)$ at stage $s'$, then at the next stage the formula $\psi$ can be retracted.
-
-The second marking rule $\XBox$M2 reflects the following condition: if a formula $\psi$ is derived always under an adaptive condition that is part of the same minimal choice-set in $\Phi(\Gamma)$, then at the next stage the formula $\psi$ can be retracted. Here the adaptive condition of the conclusion should be intended as saying that the retraction applies to all stages where the derivation of $\psi$ was obtained under one of the listed conditions.
-
-In Figure \ref{fig:exmarkMA} we illustrate two trees where markings for Minimal Abnormality are applied. In the first tree, it is shown how the derivation of a formula $\psi$ under an adaptive condition $\Theta$ is followed by a series of derivations $\Pi$ for all possible choice sets of minimally abnormal formulas; if the side condition that requires $\Theta$ to occur in each such set holds, then marking can be applied. In the second (dual) tree, it is shown how a formula $\psi$ derived under a series of adaptive conditions $\Theta, \dots, \Theta'$ is marked if all these conditions occur in at least one choice set of minimally abnormal formulas derived by a sub-tree $\Pi$.
-
-
-\begin{figure}[t]
+\begin{figure}[h!]
 
 % \begin{mathpar}
 % \infer*[right=Choice]{\TurnMinusn{\Gamma;\cdot}{\Delta_{1}^{min}}\\
@@ -908,7 +901,12 @@ In Figure \ref{fig:exmarkMA} we illustrate two trees where markings for Minimal 
 \caption{Marking for Minimal Abnormality}\label{fig:MA}
 \end{figure}
 
-\begin{figure}
+The first marking rule $\XBox$M reflects the following condition: if a formula $\psi$ is derived at stage $s$ under an adaptive condition $\phi$ which is part of all minimal choice-sets in $\Phi(\Gamma)$ at stage $s'$, then at the next stage the formula $\psi$ can be retracted.
+
+The second marking rule $\XBox$M2 reflects the following condition: if a formula $\psi$ is derived always under an adaptive condition that is part of the same minimal choice-set in $\Phi(\Gamma)$, then at the next stage the formula $\psi$ can be retracted. Here the adaptive condition of the conclusion should be intended as saying that the retraction applies to all stages where the derivation of $\psi$ was obtained under one of the listed conditions.
+
+
+\begin{figure}[h!]
 \begin{mathpar}
 \infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi} \\
 \infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi(\Gamma)}}}
@@ -931,6 +929,9 @@ In Figure \ref{fig:exmarkMA} we illustrate two trees where markings for Minimal 
 
 \caption{Marking-trees for Minimal Abnormality}\label{fig:exmarkMA}
 \end{figure}
+
+In Figure \ref{fig:exmarkMA} we illustrate with two trees the intended use of the marking-rules for Minimal Abnormality. In the first tree, it is shown how the derivation of a formula $\psi$ under an adaptive condition $\Theta$ is followed by a series of derivations $\Pi$ for all possible choice sets of minimally abnormal formulas; if the side condition that requires $\Theta$ to occur in each such set holds, then marking can be applied. In the second (dual) tree, it is shown how a formula $\psi$ derived under a series of adaptive conditions $\Theta, \dots, \Theta'$ is marked if all these conditions occur in at least one choice set of minimally abnormal formulas derived by a sub-tree $\Pi$.
+
 
 
 %%, where again $\Sigma=\bigcup\{\Gamma, \Omega^{-}\}$:
@@ -1041,7 +1042,7 @@ At stage {\sf 4} a disjunction of an abnormality with $r$ is derived, and by {\s
 \end{mathpar}
 \bigskip
 
-Here the previously derived abnormality $(p \wedge \neg p)$ is unconditionally derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7-9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we can apply the marking-rule (where $\bigcup(\Delta(\Gamma))$ is the set $\{(p \wedge \neg p), (q\wedge \neg q)\}$):
+Here the abnormality $(p \wedge \neg p)$ that was previously assumed to be false is unconditionally derived in disjunctive form with a new abnormality $(q \wedge \neg q)$ at stage {\sf 11}, where the latter is obtained by $\wedge$I from stages {\sf 7-9}. If we join now the two branches $\mathbb{D,D^{\prime}}$ to form $\mathbb{E}$, we can apply the marking-rule (where $\bigcup(\Delta(\Gamma))$ is the set $\{(p \wedge \neg p), (q\wedge \neg q)\}$):
 
 \begin{mathpar}
 \infer*[right=\XBox R]{
@@ -1077,11 +1078,11 @@ $\mathbb{D^{\prime\prime}}$ derives a single abnormality at stage {\sf 18}, for 
 \end{mathpar}
 \bigskip
 
-where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$. If the derivation is no longer extended, the formula $r$ can be considered finally derived.\marginpar{Shall we remove the last sentence?}
+\noindent where $*$ is the side condition that $(p\wedge \neg p)\in \Omega$.
 
 \subsection{Another Example}
 
-In the following example, we do not derive a set of unreliable formulas when there is a single minimal disjunction of abnormalities. Let
+In the following example, the abnormalities are even more connected. For the sake of brevity, we do not derive a set of unreliable formulas when there is a single minimal disjunction of abnormalities. Let
 
 \begin{align*}
 \Gamma = & \{p \vee q, \neg q,\\
@@ -1129,7 +1130,7 @@ We then construct $\mathbb{F}$ to show that a shorter disjunction of abnormaliti
 
 \end{mathpar}
 
-As the previous example, we put these branches together (and re-use a renumbered copy of $\mathbb{D}$) to obtain $\mathbb{G}$ and re-derive $p$ on condition $(q \wedge \neg q)^-$:
+As in the previous example, we put these branches together (and re-use a renumbered copy of $\mathbb{D}$) to obtain $\mathbb{G}$ and re-derive $p$ on condition $(q \wedge \neg q)^-$:
 
 \begin{mathpar}
 \infer*[right=RC*]{
@@ -1222,7 +1223,7 @@ As illustrated in a second example based on the proof from \S \ref{subsec:sel-ex
         (11) & $\bigvee(p \wedge \neg p, q \wedge \neg q)$ & $\wedge$ I, (9, 10) & $\emptyset$
     \end{tabular}
 \end{center}
-Indeed, the above proof is a straightforward translation of the tree-form proof up to stage {\sf 11}, but the marking of line 5, which should be added to the linear proof once $\bigvee(p \wedge \neg p, q \wedge \neg q)$ is derived, cannot be simply in virtue of a mechanical translation procedure. This is because in the standard proof-format marking is governed by a definition, which simply stipulates when a line is marked, whereas in \textsf{AdaptiveND} marking is governed by rules and therefore requires the execution of additional inferential steps.\footnote{See also footnote 10 of \cite{BDVM08} for a discussion of this distinction.} To show that proofs in \textsf{AdaptiveND} correctly capture the adaptive dynamics, we will therefore have to show that such ``missing markings'' can always be obtained by a further extension of a proof.
+Indeed, the above proof is a straightforward translation of the tree-form proof up to stage {\sf 11}, but the marking of line 5, which should be added to the linear proof once $\bigvee(p \wedge \neg p, q \wedge \neg q)$ is derived, cannot be added by a mechanical translation procedure. This is because in the standard proof-format marking is governed by a definition, which simply stipulates when a line is marked, whereas in \textsf{AdaptiveND} marking is governed by rules and therefore requires the execution of additional inferential steps.\footnote{See also footnote 10 of \cite{BDVM08} for a discussion of this distinction.} To show that proofs in \textsf{AdaptiveND} correctly capture the adaptive dynamics, we will therefore have to show that such ``missing markings'' can always be obtained by a further extension of a proof.
 
 In the next section we complete our system with the required meta-theoretical analysis needed to define derivability at stage and final derivability.
 
@@ -1252,7 +1253,7 @@ To this aim, one requires that the stage {\sf s} at which a formula $\psi$ is de
 
 \begin{definition}[Subformulas of the premise set]
 $\Sf(\Gamma)=\bigcup_{\phi \in \Gamma} \{\psi \mid \psi$ is a subformula of $ \phi\}$.
-\end{definition}\marginpar{$\{\psi \mid \psi\subset\phi\}$}
+\end{definition}\marginpar{$\{\psi \mid \psi\subset\phi\}$\\This doesn't work: formulas are not sets.}
 
 
 From $\Sf(\Gamma)$ we then construe all the possible abnormalities that can be obtained from its members:
@@ -1260,7 +1261,7 @@ From $\Sf(\Gamma)$ we then construe all the possible abnormalities that can be o
 \begin{definition}[Abnormalities relevant to the premise set]
 $\Omega(\Gamma)=\{\psi\wedge \neg \psi \in \Omega \mid \psi\in \Sf(\Gamma)\}$.
 \end{definition}
-\marginpar{What about ClunM?}For \textsf{AdaptiveND} and \textbf{CLuN$^r$} the requirement that all $\psi\wedge \neg \psi$ should be in $\Omega$ is trivially satisfied. This condition becomes mandatory when $\Omega$ is based on a restricted logical form; e.g. when abnormalities are contradictions of the form $\psi \wedge \neg \psi$ with $\psi$ atomic. In that case, our definition of $\Omega(\Gamma)$ is co-extensive with the more basic $\{\psi \wedge \neg \psi \mid \psi \in \At(\Gamma)\}$.
+For \textsf{AdaptiveND}, \textbf{CLuN$^r$}, and \textbf{CLuN$^m$} the requirement that all $\psi\wedge \neg \psi$ should be in $\Omega$ is trivially satisfied. This condition becomes mandatory when $\Omega$ is based on a restricted logical form; e.g. when abnormalities are contradictions of the form $\psi \wedge \neg \psi$ with $\psi$ atomic. In that case, our definition of $\Omega(\Gamma)$ is co-extensive with the more basic $\{\psi \wedge \neg \psi \mid \psi \in \At(\Gamma)\}$.
 %\begin{definition}
 %Let $P$ be a proof-tree of {\sf AdaptiveND}. We call $P^{\sf ext}$ the complete extension of $P$ at stage {\sf s} if $P^{\sf ext}$ extends $P$ by a possibly infinite number of derivation steps such that
 %
@@ -1271,7 +1272,7 @@ $\Omega(\Gamma)=\{\psi\wedge \neg \psi \in \Omega \mid \psi\in \Sf(\Gamma)\}$.
 %\end{definition}
 %
 \begin{theorem}\label{thm:subform}
-    If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.\marginpar{If $\Gamma;\cdot \vdash\bigvee(\Delta)$, then $\Delta \subseteq \Omega(\Gamma)$}
+    If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.\marginpar{If $\Gamma;\cdot \vdash\bigvee(\Delta)$, then $\Delta \subseteq \Omega(\Gamma)$\\ We need it to be minimal, but our notation $\bigvee(\Delta)^{min}$ only applies to stages, so we no object-level language to say this.}
 \end{theorem}
 \noindent\textsl{Proof.}~We consider the possible ways of deriving a minimal disjunction of abnormalities by examining the structure of the proof-rules of \textsf{minimalND}.
 \begin{enumerate*}
@@ -1319,11 +1320,11 @@ Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to $\
 Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to marking
 iff
 \begin{description}
-    \item[Rel]\marginpar{..., if $\Gamma;\cdot \vdash \bigcup\Delta(\Gamma)$ s.t...} for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if some $\bigcup \Delta(\Gamma)$ such that $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$ is derivable at that stage, then there is a tree $T_{j>i}\in P$ such that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
-    \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every derivable $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ ending in  $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+    \item[Rel] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if $P$ can be extended so that it includes a judgement $\Gamma;\cdot \vdash_{\mathsf{s'}} \bigcup\Delta(\Gamma)$ with $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$, then there is a tree $T_{j>i}\in P$ that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+    \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every derivable $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ that ends with  $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 %    \item[MinAb2] {\color{red} this will break down. The second clause for MinAb-marking does not only depend on knowing all the minimal choice-sets, but also depends on having obtained all the alternative conditional deductions of $\phi$.}
     \item[MinAb2] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if for every other derivable $\Gamma; \Theta'^{-}\vdash_{{\sf s}} \phi$, some derivable
-     $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with each $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ ending $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+     $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with each $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 
 \end{description}
 
@@ -1338,8 +1339,8 @@ iff
 We can now formulate our notion of final derivability:
 
 \begin{definition}[Final Derivability]\label{def:finalder}
-A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ if it is derived at the final stage {\sf s} of an abnormality and marking complete proof.
-\end{definition}\marginpar{can we remove ``final'' from stage?}
+A formula $\psi$ is finally derived $\TurnChecked{\Gamma;\Theta^{-}}{\psi}$ iff $\Turn{\Gamma; \Theta^-}{\psi}$ occurs in an abnormality and marking complete proof $P$, where $\TurnMarkedprime{\Gamma; \Theta^-}{\psi}$ does not occur for any $\mathsf{s'} \geq \mathsf{s}$.
+\end{definition}
 %
 %The definition guarantees final derivability for any derived formula {\color{red}whose adaptive condition is not minimal. WHAT DOES THIS MEAN?}
 %Notice that the second requirement might not be satisfied at any finite stage {\sf s}, hence it might be guaranteed only at meta-theoretical level.
@@ -1426,7 +1427,7 @@ To conclude, we would like to highlight certain distinctive features of the prop
     \item the multiple-conclusion format leads to a transparent connection between the restricted inference-rules that are valid in \textsf{minimalND} (i.e. the lower-limit-logic) and their use as a premise of the conditional rule;
     \item the explicit individuation of abnormalities as a sub-type of the well-formed formulae.
 \end{enumerate*}
-The explicit connection between multiple-conclusions and defeasible inferences brings a recent disagreement over the problem of classical recapture in the logic \textbf{LP} into focus.\footnote{See \cite[18ff]{Allo:Theoria:2015} for a more detailed reconstruction of this debate.} In several papers, Graham Priest has explicitly endorsed the adaptive approach to classical recapture. To that effect, he has proposed his own \emph{minimally inconsistent} \textbf{LP}: an adaptive logic based on a stronger paraconsistent logic (but without a detachable implication) and the minimal abnormality strategy \cite{GP:LPm}. This approach has been criticised by JC Beall, another prominent defender of the logic \textbf{LP}, on the ground that any all-purpose logic should at all cost prevent one to step from truth to falsehood \cite{Beall01072012}. This is a task that cannot in general be fulfilled by an adaptive logic, and indeed a task we shouldn't impute on adaptive logic in the first place \cite{Priest01102012}. By contrast, Beall's preferred take on classical recapture is that it should be handled with extra-logical means. The multiple-conclusion extensions of classical logic and \textbf{LP} already mentioned in the previous section provide one of the formalisms in which this idea can be made precise, since (\ref{beall}) can be seen as a minimalist expression of how paraconsistent logics like \textbf{LP} incorporate classical logic in a restricted form. Given the central role of similar multiple-conclusion judgements in \textsf{AdaptiveND}, results like (\ref{beall}) should really be understood as agnostic between the different strategies for classical recapture. Indeed, whereas Beall advocates the view that \textbf{LP$^+$} only presents us with logically viable options, these same options are the motor behind any defeasible inference mechanism that allows one to favour one of them in the first place. One advantage of \textsf{AdaptiveND} is that it doesn't artificially widen the gap between defeasible and multiple-conclusion accounts of classical recapture.
+The explicit connection between multiple-conclusions and defeasible inferences brings a recent disagreement over the problem of classical recapture in the logic \textbf{LP} into focus.\footnote{See \cite[18ff]{Allo:Theoria:2015} for a more detailed reconstruction of this debate.} In several papers, Graham Priest has explicitly endorsed the adaptive approach to classical recapture. To that effect, he has proposed his own \emph{minimally inconsistent} \textbf{LP}: an adaptive logic based on a stronger paraconsistent logic (but without a detachable implication) and the minimal abnormality strategy \cite{GP:LPm}. This approach has been criticised by JC Beall, another prominent defender of the logic \textbf{LP}, on the ground that any all-purpose logic should at all cost prevent one to step from truth to falsehood \cite{Beall01072012}. This is a task that cannot in general be fulfilled by an adaptive logic, and indeed a task we shouldn't impute on adaptive logic in the first place \cite{Priest01102012}. By contrast, Beall's preferred take on classical recapture is that it should be handled with extra-logical means. The multiple-conclusion extensions of classical logic and \textbf{LP} already mentioned in the previous section provide one of the formalisms in which this idea can be made precise, since (\ref{beall}) can be seen as a minimalist expression of how paraconsistent logics like \textbf{LP} incorporate classical logic in a restricted form. Given the central role of similar multiple-conclusion judgements in \textsf{AdaptiveND}, results like (\ref{beall}) should really be understood as agnostic between the different strategies for classical recapture. Indeed, whereas Beall advocates the view that \textbf{LP$^+$} only presents us with logically viable options, these same options are the motor behind any defeasible inference mechanism that allows one to favour one of them in the first place. When adaptive logics are formulated according to the standard format, the connection between logical options and defeasible inferences is already made visible (Priest's minimally inconsistent \textbf{LP} is not formulated in this generic format) through the \emph{Derivability Adjustment Theorem} mentioned in the previous section. \textsf{AdaptiveND} makes this connection even more explicit by formulating its conditional rule with a multiple-conclusion judgement as a premise.
 
 The formal approach taken in the development of \textsf{AdaptiveND} signals another crucial departure from the terms in which the Priest/Beall debate is carried out, namely a departure concerning the individuation of abnormalities. Within the adaptive logic tradition, abnormalities are understood as formulae of a specific logical form, and the abnormality of models (e.g. how inconsistent they are) is measured relative to the abnormal formulas it verifies. When compared to the road taken by minimally inconsistent \textbf{LP}, this has certain advantages \cite{Batens:Synthese:2000}. The same syntactical approach to abnormalities is integrated in \textsf{AdaptiveND} through the identification of a class of formulae of type $\Omega$ and the need to state membership of $\Omega$ when the conditional rule is applied. This approach is more general in the sense that it doesn't have to appeal to semantic concepts like \emph{gluts} in its formulation, and can explain how we step from logical options to defeasible inferences by only taking into account the logical form of the premises at hand. From a proof-theoretic viewpoint, this could be seen as a more explicit approach, whereas from the standpoint of the broader adaptive logic programme it is definitely more flexible.
 
