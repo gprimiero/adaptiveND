@@ -52,6 +52,12 @@ JC~C. Beall.
 \newblock Multiple-conclusion lp and default classicality.
 \newblock {\em The Review of Symbolic Logic}, 4(2):326--336, 6 2011.
 
+\bibitem{pfenning}
+Frank Pfenning.
+\newblock Handout on automated theorem proving.
+\newblock Technical report, School of Computer Science, Carnegie Mellon
+  University, 2004.
+
 \bibitem{GP:LPm}
 Graham Priest.
 \newblock Minimally inconsistent \textbf{{LP}}.
@@ -71,5 +77,10 @@ Kurt Sch{\"u}tte.
 Christian Strasser.
 \newblock {\em Adaptive Logics for Defeasible Reasoning}.
 \newblock Trends in Logic. Springer, 2014.
+
+\bibitem{Troelstra:2000:BPT:351148}
+A.~S. Troelstra and H.~Schwichtenberg.
+\newblock {\em Basic Proof Theory (2Nd Ed.)}.
+\newblock Cambridge University Press, New York, NY, USA, 2000.
 
 \end{thebibliography}
