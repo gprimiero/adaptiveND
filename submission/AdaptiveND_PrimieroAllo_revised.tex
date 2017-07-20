@@ -223,12 +223,12 @@
 
 %opening
 \title{Annotated Natural Deduction for Adaptive Reasoning}
-\author{Giuseppe Primiero\\
-Department of Computer Science\\
-Middlesex University London\\
- \and Patrick Allo\\
- Oxford Internet Institute\\
- University of Oxford}
+\author{Patrick Allo\\
+Oxford Internet Institute\\
+University of Oxford\\
+ \and Giuseppe Primiero\\
+ Department of Computer Science\\
+ Middlesex University London}
 \date{}
 
 
@@ -354,7 +354,7 @@ The type universe of reference is the set of propostions {\sf Prop}, construed b
 \begin{definition}[Judgements]
 A multiple conclusion {\sf minimalND}-judgement is of the form $\Gamma;\cdot \vdash_{\sf s} \Delta$, where: $\Gamma$ is the usual set of assumptions, $\Delta$ is a set of formulas of the language and {\sf s} is a positive integer.
 \end{definition}
-The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). At this stage, the symbol $\cdot$ following the semi-colon is used to express an empty set of adaptive conditions. The set $\Delta$ and the comma (if it occurs) on the right-hand side of the derivability sign are both to be read disjunctively. This characterizes our calculus as multiple-conclusion. Standard context formation rules are, as usual in a proof-theoretic setting, inductively given for both left and right-hand side set of formulas, as shown in Figure \ref{fig:contextrules}. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context and this rule, in particular, defines the equivalent of the adaptive Premise rule.
+The set $\Gamma$ on the left-hand side of the derivability sign is to be read conjunctively. Similarly for the semi-colon symbol, which is introduced here but is only used in Section \ref{sec:adaptive} to separate standard assumptions in $\Gamma$ from conditions (in the adaptive sense). At this stage, the symbol $\cdot$ following the semi-colon is used to express an empty set of adaptive conditions. The set $\Delta$ and the comma (if it occurs) on the right-hand side of the derivability sign are both to be read disjunctively. This characterizes our calculus as multiple-conclusion. Standard context formation rules are, as usual in a proof-theoretic setting, inductively given for both left and right-hand side set of formulas, as shown in Figure \ref{fig:contextrules}, see e.g.\ \cite[pp.5-6]{Troelstra:2000:BPT:351148} and \cite[sec.2.3]{pfenning} for a formulation closer to ours. {\sf Nil} establishes the base case of a valid empty context, we use {\sf wf} as an abbreviation for `well-formed'; $\Gamma${\sf -Formation} allows extension of contexts by propositions; {\sf Prem} establishes derivability of formulas contained in context and this rule, in particular, defines the equivalent of the adaptive Premise rule.
 %; finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.{\color{red}this is still an open issue. G: IN WHICH WAY?}
 
 
@@ -648,7 +648,7 @@ Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each der
 \begin{definition}[Set of unreliable formulas]
 $\bigcup\Delta(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the union of some $\Delta_{1}, \dots, \Delta_{n}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
 \end{definition}
-Note that when the operator $\bigcup\Delta(\Gamma)$ occurs on the right-hand side of the tunrstile, its reading is not intended as disjunctive, as it is the case for normal a set $\Delta$ in the same position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. Remark also that this rule does not require that all minimal disjunctions of abnormalities derived at a given stage need to be used as a premise, but that the side-condition does refer to all such minimal disjunctions of abnormalities. 
+Note that when the operator $\bigcup\Delta(\Gamma)$ occurs on the right-hand side of the tunrstile, its reading is not intended as disjunctive, as it is the case for normal a set $\Delta$ in the same position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. Remark also that this rule does not require that all minimal disjunctions of abnormalities derived at a given stage need to be used as a premise, but that the side-condition does refer to all such minimal disjunctions of abnormalities.
 
 Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows:
 
@@ -1253,7 +1253,8 @@ To this aim, one requires that the stage {\sf s} at which a formula $\psi$ is de
 
 \begin{definition}[Subformulas of the premise set]
 $\Sf(\Gamma)=\bigcup_{\phi \in \Gamma} \{\psi \mid \psi$ is a subformula of $ \phi\}$.
-\end{definition}\marginpar{$\{\psi \mid \psi\subset\phi\}$\\This doesn't work: formulas are not sets.}
+\end{definition}
+%\marginpar{$\{\psi \mid \psi\subset\phi\}$\\This doesn't work: formulas are not sets.}
 
 
 From $\Sf(\Gamma)$ we then construe all the possible abnormalities that can be obtained from its members:
@@ -1272,7 +1273,8 @@ For \textsf{AdaptiveND}, \textbf{CLuN$^r$}, and \textbf{CLuN$^m$} the requiremen
 %\end{definition}
 %
 \begin{theorem}\label{thm:subform}
-    If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.\marginpar{If $\Gamma;\cdot \vdash\bigvee(\Delta)$, then $\Delta \subseteq \Omega(\Gamma)$\\ We need it to be minimal, but our notation $\bigvee(\Delta)^{min}$ only applies to stages, so we no object-level language to say this.}
+    If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.
+    % \marginpar{If $\Gamma;\cdot \vdash\bigvee(\Delta)$, then $\Delta \subseteq \Omega(\Gamma)$\\ We need it to be minimal, but our notation $\bigvee(\Delta)^{min}$ only applies to stages, so we no object-level language to say this.}
 \end{theorem}
 \noindent\textsl{Proof.}~We consider the possible ways of deriving a minimal disjunction of abnormalities by examining the structure of the proof-rules of \textsf{minimalND}.
 \begin{enumerate*}

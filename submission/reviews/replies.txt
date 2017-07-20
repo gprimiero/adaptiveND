@@ -108,7 +108,7 @@ REVIEWER2 __ COMMENTS
 
 
 
-3. We did not follow the suggestion of the reviewer on this point. This is a typical clash of traditions between semantic and proof-theoretic approaches. In the latter, it is standard to define formulas and their contexts inductively, without these rule being directly used in the proofs.
+3. We did not follow the suggestion of the reviewer on this point. This is a typical clash of traditions between semantic and proof-theoretic approaches. In the latter, it is standard to define formulas and their contexts inductively, without these rule being directly used in the proofs (although they can, e.g. to derive a formula of the form A->A). We have added explanation and references.
 
 
 4. We revised according to the reviewer's comment: min is an annotation and it has been added where necessary to the examples.
