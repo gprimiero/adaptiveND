@@ -34,7 +34,7 @@ p. 8
 Similar point for "finally derived".
 
 
-DONE (notice thta the section leading to final derivability has been extensively reformulated, both contentually and stylistically)
+DONE (notice that the section leading to final derivability has been extensively reformulated, both contentually and stylistically)
 
 
 --
@@ -144,4 +144,4 @@ REVIEWER2 __ COMMENTS
 
 15. See remarks for the first reviewer above.
 
-16.
+16. A few brief remarks have been added to the final section; including the fact that minimally inconsistent LP isn't in the standard format, and a comment on the reference to Batens (2000) that was already in the original manuscript.
