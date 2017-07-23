@@ -237,7 +237,7 @@ University of Oxford\\
 \maketitle
 
 \begin{abstract}
-We present a multi-conclusion natural deduction calculus characterizing the dynamic reasoning typical of adaptive logics. The resulting system {\sf AdaptiveND} is sound and complete with respect to the propositional fragment of adaptive logics based on  \textbf{CLuN}. This appears to be the first tree-format presentation of the standard linear dynamic proof system typical of Adaptive Logics. It offers the advantage of full transparency in the formulation of locally derivable rules, a connection between restricted inference rules and their adaptive counterpart, and the formulation of abnormalities as a subtype of well-formed formulas. These features of the proposed calculus are used to reconsider the question of classical recapture.
+We present a multi-conclusion natural deduction calculus characterizing the dynamic reasoning typical of adaptive logics. The resulting system {\sf AdaptiveND} is sound and complete with respect to the propositional fragment of adaptive logics based on  \textbf{CLuN}. This appears to be the first tree-format presentation of the standard linear dynamic proof system typical of Adaptive Logics. It offers the advantage of full transparency in the formulation of locally derivable rules, a connection between restricted inference rules and their adaptive counterpart, and the formulation of abnormalities as a subtype of well-formed formulas. These features of the proposed calculus allow us to clarify the relation between defeasible and multiple-conclusion approaches to classical recapture.
 \end{abstract}
 
 \section{Intro}
@@ -250,7 +250,7 @@ captures paraconsistent reasoning avoiding triviality in the face of inconsisten
 
 The dynamics of retracting earlier lines in a proof can be captured in a rather natural way in linear proof-formats, including standard axiomatic and Fitch-style natural deduction proofs, but is much less straightforward in a tree-like proof-format. Consider, for instance, the following retraction in an application of \emph{Ex Contradictione Quodlibet}:
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \centering
     \begin{tabular}{cllcl}
         (1) & $p$ & Prem & $\emptyset$\\
@@ -283,7 +283,7 @@ When in this proof an explicit contradiction is derived in the right-hand branch
 
 The proof-format we propose solves this problem by making two changes: first, we add indices to judgements to keep track of stages in the construction of a proof; and second, we exploit the fact that judgements that are `marked' at a certain stage do not have to be removed, because there is simply no need to prevent their implicit re-use since every assumption or premise should explicitly be written down in the place it is used. Instead, it is the derivation of the same judgement at a later stage that is (or may be) blocked, because the original assumption that led to its initial derivation probably no longer holds. We therefore provide, for the first time, an appropriate Natural Deduction translation of adaptive reasoning, whose proofs have so far always been presented in a linear format. We do so by formulating a general approach to Adaptive Reasoning which accommodates both strategies standardly used to retract previously made judgements. While the reformulation of the Reliability Strategy is a much easier task, Minimal Abnormality is a more daunting one given the complexity of its procedural translation in a proof tree. Nonetheless, we show that it can in principle be done within our logic, although more efficient procedures might be devised.
 
-Because this system uses multiple-conclusion judgements, it also explicitly captures the connection between unconditional derivations of certain disjunctions in the paraconsistent logic and the conditional deductions of one of their disjuncts in the adaptive logic. Moreover, the choice of modelling inconsistency adaptive reasoning brings us closer to the original motivations for the development of adaptive logic \cite{Batens:ParaconsistentLogicEssaysOnTheInconsistent:1989}, but also allows us to engage with current philosophical debates of relevance to Graham Priest's work and in particular how one should best approach the question of \textit{classical recapture} in paraconsistent logics. The latter problem can be summarised as follows. When one adopts a logic that is strictly weaker than classical logic, the question of how one should account for epistemically useful classical inference-forms that are invalidated by one's preferred logic almost immediately arises. In the case of paraconsistent logic, this question is often deemed urgent, as the practical and epistemic usefulness of the inference-forms that are lost, like the disjunctive syllogism, is almost undisputed. Inconsistency-adaptive logics present one possible answer to this challenge under the form of defeasible inference-forms that allow one to use classical inference-steps on the condition that certain assumptions are not violated. It is also a response that Graham has endorsed \cite{GP:LPm}. His specific proposal on how this should be implemented has, in recent years, become the focus of a renewed interest in the problem of how dialetheists should account for classical recapture. We contend that the combination of a multiple-conclusion calculus with the reconstruction of the defeasible dynamics of adaptive proofs can further clarify this debate.
+Because this system uses multiple-conclusion judgements, it also explicitly captures the connection between unconditional derivations of certain disjunctions in the paraconsistent logic and the conditional deductions of one of their disjuncts in the adaptive logic. Moreover, the choice of modelling inconsistency adaptive reasoning brings us closer to the original motivations for the development of adaptive logic \cite{Batens:ParaconsistentLogicEssaysOnTheInconsistent:1989}, but also allows us to engage with current philosophical debates of relevance to Graham Priest's work and in particular how one should best approach the question of \textit{classical recapture} in paraconsistent logics. The latter problem can be summarised as follows. When one adopts a logic that is strictly weaker than classical logic, the question of how one should account for epistemically useful classical inference-forms that are invalidated by one's preferred logic almost immediately arises. In the case of paraconsistent logic, this question is often deemed urgent, as the practical and epistemic usefulness of the inference-forms that are lost, like the disjunctive syllogism, is almost undisputed. Inconsistency-adaptive logics present one possible answer to this challenge under the form of defeasible inference-forms that allow one to use classical inference-steps on the condition that certain assumptions are not violated. It is also a response that Graham has endorsed \cite{GP:LPm} \cite[Ch.\ 16]{Priest:InContradiction:2006}. His specific proposal on how this should be implemented has, in recent years, become the focus of a renewed interest in the problem of how dialetheists should account for classical recapture. We contend that the combination of a multiple-conclusion calculus with the reconstruction of the defeasible dynamics of adaptive proofs can further clarify this debate.
 
 %When one adopts a logic that is strictly weaker than classical logic, the question of how one should account for epistemically useful classical inference-forms that are invalidated by one's preferred logic almost immediately arises. In the case of paraconsistent logic, this question is often deemed urgent, as the practical and epistemic usefulness of the inference-forms that are lost, like the disjunctive syllogism, are almost undisputed. This is the problem of \emph{classical recapture}. Inconsistency-adaptive logics present one possible answer to this challenge under the form of defeasible inference-forms that allow one to use classical inference-steps on the condition that certain assumptions are not violated. The class of adaptive logics that have been formulated since the earliest formulation of this paradigm as a response to the problem of classical recapture generalise this idea, and provide a general framework in which many types of defeasible inference-forms can be rigourously formalised.
 
@@ -332,7 +332,7 @@ We start by defining the syntax of our language:
 %
 The type universe of reference is the set of propostions {\sf Prop}, construed by atomic formulas closed under negation, implication, conjunction, disjunction and allowing $\bot$ to express absolute contradictions. Formula formation rules are given in Figure \ref{fig:formulaconstructions}.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 \infer*[right=Atom] { } {A \in {\sf Prop}}
 \and
@@ -358,7 +358,7 @@ The set $\Gamma$ on the left-hand side of the derivability sign is to be read co
 %; finally, $\Delta${\sf -Formation} allows \textit{disjunctive} extension of derived sets of formulas by well-typed ones.{\color{red}this is still an open issue. G: IN WHICH WAY?}
 
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 \infer*[right=Nil] { } {\cdot\Turn {} {\sf wf}}
 \and
@@ -380,7 +380,7 @@ The derivability sign is enhanced with a signature {\sf s} that corresponds to a
 The semantics of connectives is given in the standard proof-theoretic way by Introduction and Elimination Rules in Figure \ref{fig:connectives}. Introduction of $\rightarrow$ corresponds to conditional proof, while its elimination formalises Modus Ponens. Rules for $\wedge$ are standard; notice that $\vee$-Elimination makes the disjunctive reading of the comma on the right hand-side of the turnstile explicit. $\bot$ can be eliminated by \emph{Ex Falso}, but cannot be introduced. Dually, our paraconsistent negation $\neg$ can be introduced, but not eliminated.
 %
 %
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 \infer*[right=$\rightarrow$I] {\Turn {\Gamma, \phi_1; \cdot} {\Delta, \phi_2}} {\TurnNext {\Gamma; \cdot} {\Delta, \phi_1\rightarrow \phi_2}}
 \and
@@ -416,7 +416,7 @@ The semantics of connectives is given in the standard proof-theoretic way by Int
 \caption{Rules for I/E of connectives}\label{fig:connectives}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 \infer*[right=Wl] {\Turn {\Gamma; \cdot} {\Delta, \phi_{1}} } {\TurnNext {\Gamma, \phi_{2}; \cdot} {\Delta, \phi_{1}}}
 \and
@@ -569,7 +569,7 @@ Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is opti
 We now introduce the rules for {\sf AdaptiveND}. In Figure \ref{fig:omega}, we describe the formation and use of formulas $\phi \in \Omega$. By $\Omega${\sf-Formation}, the explicit contradiction $\phi \wedge \neg \phi$, with $\phi$ any proposition, is a formula of the $\Omega$ type. In the Adaptive tradition a formula of type $\Omega$ is called an \textit{abnormality} or \textit{abnormal formula}. By {\sf Adaptive Condition Formation}, given a valid context $\Gamma$ and a formula
 $\phi$ of the $\Omega$ type, a context $\Gamma$ followed by the Adaptive Condition that expresses the defeasible assumption that $\phi$ \textit{is false}, is a well-formed context. This corresponds to the use of syntactic restrictions that are applied to the use of conditions as additional elements of a proof line in the standard linear format of adaptive logics. By {\sf Adaptive Condition Extension}, a newly constructed formula of type $\Omega$ can be added to an existing non-empty Adaptive Condition.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 \infer*[right=$\Omega$-formation] {{\phi \in {\sf Prop}}}{(\phi \wedge \neg \phi) \in \Omega}
 %
@@ -588,7 +588,7 @@ In Figure \ref{fig:adaptiverules}, the calculus is extended by introducing the c
 
 % two rules, see Figure \ref{fig:adaptiverules}. $RU$ is called the unconditional rule: it says that if a formula $\phi_{1}$ is derivable in {\sf AdaptiveND}, and another formula $\phi_{2}$ is derivable from $\phi_{1}$ without additional assumptions or adaptive conditions, then $\phi_{2}$ is derivable from $\phi_{1}$ and the context $\Gamma;\phi^{-}\vdash$ in which the latter holds.  $RC$ is  called the conditional rule: it says that if a disjunction $\psi,\phi$ is derivable from $\Gamma$, with $\phi$ an abnormal formula, then $\psi$ can also be derived alone under $\Gamma$ and the Adaptive Condition that $\phi$ be false.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 \infer*[right=RC] {\Turn {\Gamma;\Theta^{-}} {\psi,\phi}\\ {\phi \in \Omega}} {\TurnNext {\Gamma; (\Theta\cup\{\phi\})^{-}} {\psi}}
 \end{mathpar}
@@ -596,7 +596,7 @@ In Figure \ref{fig:adaptiverules}, the calculus is extended by introducing the c
 \caption{Conditional Rule}\label{fig:adaptiverules}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 \infer*[right=RU] {\TurnPrime {\Gamma; \phi^{-}} {\phi_{1}}\\ {\TurnPrimePrime {\phi_{1};\cdot} {\phi_{2}}}}
 {\TurnMaxTwoPlusOne {\Gamma; \phi^{-}} {\phi_{2}}}
@@ -870,7 +870,7 @@ Minimal abnormality is the marking strategy that reflects the following conditio
 %%
 %Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}. The choice set of an empty set of minimal disjunction of abnormalities is empty. This notion of choice set is procedurally implemented by the rule {\sf Choice}, where each premise must be intended as the conclusion of a {\sf MinDab} rule.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 
 % \begin{mathpar}
 % \infer*[right=Choice]{\TurnMinusn{\Gamma;\cdot}{\Delta_{1}^{min}}\\
@@ -906,7 +906,7 @@ The first marking rule $\XBox$M reflects the following condition: if a formula $
 The second marking rule $\XBox$M2 reflects the following condition: if a formula $\psi$ is derived always under an adaptive condition that is part of the same minimal choice-set in $\Phi(\Gamma)$, then at the next stage the formula $\psi$ can be retracted. Here the adaptive condition of the conclusion should be intended as saying that the retraction applies to all stages where the derivation of $\psi$ was obtained under one of the listed conditions.
 
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 \infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi} \\
 \infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi(\Gamma)}}}
@@ -1381,7 +1381,7 @@ $\TurnChecked{\Gamma;\phi^{-}}{\psi}$ in {\sf AdaptiveND} if and only if there i
 \]
 By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{\Gamma;\cdot}{\psi,\Theta}$, and by repeated applications of \textsc{RC}, we obtain the judgement $\TurnNextm{\Gamma; \Theta^-}{\psi}$. Let $t \geq s+m$ be a stage at which this proof is marking and abnormality-incomplete, and assume, \emph{for reductio} that it ends with a judgement $\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}$. Consequently, this judgement must occur as the final node of a marking-tree for minimal abnormality:
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{mathpar}
 {\footnotesize
 \infer*[right={\tiny$\XBox$M}]{\Turn{\Gamma; \Theta^-}{\psi} \\
@@ -1429,7 +1429,7 @@ To conclude, we would like to highlight certain distinctive features of the prop
     \item the multiple-conclusion format leads to a transparent connection between the restricted inference-rules that are valid in \textsf{minimalND} (i.e. the lower-limit-logic) and their use as a premise of the conditional rule;
     \item the explicit individuation of abnormalities as a sub-type of the well-formed formulae.
 \end{enumerate*}
-The explicit connection between multiple-conclusions and defeasible inferences brings a recent disagreement over the problem of classical recapture in the logic \textbf{LP} into focus.\footnote{See \cite[18ff]{Allo:Theoria:2015} for a more detailed reconstruction of this debate.} In several papers, Graham Priest has explicitly endorsed the adaptive approach to classical recapture. To that effect, he has proposed his own \emph{minimally inconsistent} \textbf{LP}: an adaptive logic based on a stronger paraconsistent logic (but without a detachable implication) and the minimal abnormality strategy \cite{GP:LPm}. This approach has been criticised by JC Beall, another prominent defender of the logic \textbf{LP}, on the ground that any all-purpose logic should at all cost prevent one to step from truth to falsehood \cite{Beall01072012}. This is a task that cannot in general be fulfilled by an adaptive logic, and indeed a task we shouldn't impute on adaptive logic in the first place \cite{Priest01102012}. By contrast, Beall's preferred take on classical recapture is that it should be handled with extra-logical means. The multiple-conclusion extensions of classical logic and \textbf{LP} already mentioned in the previous section provide one of the formalisms in which this idea can be made precise, since (\ref{beall}) can be seen as a minimalist expression of how paraconsistent logics like \textbf{LP} incorporate classical logic in a restricted form. Given the central role of similar multiple-conclusion judgements in \textsf{AdaptiveND}, results like (\ref{beall}) should really be understood as agnostic between the different strategies for classical recapture. Indeed, whereas Beall advocates the view that \textbf{LP$^+$} only presents us with logically viable options, these same options are the motor behind any defeasible inference mechanism that allows one to favour one of them in the first place. When adaptive logics are formulated according to the standard format, the connection between logical options and defeasible inferences is already made visible (Priest's minimally inconsistent \textbf{LP} is not formulated in this generic format) through the \emph{Derivability Adjustment Theorem} mentioned in the previous section. \textsf{AdaptiveND} makes this connection even more explicit by formulating its conditional rule with a multiple-conclusion judgement as a premise.
+The explicit connection between multiple-conclusions and defeasible inferences brings a recent disagreement over the problem of classical recapture in the logic \textbf{LP} into focus.\footnote{See \cite[18ff]{Allo:Theoria:2015} for a more detailed reconstruction of this debate.} In several papers, Graham Priest has explicitly endorsed the adaptive approach to classical recapture. To that effect, he has proposed his own \emph{minimally inconsistent} \textbf{LP}: an adaptive logic based on a stronger paraconsistent logic (but without a detachable implication) and the minimal abnormality strategy \cite{GP:LPm}. This approach has been criticised by JC Beall, another prominent defender of the logic \textbf{LP}, on the ground that any all-purpose logic should at all cost prevent one to step from truth to falsehood \cite{Beall01072012}. This is a task that cannot in general be fulfilled by an adaptive logic, and indeed a task we shouldn't impute on adaptive logic in the first place \cite{Priest01102012}. By contrast, Beall's preferred take on classical recapture is that it should be handled with extra-logical means. The multiple-conclusion extensions of classical logic and \textbf{LP} already mentioned in the previous section provide one of the formalisms in which this idea can be made precise, since (\ref{beall}) can be seen as a minimalist expression of how paraconsistent logics like \textbf{LP} incorporate classical logic in a restricted form. Given the central role of similar multiple-conclusion judgements in \textsf{AdaptiveND}, results like (\ref{beall}) should really be understood as agnostic between the different strategies for classical recapture. Indeed, whereas Beall advocates the view that \textbf{LP$^+$} only presents us with logically viable options, these same options are the motor behind any defeasible inference mechanism that allows one to favour one of them in the first place. Presentations of defeasible approaches to classical recapture based on the selection of minimally abnormal models bypass references to logical options, but their use in dynamic proofs relies implicitly or explicitly on the individuation of logical options that conform to a particular logical form. When adaptive logics are formulated according to the standard format, this type of connection is already made visible (Priest's minimally inconsistent \textbf{LP} is not formulated in this generic format) through the \emph{Derivability Adjustment Theorem} mentioned in the previous section. \textsf{AdaptiveND} makes this connection even more explicit by formulating its conditional rule with a multiple-conclusion judgement as a premise, and enforcing the condition that a logical option must have a particular logical form to be moved from the right-hand side where it is a logical possibility to the left-hand side where it is used as a negative condition.
 
 The formal approach taken in the development of \textsf{AdaptiveND} signals another crucial departure from the terms in which the Priest/Beall debate is carried out, namely a departure concerning the individuation of abnormalities. Within the adaptive logic tradition, abnormalities are understood as formulae of a specific logical form, and the abnormality of models (e.g. how inconsistent they are) is measured relative to the abnormal formulas it verifies. When compared to the road taken by minimally inconsistent \textbf{LP}, this has certain advantages \cite{Batens:Synthese:2000}. The same syntactical approach to abnormalities is integrated in \textsf{AdaptiveND} through the identification of a class of formulae of type $\Omega$ and the need to state membership of $\Omega$ when the conditional rule is applied. This approach is more general in the sense that it doesn't have to appeal to semantic concepts like \emph{gluts} in its formulation, and can explain how we step from logical options to defeasible inferences by only taking into account the logical form of the premises at hand. From a proof-theoretic viewpoint, this could be seen as a more explicit approach, whereas from the standpoint of the broader adaptive logic programme it is definitely more flexible.
 

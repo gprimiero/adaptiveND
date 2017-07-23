@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  20 JUL 2017 09:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  23 JUL 2017 09:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -450,21 +450,7 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 \myScoreStart3=\dimen142
 \myCenter3=\dimen143
 \myScoreEnd3=\dimen144
-[2] [3]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[4] [5] [6] [7]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[8] [9]
+[2] [3] [4] [5] [6] [7] [8] [9]
 Overfull \hbox (3.356pt too wide) in paragraph at lines 656--657
 \OT1/cmr/m/it/10 ac-cord-ing to \OT1/cmss/m/n/10 MinDab\OT1/cmr/m/it/10 . We de
 -note each such choice set with $[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/
@@ -612,13 +598,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3487 strings out of 493089
- 41879 string characters out of 6134842
- 116314 words of memory out of 5000000
- 6911 multiletter control sequences out of 15000+600000
+ 3488 strings out of 493089
+ 41908 string characters out of 6134842
+ 116318 words of memory out of 5000000
+ 6912 multiletter control sequences out of 15000+600000
  22195 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,57n,67p,2500b,823s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,57n,67p,2979b,823s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></
@@ -658,7 +644,7 @@ y2-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps
 /wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy
 9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised.pdf (27 pages, 446849 bytes).
+llo_revised.pdf (27 pages, 447061 bytes).
 PDF statistics:
  244 PDF objects out of 1000 (max. 8388607)
  175 compressed objects within 2 object streams
