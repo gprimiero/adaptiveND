@@ -11,7 +11,8 @@ The philosophical point is that in the abstract the authors advertise that the s
 
 
 
-TO DO
+While kept at the end of the paper, the remarks on the philsophical import of our system to the debate on classical recapture has been extended. This aspect might in the future lead to a more extensive analysis, but we believe it is important to stress now that our contribution has some fruitful influence to offer on a debate Priest was involved in.
+
 
 --
 p.  2
@@ -27,12 +28,13 @@ Consider adding a brief gloss on the semicolon right after Definition 2. Otherwi
 DONE
 
 
+
 --
 p. 8
 Similar point for "finally derived".
 
 
-DONE
+DONE (notice thta the section leading to final derivability has been extensively reformulated, both contentually and stylistically)
 
 
 --
@@ -140,6 +142,6 @@ REVIEWER2 __ COMMENTS
 
 14. It has been fixed in the new formulation
 
-15.
+15. See remarks for the first reviewer above.
 
 16.
