@@ -609,6 +609,24 @@ In Figure \ref{fig:adaptiverules}, the calculus is extended by introducing the c
 \end{figure}
 
 \begin{figure}
+\centering
+    \begin{mathpar}
+        \infer*[right=RU]{\infer*[right=RC]{\TurnOne{\Gamma; \cdot}{\phi_1, \phi} \\ \phi \in \Omega}{\TurnTwo{\Gamma; \phi^-}{\phi_1}} \\ \TurnThree{\phi_1; \cdot}{\phi_2}}{\TurnFour{\Gamma; \phi^-}{\phi_2}}
+    \end{mathpar}
+
+$\Big\Downarrow$
+
+\begin{mathpar}
+\infer*[right=RC]{
+                        \infer*[right=Cut]{\TurnOne {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnTwo {\phi_{1};\cdot} {\phi_{2}}}}
+                        {\TurnThree {\Gamma; \cdot} {\phi_{2}, \phi} \\ \phi \in \Omega}
+                        }
+                         {\TurnFour {\Gamma; \phi^-}{\phi_2}}
+    \end{mathpar}
+    \caption{Redundancy of unconditional rules (basic case)}\label{fig:condasderived}
+\end{figure}
+
+\begin{figure}
     \begin{mathpar}
         \infer*[right=RC]{
                         \infer*[right=Cut]{\TurnOne {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnTwo {\phi_{1};\cdot} {\phi_{2}}}}
@@ -619,16 +637,16 @@ In Figure \ref{fig:adaptiverules}, the calculus is extended by introducing the c
         \and
 
 \infer*[right=RC]{
-		\infer*[right=RC]{
+        \infer*[right=RC]{
         \infer*[right=Cut]{{\TurnFour {\Gamma; \cdot} {\phi_{1}, \phi}}
-        	\infer*[right=Cut]{\TurnOne {\Gamma;\cdot} {\phi_2, \phi'}\\ {\TurnTwo {\phi_1, \phi_2;\cdot} {\phi_3}}}
-        	{\TurnThree {\Gamma', \phi_1 ;\cdot}{\phi_3, \phi'}}
+            \infer*[right=Cut]{\TurnOne {\Gamma;\cdot} {\phi_2, \phi'}\\ {\TurnTwo {\phi_1, \phi_2;\cdot} {\phi_3}}}
+            {\TurnThree {\Gamma', \phi_1 ;\cdot}{\phi_3, \phi'}}
         }
         {\TurnFive {\Gamma, \Gamma'; \cdot} {\phi_{3}, \phi, \phi'} \\ \phi \in \Omega}}
     {\TurnSix {\Gamma, \Gamma'; \phi^-} {\phi_{3}, \phi'} \\ \phi' \in \Omega}}
 {\TurnSeven {\Gamma, \Gamma'; \{\phi, \phi'\}^-} {\phi_{3}}}
     \end{mathpar}
-    \caption{Redundancy of unconditional rules}\label{fig:condasderived}
+    \caption{Redundancy of unconditional rules (general case)}\label{fig:condasderived}
 \end{figure}
 
 The Adaptive strategies developed in the next Section have the aim of establishing which abnormal formulas can no longer be safely considered as conditions in the application of the Conditional Rule {\sf RC}, in turn requiring the retraction of the previously derived formulas. To this aim, three elements need to be introduced:
