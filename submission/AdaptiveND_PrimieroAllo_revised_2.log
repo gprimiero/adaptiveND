@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  27 OCT 2017 14:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  27 OCT 2017 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -480,15 +480,6 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 769.
-! Undefined control sequence.
-l.769 ... the assumption that some $\phi\in \unrel
-                                                  (\Gamma)$ is false, needs ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 [13]
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
@@ -527,18 +518,6 @@ Overfull \hbox (127.08513pt too wide) in paragraph at lines 945--952
  []
 
 [16]
-! Undefined control sequence.
-<recently read> \unrel 
-                       
-l.1069 ...an apply the marking-rule (where $\unrel
-                                                  (\Gamma)$ is the set $\{(p...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
 Overfull \hbox (17.68135pt too wide) in paragraph at lines 1072--1075
  $[]$ 
  []
@@ -633,10 +612,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3490 strings out of 493089
- 41942 string characters out of 6134842
+ 3489 strings out of 493089
+ 41937 string characters out of 6134842
  120331 words of memory out of 5000000
- 6914 multiletter control sequences out of 15000+600000
+ 6913 multiletter control sequences out of 15000+600000
  22195 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,57n,67p,2022b,823s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -679,7 +658,7 @@ y2-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps
 /wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy
 9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised_2.pdf (28 pages, 447724 bytes).
+llo_revised_2.pdf (28 pages, 447745 bytes).
 PDF statistics:
  247 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams
