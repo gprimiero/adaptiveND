@@ -125,7 +125,7 @@ REVIEWER2 __ COMMENTS
 
 
 
-7. RC has been reformulated with a an adaptive conditions set.
+7. RC has been reformulated with an adaptive conditions set.
 
 
 8. We have changed the notation.
