@@ -598,11 +598,11 @@ In Figure \ref{fig:adaptiverules}, the calculus is extended by introducing the c
 
 \begin{figure}[ht!]
 \begin{mathpar}
-\infer*[right=RU] {\Turn {\Gamma; \phi^{-}} {\phi_{1}}\\ {\TurnPrime {\phi_{1};\cdot} {\phi_{2}}}}
-{\TurnMaxTwoPlusOne {\Gamma; \phi^{-}} {\phi_{2}}}
+\infer*[right=RU] {\Turn {\Gamma; \Theta^{-}} {\phi_{1}}\\ {\TurnPrime {\phi_{1};\cdot} {\phi_{2}}}}
+{\TurnMaxTwoPlusOne {\Gamma; \Theta^{-}} {\phi_{2}}}
 \and
-\infer*[right=RU2] {\Turn {\Gamma; \phi^-} {\phi_{1}}\\ {\TurnPrime {\Gamma';\phi'^-} {\phi_2}} \\ {\TurnPrimePrime {\phi_1, \phi_2;\cdot} {\phi_3}}}
-{\TurnMaxThreePlusOne {\Gamma, \Gamma'; \{\phi, \phi'\}^-} {\phi_{3}}}
+\infer*[right=RU2] {\Turn {\Gamma; \Theta^-} {\phi_{1}}\\ {\TurnPrime {\Gamma';\Theta'^-} {\phi_2}} \\ {\TurnPrimePrime {\phi_1, \phi_2;\cdot} {\phi_3}}}
+{\TurnMaxThreePlusOne {\Gamma, \Gamma'; (\Theta \cup \Theta')^-} {\phi_{3}}}
 \end{mathpar}
 
 \caption{Unconditional Rules}\label{fig:adaptiverules2}
