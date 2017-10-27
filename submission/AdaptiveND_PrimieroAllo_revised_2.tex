@@ -659,12 +659,12 @@ The Adaptive strategies developed in the next Section have the aim of establishi
 \begin{enumerate}
 \item  minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$, with $\Delta \subset \Omega$;
 \item the union of all abnormalities that occur as a disjunct of some $\bigvee(\Delta)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\bigcup\Delta(\Gamma)$;
-\item the set of minimal choice sets of a family of sets $\Delta_1, \ldots, \Delta_n$, corresponding to all $\bigvee(\Delta_i)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\Phi(\Gamma)$.
+\item the set of minimal choice sets of a set of sets $\Delta_1, \ldots, \Delta_n$, corresponding to all $\bigvee(\Delta_i)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\Phi(\Gamma)$.
 \end{enumerate}
 
 The rules in Figure \ref{fig:mindab} establish these three constructions.
 
-Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$. Note that the superscript $min$ works as an annotation that the disjuction $\Delta$ in the first premise of the {\sf MinDab} rule satisfies the side condition of the same rule, but it does not indicate that $\Delta^{min}$ is a different set than $\Delta$.
+Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$. Note that the superscript $min$ works as an annotation indicating that the $\Delta$ in the first premise of the {\sf MinDab} rule satisfies the side condition of the same rule, but it does not indicate that $\Delta^{min}$ and $\Delta$ are two different sets.
 
 Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each derived according to {\sf MinDab} at stages {\sf s-n} up to {\sf s-1}, the union of all such formulas can be derived at stage {\sf s}, defined as follows:
 
