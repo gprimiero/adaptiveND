@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  27 OCT 2017 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  27 OCT 2017 12:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -399,9 +399,6 @@ Package: mdwlist 1996/05/02 1.1 Various list-related things
 \c@proposition=\count104
 
 (/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.aux
-
-LaTeX Warning: Label `fig:condasderived' multiply defined.
-
 )
 \openout1 = `AdaptiveND_PrimieroAllo_revised_2.aux'.
 
@@ -457,8 +454,13 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 \myScoreStart3=\dimen142
 \myCenter3=\dimen143
 \myScoreEnd3=\dimen144
-[2] [3] [4] [5] [6] [7] [8] [9] [10]
-Overfull \hbox (3.356pt too wide) in paragraph at lines 674--675
+[2] [3] [4] [5] [6] [7]
+Overfull \hbox (2.1706pt too wide) in paragraph at lines 628--639
+ $[]$ 
+ []
+
+[8] [9] [10]
+Overfull \hbox (3.356pt too wide) in paragraph at lines 679--680
 \OT1/cmr/m/it/10 ac-cord-ing to \OT1/cmss/m/n/10 MinDab\OT1/cmr/m/it/10 . We de
 -note each such choice set with $[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/
 m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1
@@ -466,87 +468,87 @@ m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1
  []
 
 
-Overfull \hbox (48.54576pt too wide) in paragraph at lines 707--709
+Overfull \hbox (48.54576pt too wide) in paragraph at lines 712--714
  $[]$ 
  []
 
 [11] [12]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 763.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 768.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 763.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 768.
 [13]
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 807.
+(Font)              using `U/wasy/m/n' instead on input line 812.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [14]
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 901.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 906.
 
 
 
-Overfull \hbox (33.69972pt too wide) in paragraph at lines 901--906
+Overfull \hbox (33.69972pt too wide) in paragraph at lines 906--911
  $[]$ 
  []
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 910.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 915.
 
 
 
-Overfull \hbox (94.84406pt too wide) in paragraph at lines 910--917
+Overfull \hbox (94.84406pt too wide) in paragraph at lines 915--922
  $[]$ 
  []
 
 [15]
-Overfull \hbox (81.64558pt too wide) in paragraph at lines 929--933
+Overfull \hbox (81.64558pt too wide) in paragraph at lines 934--938
  $[]$ 
  []
 
 
-Overfull \hbox (127.08513pt too wide) in paragraph at lines 939--946
+Overfull \hbox (127.08513pt too wide) in paragraph at lines 944--951
  $[]$ 
  []
 
 [16]
-Overfull \hbox (3.45909pt too wide) in paragraph at lines 1066--1069
+Overfull \hbox (3.45909pt too wide) in paragraph at lines 1071--1074
  $[]$ 
  []
 
 [17] [18]
-Overfull \hbox (17.47469pt too wide) in paragraph at lines 1125--1136
+Overfull \hbox (17.47469pt too wide) in paragraph at lines 1130--1141
  $[]$ 
  []
 
 
-Overfull \hbox (30.82072pt too wide) in paragraph at lines 1141--1149
+Overfull \hbox (30.82072pt too wide) in paragraph at lines 1146--1154
  $[] 
  []
 
 
-Overfull \hbox (24.70857pt too wide) in paragraph at lines 1166--1177
+Overfull \hbox (24.70857pt too wide) in paragraph at lines 1171--1182
  $[]$ 
  []
 
 
-Overfull \hbox (34.13206pt too wide) in paragraph at lines 1183--1191
+Overfull \hbox (34.13206pt too wide) in paragraph at lines 1188--1196
  $[] 
  []
 
 [19]
-Overfull \hbox (85.20042pt too wide) in paragraph at lines 1196--1205
+Overfull \hbox (85.20042pt too wide) in paragraph at lines 1201--1210
  $[] 
  []
 
 [20]
-Overfull \hbox (1.66714pt too wide) in paragraph at lines 1246--1247
+Overfull \hbox (1.66714pt too wide) in paragraph at lines 1251--1252
 []\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
 red meta-theoretical
  []
@@ -554,20 +556,20 @@ red meta-theoretical
 [21] [22] [23]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1343.
+(Font)              using `U/wasy/m/n' instead on input line 1348.
 
 [24]
 
 LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 14
-04.
+09.
 
 
-Overfull \hbox (16.10509pt too wide) in paragraph at lines 1404--1409
+Overfull \hbox (16.10509pt too wide) in paragraph at lines 1409--1414
  $[]$ 
  []
 
 
-Overfull \hbox (6.1614pt too wide) in paragraph at lines 1412--1413
+Overfull \hbox (6.1614pt too wide) in paragraph at lines 1417--1418
 []\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; []
  ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$ is a su-per-set of
  some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/c
@@ -575,7 +577,7 @@ mr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$.
  []
 
 
-Overfull \hbox (14.27419pt too wide) in paragraph at lines 1414--1415
+Overfull \hbox (14.27419pt too wide) in paragraph at lines 1419--1420
 []\OT1/cmr/m/n/10 or for ev-ery $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML
 /cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \O
 MS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^H(^^@)$, if $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m
@@ -585,15 +587,15 @@ cmr/m/n/10 ) \OMS/cmsy/m/n/10 \
 
 
 LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 14
-22.
+27.
 
 
-Overfull \hbox (56.45894pt too wide) in paragraph at lines 1422--1430
+Overfull \hbox (56.45894pt too wide) in paragraph at lines 1427--1435
  $[]$ 
  []
 
 
-Overfull \hbox (7.07042pt too wide) in paragraph at lines 1432--1433
+Overfull \hbox (7.07042pt too wide) in paragraph at lines 1437--1438
 \OT1/cmr/m/n/10 ^^B\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^B[]$, it must also
  in-ter-sect with some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it
 /10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \OMS/cmsy/m
@@ -608,14 +610,11 @@ Overfull \hbox (7.07042pt too wide) in paragraph at lines 1432--1433
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
  3488 strings out of 493089
  41932 string characters out of 6134842
- 119358 words of memory out of 5000000
+ 120318 words of memory out of 5000000
  6912 multiletter control sequences out of 15000+600000
  22195 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -659,7 +658,7 @@ y2-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps
 /wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy
 9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised_2.pdf (28 pages, 447806 bytes).
+llo_revised_2.pdf (28 pages, 448006 bytes).
 PDF statistics:
  247 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams

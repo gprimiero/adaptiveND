@@ -2,4 +2,5 @@ Replies to reviewers (round 2)
 ================================
 
 – Stages in RU (Figure 7) are corrected.
-– Conditions in Figure 7 are now sets of negated abnormalities. 
+– Conditions in Figure 7 are now sets of negated abnormalities.
+– The redundancy of RU is now explained as the possibility to rewrite a proof with RU as a proof without by pushing the applications of RC downwards in the proof.

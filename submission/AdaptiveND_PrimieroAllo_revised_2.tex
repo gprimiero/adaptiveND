@@ -584,7 +584,7 @@ $\phi$ of the $\Omega$ type, a context $\Gamma$ followed by the Adaptive Conditi
 \end{figure}
 
 
-In Figure \ref{fig:adaptiverules}, the calculus is extended by introducing the conditional rule {\sf RC}, which states that if a disjunction $\psi,\phi$ is derivable from $\Gamma$, with $\phi$ an abnormal formula, then $\psi$ can also be derived alone under $\Gamma$ and the Adaptive Condition that $\phi$ be false. Because the application of {\sf RC} can be delayed by keeping formulae of type $\Omega$ on the right hand-side of the turnstile, the role of the unconditional rules of the standard calculus is subsumed under the {\sf Cut} rule. The single and multi-premise versions of the unconditional rules displayed in Figure \ref{fig:adaptiverules2} can thus be treated as derived rules as shown in Figure \ref{fig:condasderived}.
+In Figure \ref{fig:adaptiverules}, the calculus is extended by introducing the conditional rule {\sf RC}, which states that if a disjunction $\psi,\phi$ is derivable from $\Gamma$, with $\phi$ an abnormal formula, then $\psi$ can also be derived alone under $\Gamma$ and the Adaptive Condition that $\phi$ be false. Because the application of {\sf RC} can be delayed by keeping formulae of type $\Omega$ on the right hand-side of the turnstile, the role of the unconditional rules of the standard calculus is subsumed under the {\sf Cut} rule. The single and multi-premise versions of the unconditional rules displayed in Figure \ref{fig:adaptiverules2} can thus be treated as derived rules as shown by the procedures for rewriting a succession of RC and RU applications as a succession of Cut and RC applications in Figure \ref{fig:condasderived}.
 
 % two rules, see Figure \ref{fig:adaptiverules}. $RU$ is called the unconditional rule: it says that if a formula $\phi_{1}$ is derivable in {\sf AdaptiveND}, and another formula $\phi_{2}$ is derivable from $\phi_{1}$ without additional assumptions or adaptive conditions, then $\phi_{2}$ is derivable from $\phi_{1}$ and the context $\Gamma;\phi^{-}\vdash$ in which the latter holds.  $RC$ is  called the conditional rule: it says that if a disjunction $\psi,\phi$ is derivable from $\Gamma$, with $\phi$ an abnormal formula, then $\psi$ can also be derived alone under $\Gamma$ and the Adaptive Condition that $\phi$ be false.
 
@@ -623,19 +623,24 @@ $\Big\Downarrow$
                         }
                          {\TurnFour {\Gamma; \phi^-}{\phi_2}}
     \end{mathpar}
-    \caption{Redundancy of unconditional rules (basic case)}\label{fig:condasderived}
-\end{figure}
+\vspace{1cm}
+\begin{mathpar}
+    \infer*[right=RU]{
+        \infer*[right=RC]
+        {\TurnOne{\Gamma; \cdot}{\phi_1, \phi} \\ \phi \in \Gamma}
+        {\TurnTwo{\Gamma; \phi^-}{\phi_1}}
+        \\
+        \infer*[right=RC]
+        {\TurnThree{\Gamma'; \cdot}{\phi_2, \phi'} \\ \phi' \in \Gamma}
+        {\TurnFour{\Gamma'; \phi'^-}{\phi_2}}
+        \\
+        \TurnFive{\phi_1, \phi_2}{\phi_3}
+    }{\TurnSix{\Gamma, \Gamma'; \{\phi, \phi'\}}{\phi_3}}
+\end{mathpar}
 
-\begin{figure}
+$\Big\Downarrow$
+
     \begin{mathpar}
-        \infer*[right=RC]{
-                        \infer*[right=Cut]{\TurnOne {\Gamma; \cdot} {\phi_{1}, \phi}\\ {\TurnTwo {\phi_{1};\cdot} {\phi_{2}}}}
-                        {\TurnThree {\Gamma; \cdot} {\phi_{2}, \phi} \\ \phi \in \Omega}
-                        }
-                         {\TurnFour {\Gamma; \phi^-}{\phi_2}}
-
-        \and
-
 \infer*[right=RC]{
         \infer*[right=RC]{
         \infer*[right=Cut]{{\TurnFour {\Gamma; \cdot} {\phi_{1}, \phi}}
@@ -646,7 +651,7 @@ $\Big\Downarrow$
     {\TurnSix {\Gamma, \Gamma'; \phi^-} {\phi_{3}, \phi'} \\ \phi' \in \Omega}}
 {\TurnSeven {\Gamma, \Gamma'; \{\phi, \phi'\}^-} {\phi_{3}}}
     \end{mathpar}
-    \caption{Redundancy of unconditional rules (general case)}\label{fig:condasderived}
+    \caption{Redundancy of unconditional rules}\label{fig:condasderived}
 \end{figure}
 
 The Adaptive strategies developed in the next Section have the aim of establishing which abnormal formulas can no longer be safely considered as conditions in the application of the Conditional Rule {\sf RC}, in turn requiring the retraction of the previously derived formulas. To this aim, three elements need to be introduced:
