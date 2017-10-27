@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  27 OCT 2017 14:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  27 OCT 2017 15:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -494,7 +494,7 @@ LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 907.
 
 
 
-Overfull \hbox (33.69972pt too wide) in paragraph at lines 907--912
+Overfull \hbox (61.12367pt too wide) in paragraph at lines 907--912
  $[]$ 
  []
 
@@ -503,17 +503,17 @@ LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 916.
 
 
 
-Overfull \hbox (94.84406pt too wide) in paragraph at lines 916--923
+Overfull \hbox (122.268pt too wide) in paragraph at lines 916--923
  $[]$ 
  []
 
 [15]
-Overfull \hbox (81.64558pt too wide) in paragraph at lines 935--939
+Overfull \hbox (97.0143pt too wide) in paragraph at lines 935--939
  $[]$ 
  []
 
 
-Overfull \hbox (127.08513pt too wide) in paragraph at lines 945--952
+Overfull \hbox (142.45387pt too wide) in paragraph at lines 945--952
  $[]$ 
  []
 
@@ -564,7 +564,7 @@ LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 14
 10.
 
 
-Overfull \hbox (16.10509pt too wide) in paragraph at lines 1410--1415
+Overfull \hbox (30.45921pt too wide) in paragraph at lines 1410--1415
  $[]$ 
  []
 
@@ -590,7 +590,7 @@ LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 14
 28.
 
 
-Overfull \hbox (56.45894pt too wide) in paragraph at lines 1428--1436
+Overfull \hbox (70.81306pt too wide) in paragraph at lines 1428--1436
  $[]$ 
  []
 
@@ -658,7 +658,7 @@ y2-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps
 /wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy
 9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised_2.pdf (28 pages, 447706 bytes).
+llo_revised_2.pdf (28 pages, 449081 bytes).
 PDF statistics:
  247 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams

@@ -907,7 +907,7 @@ Minimal abnormality is the marking strategy that reflects the following conditio
 {\scriptsize
 \infer*[right={\scriptsize$\XBox$M}]{\Turn{\Gamma;\Theta^{-}}{\psi}\\
 \TurnPrime{\Gamma; \cdot}{\Phi(\Gamma)} \\
-{\Theta \cap {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \ne \emptyset \text{ for each } {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\}) \in \Phi(\Gamma)}}
+{\Theta \cap {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min} \ne \emptyset \text{ for each } {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min} \in \Phi(\Gamma)}}
 {\TurnMaxPlusOneMA{\Gamma;\Theta^{-}}{\psi}}}
 \end{mathpar}
 
@@ -917,8 +917,8 @@ Minimal abnormality is the marking strategy that reflects the following conditio
 \infer*[right={\scriptsize$\XBox$M2}]{\Turn{\Gamma;\Theta^{-}}{\psi}\\
 \ldots\\
 \TurnPrime{\Gamma; \Theta'^{-}}{\psi}\\
-\TurnPrimePrime{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})}\\
-{\forall(\Theta, \ldots, \Theta') \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\}) \ne \emptyset}}
+\TurnPrimePrime{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min}}\\
+{\forall(\Theta, \ldots, \Theta') \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min} \ne \emptyset}}
 {\TurnMaxTwoPlusOneMA{\Gamma; \Theta^{-}}{\psi}}}
 \end{mathpar}
 
@@ -934,7 +934,7 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 \begin{mathpar}
 \infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi} \\
 \infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi(\Gamma)}}}
-{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
 {\TurnMarkedNextNextMA{\Gamma;\Theta^-}{\psi}}
 \end{mathpar}
 
@@ -946,7 +946,7 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 \ldots\\
 \TurnPrime{\Gamma; \Theta'^{-}}{\psi}\\
 \infer*[right=\textsc{MinCh}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi(\Gamma)}}}
-{\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})}}
+{\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}
 \forall(\Theta\ldots \Theta') \cap \mathsf{choice_i} \ne \emptyset}
 {\TurnPrimePrimePlusTwo{\Gamma;\Theta^-}{\psi}}
 \end{mathpar}
@@ -1410,7 +1410,7 @@ By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{
 {\footnotesize
 \infer*[right={\tiny$\XBox$M}]{\Turn{\Gamma; \Theta^-}{\psi} \\
 \infer*[right={\tiny\textsc{MinChoice}}]{\infer*[right={\tiny\textsc{Choice}}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi'(\Gamma)}}}
-{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta'_1, \ldots, \Delta'_m\})}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta'_1, \ldots, \Delta'_m\})^{min}}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
 {\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}}}
 \end{mathpar}
 \end{figure}
@@ -1430,7 +1430,7 @@ By Theorem \ref{thm:clun} there are provable {\sf AdaptiveND} judgements $\Turn{
 \ldots\\
 \TurnPrime{\Gamma; \Theta'^{-}}{\psi}\\
 \infer*[right={\tiny\textsc{MinCh}}]{\infer*[right={\tiny\textsc{Choice}}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi'(\Gamma)}}}
-{\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\})}}
+{\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta'_1, \ldots, \Delta'_m\})^{min}}}
 \forall(\Theta\ldots \Theta') \cap \mathsf{choice_i} \ne \emptyset}
 {\TurnMarkedMAflex{t}{\Gamma;\Theta^-}{\psi}}}
 \end{mathpar}
