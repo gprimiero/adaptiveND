@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: AdaptiveND_PrimieroAllo_revised_2.aux
+The style file: plain.bst
+Database file #1: primiero.bib
+You've used 17 entries,
+            2118 wiz_defined-function locations,
+            621 strings with 6468 characters,
+and the built_in function-call counts, 4859 in all, are:
+= -- 485
+> -- 158
+< -- 1
++ -- 67
+- -- 47
+* -- 314
+:= -- 834
+add.period$ -- 53
+call.type$ -- 17
+change.case$ -- 70
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 201
+empty$ -- 432
+format.name$ -- 47
+if$ -- 1028
+int.to.chr$ -- 0
+int.to.str$ -- 17
+missing$ -- 20
+newline$ -- 88
+num.names$ -- 36
+pop$ -- 63
+preamble$ -- 1
+purify$ -- 56
+quote$ -- 0
+skip$ -- 125
+stack$ -- 0
+substring$ -- 335
+swap$ -- 25
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 60
+warning$ -- 0
+while$ -- 51
+width$ -- 19
+write$ -- 191

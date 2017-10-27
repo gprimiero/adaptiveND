@@ -1,0 +1,91 @@
+\begin{thebibliography}{10}
+
+\bibitem{Allo:Theoria:2015}
+Patrick Allo.
+\newblock Logic, reasoning and revision.
+\newblock {\em Theoria}, 82(1):3--31, 2016.
+
+\bibitem{BDVM08}
+D.~Batens, K.~{De Clerq}, P.~Verd{\'e}e, and J.~Meheus.
+\newblock Yes fellows, most human reasoning is complex.
+\newblock {\em Synthese}, 166(1):113--131, 2008.
+
+\bibitem{Batens:LogiqueAnalyse:1980}
+Diderik Batens.
+\newblock Paraconsistent extensional propositional logics.
+\newblock {\em Logique \& Analyse}, 23(90-91):195--234, 1980.
+
+\bibitem{Batens:ParaconsistentLogicEssaysOnTheInconsistent:1989}
+Diderik Batens.
+\newblock Dynamic dialectical logics.
+\newblock In Graham Priest, Richard Routley, and J.~Norman, editors, {\em
+  Paraconsistent Logic - Essays on the inconsistent}, pages 187--217.
+  Philosophia Verlag, München / Hamden / Wien, 1989.
+
+\bibitem{Batens:Synthese:2000}
+Diderik Batens.
+\newblock Minimally abnormal models in some adaptive logics.
+\newblock {\em Synthese}, 125(1):5--18, 2000.
+
+\bibitem{batens01}
+Diderik Batens.
+\newblock A general characterization of adaptive logics.
+\newblock {\em Logique \& Analyse}, 173--175:45--68, 2001.
+
+\bibitem{batens07}
+Diderik Batens.
+\newblock A universal logic approach to adaptive logics.
+\newblock {\em Logica universalis}, 1:221--242, 2007.
+
+\bibitem{Batens:LogiqueAnalyse:2001}
+Diderik Batens and Dagmar Provijn.
+\newblock Pushing the search paths in the proofs. a study in proof heuristics.
+\newblock {\em Logique \& Analyse}, 44(173-175):113--134, 2001.
+
+\bibitem{Beall01072012}
+Jc~Beall.
+\newblock Why {P}riest’s reassurance is not reassuring.
+\newblock {\em Analysis}, 72(3):517--525, 2012.
+
+\bibitem{Beall:TheReviewOfSymbolicLogic:2011}
+JC~C. Beall.
+\newblock Multiple-conclusion lp and default classicality.
+\newblock {\em The Review of Symbolic Logic}, 4(2):326--336, 6 2011.
+
+\bibitem{pfenning}
+Frank Pfenning.
+\newblock Handout on automated theorem proving.
+\newblock Technical report, School of Computer Science, Carnegie Mellon
+  University, 2004.
+
+\bibitem{GP:LPm}
+Graham Priest.
+\newblock Minimally inconsistent \textbf{{LP}}.
+\newblock {\em Studia Logica}, 50:321--331, 1991.
+
+\bibitem{Priest:InContradiction:2006}
+Graham Priest.
+\newblock {\em In Contradiction (2nd. Ed.)}.
+\newblock Oxford University Press, Oxford, 2006.
+
+\bibitem{Priest01102012}
+Graham Priest.
+\newblock The sun may not, indeed, rise tomorrow: a reply to {B}eall.
+\newblock {\em Analysis}, 72(4):739--741, 2012.
+
+\bibitem{Sch60}
+Kurt Sch{\"u}tte.
+\newblock {\em Beweistheorie}.
+\newblock Springer, Berlin, 1960.
+
+\bibitem{Strasser:AdaptiveLogicsForDefeasibleReasoning:}
+Christian Strasser.
+\newblock {\em Adaptive Logics for Defeasible Reasoning}.
+\newblock Trends in Logic. Springer, 2014.
+
+\bibitem{Troelstra:2000:BPT:351148}
+A.~S. Troelstra and H.~Schwichtenberg.
+\newblock {\em Basic Proof Theory (2Nd Ed.)}.
+\newblock Cambridge University Press, New York, NY, USA, 2000.
+
+\end{thebibliography}
