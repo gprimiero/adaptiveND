@@ -950,19 +950,17 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 
 
 \begin{mathpar}
-\infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi} \\
-\ldots\\
-\TurnPrime{\Gamma; \Theta'^{-}}{\psi}\\
-\infer*[right=\textsc{MinCh}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi(\Gamma)}}}
-{\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}
-\forall(\Theta\ldots \Theta') \cap \mathsf{choice_i} \ne \emptyset}
+\infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi}
+\infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi(\Gamma)}}}
+{\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}\\
+\Theta \cap \mathsf{choice_i} \ne \emptyset\\ \ddag} 
 {\TurnPrimePrimePlusTwo{\Gamma;\Theta^-}{\psi}}
 \end{mathpar}
 
 \caption{Marking-trees for Minimal Abnormality}\label{fig:exmarkMA}
 \end{figure}
 
-In Figure \ref{fig:exmarkMA} we illustrate with two trees the intended use of the marking-rules for Minimal Abnormality. In the first tree, it is shown how the derivation of a formula $\psi$ under an adaptive condition $\Theta$ is followed by a series of derivations $\Pi$ for all possible choice sets of minimally abnormal formulas; if the side condition that requires $\Theta$ to occur in each such set holds, then marking can be applied. In the second (dual) tree, it is shown how a formula $\psi$ derived under a series of adaptive conditions $\Theta, \dots, \Theta'$ is marked if all these conditions occur in at least one choice set of minimally abnormal formulas derived by a sub-tree $\Pi$.
+In Figure \ref{fig:exmarkMA} we illustrate with two trees the intended use of the marking-rules for Minimal Abnormality. In the first tree, it is shown how the derivation of a formula $\psi$ under an adaptive condition $\Theta$ is followed by a series of derivations $\Pi$ for all possible choice sets of minimally abnormal formulas; if the side condition that requires $\Theta$ to occur in each such set holds, then marking can be applied. In the second (dual) tree, it is shown how a formula $\psi$ derived under an adaptive condition $\Theta$ is marked if either (i) no alternative conditional derivation of $\psi$ occurs in the proof, or (ii) every alternative conditional derivation of $\psi$ that occurs in the proof depends on a condition $\Theta'$ that intersects with the same minimal choice-set $\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}$.
 
 
 
