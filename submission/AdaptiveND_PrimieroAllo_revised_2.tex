@@ -1211,13 +1211,115 @@ which can once more be used to re-derive $p$:
     \infer*[]{\mathbb{E}^*}{\TurnMarkedEighteenREL{\Gamma; (q \wedge \neg q)^-}{p}}\\
     \infer*[right=UnRel]{
     \infer*[]{\mathbb{F}}{\TurnThirteen {\Gamma; \cdot}{(r \wedge \neg r)}}\\
-    \infer*[]{\mathbb{F}^*}{\TurnTwentyThree {\Gamma; \cdot}{(s \wedge \neg s)}}}{\TurnTwentyFour {\Gamma;\cdot}{\bigcup(\{r \wedge \neg r, s \wedge \neg s\})}}\\
+    \infer*[]{\mathbb{F}^*}{\TurnTwentyThree {\Gamma; \cdot}{(s \wedge \neg s)}}}{\TurnTwentyFour {\Gamma;\cdot}{\Unrel(\{r \wedge \neg r, s \wedge \neg s\})}}\\
 \infer*[]{\mathbb{D}}{\TurnFourteen {\Gamma;\cdot}{(q\wedge \neg q), p}}
 }
 {\TurnTwentyFive {\Gamma;(q \wedge \neg q)^{-}}{p}}
 
 \end{mathpar}
 
+\subsection{An Example Based on Minimal Abnormality}
+Let $\Gamma = \{p \vee r, p \vee q, q \vee r, \neg p, \neg q\}$, and consider first a derivation $\mathbb{A}$ that ends with an application of RC.
+\begin{mathpar}
+    \infer*[right=RC]
+        {
+        \infer*[right=$\wedge$ I]
+            {\infer*[right=$\vee$ E]
+                {\infer*[right=PREM]
+                {~}
+                {\TurnOne{\Gamma; \cdot}{p \vee r}}}
+                {\TurnTwo{\Gamma; \cdot}{p, r}}\\
+             \infer*[right=PREM]
+             {~}
+             {\TurnThree{\Gamma; \cdot}{\neg p}}}
+            {\TurnFour{\Gamma; \cdot}{p \wedge \neg p, r}}}
+        {\TurnFive{\Gamma; (p \wedge \neg p)^-}{r}}
+\end{mathpar}
+Next, let $\mathbb{B}$ be the following derivation, where $\dag$ refers to the application of $\wedge$ I followed by the application of \textsc{MinDab}, and $\ddag$ refers to the application of \textsc{Choice} followed by the application of \textsc{MinChoice} (boldface is used to indicate which member of a minimal disjunction of abnormalities is chosen):
+
+\begin{mathpar}
+    \infer*[right=$\ddag$]
+        {\infer*[right=$\dag$]
+        {\infer*[right=$\wedge$ I]
+        {
+        \infer*[right=$\vee$ E]
+        {\infer*[right=PREM]
+        {~}
+        {\TurnSix{\Gamma; \cdot}{p \vee q}}}
+        {\TurnSeven{\Gamma; \cdot}{p, q}}
+        \\
+        \infer*[right=PREM]
+        {~}
+        {\TurnEight{\Gamma; \cdot}{\neg p}}
+        }
+        {\TurnNine{\Gamma; \cdot}{p \wedge \neg p, q}}
+        \\
+        \infer*[right=PREM]
+        {~}
+        {\TurnTen{\Gamma; \cdot}{\neg q}}
+        }
+        {\TurnEleven{\Gamma; \cdot}{(p \wedge \neg p, q \wedge \neg q)^{min}}}}
+        {\TurnTwelve{\Gamma; \cdot}{\mathsf{choice_1}(\{\{\mathbf{p \wedge \neg p}, q \wedge \neg q\}\})^{min}}}
+\end{mathpar}
+Combining both with an application of \XBox M2 gives us the derivation $\mathbb{C}$:
+\begin{mathpar}
+\infer*[right=\XBox M2]
+    {
+        \infer*[right=RC]
+            {\mathbb{A}}
+            {\TurnFive{\Gamma; (p \wedge \neg p)^-}{r}}\\
+        \infer*[right=MinChoice]
+        {\mathbb{B}}
+        {\TurnTwelve{\Gamma; \cdot}{\mathsf{choice_1}(\{\{\mathbf{p \wedge \neg p}, q \wedge \neg q\}\})^{min}}}
+    }
+    {\TurnMarkedMAflex{13}{\Gamma; (p \wedge \neg p)^-}{r}}
+\end{mathpar}
+The side-condition for the application of this marking-rule is satisfied because no other conditional derivation of $r$ occurs earlier in the proof, and \emph{a fortiori}, no deduction of $r$ on a condition that does not intersect with the choice-set ${p \wedge \neg p}$ has been given.
+
+Derivation $\mathbb{D}$ now provides a proof of $r$ that relies on a different condition:
+\begin{mathpar}
+    \infer*[right=RC]
+        {
+        \infer*[right=$\wedge$ I]
+            {\infer*[right=$\vee$ E]
+                {\infer*[right=PREM]
+                {~}
+                {\TurnFourteen{\Gamma; \cdot}{q \vee r}}}
+                {\TurnFifteen{\Gamma; \cdot}{q, r}}\\
+             \infer*[right=PREM]
+             {~}
+             {\TurnSixteen{\Gamma; \cdot}{\neg q}}}
+            {\TurnSeventeen{\Gamma; \cdot}{q \wedge \neg q, r}}}
+        {\TurnEighteen{\Gamma; (q \wedge \neg q)^-}{r}}
+\end{mathpar}
+At this point, we can see that neither of the following attempts to mark conditional deductions of $r$ using the minimal abnormality marking-rule can succeed:
+\begin{mathpar}
+\infer*[right=\XBox M2]
+    {
+        \infer*[right=RC]
+            {\mathbb{A'}}
+            {\Turn{\Gamma; (p \wedge \neg p)^-}{r}}\\
+        \infer*[right=MinChoice]
+        {\mathbb{B'}}
+        {\TurnPrime{\Gamma; \cdot}{\mathsf{choice_1}(\{\{\mathbf{p \wedge \neg p}, q \wedge \neg q\}\})^{min}}}
+    }
+    {?}
+\end{mathpar}
+\begin{mathpar}
+\infer*[right=\XBox M2]
+    {
+        \infer*[right=RC]
+            {\mathbb{D}}
+            {\TurnEighteen{\Gamma; (p \wedge \neg p)^-}{r}}\\
+        \infer*[right=MinChoice]
+        {\mathbb{B''}}
+        {\TurnPrimePrime{\Gamma; \cdot}{\mathsf{choice_2}(\{\{q \wedge \neg q, \mathbf{q \wedge \neg q}\}\}^{min}}}
+    }
+    {?}
+\end{mathpar}
+for in the former case judgement 18 depends on a condition that does not depend on the normal behaviour of $p \wedge \neg p$, whereas in the latter case judgement $\mathsf{s}$ (a copy of judgement 5) does not depend on the normal behaviour of $q \wedge \neg q$. As a consequence, neither judgement 18 or judgement $\mathsf{s}$ can be marked at a stage later than 18.
+
+Finally, do remark that the failure to apply \XBox M2 after the derivation of judgement 18 does not depend on the presence of the judgement $\mathsf{s}$ where $\mathsf{s} > 13$. The side-condition for the application of this rule is already violated by the presence of judgement 5 higher-up in the proof; even though the latter was marked at stage 13.
 
 \subsection{Reconstruction of linear adaptive proofs}
 Before we consider the question of final derivability, which is needed to relate what is provable in dynamic proofs to a semantic consequence relation, we first show that every proof in \textsf{AdaptiveND} can, with the help of the numbering of the judgements, be mapped onto an (albeit somewhat redundant) adaptive proof in a linear format. This relates what can be derived at a stage in an \textsf{AdaptiveND}-proof to what can be derived at a stage in a linear proof.

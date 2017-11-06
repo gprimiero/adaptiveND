@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  6 NOV 2017 11:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  6 NOV 2017 13:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -529,36 +529,51 @@ Overfull \hbox (85.20042pt too wide) in paragraph at lines 1210--1219
  []
 
 [20]
-Overfull \hbox (1.66714pt too wide) in paragraph at lines 1260--1261
-[]\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
-red meta-theoretical
- []
-
-[21] [22] [23]
-
-LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1357.
-
-[24]
-
-LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 14
-18.
-
-
-Overfull \hbox (30.45921pt too wide) in paragraph at lines 1418--1423
+Overfull \hbox (16.20671pt too wide) in paragraph at lines 1266--1276
  $[]$ 
  []
 
 
-Overfull \hbox (6.1614pt too wide) in paragraph at lines 1426--1427
+Overfull \hbox (12.81847pt too wide) in paragraph at lines 1297--1307
+ $[]$ 
+ []
+
+
+Overfull \hbox (14.53001pt too wide) in paragraph at lines 1309--1319
+ $[]$ 
+ []
+
+[21] [22]
+Overfull \hbox (1.66714pt too wide) in paragraph at lines 1362--1363
+[]\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
+red meta-theoretical
+ []
+
+[23] [24]
+
+LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
+(Font)              using `U/wasy/m/n' instead on input line 1459.
+
+[25]
+
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 15
+20.
+
+
+Overfull \hbox (30.45921pt too wide) in paragraph at lines 1520--1525
+ $[]$ 
+ []
+
+
+Overfull \hbox (6.1614pt too wide) in paragraph at lines 1528--1529
 []\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; []
  ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$ is a su-per-set of
  some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/c
 mr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$.
  []
 
-
-Overfull \hbox (14.27419pt too wide) in paragraph at lines 1428--1429
+[26]
+Overfull \hbox (14.27419pt too wide) in paragraph at lines 1530--1531
 []\OT1/cmr/m/n/10 or for ev-ery $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML
 /cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \O
 MS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^H(^^@)$, if $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m
@@ -567,25 +582,25 @@ cmr/m/n/10 ) \OMS/cmsy/m/n/10 \
  []
 
 
-LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 14
-36.
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 15
+38.
 
 
-Overfull \hbox (70.81306pt too wide) in paragraph at lines 1436--1444
+Overfull \hbox (70.81306pt too wide) in paragraph at lines 1538--1546
  $[]$ 
  []
 
-[25]
-Overfull \hbox (7.07042pt too wide) in paragraph at lines 1446--1447
+
+Overfull \hbox (7.07042pt too wide) in paragraph at lines 1548--1549
 \OT1/cmr/m/n/10 ^^B\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^B[]$, it must also
  in-ter-sect with some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it
 /10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \OMS/cmsy/m
 /n/10 2
  []
 
-[26]
+[27] [28]
 (/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.bbl
-[27]) [28]
+[29]) [30]
 (/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.aux
 )
 
@@ -637,10 +652,10 @@ c/wasy2-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/was
 y2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps
 /wasy9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised_2.pdf (28 pages, 432067 bytes).
+llo_revised_2.pdf (30 pages, 437854 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
+ 245 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
