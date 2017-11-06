@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  27 OCT 2017 15:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  6 NOV 2017 10:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,7 +455,7 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 \myCenter3=\dimen143
 \myScoreEnd3=\dimen144
 [2] [3] [4] [5] [6] [7]
-Overfull \hbox (2.1706pt too wide) in paragraph at lines 629--640
+Overfull \hbox (7.14554pt too wide) in paragraph at lines 629--640
  $[]$ 
  []
 
@@ -542,23 +542,23 @@ Overfull \hbox (34.13206pt too wide) in paragraph at lines 1189--1197
  $[] 
  []
 
-
+[19]
 Overfull \hbox (85.20042pt too wide) in paragraph at lines 1202--1211
  $[] 
  []
 
-[19] [20]
+[20]
 Overfull \hbox (1.66714pt too wide) in paragraph at lines 1252--1253
 []\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
 red meta-theoretical
  []
 
-[21] [22]
+[21] [22] [23]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
 (Font)              using `U/wasy/m/n' instead on input line 1349.
 
-[23] [24]
+[24]
 
 LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 14
 10.
@@ -614,7 +614,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  3489 strings out of 493089
  41937 string characters out of 6134842
- 120331 words of memory out of 5000000
+ 119331 words of memory out of 5000000
  6913 multiletter control sequences out of 15000+600000
  22195 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -658,7 +658,7 @@ y2-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps
 /wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy
 9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised_2.pdf (28 pages, 449062 bytes).
+llo_revised_2.pdf (28 pages, 449583 bytes).
 PDF statistics:
  247 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams

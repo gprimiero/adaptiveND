@@ -438,7 +438,7 @@ The semantics of connectives is given in the standard proof-theoretic way by Int
 \caption{Structural Rules}\label{fig:structural}
 \end{figure}
 
-Finally, we introduce  in Figure \ref{fig:structural} a set of rules to enforce structural properties.  {\sf WL} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule can only work with a strictly empty set of formulas $; \cdot$ following $\Gamma$: we shall introduce in the next section this as the set of \textit{adaptive conditions}. The reason for this requirement in {\sf WL} is that the set of adaptive conditions strictly depends on the set of assumptions $\Gamma$, hence a Weakening of the latter can imply a different formulation of the former. We do not need to formulate a {\sf WR} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf CL} for Contraction on the left allows elimination of repeated assumptions and {\sf EL} for Exchange on the left is valid just by set construction, as there is no order. {\sf CR} and {\sf ER} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Calculi) guarantees that derivations can be pasted together, and in general it requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
+Finally, we introduce  in Figure \ref{fig:structural} a set of rules to enforce structural properties.  {\sf WL} is a Weakening on the left-hand side of the judgement: it allows the monotonic extension of assumptions preserving already derivable formulas. Notice that this rule requires an empty set of formulas $; \cdot$ following $\Gamma$. As will become clear in the next section, this means that weakening is only valid when the set of \textit{adaptive conditions} is empty, that is, when no provisional assumptions are made that depend on the premises. We do not need to formulate a {\sf WR} rule for weakening of the set $\Delta$ of derivable formulas, as this can be obtained by a detour of $\vee$-Introduction and Elimination. {\sf CL} for Contraction on the left allows elimination of repeated assumptions and {\sf EL} for Exchange on the left is valid just by set construction, as there is no order. {\sf CR} and {\sf ER} do a similar job on the right-hand side of the judgement. Finally, {\sf Cut} (also known as {\sf Substitution} in some Natural Deduction Calculi) guarantees that derivations can be pasted together, and in general it requires that there are no clashes of free variables in $\Gamma, \Gamma'$.
 
 The resulting system is equivalent to the propositional fragment of \textbf{CLuN}, the logic obtained by adding Excluded Middle to the positive fragment of classical logic. This is a very weak paraconsistent (but not paracomplete) logic that does not validate any of the usual De Morgan rules \cite{Batens:LogiqueAnalyse:1980}, and which has been used as the Lower Limit Logic of one of the first adaptive logics.
 
@@ -579,7 +579,7 @@ $\phi$ of the $\Omega$ type, a context $\Gamma$ followed by the Adaptive Conditi
 \and
 \infer*[right=Adaptive Condition-formation] {{\Turn {\Gamma;\cdot} {\sf wf} } \\ {\phi \in {\sf \Omega}}} {\TurnNext {\Gamma ; \phi^{-}} {\sf wf}}
 \and
-\infer*[right=Adaptive Condition-extension] {{\Turn {\Gamma;\Theta^-} {\sf wf} } \\ {\phi \in {\sf \Omega}}} {\TurnNext {\Gamma ; \Theta^-, \phi^{-}} {\sf wf}}
+\infer*[right=Adaptive Condition-extension] {{\Turn {\Gamma;\Theta^-} {\sf wf} } \\ {\phi \in {\sf \Omega}}} {\TurnNext {\Gamma ; (\Theta \cup \{\phi\})^-} {\sf wf}}
 \end{mathpar}
 \caption{$\Omega$ Formation rules}\label{fig:omega}
 \end{figure}
@@ -626,7 +626,7 @@ $\Big\Downarrow$
     \end{mathpar}
 \vspace{1cm}
 \begin{mathpar}
-    \infer*[right=RU]{
+    \infer*[right=RU2]{
         \infer*[right=RC]
         {\TurnOne{\Gamma; \cdot}{\phi_1, \phi} \\ \phi \in \Gamma}
         {\TurnTwo{\Gamma; \phi^-}{\phi_1}}
@@ -658,21 +658,21 @@ $\Big\Downarrow$
 The Adaptive strategies developed in the next Section have the aim of establishing which abnormal formulas can no longer be safely considered as conditions in the application of the Conditional Rule {\sf RC}, in turn requiring the retraction of the previously derived formulas. To this aim, three elements need to be introduced:
 
 \begin{enumerate}
-\item  minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$, with $\Delta \subset \Omega$;
+\item minimal disjunctions of formulas of type $\Omega$, denoted by $\bigvee(\Delta)^{min}$, with $\Delta \subset \Omega$;
 \item the union of all abnormalities that occur as a disjunct of some $\bigvee(\Delta)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\Unrel(\Gamma)$;
-\item the set of minimal choice sets of a set of sets $\Delta_1, \ldots, \Delta_n$, corresponding to all $\bigvee(\Delta_i)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\Phi(\Gamma)$.
+\item the set of choice sets of a set of sets $\Delta_1, \ldots, \Delta_n$, corresponding to all $\bigvee(\Delta_i)^{min}$ derived up to a certain stage from $\Gamma$, denoted by $\Phi(\Gamma)$.
 \end{enumerate}
 
 The rules in Figure \ref{fig:mindab} establish these three constructions.
 
-Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one can be derived in the same context $\Gamma$. Note that the superscript $min$ works as an annotation indicating that the $\Delta$ in the first premise of the {\sf MinDab} rule satisfies the side condition of the same rule, but it does not indicate that $\Delta^{min}$ and $\Delta$ are two different sets.
+Rule {\sf MinDab} says that a disjunctive formula of the $\Omega$ type derived at some stage {\sf s} of a derivation can be considered minimal at stage {\sf s'} if at no previous stage {\sf t} $<$ {\sf s'} a shorter one was derived under the same context $\Gamma$. Note that the superscript $min$ works as an annotation indicating that the $\Delta$ in the first premise of the {\sf MinDab} rule satisfies the side condition of the same rule, but it does not indicate that $\Delta^{min}$ and $\Delta$ are two different sets.
 
 Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each derived according to {\sf MinDab} at stages {\sf s-n} up to {\sf s-1}, the union of all such formulas can be derived at stage {\sf s}, defined as follows:
 
 \begin{definition}[Set of unreliable formulas]
 $\Unrel(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the conjunction of the union of some $\Delta_{1}, \dots, \Delta_{n}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
 \end{definition}
-Note that when the operator $\Unrel(\Gamma)$ occurs on the right-hand side of the tunrstile, its reading is not intended as disjunctive, as it is the case for normal a set $\Delta$ in the same position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. Remark also that this rule does not require that all minimal disjunctions of abnormalities derived at a given stage need to be used as a premise, but that the side-condition does refer to all such minimal disjunctions of abnormalities.
+Keep in mind that $\Unrel(\Gamma)$ denotes a conjunction and not a set of formulae. As such, when it occurs on the right-hand side of the turnstile it should not be read as a disjunction of abnormalities (which is the intended reading for a set $\Delta$ of abnormalities in that position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. Contrary to how unreliable formulae at a stage are defined in standard adaptive proofs, this rule does not require that all minimal disjunctions of abnormalities derived at a given stage need to be used as a premise of that, the side-condition does, however, refer to all such minimal disjunctions of abnormalities.
 
 Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows:
 
@@ -715,11 +715,11 @@ The choice set of an empty set of minimal disjunction of abnormalities is empty.
 \end{mathpar}
 
 
-\caption{Minimal Abnormal Formulas Rule and their Choice Set}\label{fig:mindab}
+\caption{Deriving Minimal Disjunctions of Abnormalities, Unreliable Formulae, and Minimal Choice Sets of Abnormalities}\label{fig:mindab}
 \end{figure}
 
 
-The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree, and the marking procedure depends on the derivation of these types of judgements. Unlike for the standard definitions of unreliable formulae and minimal choice-sets, the conclusions of the rules \textsc{UnRel} and \textsc{Choice} do not necessarily coincide with the minimal choice-sets and sets of unreliable formulae as they are used in the standard proof-format. The following propositions guarantee that this does not lead to further complications: if an abnormality occurs in $\Unrel(\Gamma)$, but is not unreliable according to $\Gamma$, then $\Unrel(\Gamma)$ was derived from a $\Delta_i$ that isn't minimal; similarly, if an abnormality occurs in some ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$, but isn't verified by a minimally abnormal model, then it was derived from a $\Delta_i$ that isn't minimal. The key to these results is that the side-conditions that apply to the premises of \textsc{UnRel} and \textsc{Choice} refer to all disjunctions of abnormalities that occur unconditionally in the proof, and not only those used as premises.
+The derivation of a minimal disjunction of abnormalities and the formation of their union and choice set is a process that occurs along with the development of the proof-tree, and the marking procedure depends on the derivation of these types of judgements. Unlike for the standard definitions of unreliable formulae and minimal choice-sets, the conclusions of the rules \textsc{UnRel} and \textsc{Choice} do not necessarily coincide with the minimal choice-sets and sets of unreliable formulae as they are used in the standard proof-format. The following propositions guarantee that this does not lead to further complications: if an abnormality occurs in $\Unrel(\Gamma)$, but is not unreliable according to $\Gamma$, then $\Unrel(\Gamma)$ was derived from a $\Delta_i$ that isn't minimal; similarly, if an abnormality occurs in some ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$, but isn't verified by a minimally abnormal model, then it was derived from a $\Delta_i$ that isn't minimal. The key to these results is that the side-conditions that apply to the premises of \textsc{UnRel} and \textsc{Choice} refer to all disjunctions of abnormalities that occur unconditionally in the proof, and not only to those used as premises.
 
 \begin{proposition}\label{prop:unrel}
     If $\Turn{\Gamma;\cdot}{\Unrel(\Gamma)}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are minimal at $s$, then each conjunct of $\Unrel(\Gamma)$ is in $\bigcup(\Lambda)$.
