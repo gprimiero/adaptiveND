@@ -766,9 +766,9 @@ In the above derivation, all judgements up to stage $4$ are obtained by {\sf min
 In standard Adaptive Logics, one introduces strategies to tell which applications of the {\sf RC} rule should be retracted in view of the Minimal Disjunction of Abnormalities that have been derived. Adaptive Logics come with marking mechanisms that allow such retractions, according to different possible strategies. The two `standard' strategies and their rationale are \cite{batens01}:
 
 \begin{itemize}
-    \item \textit{Reliability}: once a $\Unrel(\Gamma)$ is derived at some stage {\sf s}, \textit{every} formula $\psi$ derived at some prior stage {\sf s'} on the assumption that some $\phi\in \Unrel(\Gamma)$ is false, needs to be retracted;
+    \item \textit{Reliability}: once $\Unrel(\Gamma)$ is derived at some stage {\sf s}, \textit{every} formula $\psi$ derived at some prior stage {\sf s'} on the assumption that some $\phi\in \Unrel(\Gamma)$ is false, needs to be retracted;
 
-\item \textit{Minimal Abnormality}: once a $\Phi(\Gamma)$ is derived at some stage {\sf s}, a formula $\psi$ is marked if either (i) it is derived at some prior stage {\sf s'} on an assumption $\Theta$ which intersects with every minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$; or (ii) for some minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$, there is no derivation of $\psi$ on another condition $\Theta'$, such that the intersection of $\Theta'$ with ${\sf choice_{i}}$ is empty.
+\item \textit{Minimal Abnormality}: once $\Phi(\Gamma)$ is derived at some stage {\sf s}, a formula $\psi$ is marked if either (i) it is derived at some prior stage {\sf s'} on an assumption $\Theta$ which intersects with every minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$; or (ii) for some minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$, there is no derivation of $\psi$ on another condition $\Theta'$, such that the intersection of $\Theta'$ with ${\sf choice_{i}}$ is empty.
 \end{itemize}
 %
 In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic reconstruction of the standard marking conditions. The conclusion of a Marking Rule expresses a dead-end for the tree, and as such its content should not be used as premise for any other step. To preserve such information about retracted judgements within a proof,\footnote{This move also facilitates the practice of cutting and pasting proofs together without having to renumber the judgements.} we need to extend the standard formalisation of proofs as trees, and define adaptive proofs as sequences of proof-trees.
@@ -786,7 +786,7 @@ A well-formed {\sf AdaptiveND} tree is a finite proof tree obtained by deriving 
 An {\sf AdaptiveND} proof is a sequence of {\sf AdaptiveND} trees $T_{1}, \dots, T_{n}$ with consecutively numbered judgements across the trees.
 \end{definition}
 
-As a notational short-hand, we will sometimes include marked judgements as unused premises to incorporate dead-ends in a single proof-tree.
+As a notational short-hand, we will sometimes include marked judgements as unused premises to incorporate dead-ends in a single proof-tree, and include final judgements of an earlier proof tree as top leaves of a new proof tree.
 
 
 \subsection{Marking Rule for Reliability}\label{sec:markrel}
@@ -843,7 +843,7 @@ Let us now extend the example from Section \ref{sec:example} with a new branch t
 \end{mathpar}
 \bigskip
 
-In this derivation a new abnormality is derived at stage {\sf 10}, namely the same that is assumed to be false at stage {\sf 5}. Note that we avoid the superflous inference step from the formula $(p \wedge \neg p)$ to the corresponding singleton set of unreliable formulas; moreover, it is essential that this abnormality be derived under an empty condition, i.e. under context $\Gamma;\cdot$, as explained above for the required strict condition on {\sf WL}. A difference between the Fitch-style proofs that are the existing standard for Adaptive Logics and the proposed Natural Deduction derivation style becomes evident here. In the former, a marking rule implies the need to proceed backwards on the derivation, to mark all lines that were derived on an assumption that is shown to be violated and thus can no longer be considered derived. In the latter, on the other hand, there is no need to remove formulas because the result obtained at stage {\sf 5} cannot be reused in an extension of this proof.  Instead a new derivation step is performed (stage {\sf 11}), where the conclusion $q$ is marked. Moreover, if we were ever to get again $\Gamma; (p \wedge \neg p)^{-} \vdash_{\sf i} q$, it would be obtained as the result of some new derivation $\mathbb{D}^{\prime}$ and be the conclusion at some stage ${\sf i>11}$, where an additional step would again be required to mark it at a later stage.
+In this derivation a new abnormality is derived at stage {\sf 10}, namely the same that is assumed to be false at stage {\sf 5}. Note that we avoid the superflous inference step from the formula $(p \wedge \neg p)$ to the corresponding singleton set of unreliable formulas; moreover, it is essential that this abnormality be derived under an empty condition, i.e. under context $\Gamma;\cdot$, as explained above for the required strict condition on {\sf WL}. A difference between standard (i.e. linear) adaptive proofs and the proposed tree-style Natural Deduction derivation proof format becomes evident here. In the former, a marking rule implies the need to proceed backwards on the derivation, to mark all lines that were derived on an assumption that is shown to be violated and thus can no longer be considered derived. In the latter, on the other hand, there is no need to remove formulas because the result obtained at stage {\sf 5} cannot be reused in an extension of this proof.  Instead a new derivation step is performed (stage {\sf 11}), where the conclusion $q$ is marked. Moreover, if we were ever to get again $\Gamma; (p \wedge \neg p)^{-} \vdash_{\sf i} q$, it would be obtained as the result of some new derivation $\mathbb{D}^{\prime}$ and be the conclusion at some stage ${\sf i>11}$, where an additional step would again be required to mark it at a later stage.
 
 
 %
@@ -904,23 +904,31 @@ Minimal abnormality is the marking strategy that reflects the following conditio
 % \end{mathpar}
 
 \begin{mathpar}
-{\scriptsize
 \infer*[right={\scriptsize$\XBox$M}]{\Turn{\Gamma;\Theta^{-}}{\psi}\\
-\TurnPrime{\Gamma; \cdot}{\Phi(\Gamma)} \\
-{\Theta \cap {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min} \ne \emptyset \text{ for each } {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min} \in \Phi(\Gamma)}}
-{\TurnMaxPlusOneMA{\Gamma;\Theta^{-}}{\psi}}}
+\TurnPrime{\Gamma; \cdot}{\Phi(\Gamma)} \\ (\dag)}
+{\TurnMaxPlusOneMA{\Gamma;\Theta^{-}}{\psi}}
 \end{mathpar}
 
+with
+\[\Theta \cap {\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min} \ne \emptyset \tag{\dag}\]
+for each ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min} \in \Phi(\Gamma)$.
 
 \begin{mathpar}
-{\scriptsize
 \infer*[right={\scriptsize$\XBox$M2}]{\Turn{\Gamma;\Theta^{-}}{\psi}\\
-\ldots\\
-\TurnPrime{\Gamma; \Theta'^{-}}{\psi}\\
-\TurnPrimePrime{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min}}\\
-{\forall(\Theta, \ldots, \Theta') \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min} \ne \emptyset}}
-{\TurnMaxTwoPlusOneMA{\Gamma; \Theta^{-}}{\psi}}}
+\TurnPrime{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min}}\\ (\dag) \\ (\ddag)}
+{\TurnMarkedMAflex{max(s, s')+1}{\Gamma; \Theta^{-}}{\psi}}
 \end{mathpar}
+
+with
+\[
+    \Theta \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min} \ne \emptyset, \tag{\dag}
+\]
+
+and
+\[
+    \Gamma; \Theta' \vdash_{\mathsf{t < s'}} \psi \Longrightarrow \Theta' \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min} \ne \emptyset \tag{\ddag}
+\]
+
 
 \caption{Marking for Minimal Abnormality}\label{fig:MA}
 \end{figure}
