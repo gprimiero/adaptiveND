@@ -238,10 +238,10 @@ University of Oxford\\
 \maketitle
 
 \begin{abstract}
-We present a multi-conclusion natural deduction calculus characterizing the dynamic reasoning typical of adaptive logics. The resulting system {\sf AdaptiveND} is sound and complete with respect to the propositional fragment of adaptive logics based on  \textbf{CLuN}. This appears to be the first tree-format presentation of the standard linear dynamic proof system typical of Adaptive Logics. It offers the advantage of full transparency in the formulation of locally derivable rules, a connection between restricted inference rules and their adaptive counterpart, and the formulation of abnormalities as a subtype of well-formed formulas. These features of the proposed calculus allow us to clarify the relation between defeasible and multiple-conclusion approaches to classical recapture.
+We present a multi-conclusion natural deduction calculus characterizing the dynamic reasoning typical of Adaptive Logics. The resulting system {\sf AdaptiveND} is sound and complete with respect to the propositional fragment of adaptive logics based on  \textbf{CLuN}. This appears to be the first tree-format presentation of the standard linear dynamic proof system typical of Adaptive Logics. It offers the advantage of full transparency in the formulation of locally derivable rules, a connection between restricted inference rules and their adaptive counterpart, and the formulation of abnormalities as a subtype of well-formed formulas. These features of the proposed calculus allow us to clarify the relation between defeasible and multiple-conclusion approaches to classical recapture.
 \end{abstract}
 
-\section{Intro}
+\section{Introduction}
 
 In this paper we outline a multiple-conclusion natural deduction calculus in which the dynamics of standard (Fitch-style) dynamic proofs of Adaptive Logics \cite{batens07} can be reconstructed. Adaptive logics are a family of logics that can be used to formalise a wide range of defeasible reasoning forms. Their consequence-relations rely on the standard idea of interpreting premises as normally as possible through the selection of models of its premises, but it is only at the level of its proof-theory that its distinctive approach comes to the fore. Adaptive logics, namely, reconstruct defeasible reasoning patterns as dynamic proofs; proofs in which steps performed earlier may later be retracted when the assumptions they were based on no longer hold.
 %The specific system we describe here is for
@@ -555,7 +555,7 @@ When the second place on the left-hand side of $\vdash$ is empty, we shall write
 Moreover, in {\sf AdaptiveND}, the annotation on the proof stage {\sf s} is optionally followed by one of the following two marks:
 
 \begin{itemize}
-    \item[]  $\XBox$ to mark that at the current stage some previously derived formula is retracted; the meaning of this annotation is given for the Reliability Strategy by a corresponding rule $\XBox R$, presented in Section \ref{sec:markrel}; for the Minimal Abnormality Strategy, its meaning is given by two rules, presented in Section \ref{sec:ma};
+    \item[]  $\XBox$ to mark that at the current stage some previously derived formula is retracted; the meaning of this annotation is given for the Reliability Strategy by a corresponding rule $\XBox R$, presented in Section \ref{sec:markrel}; for the Minimal Abnormality Strategy, its meaning is given by two rules $\XBox M1$ and $\XBox M2$, presented in Section \ref{sec:ma};
 \item[] $\checked$ to mark that at the current stage some previously derived formula is now finally derived, i.e. will no longer be marked by $\XBox$; the use of this annotation is formally given below in Definition \ref{def:finalder}.
 \end{itemize}
 %These symbols will be formally introduced in Sections \ref{sec:marking} and \ref{sec:meta} respectively.
@@ -588,6 +588,23 @@ $\phi$ of the $\Omega$ type, a context $\Gamma$ followed by the Adaptive Conditi
 In Figure \ref{fig:adaptiverules}, the calculus is extended by introducing the conditional rule {\sf RC}, which states that if a disjunction $\psi,\phi$ is derivable from $\Gamma$, with $\phi$ an abnormal formula, then $\psi$ can also be derived alone under $\Gamma$ and the Adaptive Condition that $\phi$ be false. Because the application of {\sf RC} can be delayed by keeping formulae of type $\Omega$ on the right hand-side of the turnstile, the role of the unconditional rules of the standard calculus is subsumed under the {\sf Cut} rule. The single and multi-premise versions of the unconditional rules displayed in Figure \ref{fig:adaptiverules2} can thus be treated as derived rules as shown by the procedures for rewriting a succession of RC and RU applications as a succession of Cut and RC applications in Figure \ref{fig:condasderived}.
 
 % two rules, see Figure \ref{fig:adaptiverules}. $RU$ is called the unconditional rule: it says that if a formula $\phi_{1}$ is derivable in {\sf AdaptiveND}, and another formula $\phi_{2}$ is derivable from $\phi_{1}$ without additional assumptions or adaptive conditions, then $\phi_{2}$ is derivable from $\phi_{1}$ and the context $\Gamma;\phi^{-}\vdash$ in which the latter holds.  $RC$ is  called the conditional rule: it says that if a disjunction $\psi,\phi$ is derivable from $\Gamma$, with $\phi$ an abnormal formula, then $\psi$ can also be derived alone under $\Gamma$ and the Adaptive Condition that $\phi$ be false.
+
+{\color{red}In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic reconstruction of the standard marking conditions. The conclusion of a Marking Rule expresses a dead-end for the tree, and as such its content should not be used as premise for any other step. To preserve such information about retracted judgements within a proof,\footnote{This move also facilitates the practice of cutting and pasting proofs together without having to renumber the judgements.} we need to extend the standard formalisation of proofs as trees, and define adaptive proofs as sequences of proof-trees.}
+
+\begin{definition}[Proof Tree]
+A well-formed {\sf AdaptiveND} tree is a finite proof tree obtained by deriving {\sf AdaptiveND} judgements from other {\sf AdaptiveND} judgements where
+\begin{enumerate}
+
+\item the top leaves of the tree are instances of the {\sf Prem} rule and
+\item each next step is obtained by applying one of the {\sf minimalND} proof rules or one of the {\sf AdaptiveND} proof rules.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Adaptive Proof]
+{\color{red}An {\sf AdaptiveND} proof is a sequence of {\sf AdaptiveND} trees $T_1, \ldots, T_{i}, \ldots T_n$ with $i$ the highest numbered judgement of tree $T_i$.}
+\end{definition}
+
+As a notational short-hand, we will sometimes include marked judgements as unused premises to incorporate dead-ends in a single proof-tree, and include final judgements of an earlier proof tree as top leaves of a new proof tree.
 
 \begin{figure}[ht!]
 \begin{mathpar}
@@ -628,11 +645,11 @@ $\Big\Downarrow$
 \begin{mathpar}
     \infer*[right=RU2]{
         \infer*[right=RC]
-        {\TurnOne{\Gamma; \cdot}{\phi_1, \phi} \\ \phi \in \Gamma}
+        {\TurnOne{\Gamma; \cdot}{\phi_1, \phi} \\ \phi \in \Omega}
         {\TurnTwo{\Gamma; \phi^-}{\phi_1}}
         \\
         \infer*[right=RC]
-        {\TurnThree{\Gamma'; \cdot}{\phi_2, \phi'} \\ \phi' \in \Gamma}
+        {\TurnThree{\Gamma'; \cdot}{\phi_2, \phi'} \\ \phi' \in \Omega}
         {\TurnFour{\Gamma'; \phi'^-}{\phi_2}}
         \\
         \TurnFive{\phi_1, \phi_2}{\phi_3}
@@ -672,7 +689,7 @@ Rule {\sf UnRel} says that given minimal disjunctions of abnormalities, each der
 \begin{definition}[Set of unreliable formulas]
 $\Unrel(\Gamma)$ derived at stage {\sf s} from $\Gamma$ denotes the conjunction of the union of some $\Delta_{1}, \dots, \Delta_{n}$ derived from $\Gamma$ up to stage {\sf s-1} according to {\sf MinDab}.
 \end{definition}
-Keep in mind that $\Unrel(\Gamma)$ denotes a conjunction and not a set of formulae. As such, when it occurs on the right-hand side of the turnstile it should not be read as a disjunction of abnormalities (which is the intended reading for a set $\Delta$ of abnormalities in that position. The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. Contrary to how unreliable formulae at a stage are defined in standard adaptive proofs, this rule does not require that all minimal disjunctions of abnormalities derived at a given stage need to be used as a premise of that, the side-condition does, however, refer to all such minimal disjunctions of abnormalities.
+Keep in mind that $\Unrel(\Gamma)$ denotes a conjunction and not a set of formulae. As such, when it occurs on the right-hand side of the turnstile it should not be read as a disjunction of abnormalities (which is the intended reading for a set $\Delta$ of abnormalities in that position). The side condition for the Rule {\sf UnRel} ensures that each $\Delta_{i}^{min}$ used as a premise is still minimal at stage {\sf s-1}. Contrary to how unreliable formulae at a stage are defined in standard adaptive proofs, this rule does not require that all minimal disjunctions of abnormalities derived at a given stage need to be used as its premises, but the side-condition of this rule does refer to all disjunctions of abnormalities that occur at earlier stages of the proof.
 
 Choice sets provide selections of abnormalities that might turn out to be true at a stage {\sf s}, defined as follows:
 
@@ -732,7 +749,7 @@ The derivation of a minimal disjunction of abnormalities and the formation of th
 \noindent\textsl{Proof.}~If $\Gamma; \cdot \vdash_{s - n  + (i-1)} \Delta_i^{min}$ is a premise used to derive $\Turn{\Gamma;\cdot}{\Phi(\Gamma)}$, adding a premise $\Gamma; \cdot \vdash_{s - n  + (j-1)} \Delta_j^{min}$ for some $\Delta_j$ that was already derived at some stage $s - (n + m)$ would not lead to the violation of the side-condition for the application of \textsc{Choice}. Let $\Turn{\Gamma;\cdot}{\Phi'(\Gamma)}$ be the conclusion obtained by adding this premise, and note that each $\phi' \in \Phi'(\Gamma)$ can be obtained by extending a $\phi \in \Phi(\Gamma)$ with some member of $\Delta_j$.\qed
 
 \begin{proposition}\label{prop:minchoice}
-    If $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then $\sf{choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of some minimal choice-set from $\Lambda$, and for each minimal choice-set from $\Lambda$ there is a ${\sf choice_{j}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ it is a superset of.
+    {\color{red}If $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ occurs in a proof and $\Lambda$ is the set of all $\Delta^{min}$ derived up to stage $s$ that are still minimal at $s$, then $\sf{choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of some minimal choice-set from $\Lambda$, and for each minimal choice-set from $\Lambda$ there is a ${\sf choice_{j}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ it is a superset of.}
 \end{proposition}
 \noindent\textsl{Proof.}~Assume $\Turn{\Gamma;\cdot}{{\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}}$ is obtained by an application of \textsc{MinChoice} to a judgement with $\Phi(\Gamma)$ as a consequent. Let $\Delta_{n+1}$ be minimal at stage $s$, and assume that $\Phi'(\Gamma)$ is derivable from judgements with
 $\Delta_1, \ldots \Delta_{n+1}$ as consequent. By Proposition \ref{prop:choice} we know that ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min}$ is a subset of one or more members of $\Phi'(\Gamma)$. Let $\psi_1, \ldots, \psi_m$ be an enumeration of the members of
@@ -771,22 +788,7 @@ In standard Adaptive Logics, one introduces strategies to tell which application
 \item \textit{Minimal Abnormality}: once $\Phi(\Gamma)$ is derived at some stage {\sf s}, a formula $\psi$ is marked if either (i) it is derived at some prior stage {\sf s'} on an assumption $\Theta$ which intersects with every minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$; or (ii) for some minimal choice-set ${\sf choice_{i}}(\{\Delta_{i}, \ldots, \Delta_{n}\})\in \Phi(\Gamma)$, there is no derivation of $\psi$ on another condition $\Theta'$, such that the intersection of $\Theta'$ with ${\sf choice_{i}}$ is empty.
 \end{itemize}
 %
-In this section, we extend {\sf AdaptiveND} with rules corresponding to both strategies by providing a proof-theoretic reconstruction of the standard marking conditions. The conclusion of a Marking Rule expresses a dead-end for the tree, and as such its content should not be used as premise for any other step. To preserve such information about retracted judgements within a proof,\footnote{This move also facilitates the practice of cutting and pasting proofs together without having to renumber the judgements.} we need to extend the standard formalisation of proofs as trees, and define adaptive proofs as sequences of proof-trees.
 
-\begin{definition}[Proof Tree]
-A well-formed {\sf AdaptiveND} tree is a finite proof tree obtained by deriving {\sf AdaptiveND} judgements from other {\sf AdaptiveND} judgements where
-\begin{enumerate}
-
-\item the top leaves of the tree are instances of the {\sf Prem} rule and
-\item each next step is obtained by applying one of the {\sf minimalND} proof rules or one of the {\sf AdaptiveND} proof rules.
-\end{enumerate}
-\end{definition}
-
-\begin{definition}[Adaptive Proof]
-An {\sf AdaptiveND} proof is a sequence of {\sf AdaptiveND} trees $T_{1}, \dots, T_{n}$ with consecutively numbered judgements across the trees.
-\end{definition}
-
-As a notational short-hand, we will sometimes include marked judgements as unused premises to incorporate dead-ends in a single proof-tree, and include final judgements of an earlier proof tree as top leaves of a new proof tree.
 
 
 \subsection{Marking Rule for Reliability}\label{sec:markrel}
@@ -925,9 +927,10 @@ with
 \]
 
 and
+{\color{red}
 \[
-    \Gamma; \Theta' \vdash_{\mathsf{t < s'}} \psi \Longrightarrow \Theta' \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min} \ne \emptyset \tag{\ddag}
-\]
+    {\Gamma; \Theta' \vdash_{\mathsf{t < s'}} \psi \Longrightarrow \Theta' \cap \mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min} \ne \emptyset \tag{\ddag}}
+\]}
 
 
 \caption{Marking for Minimal Abnormality}\label{fig:MA}
@@ -940,9 +943,9 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 
 \begin{figure}[ht!]
 \begin{mathpar}
-\infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi} \\
+\infer*[right=$\XBox$M1]{\Turn{\Gamma; \Theta^-}{\psi} \\
 \infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi(\Gamma)}}}
-{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}\\ \ldots\\ \infer*{\Pi'}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
 {\TurnMarkedNextNextMA{\Gamma;\Theta^-}{\psi}}
 \end{mathpar}
 
@@ -950,10 +953,10 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 
 
 \begin{mathpar}
-\infer*[right=$\XBox$M]{\Turn{\Gamma; \Theta^-}{\psi}
+\infer*[right=$\XBox$M2]{\Turn{\Gamma; \Theta^-}{\psi}
 \infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi(\Gamma)}}}
 {\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}\\
-\Theta \cap \mathsf{choice_i} \ne \emptyset\\ \ddag} 
+\Theta \cap \mathsf{choice_i} \ne \emptyset\\ {\color{red}\ddag}} 
 {\TurnPrimePrimePlusTwo{\Gamma;\Theta^-}{\psi}}
 \end{mathpar}
 
@@ -1218,6 +1221,9 @@ which can once more be used to re-derive $p$:
 
 \subsection{An Example Based on Minimal Abnormality}
 Let $\Gamma = \{p \vee r, p \vee q, q \vee r, \neg p, \neg q\}$, and consider first a derivation $\mathbb{A}$ that ends with an application of RC.
+
+{\color{red} replace daggers with asterisks}
+
 \begin{mathpar}
     \infer*[right=RC]
         {
@@ -1311,10 +1317,11 @@ At this point, we can see that neither of the following attempts to mark conditi
             {\TurnEighteen{\Gamma; (p \wedge \neg p)^-}{r}}\\
         \infer*[right=MinChoice]
         {\mathbb{B''}}
-        {\TurnPrimePrime{\Gamma; \cdot}{\mathsf{choice_2}(\{\{q \wedge \neg q, \mathbf{q \wedge \neg q}\}\}^{min}}}
+        {\TurnPrimePrime{\Gamma; \cdot}{\mathsf{choice_2}(\{\{p \wedge \neg p, \mathbf{q \wedge \neg q}\}\}^{min}}}
     }
     {?}
 \end{mathpar}
+{\color{red} double read this}
 for in the former case judgement 18 depends on a condition that does not depend on the normal behaviour of $p \wedge \neg p$, whereas in the latter case judgement $\mathsf{s}$ (a copy of judgement 5) does not depend on the normal behaviour of $q \wedge \neg q$. As a consequence, neither judgement 18 or judgement $\mathsf{s}$ can be marked at a stage later than 18.
 
 Finally, do remark that the failure to apply \XBox M2 after the derivation of judgement 18 does not depend on the presence of the judgement $\mathsf{s}$ where $\mathsf{s} > 13$. The side-condition for the application of this rule is already violated by the presence of judgement 5 higher-up in the proof; even though the latter was marked at stage 13.
@@ -1408,6 +1415,7 @@ For \textsf{AdaptiveND}, \textbf{CLuN$^r$}, and \textbf{CLuN$^m$} the requiremen
     If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.
     % \marginpar{If $\Gamma;\cdot \vdash\bigvee(\Delta)$, then $\Delta \subseteq \Omega(\Gamma)$\\ We need it to be minimal, but our notation $\bigvee(\Delta)^{min}$ only applies to stages, so we no object-level language to say this.}
 \end{theorem}
+{\color{red} check numbering}
 \noindent\textsl{Proof.}~We consider the possible ways of deriving a minimal disjunction of abnormalities by examining the structure of the proof-rules of \textsf{minimalND}.
 \begin{enumerate*}
     \item Applying ($\vee$I) (or \textsc{Wr}) can never result in a minimal disjunction of abnormalities. This excludes all proof-rules that can be used to deduce a judgement with a formula on the right that isn't yet a formula or sub-formula in one of the judgements it relies on.
@@ -1454,11 +1462,11 @@ Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to $\
 Let $P$ be an {\sf AdaptiveND} proof. We say that $P$ is complete relative to marking
 iff
 \begin{description}
-    \item[Rel] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if $P$ can be extended so that it includes a judgement $\Gamma;\cdot \vdash_{\mathsf{s'}} \Unrel(\Gamma)$ with $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$, then there is a tree $T_{j>i}\in P$ that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
-    \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every derivable $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with $\Theta$, then there is a tree $T_{j>i}\in P$ that ends with  $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+    \item[Rel] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$ occurring in a tree $T_{i}\in P$, if $P$ can be extended so that it includes a judgement $\Gamma;\cdot \vdash_{\mathsf{s'}} \Unrel(\Gamma)$ with $\bigcup \Delta(\Gamma) \cap \Theta \neq \emptyset$, then there is a tree $T_{t>i}\in P$ that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+    \item[MinAb1] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if every derivable $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with $\Theta$, then there is a tree $T_{t>i}\in P$ that ends with  $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 %    \item[MinAb2] {\color{red} this will break down. The second clause for MinAb-marking does not only depend on knowing all the minimal choice-sets, but also depends on having obtained all the alternative conditional deductions of $\phi$.}
     \item[MinAb2] for every $\Gamma; \Theta^{-}\vdash_{{\sf s}} \phi$, if for every other derivable $\Gamma; \Theta'^{-}\vdash_{{\sf s}} \phi$, some derivable
-     $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with each $\Theta, \dots, \Theta'$, then there is a tree $T_{j>i}\in P$ that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
+     $\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})$ intersects with each $\Theta, \dots, \Theta'$, then there is a tree $T_{t>i}\in P$ that ends with $\Gamma; \Theta^{-}\vdash_{{\sf t\XBox}} \phi$.
 
 \end{description}
 
@@ -1518,7 +1526,7 @@ By Theorem \ref{thm:clun} there is a provable {\sf AdaptiveND} judgement $\Turn{
 {\footnotesize
 \infer*[right={\tiny$\XBox$M}]{\Turn{\Gamma; \Theta^-}{\psi} \\
 \infer*[right={\tiny\textsc{MinChoice}}]{\infer*[right={\tiny\textsc{Choice}}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi'(\Gamma)}}}
-{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta'_1, \ldots, \Delta'_m\})^{min}}}\\ \ldots\\ \infer*{\Pi}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
+{\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta'_1, \ldots, \Delta'_m\})^{min}}}\\ \ldots\\ \infer*{\Pi'}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
 {\TurnMarkedMAflex{t}{\Gamma;\Theta^{-}}{\psi}}}
 \end{mathpar}
 \end{figure}
