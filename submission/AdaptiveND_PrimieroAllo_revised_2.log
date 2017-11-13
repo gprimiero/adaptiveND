@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  8 NOV 2017 15:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  13 NOV 2017 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,12 +455,12 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 \myCenter3=\dimen143
 \myScoreEnd3=\dimen144
 [2] [3] [4] [5] [6] [7] [8]
-Overfull \hbox (9.08997pt too wide) in paragraph at lines 646--657
+Overfull \hbox (9.08997pt too wide) in paragraph at lines 586--597
  $[]$ 
  []
 
 [9] [10] [11]
-Overfull \hbox (3.356pt too wide) in paragraph at lines 697--698
+Overfull \hbox (3.356pt too wide) in paragraph at lines 637--638
 \OT1/cmr/m/it/10 ac-cord-ing to \OT1/cmss/m/n/10 MinDab\OT1/cmr/m/it/10 . We de
 -note each such choice set with $[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/
 m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1
@@ -468,79 +468,82 @@ m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1
  []
 
 
-Overfull \hbox (48.54576pt too wide) in paragraph at lines 730--732
+Overfull \hbox (48.54576pt too wide) in paragraph at lines 670--672
  $[]$ 
  []
 
 [12] [13]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 786.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 724.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 786.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 724.
 
 LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
-(Font)              using `U/wasy/m/n' instead on input line 815.
+(Font)              using `U/wasy/m/n' instead on input line 741.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [14] [15]
-Overfull \hbox (104.79478pt too wide) in paragraph at lines 946--950
+Overfull \hbox (104.79478pt too wide) in paragraph at lines 811--815
  $[]$ 
  []
 
 
-Overfull \hbox (45.25255pt too wide) in paragraph at lines 956--961
+Overfull \hbox (45.25255pt too wide) in paragraph at lines 821--826
  $[]$ 
  []
 
 [16] [17]
-Overfull \hbox (17.68135pt too wide) in paragraph at lines 1081--1084
+Overfull \hbox (17.68135pt too wide) in paragraph at lines 869--872
  $[]$ 
  []
 
 [18]
-Overfull \hbox (17.47469pt too wide) in paragraph at lines 1140--1151
+Overfull \hbox (17.47469pt too wide) in paragraph at lines 927--938
  $[]$ 
  []
 
 
-Overfull \hbox (30.82072pt too wide) in paragraph at lines 1156--1164
+Overfull \hbox (30.82072pt too wide) in paragraph at lines 943--951
  $[] 
  []
 
 [19]
-Overfull \hbox (24.70857pt too wide) in paragraph at lines 1181--1192
+Overfull \hbox (24.70857pt too wide) in paragraph at lines 968--979
  $[]$ 
  []
 
 
-Overfull \hbox (34.13206pt too wide) in paragraph at lines 1198--1206
+Overfull \hbox (34.13206pt too wide) in paragraph at lines 984--992
  $[] 
  []
 
 
-Overfull \hbox (85.20042pt too wide) in paragraph at lines 1211--1220
+Overfull \hbox (85.20042pt too wide) in paragraph at lines 997--1006
  $[] 
  []
 
 [20]
-Overfull \hbox (16.20671pt too wide) in paragraph at lines 1270--1280
+Overfull \hbox (16.20671pt too wide) in paragraph at lines 1056--1066
  $[]$ 
  []
 
 
-Overfull \hbox (12.81847pt too wide) in paragraph at lines 1301--1311
+Overfull \hbox (12.81847pt too wide) in paragraph at lines 1087--1097
  $[]$ 
  []
 
 
-Overfull \hbox (14.9467pt too wide) in paragraph at lines 1313--1323
+Overfull \hbox (14.9467pt too wide) in paragraph at lines 1099--1109
  $[]$ 
  []
 
 [21] [22]
-Overfull \hbox (1.66714pt too wide) in paragraph at lines 1367--1368
+Overfull \hbox (1.66714pt too wide) in paragraph at lines 1153--1154
 []\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
 red meta-theoretical
  []
@@ -548,20 +551,20 @@ red meta-theoretical
 [23] [24]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1465.
+(Font)              using `U/wasy/m/n' instead on input line 1226.
 
 [25] [26]
 
-LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 15
-26.
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 12
+76.
 
 
-Overfull \hbox (33.15367pt too wide) in paragraph at lines 1526--1531
+Overfull \hbox (33.15367pt too wide) in paragraph at lines 1276--1281
  $[]$ 
  []
 
 
-Overfull \hbox (6.1614pt too wide) in paragraph at lines 1534--1535
+Overfull \hbox (6.1614pt too wide) in paragraph at lines 1284--1285
 []\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; []
  ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$ is a su-per-set of
  some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/c
@@ -569,7 +572,7 @@ mr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$.
  []
 
 
-Overfull \hbox (14.27419pt too wide) in paragraph at lines 1536--1537
+Overfull \hbox (14.27419pt too wide) in paragraph at lines 1286--1287
 []\OT1/cmr/m/n/10 or for ev-ery $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML
 /cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \O
 MS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^H(^^@)$, if $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m
@@ -578,16 +581,16 @@ cmr/m/n/10 ) \OMS/cmsy/m/n/10 \
  []
 
 
-LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 15
-44.
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 12
+94.
 
 
-Overfull \hbox (70.81306pt too wide) in paragraph at lines 1544--1552
+Overfull \hbox (70.81306pt too wide) in paragraph at lines 1294--1302
  $[]$ 
  []
 
 
-Overfull \hbox (7.07042pt too wide) in paragraph at lines 1554--1555
+Overfull \hbox (7.07042pt too wide) in paragraph at lines 1304--1305
 \OT1/cmr/m/n/10 ^^B\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^B[]$, it must also
  in-ter-sect with some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it
 /10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \OMS/cmsy/m
@@ -648,7 +651,7 @@ c/wasy2-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/was
 y2-ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps
 /wasy9.pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised_2.pdf (30 pages, 438977 bytes).
+llo_revised_2.pdf (30 pages, 439102 bytes).
 PDF statistics:
  245 PDF objects out of 1000 (max. 8388607)
  175 compressed objects within 2 object streams
