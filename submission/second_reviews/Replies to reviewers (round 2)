@@ -1,0 +1,22 @@
+Replies to reviewers (round 2)
+================================
+
+1. Stages in RU (Figure 7) are corrected.
+2. Conditions in Figure 7 are now sets of negated abnormalities.
+3. "Family of sets" replaced by "set of sets".
+4. The redundancy of RU is now explained as the possibility to rewrite a proof with RU as a proof without by pushing the applications of RC downwards in the proof.
+5. Reformulated explanation about $\Delta$ and $\Delta^{min}$ (removed reference to disjunctions).
+6. The choice of "some" in definition 5 is intended. What is derived is a set of unreliable formulae, but without the requirement that all minimal disjunction of abnormalities have been taken into account. The only requirement is that all disjunctions of abnormalities that are used to derive a set of unreliable formulas are indeed minimal at that stage. As such, $\Cup\Delta(\Gamma)$ is only a subset of the unreliable formulae as understood in the standard format. 
+7. We take onboard the reviewer's suggestion and treat UNREL(\Gamma) as the operator resulting from the UNREL rule. This allows us to simplify the notatin and specify its non-disjunctive form. Note we also rephrase passages as in Proposition 1.
+8. The relativization at stage for $\Phi(\Gamma)$ required by the reviewer is *already* taken care of by the stage annotation on the derivability sign. In any proof tree, the $\Phi(\Gamma)$ at stage $s$ can only be formulated on the basis of the minimal disjunction of abnormalities derived up to stage $s-1$ and at any stage $t>s$ no previously derived $\Phi(\Gamma)$ can be used if smaller abnormalities are derived between at inbetween stages. Similarly so for UNREL(\Gamma)
+9. removed "still" in both Proposition 1 and 2.
+10. added "minimal"
+11. this remark is correct and we have implemented the changes where needed.
+12. the rule $\XBoxM2$ does not require to have $\Phi(\Gamma)$ as a premise provided it asks to check that *all* conditions on which a given formula is derived are included in *one* minimal choice set. The latter occurs as a premise in the rule and it can be obtained from $\Phi(\Gamma)$ by application of a MINCHOICE rule.
+13. A more complex example using the MA strategy is now provided in section 4.6
+14. Corrected as appropriate.
+
+Note moreover that:
+- we have improved the definition 6 of adaptive proof tree to associate the index number to the highest step in the corresponding tree; this allows to simplify in turn Definition 13 of completeness relative to marking
+- we have revised and slightly reformulated the marking rules ofr MInimal abnormalities so that side conditions are more anlytically and clearly formulated
+- we have clened and simplified the last step in Proof of Theorem 2
