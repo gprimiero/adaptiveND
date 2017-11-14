@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  14 NOV 2017 10:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  14 NOV 2017 10:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -496,15 +496,6 @@ Overfull \hbox (37.9062pt too wide) in paragraph at lines 783--787
  $[]$ 
  []
 
-! Extra }, or forgotten $.
-l.801 ...Theta_1, \ldots, \Theta_n\}. \tag{\ddag}}
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
 [15]
 
 LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 816.
@@ -518,17 +509,6 @@ Overfull \hbox (47.31131pt too wide) in paragraph at lines 816--821
 
 LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 827.
 
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.834 \end{mathpar}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
 
 
 Overfull \hbox (108.78305pt too wide) in paragraph at lines 827--834
@@ -589,7 +569,7 @@ red meta-theoretical
 [23] [24]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1230.
+(Font)              using `U/wasy/m/n' instead on input line 1231.
 
 [25]
 
@@ -692,7 +672,7 @@ wasy2-ps/wasy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2
 asy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy9.
 pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised_2.pdf (30 pages, 465536 bytes).
+llo_revised_2.pdf (30 pages, 466497 bytes).
 PDF statistics:
  257 PDF objects out of 1000 (max. 8388607)
  184 compressed objects within 2 object streams

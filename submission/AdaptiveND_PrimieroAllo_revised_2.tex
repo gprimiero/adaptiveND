@@ -798,7 +798,7 @@ with
 
 and
 \[
-    \text{there is no } \Gamma; \Theta' \vdash_{\mathsf{t < s}} \psi \text{ with } \Theta' \not\in \{\Theta_1, \ldots, \Theta_n\}. \tag{\ddag}}
+    \text{there is no } \Gamma; \Theta' \vdash_{\mathsf{t < s}} \psi \text{ with } \Theta' \not\in \{\Theta_1, \ldots, \Theta_n\}. \tag{\ddag}
 \]
 
 
@@ -829,7 +829,7 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 \infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi(\Gamma)}}}
 {\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}\\
 \Theta_1, \ldots, \Theta_n \cap \mathsf{choice_i} \ne \emptyset\\ \ddag} 
-{\TurnMarkedMAflex{max(s+n, s''+1)+1}{\Gamma;\Theta_1^-}{\psi}
+{\TurnMarkedMAflex{max(s+n, s''+1)+1}{\Gamma;\Theta_1^-}{\psi}}
 }
 \end{mathpar}
 
@@ -1184,7 +1184,6 @@ For \textsf{AdaptiveND}, \textbf{CLuN$^r$}, and \textbf{CLuN$^m$} the requiremen
 \begin{theorem}\label{thm:subform}
     If $\bigvee(\Delta)$ is a minimal disjunction of abnormalities derivable from $\Gamma$, then $\Delta \subseteq \Omega(\Gamma)$.
 \end{theorem}
-{\color{red} check numbering}
 \noindent\textsl{Proof.}~We consider the possible ways of deriving a minimal disjunction of abnormalities by examining the structure of the proof-rules of \textsf{minimalND}.
 \begin{enumerate*}
     \item Applying ($\vee$I) (or \textsc{Wr}) can never result in a minimal disjunction of abnormalities. This excludes all proof-rules that can be used to deduce a judgement with a formula on the right that isn't yet a formula or sub-formula in one of the judgements it relies on.
@@ -1196,10 +1195,12 @@ For \textsf{AdaptiveND}, \textbf{CLuN$^r$}, and \textbf{CLuN$^m$} the requiremen
             \item $\neg \phi$ can be obtained by ($\to$E) from some $\psi \to \neg \phi$ on the right;
             \item $\neg \phi$ can be obtained by ($\neg$I) from $\phi$ on the left.
         \end{enumerate*}
-        Cases (a-c) imply that $\neg \phi$ should be a positive part of a previously derived formula on the right, and hence $\phi$ should be a negative part of that formula. By induction over the length of proofs (with the rule {\sf PREM}  as the base-case), these three cases can be retraced to $\phi$ being a negative part of some premise.
-    \item Case (d) requires the presence or deduction of some $\phi$ on the left, either because the left-hand side is of the form $\Gamma, \phi$ and thus the result of applying (\textsf{WL}), or because it is of the form $\Gamma$ with $\phi \in \Gamma$. In each of these cases, this can never lead to a judgement where (i) the left-side consists only of the premise-set, and (ii) the right-side has no more formulae than before the application of ($\neg$I). This implies that case (d) cannot lead to the deduction of a minimal disjunction of abnormalities.
+        \begin{description}
+            \item[Cases (a-c)] imply that $\neg \phi$ should be a positive part of a previously derived formula on the right, and hence $\phi$ should be a negative part of that formula. By induction over the length of proofs (with the rule {\sf PREM}  as the base-case), these three cases can be retraced to $\phi$ being a negative part of some premise.
+            \item[Case (d)] requires the presence or deduction of some $\phi$ on the left, either because the left-hand side is of the form $\Gamma, \phi$ and thus the result of applying (\textsf{WL}), or because it is of the form $\Gamma$ with $\phi \in \Gamma$. In each of these cases, this can never lead to a judgement where (i) the left-side consists only of the premise-set, and (ii) the right-side has no more formulae than before the application of ($\neg$I). This implies that case (d) cannot lead to the deduction of a minimal disjunction of abnormalities.
+        \end{description}
 \end{enumerate*}
-From (3) and (4) it follows that every abnormality that occurs in a minimal disjunction of abnormalities obtains from a formula that occurs as the negative part of some premise. A fortiori, this means it should be formed from a member of $\Omega(\Gamma)$.\qed
+Consequently, for every abnormality $\phi \wedge \neg \phi$ that occurs in a minimal disjunction of abnormalities, we can show that $\phi$ must occur as the negative part of some premise. A fortiori, this means that only abnormalities that can be formed from a member of $\Omega(\Gamma)$ can occur in a minimal disjunction of abnormalities.\qed
 
 The focus on positive and negative parts of formulae goes back to \cite{Sch60}, and was previously used for the development of goal-directed proof-strategies for adaptive logics \cite{Batens:LogiqueAnalyse:2001}. The fact that we should pay attention to all negative parts of the premises should also be obvious in view of the semantics for \textbf{CLuN}, as the truth-value of negative formulae does not need to depend on the truth-values of its sub-formulae.
 
@@ -1255,7 +1256,6 @@ $\TurnChecked{\Gamma;\Theta^{-}}{\psi}$ in {\sf AdaptiveND} if and only if there
 \begin{proof}
 
 \begin{itemize}
-%\marginpar{Replaced $\mathbb{P}$ by $\mathbf{P}$ to distinguish from the previous uses of mathbb-fonts in the examples.}
 \item[$\rightarrow$] By assumption $\psi$ is finally derived, therefore there is an abnormality and marking complete proof $P$ in which it is derived. Then $P$, by definition, contains unconditional judgements for every deducible minimal disjunction of abnormalities in $\Omega(\Gamma)$ and $\psi$ is not contained in any of those. Now consider the translation $\mathbf{P}$ of $P$ in a linear adaptive proof: the same minimal disjunctions of abnormalities as in $P$ are also unconditionally derived in $\mathbf{P}$. By Theorem \ref{thm:subform}, this implies that all minimal disjunctions of abnormalities are unconditionally derived in $\mathbf{P}$, and further extensions of the proof cannot lead to additional unconditionally derived minimal disjunctions of abnormalities. Because $P$ contains all possible markings, every formula which is marked in $P$ will be marked in $\mathbf{P}$, and $\mathbf{P}$ will therefore be in accordance with the standard marking definitions. As $\psi$ is not in any adaptive conditions of $P$ which induces a marking, it will be derived in $\mathbf{P}$ as well. Moreover, $\psi$ will be finally derived in $\mathbf{P}$ because further extensions would not lead to newly derived minimal disjunctions of abnormalities, and would not lead to additional marking either.
 
 \item[$\leftarrow$] Assume that $\psi$ is finally derived in some linear adaptive proof $\mathbf{P}$; then
