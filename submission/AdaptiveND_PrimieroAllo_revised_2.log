@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  14 NOV 2017 09:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.1)  14 NOV 2017 10:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -488,12 +488,16 @@ LaTeX Font Warning: Font shape `U/wasy/m/sc' undefined
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [14]
-Overfull \hbox (60.45619pt too wide) in paragraph at lines 783--786
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 783.
+
+
+Overfull \hbox (37.9062pt too wide) in paragraph at lines 783--787
  $[]$ 
  []
 
 ! Extra }, or forgotten $.
-l.800 ...Theta_1, \ldots, \Theta_n\}. \tag{\ddag}}
+l.801 ...Theta_1, \ldots, \Theta_n\}. \tag{\ddag}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -502,62 +506,82 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 [15]
-Overfull \hbox (104.79478pt too wide) in paragraph at lines 814--818
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 816.
+
+
+
+Overfull \hbox (47.31131pt too wide) in paragraph at lines 816--821
  $[]$ 
  []
 
 
-Overfull \hbox (45.25255pt too wide) in paragraph at lines 824--829
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 827.
+
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.834 \end{mathpar}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (108.78305pt too wide) in paragraph at lines 827--834
  $[]$ 
  []
 
 [16] [17]
-Overfull \hbox (17.68135pt too wide) in paragraph at lines 872--875
+Overfull \hbox (17.68135pt too wide) in paragraph at lines 877--880
  $[]$ 
  []
 
 [18]
-Overfull \hbox (17.47469pt too wide) in paragraph at lines 930--941
+Overfull \hbox (17.47469pt too wide) in paragraph at lines 935--946
  $[]$ 
  []
 
 
-Overfull \hbox (30.82072pt too wide) in paragraph at lines 946--954
+Overfull \hbox (30.82072pt too wide) in paragraph at lines 951--959
  $[] 
  []
 
 [19]
-Overfull \hbox (24.70857pt too wide) in paragraph at lines 971--982
+Overfull \hbox (24.70857pt too wide) in paragraph at lines 976--987
  $[]$ 
  []
 
 
-Overfull \hbox (34.13206pt too wide) in paragraph at lines 987--995
+Overfull \hbox (34.13206pt too wide) in paragraph at lines 992--1000
  $[] 
  []
 
 
-Overfull \hbox (85.20042pt too wide) in paragraph at lines 1000--1009
+Overfull \hbox (85.20042pt too wide) in paragraph at lines 1005--1014
  $[] 
  []
 
 [20]
-Overfull \hbox (13.4915pt too wide) in paragraph at lines 1057--1067
+Overfull \hbox (13.4915pt too wide) in paragraph at lines 1062--1072
  $[]$ 
  []
 
 
-Overfull \hbox (10.10326pt too wide) in paragraph at lines 1088--1098
+Overfull \hbox (10.10326pt too wide) in paragraph at lines 1093--1103
  $[]$ 
  []
 
 
-Overfull \hbox (12.037pt too wide) in paragraph at lines 1100--1110
+Overfull \hbox (12.037pt too wide) in paragraph at lines 1105--1115
  $[]$ 
  []
 
 [21] [22]
-Overfull \hbox (1.66714pt too wide) in paragraph at lines 1152--1153
+Overfull \hbox (1.66714pt too wide) in paragraph at lines 1157--1158
 []\OT1/cmr/m/n/10 In the next sec-tion we com-plete our sys-tem with the re-qui
 red meta-theoretical
  []
@@ -565,20 +589,20 @@ red meta-theoretical
 [23] [24]
 
 LaTeX Font Warning: Font shape `U/wasy/m/it' undefined
-(Font)              using `U/wasy/m/n' instead on input line 1225.
+(Font)              using `U/wasy/m/n' instead on input line 1230.
 
 [25]
 
 LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 12
-75.
+80.
 
 
-Overfull \hbox (33.15367pt too wide) in paragraph at lines 1275--1280
+Overfull \hbox (33.15367pt too wide) in paragraph at lines 1280--1285
  $[]$ 
  []
 
 
-Overfull \hbox (6.1614pt too wide) in paragraph at lines 1283--1284
+Overfull \hbox (6.1614pt too wide) in paragraph at lines 1288--1289
 []\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; []
  ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$ is a su-per-set of
  some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; [] ; \OT1/c
@@ -586,7 +610,7 @@ mr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$.
  []
 
 [26]
-Overfull \hbox (14.27419pt too wide) in paragraph at lines 1285--1286
+Overfull \hbox (14.27419pt too wide) in paragraph at lines 1290--1291
 []\OT1/cmr/m/n/10 or for ev-ery $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML
 /cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \O
 MS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^H(^^@)$, if $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m
@@ -596,15 +620,15 @@ cmr/m/n/10 ) \OMS/cmsy/m/n/10 \
 
 
 LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 12
-93.
+98.
 
 
-Overfull \hbox (70.81306pt too wide) in paragraph at lines 1293--1301
+Overfull \hbox (70.81306pt too wide) in paragraph at lines 1298--1306
  $[]$ 
  []
 
 
-Overfull \hbox (7.07042pt too wide) in paragraph at lines 1303--1304
+Overfull \hbox (7.07042pt too wide) in paragraph at lines 1308--1309
 \OT1/cmr/m/n/10 ^^B\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^B[]$, it must also
  in-ter-sect with some $[](\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it
 /10 ; [] ; \OT1/cmr/m/n/10 ^^A[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ) \OMS/cmsy/m
@@ -636,40 +660,42 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2015/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/wasy2-ps/wasy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-wasy2-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2
--ps/wasy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/w
-asy9.pfb>
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local
+/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/wasy2-ps/wasy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+wasy2-ps/wasy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2
+-ps/wasy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/w
+asy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/wasy2-ps/wasy9.
+pfb>
 Output written on /Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroA
-llo_revised_2.pdf (30 pages, 444714 bytes).
+llo_revised_2.pdf (30 pages, 465536 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
+ 257 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

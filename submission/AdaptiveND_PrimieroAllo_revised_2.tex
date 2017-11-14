@@ -780,9 +780,10 @@ with
 for each ${\sf choice_{i}}(\{\Delta_{1},\ldots, \Delta_{n}\})^{min} \in \Phi(\Gamma)$.
 
 \begin{mathpar}
+{\small
 \infer*[right={\scriptsize$\XBox$M2}]{\Turn{\Gamma;\Theta_1^{-}}{\psi}\\ \ldots \\\TurnNextn{\Gamma;\Theta_n^{-}}{\psi}\\
 \TurnPrime{\Gamma; \cdot}{\mathsf{choice_i}(\{\Delta_1, \ldots, \Delta_n\})^{min}}\\ (\dag) \\ (\ddag)}
-{\TurnMarkedMAflex{max(s+n, s')+1}{\Gamma; \Theta^{-}}{\psi}}
+{\TurnMarkedMAflex{max(s+n, s')+1}{\Gamma; \Theta^{-}}{\psi}}}
 \end{mathpar}
 
 with
@@ -810,22 +811,26 @@ The second marking rule $\XBox$M2 reflects the following condition: if a formula
 
 
 \begin{figure}[ht!]
+\centering
 \begin{mathpar}
+{\scriptsize
 \infer*[right=$\XBox$M1]{\Turn{\Gamma; \Theta^-}{\psi} \\
 \infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnNext{\Gamma, \cdot}{\Phi(\Gamma)}}}
 {\TurnNextNext{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}\\ \ldots\\ \infer*{\Pi'}{\vdots}\\\Theta \cap \mathsf{choice_i} \ne \emptyset}
-{\TurnMarkedNextNextMA{\Gamma;\Theta^-}{\psi}}
+{\TurnMarkedNextNextMA{\Gamma;\Theta^-}{\psi}}}
 \end{mathpar}
 
 
 
 
 \begin{mathpar}
-\infer*[right=$\XBox$M2]{\Turn{\Gamma; \Theta^-}{\psi}
+{\scriptsize
+\infer*[right=$\XBox$M2]{\Turn{\Gamma; \Theta_1^-}{\psi} \\ \TurnNextn{\Gamma; \Theta_n^-}{\psi} \\
 \infer*[right=\textsc{MinChoice}]{\infer*[right=\textsc{Choice}]{\Pi}{\TurnPrimePrime{\Gamma, \cdot}{\Phi(\Gamma)}}}
 {\TurnPrimePrimePlusOne{\Gamma; \cdot}{\mathsf{choice_1}(\{\Delta_1, \ldots, \Delta_n\})^{min}}}\\
-\Theta \cap \mathsf{choice_i} \ne \emptyset\\ {\color{red}\ddag}} 
-{\TurnPrimePrimePlusTwo{\Gamma;\Theta^-}{\psi}}
+\Theta_1, \ldots, \Theta_n \cap \mathsf{choice_i} \ne \emptyset\\ \ddag} 
+{\TurnMarkedMAflex{max(s+n, s''+1)+1}{\Gamma;\Theta_1^-}{\psi}
+}
 \end{mathpar}
 
 \caption{Marking-trees for Minimal Abnormality}\label{fig:exmarkMA}
