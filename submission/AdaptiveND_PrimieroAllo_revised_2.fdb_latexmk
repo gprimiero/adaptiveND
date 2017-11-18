@@ -1,15 +1,14 @@
 # Fdb version 3
-["bibtex AdaptiveND_PrimieroAllo_revised_2"] 1510609953 "AdaptiveND_PrimieroAllo_revised_2.aux" "AdaptiveND_PrimieroAllo_revised_2.bbl" "AdaptiveND_PrimieroAllo_revised_2" 1510653323
+["bibtex AdaptiveND_PrimieroAllo_revised_2"] 1511028420 "AdaptiveND_PrimieroAllo_revised_2.aux" "AdaptiveND_PrimieroAllo_revised_2.bbl" "AdaptiveND_PrimieroAllo_revised_2" 1511028422
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "AdaptiveND_PrimieroAllo_revised_2.aux" 1510653323 4859 cea6e4e87c45d77e2d0aea568ed6016e ""
+  "AdaptiveND_PrimieroAllo_revised_2.aux" 1511028421 4859 26e69ffde356b7fb5ab9427840929843 ""
   "AdaptiveND_PrimieroAllo_revised_2.bcf" 0 -1 0 ""
-  "primiero.bib" 1500795203 486801 3d8c70fcccfe8ba86a836e4181d6157f ""
+  "primiero.bib" 1511027991 486798 197ccd67230738ca503926643e2b5dc6 ""
   (generated)
-  "AdaptiveND_PrimieroAllo_revised_2.blg"
   "AdaptiveND_PrimieroAllo_revised_2.bbl"
-["pdflatex"] 1510653322 "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.tex" "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.pdf" "AdaptiveND_PrimieroAllo_revised_2" 1510653323
-  "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.aux" 1510653323 4859 cea6e4e87c45d77e2d0aea568ed6016e ""
-  "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.tex" 1510653322 94041 2cea69995dff1feb55ead185af9feb1c ""
+["pdflatex"] 1511028421 "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.tex" "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.pdf" "AdaptiveND_PrimieroAllo_revised_2" 1511028422
+  "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.aux" 1511028421 4859 26e69ffde356b7fb5ab9427840929843 ""
+  "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.tex" 1511028419 94244 7478bf41954eee67f5410ab0cded7668 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -128,14 +127,14 @@
   "/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1448996456 1769990 53cb4805044102255ff6e8ad30d52fdf ""
   "/usr/local/texlive/2015/texmf-var/web2c/pdftex/pdflatex.fmt" 1448993006 3849859 210017d66f33d51b016300cd97b13585 ""
   "/usr/local/texlive/2015/texmf.cnf" 1432479636 577 0d611272082f3cdb8e80e09a3c69cf07 ""
-  "AdaptiveND_PrimieroAllo_revised_2.aux" 1510653323 4859 cea6e4e87c45d77e2d0aea568ed6016e ""
-  "AdaptiveND_PrimieroAllo_revised_2.bbl" 1510609953 2928 e1a8a9a9d290470b018c67d823d1e507 "bibtex AdaptiveND_PrimieroAllo_revised_2"
-  "AdaptiveND_PrimieroAllo_revised_2.tex" 1510653322 94041 2cea69995dff1feb55ead185af9feb1c ""
+  "AdaptiveND_PrimieroAllo_revised_2.aux" 1511028421 4859 26e69ffde356b7fb5ab9427840929843 ""
+  "AdaptiveND_PrimieroAllo_revised_2.bbl" 1511028421 2925 e74615e9dd7ee00de831c1789f5eb7c1 "bibtex AdaptiveND_PrimieroAllo_revised_2"
+  "AdaptiveND_PrimieroAllo_revised_2.tex" 1511028419 94244 7478bf41954eee67f5410ab0cded7668 ""
   "bussproofs.sty" 1494426508 39800 7faeb40527967b55e617c94cf6a79f11 ""
   "mathpartir.sty" 1494426508 13474 7d540507d6582dc28c09504b5a06b120 ""
   (generated)
   "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.pdf"
-  "AdaptiveND_PrimieroAllo_revised_2.log"
-  "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.log"
-  "AdaptiveND_PrimieroAllo_revised_2.pdf"
   "AdaptiveND_PrimieroAllo_revised_2.aux"
+  "AdaptiveND_PrimieroAllo_revised_2.pdf"
+  "/Users/patrickallo/adaptiveND/submission/AdaptiveND_PrimieroAllo_revised_2.log"
+  "AdaptiveND_PrimieroAllo_revised_2.log"
